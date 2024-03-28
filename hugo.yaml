@@ -61,9 +61,17 @@ menu:
       name: Search
       url: search/
       weight: 30
+    - identifier: tags
+      name: tags
+      url: tags/
+      weight: 40
 
 outputs:
   home:
     - HTML
     - RSS
     - JSON
+taxonomies:
+  category: categories
+  tag: tags
+  series: series
