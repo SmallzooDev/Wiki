@@ -75,3 +75,7 @@ taxonomies:
   category: categories
   tag: tags
   series: series
+permalinks:
+  wiki: /_wiki/:filename/
+aliases:
+  - "/_wiki/index.md"
