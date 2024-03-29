@@ -1,0 +1,6 @@
+[build]
+  publish = "public" # Or the directory where your Hugo site generates the static files
+  command = "hugo" # This is the default build command for Hugo
+
+[build.environment]
+  HUGO_VERSION = "0.123.8-5fed9c591b694f314e5939548e11cc3dcb79a79c"
