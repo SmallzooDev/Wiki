@@ -1,6 +1,8 @@
 baseURL: 'https://smallzoodev.netlify.app/'
 title: SmallzooDevWiki🧊️ 
 theme: PaperMod
+language:
+  code: ko-kr
 
 params:
   homeInfoParams:
