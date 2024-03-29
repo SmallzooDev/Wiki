@@ -1,13 +1,13 @@
 baseURL: ''
 languageCode: en-us
-title: SmallzooDevWiki✈️ 
+title: SmallzooDevWiki🧊️ 
 theme: PaperMod
 
 params:
   homeInfoParams:
-    Title: "[[Hello World! 🙈]](_wiki/index.md)"
+    Title: "[[Hello World! 🚀]](_wiki/index.md)"
     Content: >
-      - [[Please See my Wiki Index 🦉]](_wiki/index.md)
+      - [[Please See my Wiki Index 🙈]](_wiki/index.md)
 
       - -
 
