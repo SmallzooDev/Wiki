@@ -1,5 +1,5 @@
 ---
-title: Hello World!
+title: SmallzooDevWiki Index 🧊️
 summary: 
 date: 2024-03-29 09:21:07 +0900
 lastmod: 2024-03-29 09:21:07 +0900
@@ -11,10 +11,8 @@ description:
 showToc: true
 ---
 
-# SmallzooDevWiki Index 
 
-it is test foy my theme on [[hugo]]
-
+---
 - 안녕하세요! 지금은 웹 백엔드 개발자로 일하고 있는 [[SmallzooDev 🐦‍⬛]](https://github.com/SmallzooDev) 입니다! 
       
 
@@ -36,5 +34,6 @@ it is test foy my theme on [[hugo]]
 
 
 - 위와 같은 이유로 이 사이트의 가장 중요한 페이지는 [[Index 🦉]](_wiki/index.md)라고 생각합니다.
+---
 
 최근 [[변경된]] 문서 테스트

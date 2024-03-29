@@ -50,22 +50,18 @@ params:
 
 menu:
   main:
-    - identifier: home
-      name: Home
-      url: /
-      weight: 10
     - identifier: posts
       name: Wiki
       url: /_wiki/home
-      weight: 20
+      weight: 10
     - identifier: search
       name: Search
       url: search/
-      weight: 30
+      weight: 20
     - identifier: tags
       name: tags
       url: tags/
-      weight: 40
+      weight: 30
 
 outputs:
   home:
