@@ -2,82 +2,82 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/</loc>
+    <loc>//localhost:1313/</loc>
     <lastmod>2024-03-29T13:16:34+09:00</lastmod>
   </url><url>
-    <loc>/_wiki/%EB%B3%80%EA%B2%BD%EB%90%9C/</loc>
+    <loc>//localhost:1313/_wiki/%EB%B3%80%EA%B2%BD%EB%90%9C/</loc>
     <lastmod>2024-03-29T13:16:34+09:00</lastmod>
   </url><url>
-    <loc>/_wiki/home/</loc>
+    <loc>//localhost:1313/_wiki/home/</loc>
     <lastmod>2024-03-29T09:21:07+09:00</lastmod>
   </url><url>
-    <loc>/tags/</loc>
+    <loc>//localhost:1313/tags/</loc>
     <lastmod>2024-03-29T09:21:07+09:00</lastmod>
   </url><url>
-    <loc>/tags/wiki_home/</loc>
+    <loc>//localhost:1313/tags/wiki_home/</loc>
     <lastmod>2024-03-29T09:21:07+09:00</lastmod>
   </url><url>
-    <loc>/_wiki/</loc>
+    <loc>//localhost:1313/_wiki/</loc>
     <lastmod>2024-03-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/categories/</loc>
+    <loc>//localhost:1313/categories/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/tags/css/</loc>
+    <loc>//localhost:1313/tags/css/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/tags/html/</loc>
+    <loc>//localhost:1313/tags/html/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/tags/markdown/</loc>
+    <loc>//localhost:1313/tags/markdown/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/secondpost/</loc>
+    <loc>//localhost:1313/posts/secondpost/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/</loc>
+    <loc>//localhost:1313/posts/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/series/</loc>
+    <loc>//localhost:1313/series/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/categories/syntax/</loc>
+    <loc>//localhost:1313/categories/syntax/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/tags/themes/</loc>
+    <loc>//localhost:1313/tags/themes/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/categories/themes/</loc>
+    <loc>//localhost:1313/categories/themes/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/series/themes-guide/</loc>
+    <loc>//localhost:1313/series/themes-guide/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/tags/code/</loc>
+    <loc>//localhost:1313/tags/code/</loc>
     <lastmod>2019-03-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/firstpost/</loc>
+    <loc>//localhost:1313/posts/firstpost/</loc>
     <lastmod>2019-03-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/tags/gist/</loc>
+    <loc>//localhost:1313/tags/gist/</loc>
     <lastmod>2019-03-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/tags/privacy/</loc>
+    <loc>//localhost:1313/tags/privacy/</loc>
     <lastmod>2019-03-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/thirdpost/</loc>
+    <loc>//localhost:1313/posts/thirdpost/</loc>
     <lastmod>2019-03-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/tags/shortcodes/</loc>
+    <loc>//localhost:1313/tags/shortcodes/</loc>
     <lastmod>2019-03-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/tags/syntax/</loc>
+    <loc>//localhost:1313/tags/syntax/</loc>
     <lastmod>2019-03-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/about/</loc>
+    <loc>//localhost:1313/about/</loc>
   </url><url>
-    <loc>/tags/about_me/</loc>
+    <loc>//localhost:1313/tags/about_me/</loc>
   </url><url>
-    <loc>/search/</loc>
+    <loc>//localhost:1313/search/</loc>
   </url>
 </urlset>

@@ -2,52 +2,52 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>SmallzooDevWiki🧊️</title>
-    <link>/</link>
+    <link>//localhost:1313/</link>
     <description>Recent content on SmallzooDevWiki🧊️</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 29 Mar 2024 13:16:34 +0900</lastBuildDate>
-    <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>변경된 문서!</title>
-      <link>/_wiki/%EB%B3%80%EA%B2%BD%EB%90%9C/</link>
+      <link>//localhost:1313/_wiki/%EB%B3%80%EA%B2%BD%EB%90%9C/</link>
       <pubDate>Fri, 29 Mar 2024 13:16:34 +0900</pubDate>
-      <guid>/_wiki/%EB%B3%80%EA%B2%BD%EB%90%9C/</guid>
+      <guid>//localhost:1313/_wiki/%EB%B3%80%EA%B2%BD%EB%90%9C/</guid>
       <description>변경된 문서 입니다. </description>
     </item>
     <item>
       <title>Index🧊️</title>
-      <link>/_wiki/home/</link>
+      <link>//localhost:1313/_wiki/home/</link>
       <pubDate>Fri, 29 Mar 2024 09:21:07 +0900</pubDate>
-      <guid>/_wiki/home/</guid>
+      <guid>//localhost:1313/_wiki/home/</guid>
       <description>Contact : Email 📧 Github : SmallzooDev 🐦‍⬛ This wiki inspired by -&amp;gt; 기계인간 Johngrib 💭 Toc Test! 최근 [[변경된]] 문서 테스트</description>
     </item>
     <item>
       <title>Markdown Syntax Guide</title>
-      <link>/posts/secondpost/</link>
+      <link>//localhost:1313/posts/secondpost/</link>
       <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
-      <guid>/posts/secondpost/</guid>
+      <guid>//localhost:1313/posts/secondpost/</guid>
       <description>Sample article showcasing basic Markdown syntax and formatting for HTML elements.</description>
     </item>
     <item>
       <title>Code Syntax Guide</title>
-      <link>/posts/firstpost/</link>
+      <link>//localhost:1313/posts/firstpost/</link>
       <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
-      <guid>/posts/firstpost/</guid>
+      <guid>//localhost:1313/posts/firstpost/</guid>
       <description>Sample article showcasing basic code syntax and formatting for HTML elements.</description>
     </item>
     <item>
       <title>Rich Content and Shortcodes</title>
-      <link>/posts/thirdpost/</link>
+      <link>//localhost:1313/posts/thirdpost/</link>
       <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
-      <guid>/posts/thirdpost/</guid>
+      <guid>//localhost:1313/posts/thirdpost/</guid>
       <description>A brief description of Hugo Shortcodes</description>
     </item>
     <item>
       <title>About Me🧊️</title>
-      <link>/about/</link>
+      <link>//localhost:1313/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/about/</guid>
+      <guid>//localhost:1313/about/</guid>
       <description>백엔드 개발자로 일하고 있는 강준규 입니다!</description>
     </item>
   </channel>
