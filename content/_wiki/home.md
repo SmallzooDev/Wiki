@@ -18,6 +18,10 @@ TocOpen: true
 ---
 
 
+### Archive 📘
+
+- [[Dev_Archive]]
+- [[Life_Archive]]
 
 ### Rust 🐬
 
