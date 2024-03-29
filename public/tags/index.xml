@@ -2,87 +2,87 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Tags on SmallzooDevWiki🧊️</title>
-    <link>//localhost:1313/tags/</link>
+    <link>https://smallzoodev.netlify.app/tags/</link>
     <description>Recent content in Tags on SmallzooDevWiki🧊️</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 29 Mar 2024 09:21:07 +0900</lastBuildDate>
-    <atom:link href="//localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://smallzoodev.netlify.app/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Wiki_home</title>
-      <link>//localhost:1313/tags/wiki_home/</link>
+      <link>https://smallzoodev.netlify.app/tags/wiki_home/</link>
       <pubDate>Fri, 29 Mar 2024 09:21:07 +0900</pubDate>
-      <guid>//localhost:1313/tags/wiki_home/</guid>
+      <guid>https://smallzoodev.netlify.app/tags/wiki_home/</guid>
       <description></description>
     </item>
     <item>
       <title>Css</title>
-      <link>//localhost:1313/tags/css/</link>
+      <link>https://smallzoodev.netlify.app/tags/css/</link>
       <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/tags/css/</guid>
+      <guid>https://smallzoodev.netlify.app/tags/css/</guid>
       <description></description>
     </item>
     <item>
       <title>Html</title>
-      <link>//localhost:1313/tags/html/</link>
+      <link>https://smallzoodev.netlify.app/tags/html/</link>
       <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/tags/html/</guid>
+      <guid>https://smallzoodev.netlify.app/tags/html/</guid>
       <description></description>
     </item>
     <item>
       <title>Markdown</title>
-      <link>//localhost:1313/tags/markdown/</link>
+      <link>https://smallzoodev.netlify.app/tags/markdown/</link>
       <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/tags/markdown/</guid>
+      <guid>https://smallzoodev.netlify.app/tags/markdown/</guid>
       <description></description>
     </item>
     <item>
       <title>Themes</title>
-      <link>//localhost:1313/tags/themes/</link>
+      <link>https://smallzoodev.netlify.app/tags/themes/</link>
       <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/tags/themes/</guid>
+      <guid>https://smallzoodev.netlify.app/tags/themes/</guid>
       <description></description>
     </item>
     <item>
       <title>Code</title>
-      <link>//localhost:1313/tags/code/</link>
+      <link>https://smallzoodev.netlify.app/tags/code/</link>
       <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/tags/code/</guid>
+      <guid>https://smallzoodev.netlify.app/tags/code/</guid>
       <description></description>
     </item>
     <item>
       <title>Gist</title>
-      <link>//localhost:1313/tags/gist/</link>
+      <link>https://smallzoodev.netlify.app/tags/gist/</link>
       <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/tags/gist/</guid>
+      <guid>https://smallzoodev.netlify.app/tags/gist/</guid>
       <description></description>
     </item>
     <item>
       <title>Privacy</title>
-      <link>//localhost:1313/tags/privacy/</link>
+      <link>https://smallzoodev.netlify.app/tags/privacy/</link>
       <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/tags/privacy/</guid>
+      <guid>https://smallzoodev.netlify.app/tags/privacy/</guid>
       <description></description>
     </item>
     <item>
       <title>Shortcodes</title>
-      <link>//localhost:1313/tags/shortcodes/</link>
+      <link>https://smallzoodev.netlify.app/tags/shortcodes/</link>
       <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/tags/shortcodes/</guid>
+      <guid>https://smallzoodev.netlify.app/tags/shortcodes/</guid>
       <description></description>
     </item>
     <item>
       <title>Syntax</title>
-      <link>//localhost:1313/tags/syntax/</link>
+      <link>https://smallzoodev.netlify.app/tags/syntax/</link>
       <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/tags/syntax/</guid>
+      <guid>https://smallzoodev.netlify.app/tags/syntax/</guid>
       <description></description>
     </item>
     <item>
       <title>About_me</title>
-      <link>//localhost:1313/tags/about_me/</link>
+      <link>https://smallzoodev.netlify.app/tags/about_me/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/tags/about_me/</guid>
+      <guid>https://smallzoodev.netlify.app/tags/about_me/</guid>
       <description></description>
     </item>
   </channel>

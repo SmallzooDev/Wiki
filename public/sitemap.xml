@@ -2,82 +2,82 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>//localhost:1313/</loc>
+    <loc>https://smallzoodev.netlify.app/</loc>
     <lastmod>2024-03-29T13:16:34+09:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/_wiki/%EB%B3%80%EA%B2%BD%EB%90%9C/</loc>
+    <loc>https://smallzoodev.netlify.app/_wiki/%EB%B3%80%EA%B2%BD%EB%90%9C/</loc>
     <lastmod>2024-03-29T13:16:34+09:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/_wiki/home/</loc>
+    <loc>https://smallzoodev.netlify.app/_wiki/home/</loc>
     <lastmod>2024-03-29T09:21:07+09:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/tags/</loc>
+    <loc>https://smallzoodev.netlify.app/tags/</loc>
     <lastmod>2024-03-29T09:21:07+09:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/tags/wiki_home/</loc>
+    <loc>https://smallzoodev.netlify.app/tags/wiki_home/</loc>
     <lastmod>2024-03-29T09:21:07+09:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/_wiki/</loc>
+    <loc>https://smallzoodev.netlify.app/_wiki/</loc>
     <lastmod>2024-03-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/categories/</loc>
+    <loc>https://smallzoodev.netlify.app/categories/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/tags/css/</loc>
+    <loc>https://smallzoodev.netlify.app/tags/css/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/tags/html/</loc>
+    <loc>https://smallzoodev.netlify.app/tags/html/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/tags/markdown/</loc>
+    <loc>https://smallzoodev.netlify.app/tags/markdown/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/posts/secondpost/</loc>
+    <loc>https://smallzoodev.netlify.app/posts/secondpost/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/posts/</loc>
+    <loc>https://smallzoodev.netlify.app/posts/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/series/</loc>
+    <loc>https://smallzoodev.netlify.app/series/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/categories/syntax/</loc>
+    <loc>https://smallzoodev.netlify.app/categories/syntax/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/tags/themes/</loc>
+    <loc>https://smallzoodev.netlify.app/tags/themes/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/categories/themes/</loc>
+    <loc>https://smallzoodev.netlify.app/categories/themes/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/series/themes-guide/</loc>
+    <loc>https://smallzoodev.netlify.app/series/themes-guide/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/tags/code/</loc>
+    <loc>https://smallzoodev.netlify.app/tags/code/</loc>
     <lastmod>2019-03-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/posts/firstpost/</loc>
+    <loc>https://smallzoodev.netlify.app/posts/firstpost/</loc>
     <lastmod>2019-03-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/tags/gist/</loc>
+    <loc>https://smallzoodev.netlify.app/tags/gist/</loc>
     <lastmod>2019-03-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/tags/privacy/</loc>
+    <loc>https://smallzoodev.netlify.app/tags/privacy/</loc>
     <lastmod>2019-03-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/posts/thirdpost/</loc>
+    <loc>https://smallzoodev.netlify.app/posts/thirdpost/</loc>
     <lastmod>2019-03-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/tags/shortcodes/</loc>
+    <loc>https://smallzoodev.netlify.app/tags/shortcodes/</loc>
     <lastmod>2019-03-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/tags/syntax/</loc>
+    <loc>https://smallzoodev.netlify.app/tags/syntax/</loc>
     <lastmod>2019-03-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/about/</loc>
+    <loc>https://smallzoodev.netlify.app/about/</loc>
   </url><url>
-    <loc>//localhost:1313/tags/about_me/</loc>
+    <loc>https://smallzoodev.netlify.app/tags/about_me/</loc>
   </url><url>
-    <loc>//localhost:1313/search/</loc>
+    <loc>https://smallzoodev.netlify.app/search/</loc>
   </url>
 </urlset>
