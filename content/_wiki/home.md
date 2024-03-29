@@ -16,6 +16,25 @@ showToc: true
 - This wiki inspired by -> [기계인간 Johngrib 💭](https://johngrib.github.io/wiki/my-wiki/)
 ---
 
-### Toc Test!
 
-최근 [[변경된]] 문서 테스트
+
+### Rust 🐬
+
+
+### Backend 💰
+
+
+### DataBase 🗄️
+
+
+### Computer Science 🦉
+
+
+### Vim 🦅 
+
+
+### Posting 🌳
+
+- [[새로운 블로그 정착하기]]
+
+### Inbox 👋
