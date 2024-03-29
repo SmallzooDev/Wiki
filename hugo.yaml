@@ -54,8 +54,8 @@ menu:
       url: /
       weight: 10
     - identifier: posts
-      name: Blog
-      url: /posts/
+      name: Wiki
+      url: /_wiki/home
       weight: 20
     - identifier: search
       name: Search
