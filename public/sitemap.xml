@@ -2,23 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>//localhost:1313/_wiki/home.md/</loc>
-    <lastmod>2024-03-29T09:22:41+09:00</lastmod>
-  </url><url>
-    <loc>//localhost:1313/</loc>
-    <lastmod>2024-03-29T09:22:41+09:00</lastmod>
-  </url><url>
-    <loc>//localhost:1313/_wiki/hugo/</loc>
-    <lastmod>2024-03-29T09:21:38+09:00</lastmod>
-  </url><url>
     <loc>//localhost:1313/_wiki/home/</loc>
     <lastmod>2024-03-29T09:21:07+09:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/_wiki/hello/</loc>
-    <lastmod>2024-03-28T23:42:44+09:00</lastmod>
-  </url><url>
-    <loc>//localhost:1313/_wiki/linktest/</loc>
-    <lastmod>2024-03-28T22:23:12+09:00</lastmod>
+    <loc>//localhost:1313/</loc>
+    <lastmod>2024-03-29T09:21:07+09:00</lastmod>
   </url><url>
     <loc>//localhost:1313/_wiki/</loc>
     <lastmod>2024-03-28T00:00:00+00:00</lastmod>
