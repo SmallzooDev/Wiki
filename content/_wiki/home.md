@@ -3,7 +3,7 @@ title:
 summary: 
 date: 2024-03-29 09:21:07 +0900
 lastmod: 2024-03-29 09:21:07 +0900
-tags: 
+tags: ["wiki_home"]
 categories: 
 public: true
 parent: 

@@ -6,8 +6,15 @@
     <description>Recent content in Tags on SmallzooDevWiki✈️</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 11 Mar 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 29 Mar 2024 09:21:07 +0900</lastBuildDate>
     <atom:link href="//localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Wiki_home</title>
+      <link>//localhost:1313/tags/wiki_home/</link>
+      <pubDate>Fri, 29 Mar 2024 09:21:07 +0900</pubDate>
+      <guid>//localhost:1313/tags/wiki_home/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Css</title>
       <link>//localhost:1313/tags/css/</link>
