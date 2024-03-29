@@ -3,4 +3,4 @@
   command = "hugo" # This is the default build command for Hugo
 
 [build.environment]
-  HUGO_VERSION = "0.123.8-5fed9c591b694f314e5939548e11cc3dcb79a79c"
+  HUGO_VERSION = "0.123.8"
