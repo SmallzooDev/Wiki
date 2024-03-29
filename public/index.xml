@@ -6,10 +6,17 @@
     <description>Recent content on SmallzooDevWiki✈️</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 29 Mar 2024 09:21:07 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 29 Mar 2024 13:16:34 +0900</lastBuildDate>
     <atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title></title>
+      <title>변경된 문서!</title>
+      <link>//localhost:1313/_wiki/%EB%B3%80%EA%B2%BD%EB%90%9C/</link>
+      <pubDate>Fri, 29 Mar 2024 13:16:34 +0900</pubDate>
+      <guid>//localhost:1313/_wiki/%EB%B3%80%EA%B2%BD%EB%90%9C/</guid>
+      <description>변경된 문서 입니다. </description>
+    </item>
+    <item>
+      <title>Hello World!</title>
       <link>//localhost:1313/_wiki/home/</link>
       <pubDate>Fri, 29 Mar 2024 09:21:07 +0900</pubDate>
       <guid>//localhost:1313/_wiki/home/</guid>
