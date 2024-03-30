@@ -3,7 +3,25 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2024-03-29T22:47:39+09:00</lastmod>
+    <lastmod>2024-03-30T17:02:03+09:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/_wiki/%EC%82%AC%EA%B3%A0_%EC%8B%B6%EC%9D%80_%EC%9E%A5%EB%B9%84/</loc>
+    <lastmod>2024-03-30T17:02:03+09:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/_wiki/private_wiki/</loc>
+    <lastmod>2024-03-30T16:10:39+09:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2024-03-30T15:59:49+09:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/vim/</loc>
+    <lastmod>2024-03-30T15:59:49+09:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/_wiki/%EC%9E%90%EC%A3%BC_%EA%B9%8C%EB%A8%B9%EB%8A%94_%EC%BB%A4%EB%A7%A8%EB%93%9C_%EC%A0%95%EB%A6%AC/</loc>
+    <lastmod>2024-03-30T15:59:49+09:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/vim_wiki/</loc>
+    <lastmod>2024-03-30T15:59:49+09:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/_wiki/life_archive/</loc>
     <lastmod>2024-03-29T22:47:39+09:00</lastmod>
@@ -18,12 +36,6 @@
     <lastmod>2024-03-29T21:13:43+09:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/neovim/</loc>
-    <lastmod>2024-03-29T21:13:43+09:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/</loc>
-    <lastmod>2024-03-29T21:13:43+09:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/vim/</loc>
     <lastmod>2024-03-29T21:13:43+09:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/vimwiki/</loc>

@@ -6,8 +6,31 @@
     <description>Recent content on SmallzooDevWiki🧊️</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 29 Mar 2024 22:47:39 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 30 Mar 2024 17:02:03 +0900</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>사고싶은 장비 List</title>
+      <link>http://localhost:1313/_wiki/%EC%82%AC%EA%B3%A0_%EC%8B%B6%EC%9D%80_%EC%9E%A5%EB%B9%84/</link>
+      <pubDate>Sat, 30 Mar 2024 17:02:03 +0900</pubDate>
+      <guid>http://localhost:1313/_wiki/%EC%82%AC%EA%B3%A0_%EC%8B%B6%EC%9D%80_%EC%9E%A5%EB%B9%84/</guid>
+      <description>모니터🖥️ Lg 듀얼업 모니터 : 꼭 사고싶은 모니터, 최종적인 조합은 이것과 피벗용 27인치 모니터로 마무리 하고 싶다. 키보드⌨️ HHKB 키보드 : 미니배열이 좋으면서도 백틱이 걱정되긴한다. 키 커스텀이 어느정도인지 확인하고 구매할 것 같다 </description>
+    </item>
+    <item>
+      <title>개인적인 이야기를 작성할 예정입니다.</title>
+      <link>http://localhost:1313/_wiki/private_wiki/</link>
+      <pubDate>Sat, 30 Mar 2024 16:10:39 +0900</pubDate>
+      <guid>http://localhost:1313/_wiki/private_wiki/</guid>
+      <description>Inbox 💭 장비 관련 ⌨️ [[사고_싶은_장비]] 세팅 관련 🎆 </description>
+    </item>
+    <item>
+      <title>Vim 자주 깜빡하는 커맨드</title>
+      <link>http://localhost:1313/_wiki/%EC%9E%90%EC%A3%BC_%EA%B9%8C%EB%A8%B9%EB%8A%94_%EC%BB%A4%EB%A7%A8%EB%93%9C_%EC%A0%95%EB%A6%AC/</link>
+      <pubDate>Sat, 30 Mar 2024 15:59:49 +0900</pubDate>
+      <guid>http://localhost:1313/_wiki/%EC%9E%90%EC%A3%BC_%EA%B9%8C%EB%A8%B9%EB%8A%94_%EC%BB%A4%EB%A7%A8%EB%93%9C_%EC%A0%95%EB%A6%AC/</guid>
+      <description>1일 1커맨드 정리 ^ + b, f : 한 페이지씩 스크롤 이동 관련 brace 관련 커맨드를 조금 더 잘쓰면 좋겠다는 생각을 한다.
+개인적으로 vim을 더 잘쓰기 위해서 정리를 잘 해둬야 할 것 같다.
+^ + b, f : 한 페이지씩 스크롤 ^ + d, u : 반 페이지씩 스크롤 Vimwiki 관련 커맨드 Tab – Find next wiki link Shift-Tab – Find previous wiki link </description>
+    </item>
     <item>
       <title>생활 관련 링크 Archive</title>
       <link>http://localhost:1313/_wiki/life_archive/</link>
@@ -37,11 +60,11 @@
       <description>변경된 문서 입니다. </description>
     </item>
     <item>
-      <title>Index🧊️</title>
+      <title>Index 🧊️</title>
       <link>http://localhost:1313/_wiki/home/</link>
       <pubDate>Fri, 29 Mar 2024 09:21:07 +0900</pubDate>
       <guid>http://localhost:1313/_wiki/home/</guid>
-      <description> Contact : Email 📧 Github : SmallzooDev 🐦‍⬛ This wiki inspired by -&amp;gt; 기계인간 Johngrib 💭 Archive 📘 [[Dev_Archive]] [[Life_Archive]] Rust 🐬 Backend 💰 DataBase 🗄️ Computer Science 🦉 Vim 🦅 Posting 🌳 [[새로운_블로그_정착하기]] Inbox 👋 </description>
+      <description> Contact : Email 📧 Github : SmallzooDev 🐦‍⬛ This wiki inspired by -&amp;gt; 기계인간 Johngrib 💭 Archive 📘 [[Dev_Archive]] [[Life_Archive]] [[Private_wiki]] Rust 🦀 Backend 💰 DataBase 🗄️ Computer Science 🦉 Vim 🦅 [[자주_까먹는_커맨드_정리]] Posting 🌳 [[새로운_블로그_정착하기]] </description>
     </item>
     <item>
       <title>About Me🧊️</title>
