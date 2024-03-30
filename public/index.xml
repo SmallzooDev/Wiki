@@ -2,31 +2,52 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>SmallzooDevWiki🧊️</title>
-    <link>https://smallzoodev.netlify.app/</link>
+    <link>http://localhost:1313/</link>
     <description>Recent content on SmallzooDevWiki🧊️</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Fri, 29 Mar 2024 13:16:34 +0900</lastBuildDate>
-    <atom:link href="https://smallzoodev.netlify.app/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language>
+    <lastBuildDate>Fri, 29 Mar 2024 22:47:39 +0900</lastBuildDate>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>생활 관련 링크 Archive</title>
+      <link>http://localhost:1313/_wiki/life_archive/</link>
+      <pubDate>Fri, 29 Mar 2024 22:47:39 +0900</pubDate>
+      <guid>http://localhost:1313/_wiki/life_archive/</guid>
+      <description>생활 관련 링크 Archive </description>
+    </item>
+    <item>
+      <title>개발 관련 링크 Archive</title>
+      <link>http://localhost:1313/_wiki/dev_archive/</link>
+      <pubDate>Fri, 29 Mar 2024 22:46:50 +0900</pubDate>
+      <guid>http://localhost:1313/_wiki/dev_archive/</guid>
+      <description>개발 관련 링크 Archive </description>
+    </item>
+    <item>
+      <title>Hugo, Vimwiki로 블로그 정착하기</title>
+      <link>http://localhost:1313/_wiki/%EC%83%88%EB%A1%9C%EC%9A%B4_%EB%B8%94%EB%A1%9C%EA%B7%B8_%EC%A0%95%EC%B0%A9%ED%95%98%EA%B8%B0/</link>
+      <pubDate>Fri, 29 Mar 2024 21:13:43 +0900</pubDate>
+      <guid>http://localhost:1313/_wiki/%EC%83%88%EB%A1%9C%EC%9A%B4_%EB%B8%94%EB%A1%9C%EA%B7%B8_%EC%A0%95%EC%B0%A9%ED%95%98%EA%B8%B0/</guid>
+      <description>빔위키블로그좋아..</description>
+    </item>
     <item>
       <title>변경된 문서!</title>
-      <link>https://smallzoodev.netlify.app/_wiki/%EB%B3%80%EA%B2%BD%EB%90%9C/</link>
+      <link>http://localhost:1313/_wiki/%EB%B3%80%EA%B2%BD%EB%90%9C/</link>
       <pubDate>Fri, 29 Mar 2024 13:16:34 +0900</pubDate>
-      <guid>https://smallzoodev.netlify.app/_wiki/%EB%B3%80%EA%B2%BD%EB%90%9C/</guid>
+      <guid>http://localhost:1313/_wiki/%EB%B3%80%EA%B2%BD%EB%90%9C/</guid>
       <description>변경된 문서 입니다. </description>
     </item>
     <item>
       <title>Index🧊️</title>
-      <link>https://smallzoodev.netlify.app/_wiki/home/</link>
+      <link>http://localhost:1313/_wiki/home/</link>
       <pubDate>Fri, 29 Mar 2024 09:21:07 +0900</pubDate>
-      <guid>https://smallzoodev.netlify.app/_wiki/home/</guid>
-      <description>Contact : Email 📧 Github : SmallzooDev 🐦‍⬛ This wiki inspired by -&amp;gt; 기계인간 Johngrib 💭 Toc Test! 최근 [[변경된]] 문서 테스트</description>
+      <guid>http://localhost:1313/_wiki/home/</guid>
+      <description> Contact : Email 📧 Github : SmallzooDev 🐦‍⬛ This wiki inspired by -&amp;gt; 기계인간 Johngrib 💭 Archive 📘 [[Dev_Archive]] [[Life_Archive]] Rust 🐬 Backend 💰 DataBase 🗄️ Computer Science 🦉 Vim 🦅 Posting 🌳 [[새로운_블로그_정착하기]] Inbox 👋 </description>
     </item>
     <item>
       <title>About Me🧊️</title>
-      <link>https://smallzoodev.netlify.app/about/</link>
+      <link>http://localhost:1313/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://smallzoodev.netlify.app/about/</guid>
+      <guid>http://localhost:1313/about/</guid>
       <description>백엔드 개발자로 일하고 있는 강준규 입니다!</description>
     </item>
   </channel>
