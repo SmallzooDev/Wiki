@@ -23,7 +23,7 @@ TocOpen: true
 - [[Dev_Archive]]
 - [[Life_Archive]]
 
-### Rust 🐬
+### Rust 🦀 
 
 
 ### Backend 💰
