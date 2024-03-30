@@ -14,7 +14,7 @@ TocOpen: true
 ---
 - Contact : [Email 📧](mailto:joongyue@gmail.com) 
 - Github : [SmallzooDev 🐦‍⬛](https://github.com/SmallzooDev)
-- Postings Tag의 글은 조금 더 읽기 쉽게 작성하려고 노력하고 있습니다 : [포스팅 보기](https://smallzoodev.netlify.app/tags/Postings/)
+- Postings Tag의 글은 조금 더 읽기 쉽게 작성하려고 노력하고 있습니다 : [#Postings 🗞️](https://smallzoodev.netlify.app/tags/Postings/)
 - This wiki inspired by : [기계인간 Johngrib 💭](https://johngrib.github.io/wiki/my-wiki/)
 ---
 
