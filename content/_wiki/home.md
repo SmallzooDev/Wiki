@@ -22,6 +22,7 @@ TocOpen: true
 
 - [[Dev_Archive]]
 - [[Life_Archive]]
+- [[Private_wiki]]
 
 ### Rust 🦀 
 
@@ -37,6 +38,7 @@ TocOpen: true
 
 ### Vim 🦅 
 
+- [[자주_까먹는_커맨드_정리]]
 
 ### Posting 🌳
 
