@@ -15,8 +15,12 @@ showToc: true
 ### Inbox 💭
 
 
-### 장비 관련 ⌨️
+### ToDoList ✅
+
+- [[ToDoList]]
+
+### About Machines 🧊
 
 - [[사고_싶은_장비]]
 
-### 세팅 관련 🎆
+### About Settings 🧊
