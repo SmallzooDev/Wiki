@@ -27,6 +27,7 @@ TocOpen: true
 
 ### Rust 🦀 
 
+- [[The-Rust-Programming-Language]]
 
 ### Backend 💰
 
