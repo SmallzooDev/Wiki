@@ -21,6 +21,6 @@ showToc: true
 
 ### About Machines 🧊
 
-- [[사고_싶은_장비]]
+- [[사고-싶은-장비]]
 
 ### About Settings 🧊

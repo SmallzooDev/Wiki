@@ -21,9 +21,9 @@ TocOpen: true
 
 ### Archive 📘
 
-- [[Dev_Archive]]
-- [[Life_Archive]]
-- [[Private_wiki]]
+- [[Dev-Archive]]
+- [[Life-Archive]]
+- [[Private-wiki]]
 
 ### Rust 🦀 
 
@@ -39,9 +39,9 @@ TocOpen: true
 
 ### Vim 🦅 
 
-- [[자주_까먹는_커맨드_정리]]
+- [[자주-까먹는-커맨드-정리]]
 
 ### Postings 🌳
 
-- [[새로운_블로그_정착하기]]
+- [[새로운-블로그-정착하기]]
 
