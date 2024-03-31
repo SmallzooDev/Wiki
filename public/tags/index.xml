@@ -37,6 +37,13 @@
       <description></description>
     </item>
     <item>
+      <title>Postings</title>
+      <link>http://localhost:1313/tags/postings/</link>
+      <pubDate>Fri, 29 Mar 2024 21:13:43 +0900</pubDate>
+      <guid>http://localhost:1313/tags/postings/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>Vimwiki</title>
       <link>http://localhost:1313/tags/vimwiki/</link>
       <pubDate>Fri, 29 Mar 2024 21:13:43 +0900</pubDate>

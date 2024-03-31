@@ -55,3 +55,19 @@ permalinks:
   wiki: /_wiki/:filename/
 aliases:
   - "/_wiki/index.md"
+enableInlineShortcodes: true
+enableEmoji: true
+enableRobotsTXT: true
+
+markup:
+    goldmark:
+        renderer:
+            unsafe: true
+    highlight:
+        # anchorLineNos: true
+        codeFences: true
+        guessSyntax: true
+        lineNos: true
+        # noClasses: false
+        style: nord
+        lineNos: false

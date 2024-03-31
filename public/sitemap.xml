@@ -3,12 +3,15 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://localhost:1313/</loc>
+    <lastmod>2024-03-30T18:11:43+09:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/_wiki/todolist/</loc>
+    <lastmod>2024-03-30T18:11:43+09:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/_wiki/%EC%82%AC%EA%B3%A0-%EC%8B%B6%EC%9D%80-%EC%9E%A5%EB%B9%84/</loc>
     <lastmod>2024-03-30T17:02:03+09:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/_wiki/%EC%82%AC%EA%B3%A0_%EC%8B%B6%EC%9D%80_%EC%9E%A5%EB%B9%84/</loc>
-    <lastmod>2024-03-30T17:02:03+09:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/_wiki/private_wiki/</loc>
+    <loc>http://localhost:1313/_wiki/private-wiki/</loc>
     <lastmod>2024-03-30T16:10:39+09:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/</loc>
@@ -17,32 +20,32 @@
     <loc>http://localhost:1313/tags/vim/</loc>
     <lastmod>2024-03-30T15:59:49+09:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/_wiki/%EC%9E%90%EC%A3%BC_%EA%B9%8C%EB%A8%B9%EB%8A%94_%EC%BB%A4%EB%A7%A8%EB%93%9C_%EC%A0%95%EB%A6%AC/</loc>
+    <loc>http://localhost:1313/_wiki/%EC%9E%90%EC%A3%BC-%EA%B9%8C%EB%A8%B9%EB%8A%94-%EC%BB%A4%EB%A7%A8%EB%93%9C-%EC%A0%95%EB%A6%AC/</loc>
     <lastmod>2024-03-30T15:59:49+09:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/vim_wiki/</loc>
     <lastmod>2024-03-30T15:59:49+09:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/_wiki/life_archive/</loc>
+    <loc>http://localhost:1313/_wiki/life-archive/</loc>
     <lastmod>2024-03-29T22:47:39+09:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/_wiki/dev_archive/</loc>
+    <loc>http://localhost:1313/_wiki/dev-archive/</loc>
     <lastmod>2024-03-29T22:46:50+09:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/hugo/</loc>
     <lastmod>2024-03-29T21:13:43+09:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/_wiki/%EC%83%88%EB%A1%9C%EC%9A%B4_%EB%B8%94%EB%A1%9C%EA%B7%B8_%EC%A0%95%EC%B0%A9%ED%95%98%EA%B8%B0/</loc>
+    <loc>http://localhost:1313/_wiki/%EC%83%88%EB%A1%9C%EC%9A%B4-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%A0%95%EC%B0%A9%ED%95%98%EA%B8%B0/</loc>
     <lastmod>2024-03-29T21:13:43+09:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/neovim/</loc>
     <lastmod>2024-03-29T21:13:43+09:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/vimwiki/</loc>
+    <loc>http://localhost:1313/tags/postings/</loc>
     <lastmod>2024-03-29T21:13:43+09:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/_wiki/%EB%B3%80%EA%B2%BD%EB%90%9C/</loc>
-    <lastmod>2024-03-29T13:16:34+09:00</lastmod>
+    <loc>http://localhost:1313/tags/vimwiki/</loc>
+    <lastmod>2024-03-29T21:13:43+09:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/_wiki/home/</loc>
     <lastmod>2024-03-29T09:21:07+09:00</lastmod>
