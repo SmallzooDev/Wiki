@@ -19,6 +19,7 @@ showToc: true
 
 
  01. [[Getting-Started]] : 러스트 설치 및 프로젝트 생성에 대한 가이드
+ 02. [[Programming-a-Guessing-Game]] : 러스트 프로그래밍 기초 문법 및 개념
 
 
 
