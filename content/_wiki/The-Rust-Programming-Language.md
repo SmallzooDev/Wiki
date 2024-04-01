@@ -19,7 +19,8 @@ showToc: true
 
 
  01. [[Getting-Started]] : 러스트 설치 및 프로젝트 생성에 대한 가이드
- 02. [[Programming-a-Guessing-Game]] : 러스트 프로그래밍 기초 문법 및 개념
+ 02. [[Programming-a-Guessing-Game]] : 간단한 숫자 맞추기 게임을 만들어보며 러스트 프로그래밍 기초 문법 및 개념 익히기
+ 03. [[Common-Programming-Concepts]] : 러스트 프로그래밍 기초 문법 및 개념
 
 
 
