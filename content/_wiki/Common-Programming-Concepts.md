@@ -108,7 +108,7 @@ let spaces = spaces.len();
 
 - 실제로 저장하고 싶은 데이터는 공백의 갯수이기 때문에 특정한 상황에서 효율적일 수 있다.
 
-- 뭔가 스코프에 따라 Shadowing이 영향을 받기도 해서 위험해 보이고, 처음에는 표현식.타입의메셔드() 이런 방법보다 더 나은가 싶긴 했는데, 러스트의 문법적 특징과 잘 어울리게 쓰면 멋지 코드가 나오는 것 같다.
+- 뭔가 스코프에 따라 Shadowing이 영향을 받기도 해서 위험해 보이고, 처음에는 표현식.타입의메셔드() 이런 방법보다 더 나은가 싶긴 했는데, 러스트의 문법적 특징과 잘 어울리게 쓰면 멋진 코드가 나오는 것 같다.
 
 
 ### 3.2 Data Types
@@ -268,5 +268,65 @@ fn main() {
 
 
 ### 3.3 Functions
+
+```rust
+fn main() {
+    println!("Hello, world!");
+
+    another_function();
+}
+
+fn another_function() {
+    println!("Another function.");
+}
+
+
+
+```rust
+fn main() {
+    another_function(5, 6);
+}
+
+fn another_function(x: i32, y: i32) {
+    println!("The value of x is: {x}");
+    println!("The value of y is: {y}");
+}
+```
+- 함수 선언의 위치는 중요하지 않다.
+- 파라미터는 타입을 명시해야 한다.
+
+#### Statements and Expressions
+
+> Function bodies are made up of a series of statements optionally ending in an expression. 
+> So far, the functions we’ve covered haven’t included an ending expression, 
+> but you have seen an expression as part of a statement. 
+> Because Rust is an expression-based language, this is an important distinction to understand. 
+> Other languages don’t have the same distinctions, 
+> so let’s look at what statements and expressions are and how their differences affect the bodies of functions
+
+- 이 장에서 가장 중요한 부분이라고 생각한다.
+- 먼저 함수를 일련의 '문(statement)'로 구성되어 있고, 이 문들은 선택적으로 '표현식(expression)'으로 끝난다 고 정의하고있다.
+- 또한 러스트는 표현식 기반 언어라고 정의한다.
+
+- `문(statement)`는 어떤 작업을 수행하고 값을 반환하지 않는다.
+- `표현식(expression)`은 값을 반환한다.
+- 예를 들어, let x = 5; 는 문이고, 5 + 6;은 표현식이다.
+- let x = 5; 는 변수에 값을 할당하고, 그 자체로 평가될 값이 없다.
+- 반면 5 + 6;은 두 값을 더한 결과를 반환하고, 반환한 값으로 평가된다.
+- 참고로 `{}` 블록은 표현식이며, 블록 내부의 마지막 표현식이 블록 전체의 값이 된다.
+- 함수를 호출하는 것, 매크로를 호출하는것 것은 표현식이다.
+- 표현식의 끝에는 세미콜론을 붙이지 않는다.
+
+결론적으로 return 키워드는 함수를 일찍 종료시킬 때 사용되며, 일반적으로는 문들의 나열 이후에 마지막 표현식으로 값을 반환한다!
+
+
+
+### 3.4 Comments
+생략..?
+
+### 3.5 Control Flow
+
+내일 합시다....
+
 
 
