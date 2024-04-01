@@ -23,7 +23,12 @@ showToc: true
 
 ```
 
-출처 : https://stackoverflow.com/questions/12213597/how-to-see-which-plugins-are-making-vim-slow
+출처 : [stackoverflow](https://stackoverflow.com/questions/12213597/how-to-see-which-plugins-are-making-vim-slow)
 
 이렇게 하면 profile.log 파일이 생성된다.
-나의 경우는 copilot 관련 로그가 많아 회사 컴퓨터에서는 브랜치를 새로 파서 일단은 copilot을 disable 시켜서 해결했다.
+
+나의 경우는 copilot 관련 로그가 많아 회사 컴퓨터에서는 브랜치를 새로 파서, 
+
+회사에서는 copilot을 disable 시켜서 해결했다.
+
+집가서 로그를 자세히 봐야겠다
