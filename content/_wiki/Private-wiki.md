@@ -15,6 +15,11 @@ showToc: true
 ### Inbox 💭
 
 
+### Monthly goal 🚀
+
+- [[2024-04]]
+
+
 ### ToDoList ✅
 
 - [[ToDoList]]
