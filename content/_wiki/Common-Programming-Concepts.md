@@ -15,7 +15,7 @@ showToc: true
 
 > 이번 장에서는 러스트의 기본적인 프로그래밍 개념들을 다룬다, 가장 특징적인 부분이라면 다른 언어를 대비해서 러스트가 어떤 부분이 다른지 위주로 설명하는 가장 크게 두드러진다는 것이다.
 
-> mz한 언어답게 예약어가 예약되어 있다고 한다 ㅋㅋ
+> mz한 언어답게 예약어가 예약되어 있다고 한다 ㅋㅋ(아직 예약어로써 기능하지는 않지만, 미래의 예약어가 될 수 있어 예약해둔 keword)
 
 
 
@@ -326,7 +326,267 @@ fn another_function(x: i32, y: i32) {
 
 ### 3.5 Control Flow
 
-내일 합시다....
+- 러스트의 if문은 특징적인 내용은 별로 없다.
+
+- 조건식은 반드시 bool 타입이어야 한다. (거의 대부분의 강타입 언어가 그렇듯이)
+ 
+- 분기가 많은 경우 match 키워드를 사용하는 것이 좋다.
+ 
+- 러스트의 if는 표현식이기 때문에 다음과 같이 3항 연산자를 대체할 수 있다.
+
+```rust
+fn main() {
+    let number = 3;
+
+    if number < 5 {
+        println!("condition was true");
+    } else {
+        println!("condition was false");
+    }
+
+    let condition = true;
+    let number = if condition { 5 } else { 6 };
+
+    println!("The value of number is: {number}");
+}
+```
+- 반복문은 loop, while, for가 있다.
+
+- loop는 조건 검사를 전적으로 프로그래머에게 맡기는 반복문이다.
+
+- 내가 배운 언어에서는 없었던 것 같다.
+
+- 종료 조건을 잘 생각하고 코드를 작성해야 한다.
+
+- 종료 keyword인 break 뒤에 값을 반환할 수 있다 (표현식으로 사용 가능)
+
+```rust
+
+fn main() {
+    let mut counter = 0;
+
+    let result = loop {
+        counter += 1;
+
+        if counter == 10 {
+            break counter * 2;
+        }
+    };
+
+    println!("The result is {result}");
+}
+```
+- 루프에 레이블을 붙일 수 있다.
+
+```rust
+'outer: loop {
+    println!("Entered the outer loop");
+
+    'inner: loop {
+        println!("Entered the inner loop");
+
+        break 'outer;
+    }
+
+    println!("This point will never be reached");
+}
+```
+- 독특한 기능인 것 같다. 당연히 레이블을 붙이지 않아도 되고, 그런 경우 loop 제어 키워드들은 가장 가까운 루프를 기준으로 동작한다.
+
+- 루프 레이블과 루프의 값 반환을 함께 사용하는 예제
+
+```rust
+fn main() {
+    let mut counter = 0;
+
+    let result = 'outer: loop {
+        println!("Entered the outer loop");
+
+        'inner: loop {
+            println!("Entered the inner loop");
+
+            counter += 1;
+
+            if counter == 10 {
+                break 'outer counter * 2;
+            }
+        }
+    };
+
+    println!("The result is {result}");
+}
+```
+
+- while은 조건이 참인 동안 반복한다 (특징적이지 않다)
+
+```rust
+fn main() {
+    let mut number = 3;
+
+    while number != 0 {
+        println!("{number}");
+
+        number -= 1;
+    }
+
+    println!("LIFTOFF!!!");
+}
+```
+
+- for는 컬렉션을 순회한다.
+
+- 먼저 while 기반의 인덱스 순회 방법을 소개한다.
+
+```rust
+fn main() {
+    let a = [10, 20, 30, 40, 50];
+    let mut index = 0;
+
+    while index < 5 {
+        println!("{a[index]}");
+
+        index += 1;
+    }
+}
+```
+
+- 이런 방법은 러스트의 인덱스 오버플로우를 방지하기 위해 좋지 않으며, 느리다고 언급한다.
+
+- 느린 이유는 루프의 매 반복마다 OOI를 체크하기위한 런타임 코드를 추가하기 때문이라고 한다.
+
+- 일단 for문은 이렇게 생겼다.
+
+```rust
+fn main() {
+    let a = [10, 20, 30, 40, 50];
+
+    for element in a.iter() {
+        println!("{element}");
+    }
+}
+```
+
+- 지정한 횟수만큼의 반복을 원한다면, `range()`를 사용하면 된다.
+
+```rust
+fn main() {
+    for number in (1..4).rev() { // .rev()는 역순으로 순회한다.
+       println!("{number}");
+    }
+    println!("LIFTOFF!!!");
+}
+```
+
+### 러스트의 순회는 어떻게 구현되어있을까?
+
+- 먼저Java와 같은 언어에서는 Iterable 인터페이스를 구현하고, Iterator를 반환하는 메서드를 구현한다.
+
+- 그리고 Iterator는 대충 아래와 같이 생겼다.
+
+```java
+public interface Iterator<T> {
+    boolean hasNext();
+    T next();
+}
+```
+
+- 그래서 Iterator를 구현한 클래스는 hasNext()와 next()를 구현해야 한다.
+
+- 이러한 경우 인덱스를 카운트 하지 않고 Iterator의 구현체를 순회 할 수 있다.
+
+- Iterator의 구현체와 사용 예시 (for 문)
+
+```java
+public class MyIterator<T> implements Iterator<T>, Iterable<T> {
+    private T[] elements;
+    private int index = 0;
+
+    public MyIterator(T[] elements) {
+        this.elements = elements;
+    }
+
+    @Override
+    public boolean hasNext() {
+        return index < elements.length;
+    }
+
+    @Override
+    public T next() {
+        return elements[index++];
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        return this;
+    }
+}
+```
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        Integer[] elements = {1, 2, 3, 4, 5};
+        MyIterator<Integer> iterator = new MyIterator<>(elements);
+
+        for (Integer element : iterator) {
+            System.out.println(element);
+        }
+    }
+}
+```
+
+- 이런경우 축약된 for문은 Iterator를 구현한 클래스에 대해서만 사용할 수 있다.
+
+- 축약된 for문에서는 Iterator의 hasNext()와 next()를 호출하며, hasNext()가 false를 반환할 때까지 next()를 호출한다.
+
+- 즉 길이와 인덱스를 몰라도 순회가 가능하다.
 
 
+- Javascript에서는 이터러블과 이터레이터를 사용한다. (이터러블 프로토콜과 이터레이터 프로토콜)
 
+- 이터러블 프로토콜은 Symbol.iterator 메서드를 구현하고, 이터레이터를 반환하는 것이다.
+
+- 이터레이터 프로토콜은 next() 메서드를 구현하고, value와 done을 반환하는 것이다.
+
+- 마찬가지로 예시는 아래와 같다
+
+- 생긴건 자바와 조금 다르지만 원리는 같다 (다음원소가 있는지 확인하고, 다음 원소를 반환한다)
+
+```javascript
+function MyIterator(elements) {
+    this.elements = elements;
+    this.index = 0;
+}
+
+
+MyIterator.prototype.next = function() {
+    return this.elements[this.index++];
+}
+
+MyIterator.prototype.hasNext = function() {
+    return this.index < this.elements.length;
+}
+
+MyIterator.prototype[Symbol.iterator] = function() {
+    return this;
+}
+
+const elements = [1, 2, 3, 4, 5];
+
+const iterator = new MyIterator(elements);
+
+for (const element of iterator) {
+    console.log(element);
+}
+```
+
+- 프로토타입 기반 언어라서 그렇다고 한다. 이 객체가 특정한 추상화의 구현체인지를 따지는것 (자바, c++)과, 이 객체와 다른 언어의 유사점(프로토콜 구현 등)을 기반으로 따지는것 (자바스크립트)의 차이라고 한다.
+
+- 무튼 마지막으로 러스트는 트레이트를 사용한다.
+
+- 트레이트를 배우고 Iterator를 다뤄야지!
+
+
+### Summary & Impression
+
+- 러스트는 표현식 기반 언어이다.
