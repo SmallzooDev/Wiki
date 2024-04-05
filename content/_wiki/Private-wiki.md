@@ -31,4 +31,4 @@ showToc: true
 ### About Settings 🧊
 
 - [[회사컴-세팅]]
-- [New Vimwiki Test](New-Vimwiki-Test)
+- [[New-Vimwiki-Test]]
