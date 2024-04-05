@@ -7,6 +7,7 @@ tags:
 categories: 
 description: 
 showToc: true
+tocOpen: true
 ---
 
 ## 4.0 Ownership
@@ -86,7 +87,6 @@ showToc: true
 
 ** 문자열 리터럴 에서**
 ```rust
-
 fn main() { // s is not valid here, it's not yet declared
     let s = "hello"; // s is valid from this point forward
 } // this scope is now over, and s is no longer valid
@@ -103,7 +103,6 @@ fn main() { // s is not valid here, it's not yet declared
 
 **String 타입에서**
 ```rust
-
 fn main() {
     let s = String::from("hello");
     // do stuff with s
@@ -340,3 +339,192 @@ fn takes_and_gives_back(a_string: String) -> String { // a_string comes into
 - 납득이 안가는 예제는 없는 것 같다.
 
 - 다만 모든 함수가 소유권을 가져갔다가 반환하는것은 지루하기 때문에 러스트는 참조를 사용한다.
+
+## 4.2 References and Borrowing
+
+```
+fn main() {
+    let s1 = String::from("hello");
+
+    let len = calculate_length(&s1);
+
+    println!("The length of '{}' is {}.", s1, len);
+}
+
+fn calculate_length(s: &String) -> usize { // s is a reference to a String
+    s.len()
+}
+```
+- 러스트에서 참조는 변수를 빌려오는 것이다.
+
+![Rust Reference](https://doc.rust-lang.org/book/img/trpl04-05.svg)
+
+- 참고로 reference의 반대는 dereference이며 `*` 연산자를 사용한다.
+- 참조를 사용하면 소유권을 넘기지 않으므로, `drop` 함수가 호출되지 않는다.
+
+- 참조는 기본적으로 immutable하다.
+
+```rust
+fn main() {
+    let s = String::from("hello");
+
+    change(&s);
+}
+
+fn change(some_string: &String) {
+    some_string.push_str(", world");
+}
+```
+
+- 위의 코드는 에러가 발생한다.
+
+```bash
+$ cargo run
+   Compiling ownership v0.1.0 (file:///projects/ownership)
+error[E0596]: cannot borrow `*some_string` as mutable, as it is behind a `&` reference
+ --> src/main.rs:8:5
+  |
+7 | fn change(some_string: &String) {
+  |                        ------- help: consider changing this to be a mutable reference: `&mut String`
+8 |     some_string.push_str(", world");
+  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ `some_string` is a `&` reference, so the data it refers to cannot be borrowed as mutable
+
+For more information about this error, try `rustc --explain E0596`.
+error: could not compile `ownership` due to previous error
+```
+
+- 참조를 mutable로 사용하려면 `&mut`을 사용해야 한다.
+```rust
+fn main() {
+    let mut s = String::from("hello");
+
+    change(&mut s);
+}
+
+fn change(some_string: &mut String) {
+    some_string.push_str(", world");
+}
+
+```
+
+- 참조를 사용하면 소유권을 넘기지 않으므로, 여러 참조를 사용할 수 있다.
+
+```rust
+fn main() {
+    let mut s = String::
+    from("hello");
+    
+    let r1 = &mut s;
+    let r2 = &mut s;
+    
+    println!("{}, {}", r1, r2);
+}
+```
+
+```bash
+$ cargo run
+   Compiling ownership v0.1.0 (file:///projects/ownership)
+error[E0499]: cannot borrow `s` as mutable more than once at a time
+  --> src/main.rs:5:17
+    |
+4   |     let r1 = &mut s;
+
+5   |     let r2 = &mut s;
+    |                 ^^^^ mutable borrow starts here in previous iteration of loop 
+      
+6   |
+7   |     println!("{}, {}", r1, r2);
+    |                        -- borrow later used here
+    |
+    = note: this error originates in a macro outside of the current crate (in Nightly builds, run with -Z external-macro-backtrace for more info)
+    
+error: aborting due to previous error
+
+For more information about this error, try `rustc --explain E0499`.
+error: could not compile `ownership` due to previous error
+
+```
+- 실제 코드를 작성하는데 가장 힘들게 느껴지는 제약사항 중 하나이다.
+ 
+- 러스트는 이러한 제약사항을 통해 메모리 안정성을 보장한다.
+ 
+- 정확히는 러스트는 데이터 레이스를 방지하기 위해 이러한 제약사항을 두고 있다.
+
+- 데이터 레이스는 두개 이상의 스레드가 동시에 같은 데이터에 접근할 때 발생하는 문제이다.
+
+  - 동시에 같은 데이터에 접근하면서, 적어도 하나의 접근이 쓰기일 때, 동시성 로직이 없는 경우에 발생한다.
+
+- 러스트는 이러한 문제를 방지하기 위해 컴파일 타임에 이러한 문제를 방지한다.
+
+```
+fn main() {
+    let mut s = String::("hello");
+    
+    {
+        let r1 = &mut s;
+    } // r1 goes out of scope here, so we can make a new reference with no problems.
+    
+    let r2 = &mut s;
+```
+
+- 다수의 참조가 필요 할 때, 위와 같이 블록을 사용하여 스코프를 나누어 사용하면 된다.
+
+- 참조의 범위를 제한함으로써, 데이터 레이스를 방지할 수 있다.
+
+- 또 하나의 제약사항은 불변 참조와 가변 참조를 동시에 사용할 수 없다는 것이다.
+
+```rust
+fn main() {
+    let mut s = String::from("hello");
+    
+    let r1 = &s;
+    let r2 = &s;
+    let r3 = &mut s; // error
+}
+```
+
+- 불변 참조값이 있는 동안에는 가변 참조로 인해서 데이터가 변경되는것을 원하지 않기 때문에 막아둔 것이다.
+
+- 추가적으로 러스트는 컴파일 시점에 불변 참조의 마지막 사용 위치 이후에는 가변 참조를 사용할 수 있도록 해준다.
+
+```rust
+fn main() {
+    let mut s = String::from("hello");
+    
+    let r1 = &s;
+    let r2 = &s;
+    println!("{} and {}", r1, r2);
+    // r1 and r2 are no longer used after this point
+    
+    let r3 = &mut s;
+}
+```
+
+
+### 4.2.1 Dangling References
+
+- Dangling References는 참조가 가리키는 메모리가 해제된 경우를 말한다.
+  - 메모리 해제 후에도 참조가 존재하는 경우,
+  - 범위 밖 참조가 일어나는 경우,
+  - 복사된 포인터가 일으키는 경우 등이 있다.
+
+- 러스트는 참조가 유효한 동안에는 반드시 데이터가 스코프 내에 있도록 보장한다. 
+- 즉, 데이터가 참조보다 먼저 스코프 밖으로 벗어나서는 안 되며, 이를 통해 댕글링 참조가 생성되는 것을 컴파일 시점에 방지한다.
+
+- 예를들어 함수가 로컬 변수의 참조를 반환하는 경우, 러스트는 컴파일 에러를 발생시킨다.
+
+```rust
+fn main() {
+    let reference_to_nothing = dangle();
+}
+
+fn dangle() -> &String { 
+    let s = String::from("hello");
+    &s 
+}
+```
+
+
+
+
+
