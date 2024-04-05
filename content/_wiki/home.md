@@ -47,4 +47,5 @@ TocOpen: true
 ### Postings 🌳
 
 - [[새로운-블로그-정착하기]]
+- [[Neovim-Migration-하기]]
 
