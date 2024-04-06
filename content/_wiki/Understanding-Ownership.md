@@ -524,7 +524,196 @@ fn dangle() -> &String {
 }
 ```
 
+## 4.3 The Slice Type
 
+- 슬라이드는 참조의 일종으로, 오너쉽을 가지지 않는다.
 
+- 예시 : 문자열에서 첫 단어를 찾는 함수 만들어보기 (공백을 기준으로)
 
+```rust
+fn first_word(s: &String) -> ?
+```
 
+- 이 함수는 문자열의 참조를 받는데, 무엇을 반환해야 할까?
+
+```rust
+fn first_word(s: &String) -> usize {
+    let bytes = s.as_bytes();
+
+    for (i, &item) in bytes.iter().enumerate() {
+        if item == b' ' {
+            return i;
+        }
+    }
+
+    s.len()
+}
+```
+
+```rust
+let bytes = s.as_bytes(); // as_bytes() 메소드는 문자열을 바이트 배열로 변환한다.
+```
+
+```rust
+for (i, &item) in bytes.iter().enumerate() // iter() 메소드는 컬렉션을 반복하는 반복자를 생성한다, enumerate() 메소드는 반복자를 튜플로 변환한다.
+```
+
+- 문자열의 인덱스를 반환하는 방식으로 구현했다,
+
+```rust
+fn main() {
+    let mut s = String::from("hello world");
+
+    let word = first_word(&s); // word will get the value 5
+
+    s.clear(); // this empties the String, making it equal to ""
+
+    // word still has the value 5 here, but there's no more string that
+    // we could meaningfully use the value 5 with. word is now totally invalid!
+}
+```
+
+4.3.1 String Slices
+
+- 슬라이스는 문자열의 일부분을 참조하는 방법이고 이렇게 생겼다.
+
+```rust
+let s = String::from("hello world");
+
+let hello = &s[0..5];
+let world = &s[6..11];
+```
+
+![image](https://doc.rust-lang.org/book/img/trpl04-06.svg)
+
+> Rather than a reference to the entire String, 
+> hello is a reference to a portion of the String, 
+> specified in the extra [0..5] bit. 
+> We create slices using a range within brackets by specifying [starting_index..ending_index], 
+> where starting_index is the first position in the slice and ending_index is one more than the last position in the slice. 
+> Internally, the slice data structure stores the starting position and the length of the slice, 
+> which corresponds to ending_index minus starting_index. So, in the case of let world = &s[6..11];, 
+> world would be a slice that contains a pointer to the byte at index 6 of s with a length value of 5.
+
+```rust
+let s = String::from("hello");
+
+let slice = &s[0..2];
+let slice = &s[..2];
+
+let len = s.len();
+
+let slice = &s[3..len];
+let slice = &s[3..];
+
+let slice = &s[0..len];
+let slice = &s[..];
+```
+
+```rust
+fn first_word(s: &String) -> &str {
+    let bytes = s.as_bytes();
+
+    for (i, &item) in bytes.iter().enumerate() {
+        if item == b' ' {
+            return &s[0..i];
+        }
+    }
+
+    &s[..]
+}
+```
+
+- 똑같이 개념적으로는 인덱스를 통해 문자열을 찾는 방식이지만, 참조를 엮어두면 훨씬 더 안전하게 사용 할 수 있다.
+
+- 스트링이 유효한 동안에 슬라이스도 유효하다.
+
+```rust
+fn main() {
+    let mut s = String::from("hello world");
+
+    let word = first_word(&s);
+
+    s.clear(); // error!
+
+    println!("the first word is: {}", word);
+}
+```
+
+```bash
+$ cargo run
+   Compiling ownership v0.1.0 (file:///projects/ownership)
+error[E0502]: cannot borrow `s` as mutable because it is also borrowed as immutable
+  --> src/main.rs:18:5
+   |
+16 |     let word = first_word(&s);
+   |                           -- immutable borrow occurs here
+17 |
+18 |     s.clear(); // error!
+   |     ^^^^^^^^^ mutable borrow occurs here
+19 |
+20 |     println!("the first word is: {}", word);
+   |                                       ---- immutable borrow later used here
+
+For more information about this error, try `rustc --explain E0502`.
+error: could not compile `ownership` due to previous error
+
+```
+
+- String의 내용을 지우기 위해서는 해당 String에 대한 가변 참조가 필요한데, 만약 이미 불변 참조가 존재한다면 
+ 
+- clear 메소드를 호출하여 String의 내용을 변경하려고 할 때 컴파일 오류가 발생한다. 
+ 
+- 이는 println! 매크로가 word에서 불변 참조를 사용하려고 하기 때문에 발생한다. 
+ 
+- 따라서, clear 함수가 가변 참조를 요구하는 동안 word의 불변 참조가 여전히 활성화되어 있어야 한다. 
+ 
+- 러스트는 가변 참조와 불변 참조가 동시에 존재하는 것을 허용하지 않기 때문에 컴파일이 실패한다. 
+ 
+ - 결론적으로 String Literal은 바이너리를 참조하는 것이다.
+
+> 위 코드에서 s의 타입은 &str입니다. 
+> 이는 특정 이진 파일 내의 위치를 가리키는 슬라이스로, 
+> 문자열 리터럴이 어떻게 처리되는지를 명확히 이해할 수 있게 해줍니다. 
+> 문자열 리터럴이 불변인 이유도 여기에 있습니다
+> &str은 불변 참조이기 때문입니다.따라서, 문자열 리터럴은 프로그램의 이진 파일 내에 직접 저장되며, 
+> 이를 통해 생성된 &str 타입의 변수는 이진 파일 내 해당 문자열의 위치를 가리키는 불변의 슬라이스가 됩니다. 
+> 이러한 특성은 문자열 리터럴이 왜 변경할 수 없는지(immutable)를 설명해 줍니다.
+ 
+ ```rust
+ let s = "Hello, world!";
+ ```
+
+- 참고로 경험 많은 개발자들은 다음과 같이 시그니처를 유연하게 만들어서 사용한다고 한다.
+```rust
+fn first_word(s: &str) -> &str
+```
+
+- 위처럼 s 매개변수의 타입으로 문자열 슬라이스를 사용하게 만든다. 
+ 
+- 이를 통해 문자열 슬라이스를 직접 전달할 수 있고, String이 있을 경우 String의 슬라이스나 String에 대한 참조를 전달할 수 있게 된다. 
+ 
+- 이러한 유연성은 역참조 강제 변환(deref coercions)이라는 기능을 활용하는 것으로 ~~나중에~~...
+
+```rust
+fn main() {
+    let my_string = String::from("hello world");
+
+    // `first_word` works on slices of `String`s, whether partial or whole
+    let word = first_word(&my_string[0..6]);
+    let word = first_word(&my_string[..]);
+    // `first_word` also works on references to `String`s, which are equivalent
+    // to whole slices of `String`s
+    let word = first_word(&my_string);
+
+    let my_string_literal = "hello world";
+
+    // `first_word` works on slices of string literals, whether partial or whole
+    let word = first_word(&my_string_literal[0..6]);
+    let word = first_word(&my_string_literal[..]);
+
+    // Because string literals *are* string slices already,
+    // this works too, without the slice syntax!
+    let word = first_word(my_string_literal);
+}
+```
