@@ -22,7 +22,8 @@ showToc: true
  02. [[Programming-a-Guessing-Game]] : 간단한 숫자 맞추기 게임을 만들어보며 러스트 프로그래밍 기초 문법 및 개념 익히기
  03. [[Common-Programming-Concepts]] : 러스트 프로그래밍 기초 문법 및 개념
  04. [[Understanding-Ownership]] : 러스트의 소유권 시스템에 대한 이해
- 05. [[Using-Structs-to-Structure-Related-Data]] : 구조체
+ 05. [[Using-Structs-to-Structure-Related-Data]] : 구조체를 사용하여 관련 데이터 구조화하기
+ 06. [[Enums-and-Pattern-Matching]] : 열거형과 패턴 매칭
 
 
 
