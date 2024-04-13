@@ -24,6 +24,7 @@ showToc: true
  04. [[Understanding-Ownership]] : 러스트의 소유권 시스템에 대한 이해
  05. [[Using-Structs-to-Structure-Related-Data]] : 구조체를 사용하여 관련 데이터 구조화하기
  06. [[Enums-and-Pattern-Matching]] : 열거형과 패턴 매칭
+ 07. [[Managing-Growing-Projects-with-Packages-Crates-and-Modules]]
 
 
 
