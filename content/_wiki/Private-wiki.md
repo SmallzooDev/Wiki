@@ -14,6 +14,8 @@ showToc: true
 
 ### Inbox 💭
 
+- [[Blog에-대한-생각]]
+- [[Interview-From-Jim-Keller]]
 
 ### Monthly goal 🚀
 
