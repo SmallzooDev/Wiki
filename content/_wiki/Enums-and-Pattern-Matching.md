@@ -196,3 +196,339 @@ let sum = x + y;
 - 컴파일러가 이해 할 수 있는 코드를 작성하기 위해서는, `Option<i8>`를 그냥 사용하는것이 아닌 무엇인가의 처리를 해야한다.
 
 - 여기서 무엇인가의 처리란 바로 `Option`의 variants를 다뤄야 하는 것이고, 그러한 과정 이후에 null(None) 에 대한 대응을 진행하게된다.
+
+## 6.2 The `match` Control Flow Construct
+
+- `match`는 다른 언어의 `switch`와 비슷한 역할을 한다.
+
+- Pattern은 literal value, variable, wild card, tuple, destructured structure, enum 등을 포함할 수 있다.
+
+- `match`는 컴파일러로 하여금 모든 케이스를 다루는지 확인하게 한다.
+
+- 동전 자판기처럼 처음으로 일치하는 패턴을 만나면 해당 블록을 실행하고, 나머지는 무시한다.
+
+```rust
+enum Coin {
+    Penny,
+    Nickel,
+    Dime,
+    Quarter,
+}
+
+fn value_in_cents(coin: Coin) -> u8 {
+    match coin {
+        Coin::Penny => 1,
+        Coin::Nickel => 5,
+        Coin::Dime => 10,
+        Coin::Quarter => 25,
+    }
+}
+```
+- if 문과 다른 점은 굳이 `boolean`을 사용하지 않아도 된다는 점이다.
+
+- `match`의 arm이란 `=>`과 `,`로 구분된 패턴과 실행 코드 블록이다. 패턴과 코드 블록으로 이루어져 있다.
+
+- 각각의 arm에 연관되어있는 코드 블록은 표현식이며, 이 표현식의 결과는 `match` 표현식의 결과가 된다.
+
+- 한 줄을 넘는 코드를 작성할 때는 `{}`를 사용해야 한다.
+
+### 6.2.1 Patterns That Bind to Values
+
+- `match`의 또 다른 유용한 기능은 패턴에 매칭되는 값을 바인딩 할 수 있다는 것이고, enumd variants 의 값을 추출할  수 있다.
+
+```rust
+#[derive(Debug)]
+enum UsState {
+    Alabama,
+    Alaska,
+    // --snip--
+}
+
+enum Coin {
+    Penny,
+    Nickel,
+    Dime,
+    Quarter(UsState),
+}
+```
+
+- `Quarter` variant는 `UsState`를 가지고 있다.
+
+```rust
+fn value_in_cents(coin: Coin) -> u8 {
+    match coin {
+        Coin::Penny => 1,
+        Coin::Nickel => 5,
+        Coin::Dime => 10,
+        Coin::Quarter(state) => {
+            println!("State quarter from {:?}!", state);
+            25
+        },
+    }
+}
+```
+
+- `Coin::Quarter(state)`에서 `state`는 `UsState` 타입이 된다.\
+
+- 이렇게 하면 `UsState`를 추출할 수 있다.
+
+### 6.2.2 Matching with Option<T>
+
+- `Option<T>`를 사용할 때도 `match`를 사용하는 예제.
+
+```rust
+fn plus_one(x: Option<i32>) -> Option<i32> {
+    match x {
+        None => None,
+        Some(i) => Some(i + 1),
+    }
+}
+
+let five = Some(5);
+let six = plus_one(five);
+let none = plus_one(None);
+```
+- `match` rust의 유연한 enum과 함께 사용할 때 매우 강력한 도구가 된다.
+
+- `match` 의 variable binding 기능 덕에 코드가 깔끔하게 떨어지는 경우가 많고, 실제로 코드를 작성하면서도 이점을 느낄 수 있다.
+
+
+## 6.3.3 Mathches Are Exhaustive
+
+- `match`는 모든 경우를 다루지 않으면 컴파일 되지 않는다.
+
+```rust
+fn plus_one(x: Option<i32>) -> Option<i32> {
+    match x {
+        Some(i) => Some(i + 1),
+    }
+}
+```
+
+- 위 코드는 컴파일 되지 않는다. `None`에 대한 처리가 없기 때문이다.
+
+- 이처럼 러스트의 `match`는 철저하기 때문에 일어날 수 있는 실수를 방지해준다.
+
+> billion dollor mistake는 애초에 러스트에서 가능하지 않다고 한 번 더 비꼰다 ㅋㅋ
+
+### 6.3.4 Catch-all Patterns and The `_` Placeholder
+
+- enum과 `match`를 사용할 때, 특정 값에 대해서만 특별한 처리를 하고, 나머지에 대해서는 아예 처리를 하지 않을 때가 있다.
+
+```rust
+    let dice_roll = 9;
+    match dice_roll {
+        3 => add_fancy_hat(),
+        7 => remove_fancy_hat(),
+        other => move_player(other),
+    }
+
+    fn add_fancy_hat() {}
+    fn remove_fancy_hat() {}
+    fn move_player(num_spaces: u8) {}
+
+```
+
+- 이러한 경우 3,7이 아닌 모든 경우는 `other`에 매칭되어 처리된다.
+
+- 참고로 다른 언어의 `switch`에서와 같이 other을 위에 쓰면 그 아래 arm들은 비교조차 안하기 때문에 주의가 필요하다.
+
+- 비슷하게 catch-all 하면서도, 해당 값에 대해서는 아무것도 하지 않을 때는 `_`를 사용한다.
+
+```rust
+    let dice_roll = 9;
+    match dice_roll {
+        3 => add_fancy_hat(),
+        7 => remove_fancy_hat(),
+        _ => (), // or another actions for now do nothing
+    }
+
+    fn add_fancy_hat() {}
+    fn remove_fancy_hat() {}
+```
+
+## 6.4 Concise Control Flow with `if let`
+
+- `if let`을 사용하면, 하나의 값ㅂ에 대해서만 매칭을 하고, 나머지를 무시하는 경우에 `match`를 사용하는 것보다 간결하게 코드를 작성할 수 있다.
+
+```rust
+    let some_u8_value = Some(0u8);
+    match some_u8_value {
+        Some(3) => println!("three"),
+        _ => (),
+    }
+
+    if let Some(3) = some_u8_value {
+        println!("three");
+    }
+``` 
+
+
+- 두 코드 모두 정확히 같은 동작을 한다.
+
+- `if let`은 보일러 플레이트도, verbose한 코드도, 굳이 필요없는 들여쓰기도 없애주지만, `match`의 exhaustive checking을 제공하지 않는다.
+
+- 결론적으로 syntax sugar이다.
+
+- else를 사용할 수도 있다.
+
+```rust
+    let mut count = 0;
+    if let Coin::Quarter(state) = coin {
+        println!("State quarter from {:?}!", state);
+    } else {
+        count += 1;
+    }
+```
+
+
+## 6.5 Summary
+다양한 match 사용 예제
+
+```rust
+// 1. 트래픽 라이트 시뮬레이터
+enum TrafficLight {
+    Red,
+    Yellow,
+    Green,
+}
+
+fn simulate_traffic_light(light: TrafficLight) {
+    match light {
+        TrafficLight::Red => println!("Stop"),
+        TrafficLight::Yellow => println!("Caution"),
+        TrafficLight::Green => println!("Go"),
+    }
+}
+
+// 2. 파일 읽기 함수
+use std::fs;
+
+fn read_file(file_path: &str) -> Result<String, String> {
+    match fs::read_to_string(file_path) {
+        Ok(contents) => Ok(contents),
+        Err(_) => Err(String::from("Failed to read the file.")),
+    }
+}
+
+// 3. 동물의 소리 출력
+enum Animal {
+    Dog,
+    Cat,
+    Bird,
+}
+
+fn make_sound(animal: Animal) {
+    match animal {
+        Animal::Dog => println!("Woof!"),
+        Animal::Cat => println!("Meow!"),
+        Animal::Bird => println!("Tweet!"),
+    }
+}
+
+// 4. 모양의 면적 계산
+enum Shape {
+    Circle(f64),
+    Triangle(f64, f64),
+    Rectangle(f64, f64),
+}
+
+fn calculate_area(shape: Shape) -> f64 {
+    match shape {
+        Shape::Circle(radius) => std::f64::consts::PI * radius * radius,
+        Shape::Triangle(base, height) => 0.5 * base * height,
+        Shape::Rectangle(width, height) => width * height,
+    }
+}
+
+// 5. 주소 정보 출력
+enum Address {
+    City(String),
+    State(String),
+    Country(String),
+}
+
+struct Location {
+    city: String,
+    state: String,
+    country: String,
+}
+
+fn print_city_address(address: Address) {
+    match address {
+        Address::City(city) => println!("City: {}", city),
+        _ => (),
+    }
+}
+
+// 6. 두 옵션 처리
+enum OptionEnum<T> {
+    Some(T),
+    None,
+}
+
+fn process_option(option1: OptionEnum<i32>, option2: OptionEnum<i32>) {
+    match (option1, option2) {
+        (OptionEnum::Some(val1), OptionEnum::Some(val2)) => println!("Both options have values: {}, {}", val1, val2),
+        _ => println!("At least one option is None."),
+    }
+}
+
+// 7. 사칙연산 함수
+fn calculate_operation(op: &str, num1: f64, num2: f64) -> Result<f64, String> {
+    match op {
+        "+" => Ok(num1 + num2),
+        "-" => Ok(num1 - num2),
+        "*" => Ok(num1 * num2),
+        "/" => {
+            if num2 == 0.0 {
+                Err(String::from("Division by zero is not allowed."))
+            } else {
+                Ok(num1 / num2)
+            }
+        },
+        _ => Err(String::from("Invalid operation.")),
+    }
+}
+
+// 8. 계절 출력
+enum Season {
+    Spring,
+    Summer,
+    Autumn,
+    Winter,
+}
+
+fn print_season_message(season: Season) {
+    match season {
+        Season::Spring => println!("It's spring!"),
+        Season::Summer => println!("It's summer!"),
+        Season::Autumn => println!("It's autumn!"),
+        Season::Winter => println!("It's winter!"),
+    }
+}
+
+// 9. 로그인 함수
+fn login(username: &str, password: &str) -> Result<(), String> {
+    if password == "correctpassword" {
+        Ok(())
+    } else {
+        Err(String::from("Incorrect password."))
+    }
+}
+
+// 10. 주문 상태 출력
+enum OrderStatus {
+    Pending,
+    Completed,
+}
+
+fn print_order_status(status: OrderStatus) {
+    match status {
+        OrderStatus::Pending => println!("Your order is pending."),
+        OrderStatus::Completed => println!("Your order is completed."),
+    }
+}
+
+```
+
