@@ -7,6 +7,7 @@ tags:
 categories: 
 description: 
 showToc: true
+tocOpen: true
 ---
 
 ## 6 Enum and Pattern Matching
