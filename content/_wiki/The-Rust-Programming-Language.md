@@ -25,6 +25,7 @@ showToc: true
  05. [[Using-Structs-to-Structure-Related-Data]] : 구조체를 사용하여 관련 데이터 구조화하기
  06. [[Enums-and-Pattern-Matching]] : 열거형과 패턴 매칭
  07. [[Managing-Growing-Projects-with-Packages-Crates-and-Modules]] : 패키지, 크레이트, 모듈을 사용하여 프로젝트 확장하기
+ 08. [[Common-Collections]] : 컬렉션 사용하기
 
 
 
