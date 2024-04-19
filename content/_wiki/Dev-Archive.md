@@ -14,5 +14,4 @@ showToc: true
 
 ### 개발 관련 링크 Archive
 
-- [코틀린 Cheat Sheet](https://kimchanjung.github.io/programming/2020/05/06/kotlin-basic-syntax-summary/)
 
