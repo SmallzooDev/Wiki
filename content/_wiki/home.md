@@ -46,6 +46,7 @@ TocOpen: true
 - [[자주-까먹는-커맨드-정리]]
 - [[Neovim-Copilot-Config]]
 - [[Vim이-느리다면-해볼-것들]]
+- [[Vim-Impove-Sheet]]
 
 ### Postings 🌳
 
