@@ -12,3 +12,6 @@ showToc: true
 ---
 
 # 생활 관련 링크 Archive 
+
+
+- [목 디스크 스트레칭](https://youtu.be/suyTW9kCm88?si=kEoMrASgHFsbdfb6) : 언젠가는 하겠지...?

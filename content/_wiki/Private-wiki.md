@@ -21,10 +21,13 @@ showToc: true
 
 - [[2024-04]]
 
-
 ### ToDoList ✅
 
 - [[ToDoList]]
+
+### Travel 🌍
+
+- [[2024-추석-일본여행]]
 
 ### About Machines 🧊
 
