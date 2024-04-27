@@ -364,3 +364,6 @@ int main(int argc, char *argv[])
 - 슈퍼사용자는 시스템의 모든 프로세스를 제어할 수 있지만, 일반 사용자는 자신의 프로세스만을 제어할 수 있다.
 
 
+### 5.8 과제!
+
+https://github.com/SmallzooDev/OSTEP/tree/main/Chapter05
