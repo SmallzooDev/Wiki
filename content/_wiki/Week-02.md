@@ -491,4 +491,52 @@ while (i = 0) {
 
 ![image-trap](https://github.com/SmallzooDev/OSTEP/assets/121675217/22f9e105-4ba2-4dca-ba48-191ec2f5546c)
 
+- 시스템콜을 특정하기 위해 system-call number라는 것이 있으며, 사용자 프로그램은 원하는 시스템콜을 호출하기 위해서, 해당 시스템 콜 번호를 레지스터 또는 스택의 지정된 위치에 저장하고 trap을 호출한다.
 
+- 그러면 운영체제는 트랩 핸들러 내부에서 시스템콜을 처리하는데, 이 번호를 확인하고 일치하는 코드를 실행한다.
+
+- 즉 시스템 콜 번호를 통해서 시스템콜 주소를 찾아내고, 그 주소로 점프하여 시스템콜을 실행하는 방식의 간접적인 방식이 Protection을 제공한다.
+
+- 또한 하드웨어에게 trap table의 위치를 알려주는것은 매우 강력한 기능이며, 당연히 privileged operation이다.
+
+### 잠시 정리
+
+- 프로세스가 모든 권한을 갖게 되면 두가지 이슈가 있는데 첫 번째는 `protect system`이 부재하고, 두 번째는 `control execution`이 부재하다.
+
+- `Limited Direct Execution`은 프로세스가 특정한 연산을 수행할 수 있도록 하는데, 이것은 `user mode`와 `kernel mode`를 사용하여 구현되고 `protect system`을 해결하는 방법이다.
+
+- 유저모드에서 할 수 없는 일들(system call, privileged instruction)등을 분리하고 커널에서만 실행이 가능하도록 했다.
+ 
+- 커널의 진입은 `trap` 명령어를 사용한다.
+
+- 커널에서 실제로 실행되는 코드를 직접 알게하면 위험하기 때문에 `trap table`을 사용한다.
+
+- `trap table`은 `trap handler`의 주소를 가지는 테이블이다.
+
+- `trap table`은 부팅시에 설정되며, 하드웨어에게 어떤 코드(= 트랩 핸들러에 있는 코드)를 실행해야 하는지 알려준다.
+
+- 여기서 살짝 헷갈릴 수 있는 부분은 트랩 테이블에 있는 주소는 시스템콜의 주소가 아니라, 시스템콜이 필요할때 사용 할 수 있는 트랩 핸들러의 주소이다.
+
+```c
+#include <stdio.h>
+#include <unistd.h>
+#include <sys/syscall.h>
+
+int main() {
+    #define SYS_CUSTOM_SYSCALL 333
+
+    long result = syscall(SYS_CUSTOM_SYSCALL);
+
+    if (result == 0) {
+        printf("System call was successful!\n");
+    } else {
+        printf("System call failed!\n");
+    }
+
+    return 0;
+}
+```
+
+- 위의 코드에서 예를 들어보면, `syscall()` 함수를 사용하여 시스템 콜을 호출한다.
+
+- 내부적으로 '시스템 콜에 대한 트랩 핸들러가 호출되고', 해당 핸들로에서 시스템 콜 번호에 해당하는 코드를 실행한다. (이부분이 가장 헷갈림)
