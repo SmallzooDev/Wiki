@@ -722,12 +722,119 @@ time 120 : C 완료
 ```
 - `turnaround time`은 각각 100, 100, 110이다, 즉 평균 `turnaround time`은 103.3이다. (다시 convoy effect가 발생했다)
 
-### 7.5 최소 잔여 시간 우선 (SRTF)
+### 7.5 최소 잔여 시간 우선 (STCF)
 
-- SJF의 변형으로 `Shortest Remaining Time First`가 있다.
+- SJF의 변형으로 `Shortest Time-to-Completion First`이다.
 
-- SRTF는 가장 짧은 남은 실행시간을 가진 프로세스가 가장 먼저 CPU를 사용하는 방식이다.
+- STCF는 가장 짧은 남은 실행시간을 가진 프로세스가 가장 먼저 CPU를 사용하는 방식이다.
 
-- SRTF는 SJF와 비슷하지만, SRTF는 프로세스가 도착할 때마다 스케줄링을 다시 수행한다.
+- STCF는 SJF와 비슷하지만, STCF는 프로세스가 도착할 때마다 스케줄링을 다시 수행한다.
+
+- `A : (100, 0)`, `B : (10, 10)`, `C : (10, 10)` 시나리오를 다시 보자
+
+```
+time 0 : A 도착
+time 10 : B, C 도착
+time 10 : B 완료
+time 20 : C 완료
+time 120 : A 완료
+```
+
+- `turnaround time`은 각각 120, 10, 20이다, 즉 평균 `turnaround time`은 50이다.
+
+- STCF는 SJF보다 더 좋은 성능을 보여준다.
+
+### 7.6 새로운 평가 기준 : Response Time
+
+- `Response Time`은 프로세스가 처음으로 CPU를 사용하기까지 걸리는 시간을 말한다. (처음으로 스케줄 될 때까지의 시간)
+
+- `Response = first time - arrival time`
+
+- STCF를 비롯해서 비슷한 정책들은 응답시간이 짧다고 보장할 수 없다.
+
+- 예를 들어, `A : (100, 0)`, `B : (1, 10)` 시나리오를 보자
+
+```
+time 0 : A 도착
+time 10 : B 도착
+time 100 : A 완료
+time 101 : B 완료
+```
+
+- B는 10초 동안 기다려야 하지만, STCF는 A를 먼저 처리하기 때문에 B는 90초 동안 기다려야 한다.
+
+- 이러한 문제를 해결하기 위해 `Round Robin`이라는 정책이 등장한다.
+
+### 7.7 라운드 로빈 (Round Robin)
+
+- `Round Robin`은 각 프로세스에게 동일한 시간을 할당하는 방식이다.
+
+- RR은 작업이 끝날 때 까지 기다리지 않고, 다른 프로세스로 전환한다.
+
+- 이 때 작업이 실행되는 시간을 `time slice`, 또는 `scheduler quantum`이라고 한다.
+
+- RR은 타이머 인터럽트의 배수로 동작한다.
+
+- `A : 100`, `B : 10`, `C : 10` 시나리오를 다시 보자
+
+```
+time 0 : A, B, C 도착
+time 10 : A 실행, B, C 대기
+time 20 : A 완료, B 실행, C 대기
+time 30 : B 완료, C 실행
+time 40 : C 완료
+...
+```
+- 타임 슬라이스의 시간이 짧아질수록, 성능의 기준이 응답시간일수록 RR은 좋은 성능을 보여준다.
+
+- 하지만 타임 슬라이스가 너무 짧으면, context switch로 인한 오버헤드가 발생할 수 있다.
+
+- context switch를 상쇄할 만큼 길어야하지만, 응답시간이 너무 길어지지 않도록 적절한 타임 슬라이스를 선택해야 한다.
+
+- 반환 시간이 가장 중요한 경우에는 반대로 RR은 좋은 성능을 보여주지 못한다.
+
+- 이것은 RR과 같이 공정한 정책(CPU를 공평하게 나눠쓰는 정책)은 반환 시간 기준으로는 성능이 좋지 않다는 것을 의미한다.
+
+- 일단 응답시간, 반환시간을 기준으로 좋은 성능을 가지는 정책들을 알아봤다.
+
+- 하지만 아직도 완화하지 않은 두가지 가정이 있다. (작업은 입출력을 하지 않는다, 각 작업의 실행시간을 알고 있다)
+
+### 7.8 입출력 연산의 고려
+
+- 가정 4를 완화해보자, 프로세스는 CPU만 사용하는 것이 아니라 입출력도 사용한다.
+
+- 만약 지금 실행중인 프로세스가 입출력을 요청하면, 스케줄러는 다음에 어떤 작업을 실행할지 결정해야 한다.
+
+- 현재 실행 중인 프로세스는 입출력이 끝날 때까지 기다려야 한다. 왜냐하면 입출력이 끝나기 전까지 작업을 대기해야 하기 때문이다.
+
+- 반대로 입출력이 끝난 프로세스도 의사 결정을 해야한다. 입출력이 완료되면 인터럽트가 발생하고, 이때 스케줄러는 어떤 작업을 실행할지 결정해야 한다.
+
+![입출력 비효율](https://private-user-images.githubusercontent.com/121675217/326421874-0c74f405-3786-465a-ac6d-96f1107c6e9c.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTQzOTA4NDYsIm5iZiI6MTcxNDM5MDU0NiwicGF0aCI6Ii8xMjE2NzUyMTcvMzI2NDIxODc0LTBjNzRmNDA1LTM3ODYtNDY1YS1hYzZkLTk2ZjExMDdjNmU5Yy5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwNDI5JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDQyOVQxMTM1NDZaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT00ZjMxYzVkZmQ1MTBjNWY0OTY4ZjBjMmNiMGIwNmU2M2Q0NjdkMDAxYTYzNjcyNjBlNDZiYTdlM2E2OTcxNDU2JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.EGaohclzFY7Q1BBkzrgj5rVdGBLL9tQtUd2YPgEuaFc)
+
+- 위의 그림은 입출력이 끝난 프로세스가 CPU를 사용하지 않는 시간을 보여준다.
+
+- 반면 STCF 스케줄링 정책을 사용한 케이스
+
+![입출력 효율](https://private-user-images.githubusercontent.com/121675217/326421862-040ab466-4445-4d9c-b23f-211b879e9459.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTQzOTA4NDYsIm5iZiI6MTcxNDM5MDU0NiwicGF0aCI6Ii8xMjE2NzUyMTcvMzI2NDIxODYyLTA0MGFiNDY2LTQ0NDUtNGQ5Yy1iMjNmLTIxMWI4NzllOTQ1OS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwNDI5JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDQyOVQxMTM1NDZaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1lY2Y0YjE2OTFjYTY5NjA3ZThmMTFiNmY3ZmRiN2I0Y2Y4MDk1ODEwNThiZWQ1NTE5NzBiNDdlNjk2ZTgwN2E2JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.g-bxJE2WokC16qJY_xHG_oWWsSBk1b2k93q3qYhqGqw)
+
+
+### 7.9 만병 통치약은 없다 (No More Oracle)
+
+- 간단한 스케줄링 정책들을 살펴봤다, 각각 극단적인 장단점을 가지고 있다.
+
+- 거기에 아직도 보호받는 가정이 있다, 실제로는 프로세스는 입출력을 하고, 실행시간을 알 수 없다.
+
+- 아무런 사전지식 없이 SJF/STCF 처럼 행동하는 알고리즘은 없을까?
+
+- 추가적으로 RR 스케줄러의 장점을 살리는 방법은 없을까?
+
+### 7.10 다음 장에서... (요약)
+
+- 다음 장에서는 더 정확한 스케줄링에 필요한 것들을 살펴볼 것이다.
+
+- 정확한 스케줄링을 위해서는 미래 동작을 예측할 수 있는 방법이 필요하다.
+- 프로세서의 미래 동작을 예측함에 있어 과거 동작 이력을 반영하는 방법이 필요하다.
+
+- 이 스케줄러를 `멀티 레벨 피드백 큐`라고 부르며 다음 장에서 다룰 예정이다.
 
 
