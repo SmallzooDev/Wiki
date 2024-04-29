@@ -7,9 +7,15 @@ tags:
 categories: 
 description: 
 showToc: true
+tocOpen: true
 ---
 
 ## 05.0 막간 : 프로세스 API 
+
+**거의 모든 소스코드와 강의자료는 아래 링크가 출처 입니다.**
+1. 강의 소스코드 : [OSTEP](https://github.com/remzi-arpacidusseau/ostep-code)
+2. 테스트 프로그램 : [OSTEP Test Programs](https://github.com/remzi-arpacidusseau/ostep-projects)
+3. 역자 강의 자료 : [강의자료](https://oslab.kaist.ac.kr/OSTEPSlides)
 
 > 개념적인 내용이 아닌 실제적인 측면에서 코드를 보는 장은 막간이라고 별도 표기한다.
 
