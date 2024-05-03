@@ -30,6 +30,10 @@ TocOpen: true
 
 - [[The-Rust-Programming-Language]]
 
+### Cpp 🐋
+
+- [[Cpp-basic]] : C++ 기본 문법 정리
+
 ### Backend 💰
 
 
