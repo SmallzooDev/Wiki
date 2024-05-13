@@ -40,6 +40,7 @@ tocOpen: true
     - 8장 스케줄링 : 멀티 레벨 피드백 큐
     - 9장 스케줄링 : 비례 배분
     - 10장 스케줄링 : 멀티 프로세서 스케줄링
+- [[Week-04]]
 ## 03. Homeworks
 
 - [과제-레포](https://github.com/SmallzooDev/OSTEP)
