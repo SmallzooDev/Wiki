@@ -17,3 +17,4 @@ tocOpen: true
 - [[cpp-변수의-메모리-공간]]
 - [[pointer-reference-헷갈릴때-팁]]
 - [[pointer-array-헷갈릴때-팁]]
+- [[pointer-지옥]]
