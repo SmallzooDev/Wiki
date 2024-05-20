@@ -38,3 +38,7 @@ showToc: true
 
 - [[회사컴-세팅]]
 - [[New-Vimwiki-Test]]
+
+### Chore 🧹
+
+- [[이사]]
