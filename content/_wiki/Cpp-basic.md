@@ -18,3 +18,5 @@ tocOpen: true
 - [[pointer-reference-헷갈릴때-팁]]
 - [[pointer-array-헷갈릴때-팁]]
 - [[pointer-지옥]]
+- [[free는-어떻게-할당을-해제하는가]]
+- [[타입-변환]]
