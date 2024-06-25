@@ -46,6 +46,9 @@ tocOpen: true
     - 13장 주소 공간의 개념
 - [[Week-05]] : 개인 정리 내용 링크
     - 14장 막간 : 메모리 관리 API
+    - 15장 주소 변환의 원리
+- [[Week-06]] : 개인 정리 내용 링크
+
 ## 03. Homeworks
 
 - [과제-레포](https://github.com/SmallzooDev/OSTEP)
