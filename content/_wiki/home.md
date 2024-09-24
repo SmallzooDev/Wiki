@@ -25,6 +25,7 @@ TocOpen: true
 - [[Life-Archive]] : 개발 외적인 유용한 정보, 링크 모음
 - [[Private-wiki]] : 개인적인 고민과 목표, 약간은 가벼운 이야기들
 - [[Cheat-Sheet]] : 개발 관련 Cheat Sheet 모음
+- [[Daily-Log]] : 일일 로그 기록
 
 ### Rust 🦀 
 
