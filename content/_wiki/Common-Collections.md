@@ -167,4 +167,172 @@ tocOpen: true
 
 ### 8.2.1 What is a String?
 
+> 러스트의 `String`을 먼저 정리해야 한다.
+> 기본적으로는 표준 라이브러리에서 제공하는 가변적이고, 소유권이 있으며, 확장 가능한, UTF-8 인코딩된 문자열 타입니다.
+> 물론 일반적으로 String이라고 하면 해당 `String`과 `str`을 모두 포함한다.
 
+### 8.2.2 Creating a New String
+
+`Vec<T>`에서 가능한 많은 연산들은 `String`에서도 가능하다.
+그 이유는 `String`이 `Vec<u8>`을 래핑하여 추가적인 구현(몇가지 guarantees, restrictions, capabilities 등)되어 있기 때문이다.
+
+예를들어 생성도 벡터와 똑같이 `new`를 이용해서 할 수 있다.
+
+```rust
+    let mut s = String::new();
+```
+
+또한 `Display` 트레이트를 구현한 타입에 대해서 `to_string` 메서드를 사용할 수 있다.
+
+```rust
+    let data = "initial contents";
+    let s = data.to_string();
+    let s = "initial contents".to_string();
+    let s = String::from("initial contents");
+```
+
+### 8.2.3 Updating a String
+
+기본적으로 벡터와 같이 값을 추가/변경 할 수 있다.
+심지어는 `+` 연산자를 사용하거나, `format!` 매크로를 사용하여 문자열을 결합 수정 할 수 있다.
+
+```rust
+    let mut s = String::from("foo");
+    s.push_str("bar");
+    s.push('l');
+    s += "bar";
+    s = s + "bar";
+    s = format!("{}-{}", s, "bar");
+```
+
+```rust
+fn add(self, s: &str) -> String {
+```
+참고로 `+` 연산자는 `add` 메서드를 호출한다.  
+그리고 메서드 정의는 위와 같은데,
+여기서 두가지를 알아 볼 수 있다.
+
+```rust
+    let s1 = String::from("Hello, ");
+    let s2 = String::from("world!");
+    let s3 = s1 + &s2;
+```
+이렇게 사용하면 `s1`은 더이상 사용할 수 없다. (self를 직접 사용하며 소유권을 가져가기 때문에)
+두 번째로 `&String`은 `&str`로 강제 변환이 가능하다.
+
+### 8.2.4 Indexing into Strings
+
+`String`은 `Vec<u8>`을 래핑하고 있다고 하기도 했고, 많은 다른 언어에서 문자열을 인덱스로 접근하는게 일반적이라 당연하 가능할 것 같은 아래의 코드는
+
+```rust
+    let s1 = String::from("hello");
+    let h = s1[0];
+```
+
+컴파일 에러가 발생한다.
+
+```
+error[E0277]: the type `str` cannot be indexed by `{integer}` 
+```
+
+간단히 이유를 요약하자면, 메모리에 나열되어있는 바이트들이 `UTF-8`로 인코딩 되어있기 때문에, 
+각각의 문자가 다른 바이트 수를 가지고 있는 상황에서 정수 인덱스로 접근하는 것은 불가능하기 때문이다.
+
+### 8.2.5 Slicing Strings
+
+"문자열"을 슬라이싱 하는 것 자체는 나쁜 아이디어 일 수 있지만 정 필요하면 range를 주는 방식으로 사용 할수는 있다.
+  
+```rust
+    let hello = "안녕하세요";
+    let s = &hello[0..3];
+```
+
+하지만 이것도 마찬가지로 `UTF-8`로 인코딩 되어있기 때문에, 문자열의 일부를 슬라이싱 하는 것은 위험하다.
+
+### 8.2.6 Methods for Iterating Over Strings
+
+진짜 결론적으로 실질적으로 문자를 다루고 싶다면 `chars` 메서드를 사용하면 된다.
+
+```rust
+    for c in "안녕하세요".chars() {
+        println!("{}", c);
+    }
+```
+
+
+## 8.3.0 Storing Keys with Associated Values in Hash Maps
+
+`HashMap`은 딱히 다른게 없다..
+
+
+### 8.3.1 Creating a New Hash Map & Accessing Values in a Hash Map
+
+```rust
+    use std::collections::HashMap;
+
+    let mut scores = HashMap::new();
+
+    scores.insert(String::from("Blue"), 10);
+    scores.insert(String::from("Yellow"), 50);
+
+    let team_name = String::from("Blue");
+    let score = scores.get(&team_name).copied().unwrap_or(0);
+```
+
+`HashMap`은 Option<&T>를 반환하기 때문에 코드는 조금 더 예뻐질 수 있다.
+(copied로 `Option<&T>`를 `Option<T>`로 받고, `unwrap_or`로 기본값을 설정한다.)
+
+### 8.3.2 Hash Maps and Ownership
+
+```rust
+    let field_name = String::from("Favorite color");
+    let field_value = String::from("Blue");
+
+    let mut map = HashMap::new();
+    map.insert(field_name, field_value);
+```
+
+Ownership 자체는 동일하게 동작한다. `Copy` 트레이트를 구현한 타입은 복사되어 저장되고, 그렇지 않은 타입은 소유권이 이전된다. (정확히는 insert method로 이동 후 drop)
+
+### 8.3.3 Updating a Hash Map
+
+```rust
+    let mut scores = HashMap::new();
+
+    scores.insert(String::from("Blue"), 10);
+    scores.insert(String::from("Yellow"), 50);
+
+    scores.entry(String::from("Blue")).or_insert(50);
+```
+
+### 8.3.4 Overwriting a Value
+
+```rust
+    let mut scores = HashMap::new();
+
+    scores.insert(String::from("Blue"), 10);
+    scores.insert(String::from("Blue"), 25);
+```
+
+### 8.3.5 Only Inserting a Value If the Key Has No Value
+
+```rust
+    let mut scores = HashMap::new();
+    scores.insert(String::from("Blue"), 10);
+
+    scores.entry(String::from("Yellow")).or_insert(50);
+    scores.entry(String::from("Blue")).or_insert(50);
+```
+
+### 8.3.6 Updating a Value Based on the Old Value
+
+```rust
+    let text = "hello world wonderful world";
+
+    let mut map = HashMap::new();
+
+    for word in text.split_whitespace() {
+        let count = map.entry(word).or_insert(0);
+        *count += 1;
+    }
+```
