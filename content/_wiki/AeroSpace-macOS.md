@@ -11,6 +11,8 @@ tocOpen: true
 ---
 
 # AeroSpace Cheat Sheet 🧊️ 
+> https://www.josean.com/posts/how-to-setup-aerospace-tiling-window-manager
+> https://nikitabobko.github.io/AeroSpace/commands
 
 - `option + ,` : 타일링 레이아웃/아코디언 레이아웃 전환
 - `option + q` : 터미닐 워크스페이스로 이동
