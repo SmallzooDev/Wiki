@@ -39,6 +39,7 @@ TocOpen: true
 
 
 ### DataBase 🗄️
+- [[데이터-중심-애플리케이션-설계]] : 해당 도서에 대한 스터디 내용정리 문서
 
 
 ### Computer Science 🦉
