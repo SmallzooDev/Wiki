@@ -38,6 +38,8 @@ tocOpen: true
 - 키보드의 2번 레이어의 스페이스바를 option키로 바꾸기
 
 #### 2024-10-11
+- 이펙티브 러스트가 출시됐다, 아마 이 책도 읽으며 포스팅을 작성할까 한다. 
+- 이 탬플릿이 좋을 것 같다. [Kotlin-in-Action](https://velog.io/@cksgodl/Kotlin-In-Action-%EC%9D%BD%EC%9C%BC%EB%A9%B0-%EA%B8%B0%EC%96%B5%ED%95%A0%EB%A7%8C-%ED%95%9C-%EA%B2%83)
 - aerospace config 에 아래 설정 추가하기
 ```toml
 alt-h = 'focus left'
