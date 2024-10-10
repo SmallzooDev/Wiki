@@ -1,5 +1,5 @@
 ---
-title: 
+title: Settings 🧊️
 summary: 
 date: 2024-10-05 13:43:15 +0900
 lastmod: 2024-10-05 13:43:15 +0900
