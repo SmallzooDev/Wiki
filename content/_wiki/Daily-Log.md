@@ -36,3 +36,12 @@ tocOpen: true
 
 #### 2024-10-07
 - 키보드의 2번 레이어의 스페이스바를 option키로 바꾸기
+
+#### 2024-10-11
+- aerospace config 에 아래 설정 추가하기
+```toml
+alt-h = 'focus left'
+alt-j = 'focus down'
+alt-k = 'focus up'
+alt-l = 'focus right'
+```
