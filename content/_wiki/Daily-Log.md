@@ -46,4 +46,7 @@ alt-h = 'focus left'
 alt-j = 'focus down'
 alt-k = 'focus up'
 alt-l = 'focus right'
+
+alt-u = 'layout tiles horizontal vertical'
+alt-i = 'layout accordion horizontal vertical'
 ```
