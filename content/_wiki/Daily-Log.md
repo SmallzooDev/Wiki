@@ -54,4 +54,5 @@ alt-i = 'layout accordion horizontal vertical'
 ```
 option w,e - 지금의 u,i역할을 하도록 수정
 option asdf, zxcv - 1234/qwer 로 수정?
+option u,i = +, -
 ```
