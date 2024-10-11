@@ -1,6 +1,6 @@
 ---
-title: 
-summary: 
+title: AeroSpace Cheat Sheet
+summary: i3 like tiling tool for macos
 date: 2024-10-05 13:47:32 +0900
 lastmod: 2024-10-05 13:47:32 +0900
 tags: 
