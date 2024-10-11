@@ -1,5 +1,5 @@
 ---
-title: 
+title: Daily-Log (Daily 아님)
 summary: 
 date: 2024-09-24 21:29:39 +0900
 lastmod: 2024-09-24 21:29:39 +0900
@@ -49,4 +49,9 @@ alt-l = 'focus right'
 
 alt-u = 'layout tiles horizontal vertical'
 alt-i = 'layout accordion horizontal vertical'
+```
+- 키보드 레이아웃도 수정해야 할 것 같다.
+```
+option w,e - 지금의 u,i역할을 하도록 수정
+option asdf, zxcv - 1234/qwer 로 수정?
 ```
