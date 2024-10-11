@@ -1,5 +1,5 @@
 ---
-title: Daily-Log (Daily 아님)
+title: Daily-Log (Daily 아님주의) 🙈
 summary: 
 date: 2024-09-24 21:29:39 +0900
 lastmod: 2024-09-24 21:29:39 +0900
