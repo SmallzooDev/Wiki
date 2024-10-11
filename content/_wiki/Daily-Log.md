@@ -42,17 +42,29 @@ tocOpen: true
 - 이 탬플릿이 좋을 것 같다. [Kotlin-in-Action](https://velog.io/@cksgodl/Kotlin-In-Action-%EC%9D%BD%EC%9C%BC%EB%A9%B0-%EA%B8%B0%EC%96%B5%ED%95%A0%EB%A7%8C-%ED%95%9C-%EA%B2%83)
 - aerospace config 에 아래 설정 추가하기
 ```toml
-alt-h = 'focus left'
-alt-j = 'focus down'
-alt-k = 'focus up'
-alt-l = 'focus right'
+# See: https://nikitabobko.github.io/AeroSpace/commands#workspace
+alt-1 = 'workspace 1'
+alt-2 = 'workspace 2'
+alt-3 = 'workspace 3'
+alt-4 = 'workspace 4'
+alt-5 = 'workspace 5'
+alt-r = 'workspace T' # for Terminal
+alt-t = 'workspace B' # for Browsers
+alt-q = 'workspace G' # for GPT
+alt-y = 'workspace C' # for Chat
+alt-m = 'workspace M' # for Music
+alt-n = 'workspace N' # for Notes
 
-alt-u = 'layout tiles horizontal vertical'
-alt-i = 'layout accordion horizontal vertical'
-```
-- 키보드 레이아웃도 수정해야 할 것 같다.
-```
-option w,e - 지금의 u,i역할을 하도록 수정
-option asdf, zxcv - 1234/qwer 로 수정?
-option u,i = +, -
+# See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
+alt-shift-1 = 'move-node-to-workspace 1'
+alt-shift-2 = 'move-node-to-workspace 2'
+alt-shift-3 = 'move-node-to-workspace 3'
+alt-shift-4 = 'move-node-to-workspace 4'
+alt-shift-5 = 'move-node-to-workspace 5'
+alt-shift-r = 'move-node-to-workspace T'
+alt-shift-t = 'move-node-to-workspace B'
+alt-shift-q = 'move-node-to-workspace G'
+alt-shift-y = 'move-node-to-workspace C'
+alt-shift-m = 'move-node-to-workspace M'
+alt-shift-n = 'move-node-to-workspace N'
 ```
