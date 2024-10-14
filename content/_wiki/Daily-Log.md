@@ -84,5 +84,6 @@ alt-shift-n = 'move-node-to-workspace N'
 - 이펙티브 러스트트를 시작하려고한다.
 - 이번 주 수요일까지 간단하게 초기세팅을 완료한 러스트 서버를 띄워야한다.
 - 아마도 axum + mongodb + jwt관련 세팅 추가하고 띄울 것 같다.
+- `.ideavimrc` 파일 을 만들고 관리해야 겠다, 점점더 dotfiles에 대한 요구가 많아져서 둘 다 같이 빨리 작업해야겠다 
 
 
