@@ -1,5 +1,5 @@
 ---
-title: Daily-Log (Daily 아님주의) 🙈
+title: Daily-Log 2024 (Daily 아님주의) 🙈
 summary: 
 date: 2024-09-24 21:29:39 +0900
 lastmod: 2024-09-24 21:29:39 +0900
@@ -7,7 +7,7 @@ tags:
 categories: 
 description: 
 showToc: true
-tocOpen: true
+tocOpen: false
 ---
 
 # Daily-Log 📝
