@@ -31,6 +31,7 @@ TocOpen: true
 ### Rust 🦀 
 
 - [[The-Rust-Programming-Language]]
+- [[Effective-Rust]]
 
 ### Cpp 🐋
 
