@@ -1,5 +1,5 @@
 ---
-title: Effective Rust Item 1 : 데이터 구조를 타입 시스템으로 표현하라
+title: Effective Rust Item 1  데이터 구조를 타입 시스템으로 표현하라
 summary: 
 date: 2024-10-19 15:17:47 +0900
 lastmod: 2024-10-19 15:17:47 +0900
