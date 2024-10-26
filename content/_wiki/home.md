@@ -30,6 +30,7 @@ TocOpen: true
 
 ### Rust 🦀 
 
+- [[Rust-Main]]
 - [[The-Rust-Programming-Language]]
 - [[Effective-Rust]]
 
