@@ -33,6 +33,7 @@ TocOpen: true
 - [[Rust-Main]]
 - [[The-Rust-Programming-Language]]
 - [[Effective-Rust]]
+- [[Build-Redis-With-Rust]]
 
 ### Cpp 🐋
 
