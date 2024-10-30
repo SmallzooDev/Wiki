@@ -16,22 +16,14 @@ tocOpen: true
 ### 0. PreRequisite
 > 해당 문서의 참고입니다! https://app.codecrafters.io/concepts/rust-tcp-server
 - `std::net` 모듈은 TCP 서버를 만들기 위한 모듈이다.
-- 그리고 아래의 네가지 메셔드를 주요하게 이용한다.
-`TcpListener::bind` : `pub fn bind<A: ToSocketAddrs>(addr: A) -> Result<TcpListener>` - 주어진 주소에 바인딩된 새로운 `TcpListener` 인스턴스를 반환한다
-```rust
-// Create a Redis server running on localhost:6379
-let listener = TcpListener::bind("localhost:6379")?;
-```
-`TcpListener::incoming` : `pub fn incoming(&self) -> Incoming` - 이 리스너로 들어오는 coneection에 대한 iterator를 반환한다.
-`TcpStream::connect` : `pub fn connect<A: ToSocketAddrs>(addr: A) -> Result<TcpStream>` - 주어진 주소로 연결된 새로운 `TcpStream` 인스턴스를 반환한다.
-```rust
-// Connect to a Redis server
-let stream = TcpStream::connect("localhost:6379")?;
-```
-`TcpStream::read` : `pub fn read(&mut self, buf: &mut [u8]) -> Result<usize>` - 스트림에서 데이터를 읽어서 주어진 버퍼에 저장한다.
-`TcpStream::write_all` : `pub fn write_all(&mut self, buf: &[u8]) -> Result<()>` - 스트림에 주어진 버퍼의 모든 데이터를 쓴다.
+- 그리고 아래의 다섯가지 메셔드를 주요하게 이용한다.
+1. `TcpListener::bind` : `pub fn bind<A: ToSocketAddrs>(addr: A) -> Result<TcpListener>` - 주어진 주소에 바인딩된 새로운 `TcpListener` 인스턴스를 반환한다
+2. `TcpListener::incoming` : `pub fn incoming(&self) -> Incoming` - 이 리스너로 들어오는 coneection에 대한 iterator를 반환한다.
+3. `TcpStream::connect` : `pub fn connect<A: ToSocketAddrs>(addr: A) -> Result<TcpStream>` - 주어진 주소로 연결된 새로운 `TcpStream` 인스턴스를 반환한다.
+4. `TcpStream::read` : `pub fn read(&mut self, buf: &mut [u8]) -> Result<usize>` - 스트림에서 데이터를 읽어서 주어진 버퍼에 저장한다.
+5. `TcpStream::write_all` : `pub fn write_all(&mut self, buf: &[u8]) -> Result<()>` - 스트림에 주어진 버퍼의 모든 데이터를 쓴다.
 
-- TcpLister Struct는 아래와 같이 구성되어 있다.
+TcpLister Struct는 아래와 같이 구성되어 있다.
 ```rust
 impl TcpListener {
     // accept는 대기 중인 연결을 수락하고, connection을 반환한다.
@@ -43,7 +35,7 @@ impl TcpListener {
 }
 ```
 
-- TcpStream Struct는 아래와 같이 구성되어 있다.
+TcpStream Struct는 아래와 같이 구성되어 있다.
 ```rust
 impl TcpStream {
     pub fn read(&mut self, buf: &mut [u8]) -> Result<usize>;
