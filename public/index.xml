@@ -13,7 +13,7 @@
       <link>http://localhost:1313/_wiki/rust-redis-d1/</link>
       <pubDate>Wed, 30 Oct 2024 20:28:17 +0900</pubDate>
       <guid>http://localhost:1313/_wiki/rust-redis-d1/</guid>
-      <description>Rust-Redis-D1 0. PreRequisite 해당 문서의 참고입니다! https://app.codecrafters.io/concepts/rust-tcp-server
+      <description>0. PreRequisite 해당 문서의 참고입니다! https://app.codecrafters.io/concepts/rust-tcp-server
 std::net 모듈은 TCP 서버를 만들기 위한 모듈이다. 그리고 아래의 다섯가지 메셔드를 주요하게 이용한다. TcpListener::bind : pub fn bind&amp;lt;A: ToSocketAddrs&amp;gt;(addr: A) -&amp;gt; Result&amp;lt;TcpListener&amp;gt; - 주어진 주소에 바인딩된 새로운 TcpListener 인스턴스를 반환한다 TcpListener::incoming : pub fn incoming(&amp;amp;self) -&amp;gt; Incoming - 이 리스너로 들어오는 coneection에 대한 iterator를 반환한다. TcpStream::connect : pub fn connect&amp;lt;A: ToSocketAddrs&amp;gt;(addr: A) -&amp;gt; Result&amp;lt;TcpStream&amp;gt; - 주어진 주소로 연결된 새로운 TcpStream 인스턴스를 반환한다. TcpStream::read : pub fn read(&amp;amp;mut self, buf: &amp;amp;mut [u8]) -&amp;gt; Result&amp;lt;usize&amp;gt; - 스트림에서 데이터를 읽어서 주어진 버퍼에 저장한다.</description>
     </item>
     <item>
