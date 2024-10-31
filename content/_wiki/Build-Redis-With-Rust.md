@@ -17,3 +17,4 @@ tocOpen: true
 > 주요한 가이드는 직접 위 사이트에서 확인해주세요.
 
 - [[Rust-Redis-D1]]
+- [[Rust-Redis-D2]]

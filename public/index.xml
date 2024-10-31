@@ -6,8 +6,15 @@
     <description>Recent content on SmallzooDevWiki🧊️</description>
     <generator>Hugo -- 0.123.8</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 30 Oct 2024 20:28:17 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 31 Oct 2024 19:26:52 +0900</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rust-Redis-D2</title>
+      <link>http://localhost:1313/_wiki/rust-redis-d2/</link>
+      <pubDate>Thu, 31 Oct 2024 19:26:52 +0900</pubDate>
+      <guid>http://localhost:1313/_wiki/rust-redis-d2/</guid>
+      <description>1. Code use regex::Regex; use std::collections::HashMap; use std::sync::Arc; use tokio::io::{AsyncReadExt, AsyncWriteExt}; use tokio::net::{TcpListener, TcpStream}; use tokio::sync::RwLock; use tokio::task; type Db = Arc&amp;lt;RwLock&amp;lt;HashMap&amp;lt;String, String&amp;gt;&amp;gt;&amp;gt;; enum Command { PING, ECHO(String), GET(String), SET(String, String), } impl Command { fn parse_message(message: &amp;amp;str) -&amp;gt; Result&amp;lt;Command, String&amp;gt; { let re_ping = Regex::new(r&amp;#34;^\*1\r\n\$4\r\nPING\r\n$&amp;#34;).unwrap(); let re_echo = Regex::new(r&amp;#34;^\*2\r\n\$4\r\nECHO\r\n\$(\d+)\r\n(.+)\r\n$&amp;#34;).unwrap(); let re_get = Regex::new(r&amp;#34;^\*2\r\n\$3\r\nGET\r\n\$(\d+)\r\n(.+)\r\n$&amp;#34;).unwrap(); let re_set = Regex::new(r&amp;#34;^\*3\r\n\$3\r\nSET\r\n\$(\d+)\r\n(.+)\r\n\$(\d+)\r\n(.+)\r\n$&amp;#34;).unwrap(); if re_ping.is_match(message) { Ok(Command::PING) } else if let Some(captures) = re_echo.captures(message) { let length: usize = captures[1].</description>
+    </item>
     <item>
       <title>Rust-Redis-D1</title>
       <link>http://localhost:1313/_wiki/rust-redis-d1/</link>
