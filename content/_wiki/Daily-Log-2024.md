@@ -136,3 +136,6 @@ alt-shift-n = 'move-node-to-workspace N'
 #### 2024-10-30
 - 어제 [코드크래프터스](https://app.codecrafters.io/)를 알게되었는데, rust로 redis 구현해보는 가이드가 있어서 그냥 시작했다.
 - 수학공부도 해야하고, 사이드도 해야하는데 일단 덜컥 시작해버렸다.
+
+#### 2024-11-01
+- intellij, rustrover, webstorm -> "Hide All Tool Windows" -> `shift + space`
