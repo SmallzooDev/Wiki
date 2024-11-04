@@ -139,3 +139,7 @@ alt-shift-n = 'move-node-to-workspace N'
 
 #### 2024-11-01
 - intellij, rustrover, webstorm -> "Hide All Tool Windows" -> `shift + space`
+
+#### 2024-11-04
+- dotfiles를 만들었다, 단순하게 시작했다(편하더라, 진작할걸!)
+- 이번주는 데일리로그를 다 써 봐야겠다
