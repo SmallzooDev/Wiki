@@ -16,7 +16,8 @@ tocOpen: true
 > 전적으로 제가 작성한 코드와 저의 생각만 포스팅을 할 예정입니다.
 > 주요한 가이드는 직접 위 사이트에서 확인해주세요.
 
-[Github-Repo](https://github.com/SmallzooDev/codecrafters-redis-rust)
+- [Github-Repo](https://github.com/SmallzooDev/codecrafters-redis-rust)
+- [Redis-Protocol](https://medium.com/@OutOfBedlam/redis-%ED%94%84%EB%A1%9C%ED%86%A0%EC%BD%9C-%EA%B7%9C%EA%B2%A9-b1c46c273274)
 
 - [[Rust-Redis-D1]]
 - [[Rust-Redis-D2]]
