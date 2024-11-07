@@ -22,3 +22,4 @@ tocOpen: true
 - [[Rust-Redis-D1]]
 - [[Rust-Redis-D2]]
 - [[Rust-Redis-D3]]
+- [[Rust-Redis-D4]]
