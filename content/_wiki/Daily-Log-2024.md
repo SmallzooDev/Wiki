@@ -42,33 +42,6 @@ tocOpen: false
 - 이펙티브 러스트가 출시됐다, 아마 이 책도 읽으며 포스팅을 작성할까 한다. 
 - 이 탬플릿이 좋을 것 같다. [Kotlin-in-Action](https://velog.io/@cksgodl/Kotlin-In-Action-%EC%9D%BD%EC%9C%BC%EB%A9%B0-%EA%B8%B0%EC%96%B5%ED%95%A0%EB%A7%8C-%ED%95%9C-%EA%B2%83)
 - aerospace config 에 아래 설정 추가하기
-```toml
-# See: https://nikitabobko.github.io/AeroSpace/commands#workspace
-alt-1 = 'workspace 1'
-alt-2 = 'workspace 2'
-alt-3 = 'workspace 3'
-alt-4 = 'workspace 4'
-alt-5 = 'workspace 5'
-alt-r = 'workspace T' # for Terminal
-alt-t = 'workspace B' # for Browsers
-alt-q = 'workspace G' # for GPT
-alt-y = 'workspace C' # for Chat
-alt-m = 'workspace M' # for Music
-alt-n = 'workspace N' # for Notes
-
-# See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
-alt-shift-1 = 'move-node-to-workspace 1'
-alt-shift-2 = 'move-node-to-workspace 2'
-alt-shift-3 = 'move-node-to-workspace 3'
-alt-shift-4 = 'move-node-to-workspace 4'
-alt-shift-5 = 'move-node-to-workspace 5'
-alt-shift-r = 'move-node-to-workspace T'
-alt-shift-t = 'move-node-to-workspace B'
-alt-shift-q = 'move-node-to-workspace G'
-alt-shift-y = 'move-node-to-workspace C'
-alt-shift-m = 'move-node-to-workspace M'
-alt-shift-n = 'move-node-to-workspace N'
-```
 - 블로그를 조금 유지보수 했다, 좀 보기 싫었던 css를 수정했다.
 - 새로운 취미? 혹은 목표로 매일 수학 1시간 공부하기를 해볼 예정이다, 그 이유는 아래와 같다.
   - 학창시절에는 수학을 그나마 좋아했지만, 어느 순간 이후로 담을 쌓고 있었고 필요 할 때 마다 필요한부분을 보는정도로 때워왔다.
@@ -155,3 +128,4 @@ alt-shift-n = 'move-node-to-workspace N'
 #### 2024-11-08
 - 코테준비는 그냥저냥, 레디스는 재미있게 하고있다. 러스트로 코테준비는 악평이 자자한데 안심심하게 하려면 그렇게라도 해야할까 싶다.
 
+#### 2024-11-16
