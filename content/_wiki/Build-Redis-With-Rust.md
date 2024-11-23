@@ -23,3 +23,7 @@ tocOpen: true
 - [[Rust-Redis-D2]]
 - [[Rust-Redis-D3]]
 - [[Rust-Redis-D4]]
+
+### Trouble Shootings
+
+- [[Redis-Handshake-For-Replicas]]
