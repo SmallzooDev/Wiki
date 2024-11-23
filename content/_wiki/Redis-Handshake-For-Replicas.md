@@ -1,5 +1,5 @@
 ---
-title: 레디스 HandShake중 이슈 처리하기
+title: 레디스 HandShake중 이슈 처리하기😬
 summary: 레디스 레플리카를 등록하는 과정 중 replconf, psync를 처리하는 중 발생한 문제.
 date: 2024-11-23 15:52:17 +0900
 lastmod: 2024-11-23 15:52:17 +0900
@@ -10,8 +10,6 @@ showToc: true
 tocOpen: true
 ---
 
-# Issue- 레디스 레플리카를 등록하는 과정 중 replconf, psync를 처리하는 중 발생한 문제.
----
 
 레디스 레플리케이션을 위한 handshake는 간단하게 아래와 같은 순서로 이루어진다.
 
