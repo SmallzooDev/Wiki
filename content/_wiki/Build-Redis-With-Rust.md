@@ -26,4 +26,5 @@ tocOpen: true
 
 ### Trouble Shootings
 
-- [[Redis-Handshake-For-Replicas]]
+- [[Redis-Handshake-For-Replicas]] : 레플리카(슬레이브) 등록을 위한 HandShake중 클라이언트를 식별하는 이슈
+- [[Redis-Stream-Issue]]
