@@ -69,8 +69,9 @@ TocOpen: true
 - [[코딩-테스트-언어-정하기]]
 - [[튜터링-질의-응답-모음]]
 - [[블로그-작성-가이드라인]]
-- [레디스 Hanshake중 이슈 처리하기](https://smallzoodev.netlify.app/_wiki/redis-handshake-for-replicas/) : 레플리카(슬레이브) 등록을 위한 HandShake중 클라이언트를 식별하는 이슈
+- [[redis-handshake-for-replicas]] : 레플리카(슬레이브) 등록을 위한 HandShake중 클라이언트를 식별하는 이슈
 - [[Redis-Stream-Issue]]
+- [[rust-mpsc]]
 
 ### ETC 👻
 
