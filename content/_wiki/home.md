@@ -74,6 +74,7 @@ TocOpen: true
 - [[rust-mpsc]]
 - [[난개발된-레디스를-이벤트루프-기반으로-리팩토링하기]]
 - [[Learners-High]]
+- [[Kotlin이-좋지많은-않은-이유]]
 
 ### ETC 👻
 
