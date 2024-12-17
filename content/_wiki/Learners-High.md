@@ -75,3 +75,4 @@ tocOpen: true
 ## Days
 ---
 
+1. [[LDay-01]] : 목표 설정, 기존 작업 진행
