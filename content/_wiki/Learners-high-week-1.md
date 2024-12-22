@@ -67,8 +67,8 @@ appoloClient의 refetch, invalidate query key를 이용해서 특정 상태값(�
 
 ### "Hasura 라고 있어요 ..." (전시영역 관련 독특한 구조)
 
-[hasura-img-1](https://github.com/user-attachments/assets/5e526efe-6234-41a9-918b-df415b2d52c3)
+![hasura-img-1](https://github.com/user-attachments/assets/5e526efe-6234-41a9-918b-df415b2d52c3)
 
-[hasura-img-2](https://github.com/user-attachments/assets/3975d0fa-7c82-499e-a547-33ce0b3afc08)
+![hasura-img-2](https://github.com/user-attachments/assets/3975d0fa-7c82-499e-a547-33ce0b3afc08)
 
-[hasura-img-3](https://github.com/user-attachments/assets/f0c3722e-0f6f-4979-bc79-e873c6798918)
+![hasura-img-3](https://github.com/user-attachments/assets/f0c3722e-0f6f-4979-bc79-e873c6798918)
