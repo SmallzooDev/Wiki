@@ -75,4 +75,5 @@ tocOpen: true
 ## Days
 ---
 1. [[Learners-high-week-1]]
+2. [[Learners-high-week-2]]
 
