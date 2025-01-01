@@ -43,6 +43,7 @@ TocOpen: true
 
 
 ### Backend 💰
+- [[헥사고날-아키텍처]]
 
 
 ### DataBase 🗄️
