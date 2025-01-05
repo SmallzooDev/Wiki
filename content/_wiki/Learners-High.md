@@ -76,4 +76,5 @@ tocOpen: true
 ---
 1. [[Learners-high-week-1]]
 2. [[Learners-high-week-2]]
+3. (3주차 로그 마무리와 카프카 관련 내용)
 
