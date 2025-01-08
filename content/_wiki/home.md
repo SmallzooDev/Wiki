@@ -20,6 +20,7 @@ TocOpen: true
 
 ### Main 🏠
 - [[Daily-Log-2024]] : 저에 대해 궁금하시다면 이 문서를 참고해주세요(데일리 아님 주의 🙉)
+- [[Daily-Log-2025]]
 
 ### Archive 📘
 
