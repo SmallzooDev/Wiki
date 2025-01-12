@@ -1,5 +1,5 @@
 ---
-title: 
+title: Daily Log 2025
 summary: 
 date: 2025-01-08 20:19:31 +0900
 lastmod: 2025-01-08 20:19:31 +0900
