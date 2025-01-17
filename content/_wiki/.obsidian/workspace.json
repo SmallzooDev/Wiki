@@ -29,13 +29,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Daily-Log-2025.md",
+                "file": "obsidian_templates/frontmatters.md.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Daily-Log-2025"
+              "title": "frontmatters.md"
             }
           }
         ],
@@ -183,6 +183,7 @@
   },
   "active": "a563dcbee90efbcd",
   "lastOpenFiles": [
+    "Daily-Log-2025.md",
     "obsidian_templates/frontmatters.md.md",
     "Daily-Log-2024.md",
     "3장.md",
@@ -209,7 +210,6 @@
     "2024-추석-일본여행.md",
     "obsidian_templates",
     "데이터-중심-애플리케이션-설계.md",
-    "Enums-and-Pattern-Matching.md",
-    "Daily-Log-2025.md"
+    "Enums-and-Pattern-Matching.md"
   ]
 }
