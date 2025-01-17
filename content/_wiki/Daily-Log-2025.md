@@ -2,7 +2,7 @@
 title: Daily Log 2025
 summary: 
 date: 2025-01-08 20:19:31 +0900
-lastmod: 2025-01-08 20:19:31 +0900
+lastmod: 2025-01-17 19:22:24 +0900
 tags: 
 categories: 
 description: 
@@ -22,3 +22,6 @@ tocOpen: true
 
 2025-01-13
 - 일어날일은 일어난다
+
+2025-01-17
+- vimwiki와 옵시디언을 병행해서 사용하게 될 것 같다.
