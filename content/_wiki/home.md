@@ -2,7 +2,7 @@
 title: Index 🧊️
 summary: 
 date: 2024-03-29 09:21:07 +0900
-lastmod: 2024-03-29 09:21:07 +0900
+lastmod: 2025-01-17 19:48:17 +0900
 tags: ["wiki_home"]
 categories: 
 public: true
@@ -77,6 +77,7 @@ TocOpen: true
 - [[rust-mpsc]]
 - [[난개발된-레디스를-이벤트루프-기반으로-리팩토링하기]]
 - [[Learners-High]]
+- [[vimwiki-obsidian-같이-사용하기]]
 
 ### ETC 👻
 
