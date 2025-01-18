@@ -13,5 +13,6 @@ public: true
 - Vim을 좋아합니다. [[Neovim ⌨️]](https://github.com/neovim/neovim)은 더 좋아합니다. 지금은 [[이런 설정 🚀]](https://github.com/SmallzooDev/nvimConfig)으로 네오빔에 눌러앉았습니다.
 - 지금은 Rust를 가장 열심히 공부하고 있습니다.
 - [[기계인간 Johngrib 💭]](https://johngrib.github.io/wiki/my-wiki/)님의 위키에 영감을 받아 위키 형식으로 운영해보려고 합니다!
+- 파란색을 좋아합니다, 하늘색, 남색, 바다색 전부 좋아합니다.
 - 좋은 기회에 열려있습니다!
 ---
