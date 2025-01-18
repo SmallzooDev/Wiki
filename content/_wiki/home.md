@@ -2,7 +2,7 @@
 title: Index 🧊️
 summary: 
 date: 2024-03-29 09:21:07 +0900
-lastmod: 2025-01-17 19:48:17 +0900
+lastmod: 2025-01-18 23:50:30 +0900
 tags: ["wiki_home"]
 categories: 
 public: true
@@ -18,53 +18,53 @@ TocOpen: true
 - This wiki inspired by : [기계인간 Johngrib 💭](https://johngrib.github.io/wiki/my-wiki/)
 ---
 
-### Main 🏠
+## Main 🏠
 - [[Daily-Log-2024]] : 저에 대해 궁금하시다면 이 문서를 참고해주세요(데일리 아님 주의 🙉)
 - [[Daily-Log-2025]] : 2025 시작!
 
-### Archive 📘
+## Archive 📘
 
 - [[Dev-Archive]] : 개발관련 유용한 정보, 링크 모음
 - [[Life-Archive]] : 개발 외적인 유용한 정보, 링크 모음
 - [[Private-wiki]] : 개인적인 고민과 목표, 약간은 가벼운 이야기들
 - [[Cheat-Sheet]] : 개발 관련 Cheat Sheet 모음
 
-### Rust 🦀 
+## Rust 🦀 
 
 - [[Rust-Main]]
 - [[The-Rust-Programming-Language]]
 - [[Effective-Rust]]
 - [[Build-Redis-With-Rust]]
 
-### Cpp 🐋
+## Cpp 🐋
 
 - [[Cpp-basic]] : C++ 기본 문법 정리
 
-### Mathematics 🧮
+## Mathematics 🧮
 
 
-### Backend 💰
+## Backend 💰
 - [[헥사고날-아키텍처]]
 - [[코틀린-완벽-가이드]]
 
 
-### DataBase 🗄️
+## DataBase 🗄️
 - [[데이터-중심-애플리케이션-설계]] : 해당 도서에 대한 스터디 내용정리 문서
 
 
-### Computer Science 🦉
+## Computer Science 🦉
 
 - [[OSTEP]] : 운영체제 아주 쉬운 세 가지 이야기
 - [[Network]] : TCP/IP Illustrated
 
 
-### Vim 🦅 
+## Vim 🦅 
 
 - [[Neovim-Copilot-Config]]
 - [[Vim이-느리다면-해볼-것들]]
 - [[Vim-Impove-Sheet]]
 
-### Postings 🌳
+## Postings 🌳
 
 - [[새로운-블로그-정착하기]]
 - [[Neovim-Migration-하기]]
@@ -79,6 +79,6 @@ TocOpen: true
 - [[Learners-High]]
 - [[vimwiki-obsidian-같이-사용하기]]
 
-### ETC 👻
+## ETC 👻
 
 - [[Settings]]
