@@ -2,7 +2,7 @@
 title: Index 🧊️
 summary: 
 date: 2024-03-29 09:21:07 +0900
-lastmod: 2025-01-18 23:50:30 +0900
+lastmod: 2025-01-19 23:52:14 +0900
 tags: ["wiki_home"]
 categories: 
 public: true
@@ -76,7 +76,7 @@ TocOpen: true
 - [[Redis-Stream-Issue]]
 - [[rust-mpsc]]
 - [[난개발된-레디스를-이벤트루프-기반으로-리팩토링하기]]
-- [[Learners-High]]
+- [[Learners-High]] : 토스 러너스 하이 1기를 진행하면서 겪은 이야기들
 - [[vimwiki-obsidian-같이-사용하기]]
 
 ## ETC 👻

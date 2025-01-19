@@ -102,7 +102,7 @@ qa기간중이기는 하지만 일정상 여유가 생긴 덕에 다음 작업�
 **메인 백엔드 서버**
 1. 사용하고 있는 Hybris라는 솔루션에서, 로그 관련 설정을 래핑해서 구현체를 제공하고 있었다.
 2. 그리고 실제로도 솔루션의 그 설정등을 그대로 이용하고 있다.
-3. [Hybris-Log](https://help.sap.com/docs/SAP_COMMERCE/d0224eca81e249cb821f2cdf45a82ace/8c07853c866910148a00baf81ea1669e.html) 링크를 검토했을 때 래핑해서 몇가지 편의사항을 제공하기는 했지만, 특이한 건 없었다.
+3. [Hybris-Log](https://help.sap.com/docs/SAP_COMMERCE/d0224eca81e249cb821f2cdf45a82ace/8c07853c866910148a00baf81ea1669e.html) 검토했을 때 래핑해서 몇가지 편의사항을 제공하기는 했지만, 특이한 건 없었다.
 
 **프론트엔드 서버**
 1. 최근 새로 프로젝트 자체를 전부 리뉴얼하면서 `fetchClient`가 잘 관리되고 있었다.
@@ -125,7 +125,7 @@ log4j2.logger.console.layout = [%-5p] [%24F:%L] - %m%n
 
 1. 프론트엔드 서버가 아까 말한 요청을 식별하는 hash값을 별도의 커스텀 헤더에 추가해서 발송.
 	- 모든 요청에서 해당 헤더를 보낼 수 있도록 fetch를 래핑한 client구현체에 추가
-	- next.js 서버가 직접 요청을 포워드하는 특정 서버 컴포넌트들이 있어 관련한 middleware 로직 추가
+	- next.js 서버가 직접 요청을 포워드하는 몇몇 서버 컴포넌트들이 있어 관련한 middleware 로직 추가
 2. 메인 백엔드 로그 관련 작업 (mdc, 로그보완 등)
 3. grafana에 인증관련 대시보드, 메트릭 추가
 
@@ -197,7 +197,7 @@ public class CustomPatternLayout extends EnhancedPatternLayout {
         String baseLog = super.format(event);
         return (traceId != null) 
 	          ? baseLog.replaceFirst(event.getLevel()
-	          .toString(), event.getLevel() + " [" + traceId + "]") 
+	          .toString(), event.getLevel() + " [ TraceId : " + traceId + "]") 
               : baseLog;
     }
 
@@ -209,7 +209,8 @@ log4j.appender.CONSOLE = org.apache.log4j.ConsoleAppender
 log4j.appender.CONSOLE.layout = ourpackage.util.CustomPatternLayout
 ```
 
-그러나 여기서 오버헤드에 대한 걱정이 되어 replaceFirst()를 봤더니 정규식으로 처리하길래 약간의 수정을 더했다.
+그러나 여기서 오버헤드에 대한 걱정이 되어 `replaceFirst()`를 봤더니 정규식으로 처리하길래 약간의 수정을 더했다.
+Optional을 사용하는게 더 좋은 코드인것은 맞지만, 로그 전범위에 적용될 수정이라서 인스턴스 생성이 안일어나도록 직접 null체크 하는 것으로 수정했다.
 
 ```java
 public class CustomPatternLayout extends EnhancedPatternLayout {
@@ -227,12 +228,69 @@ public class CustomPatternLayout extends EnhancedPatternLayout {
         int levelIndex = formattedLog.indexOf(event.getLevel().toString());
 
         if (levelIndex != -1) {
-            formattedLog.insert(levelIndex + event.getLevel().toString().length(), " [" + traceId + "]");
+            formattedLog.insert(levelIndex + event.getLevel().toString().length(), " [TraceId : " + traceId + "]");
 
         }
         return formattedLog.toString();
     }
 }
 ```
-## 추가작업 : 로그와 메트릭은 조금 더 과감하게 추가해도 괜찮을 것 같다.
+
+그리고 grafana에 몇몇 쿼리를 추가해서 메트릭을 추가했다.
+
+예를들어 특정 traceId를 기준으로 로그를 그룹화 해서 본다던가.
+
+```
+{job="your-service"} |~ "traceID=(?P<traceid>[a-zA-Z0-9]+)"
+```
+
+동일한 traceId로 발생한 에러 횟수에 대한 임계값을 설정해서 보여준다.(사실 slack훅연동까지 생각했지만 이건 내가 하지는 않고 필요하면 할 수 있도록 임계값 관련 시간 메트릭을 추가)
+```
+sum(count_over_time({job="your-service"} |= "error" |~ "traceID=(?P<traceid>[a-zA-Z0-9]+)" [1h])) by (traceid)
+
+```
+
+
+## 사실 이 시점에 이슈는 확인됨 (소 뒷걸음 치다가...)
 ---
+여기서 관련한 이슈는 배포하면서 찾게 되었다. 
+원인은 자세히 이야기하기는 그렇지만, 인프라 관련해서 환경이 다를 때 커스텀 헤더를 포워드 해주는 기준이 달랐고,
+프론트엔드 서버가 분리되면서 별도 처리를 위한 프론트 헤더값이 있었는데 해당 헤더값이 요청 포워드 과정에서 누락되어 발생한 이슈였다. 
+
+나도 우연히 trace-id와 같은 커스텀 헤더를 추가하다가 해당 정책에 대해서 알게되었고 나의 이슈는 포워드 했다.
+
+## 추가작업 1 : 로그와 메트릭은 조금 더 과감하게 추가해도 괜찮을 것 같다.
+---
+작업이 마무리되는 도중 이렇게 로그를 많이 찍고 로그 양 자체가 추가되는게 운영팀에서 걱정할 수 있다는 이야기를 들었다.
+다만 이 즈음에 진행되는 토스 세션에서 로그를 굉장히 많이 찍고, 요청 시점과 요청 끝점은 무조건 포함된다는 이야기를 들었다.
+
+사실 아무리 생각해봐도 로그를 많이찍는 것 자체가 오버헤드나 로그양의 증가보다는 효용이 클 것 같다는 생각에 근거(?)가 생긴 것 같아 조금 더 공격적으로 접근했다.
+
+요청의 끝점으로 볼 수 있는 부분들과 요청 시작지점에도 로그를 추가했고, 비즈니스 로직이 아닌 이유로 요청이 실패로 끝나는 에러 케이스에는 요청 헤더와 같은 요청 환경에 대한 로그도 찍었다.
+
+특히 위와 같은 로그들은 traceid로 그룹화 할 수 있어 요청을 찾아보기 매우 편리해 졌다.
+
+
+## 추가작업 2 : 해당 작업을 진행하다가 알게된 추가이슈 수정
+---
+과정에서 특정 로그인 상황에 잘못된 플래그를 보고 불필요하게 crm 수정 api를 호출하는 이슈를 찾아냈다.
+정상 로그인이 되었고 정상적인 과정이었음에도 불구하고 불필요하게 crm 인터페이스를 호출하고 있었는데, 워낙 자주 호출될 이유가 있는 api이고, 호출 시점의 로그가 상세하지 않은 경우라서 지금까지 발견이 안되었던 것 같다.
+
+이부분을 trace-id를 찍어서 보니까 같은 유저의 로그인시마다 반복호출되는 부분을 알게 되었고 간단한 이슈라 가볍게 수정했다.
+
+
+## 결론
+---
+
+### AS-IS
+- 멀티쓰레도 환경에서 로그를 보기 어려웠고, 단발성으로 필요한 로그를 추가하고 지우는 것의 반복이었다. 
+- 고객센터의 인입 외에 인증관련 로그를 우리가 선제적으로 인지하기 어려웠다.
+
+### TO-BE
+- 로그를 조금 더 잘 보고 구분할 수 있는 traceId를 추가했다.
+- 특정 traceid에 대한 threshold값을 이용한다면 아마도 유저가 직면한 이슈를 고객센터 인입 전에  조금 더 빠르게 캐치 할 수 있을 것 같다.
+- 이슈가 인입되어도 traceid로 그룹화 하기에, 고객센터에서 식별한 시간대의 유저와 에러만 특정한다면 이후 로그를 보기 쉬워졌다.
+- 추가적으로 보관용 로그의 레이아웃을 수정하지는 않았고, 다른 컴포넌트의 호출에는 해당 식별값이 붙지 않기에 관련해서 너무 많은 공간을 쓰거나 하지는 않도록 최적화에 신경썼다.
+
+위와 같은 부분들은 팀장님의 입회하에 운영팀에 이야기해서 잘 받아들여 진다면, 실제로 운영환경에 적용이 될 수 있도록 하기로 했다.
+
