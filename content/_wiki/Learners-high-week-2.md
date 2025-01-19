@@ -2,7 +2,7 @@
 title: 러너스 하이 2~3주차 회고
 summary: 
 date: 2024-12-25 23:34:00 +0900
-lastmod: 2025-01-19 15:07:11 +0900
+lastmod: 2025-01-19 16:29:06 +0900
 tags: 
 categories: 
 description: 
@@ -99,10 +99,140 @@ qa기간중이기는 하지만 일정상 여유가 생긴 덕에 다음 작업�
 
 ### 기존 프로젝트, 환경 검토
 
+**메인 백엔드 서버**
+1. 사용하고 있는 Hybris라는 솔루션에서, 로그 관련 설정을 래핑해서 구현체를 제공하고 있었다.
+2. 그리고 실제로도 솔루션의 그 설정등을 그대로 이용하고 있다.
+3. [Hybris-Log](https://help.sap.com/docs/SAP_COMMERCE/d0224eca81e249cb821f2cdf45a82ace/8c07853c866910148a00baf81ea1669e.html) 링크를 검토했을 때 래핑해서 몇가지 편의사항을 제공하기는 했지만, 특이한 건 없었다.
+
+**프론트엔드 서버**
+1. 최근 새로 프로젝트 자체를 전부 리뉴얼하면서 `fetchClient`가 잘 관리되고 있었다.
+2. 백엔드 서버로 보내는 요청을 잘 한곳에서 관리하도록 되어있어 특정 헤더를 보내는건 매우 쉬웠다.
+
+**인프라**
+1. 인프라 업무를 보는 동료에게 도움을 요청해서 확인한 바로는 그라파나에 일단 기본적인 Loki설정은 되어있다고 했다.
+2. 서버 설정과 연관되어 있는 이야기인데 기본적으로 파일로그는 `fluentbit`이라는 것을 설정해서, 사용하고 있었다. 쿠버네티스, eks환경에서 간단하게 사용하고 싶을때 많이 사용하는 것 같았다.
+3. 반면 콘솔로그는 로키와 그라파나에서 볼 수 있도록 기본적인 설정들은 잘 되어있었다. 다만 메트릭 자체가 설정되어있거나 한건 아주 기본적인 부분 외에는 없었다.
+
+추가적으로 fluentbit으로 관리되는 파일로그와, 콘솔로그는 기본적으로 레이아웃을 별도로 설정해서 사용하고 있었다.
+
+```
+# 약간 이런식
+log4j2.logger.fluentbit.layout = %d{yyyy-MM-dd'T'HH:mm:ss.SSSZ} [%-5p] [%24F:%L] - %m%n
+log4j2.logger.console.layout = [%-5p] [%24F:%L] - %m%n
+```
+
 ### 작업내용, 순서 정리
 
+1. 프론트엔드 서버가 아까 말한 요청을 식별하는 hash값을 별도의 커스텀 헤더에 추가해서 발송.
+	- 모든 요청에서 해당 헤더를 보낼 수 있도록 fetch를 래핑한 client구현체에 추가
+	- next.js 서버가 직접 요청을 포워드하는 특정 서버 컴포넌트들이 있어 관련한 middleware 로직 추가
+2. 메인 백엔드 로그 관련 작업 (mdc, 로그보완 등)
+3. grafana에 인증관련 대시보드, 메트릭 추가
 
-## Touble Shootings
+## Impl and Touble Shootings
 ---
 
+### 레거시 로그 버전의 레이아웃이 잘 설정 안되는 이슈
 
+먼저, mdc 구현체를 사용하는것, 시큐리티 인증 필터의 가장 앞단에 헤더에 있는 trace-id값을 추가하는 것 등은 아주 문제 없이 잘 되었다.
+
+
+```java
+@Component
+public class OurNewTraceIdFilter extends OncePerRequestFilter {
+
+    private static final String TRACE_ID_HEADER = "X-Trace-Id";
+    private static final String DEFAULT_TRACE_ID = "N/A";
+
+    @Override
+    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
+            throws ServletException, IOException {
+
+        String traceId = Collections.list(request.getHeaderNames()).stream()
+                .filter(header -> TRACE_ID_HEADER.equalsIgnoreCase(header))
+                .findFirst()
+                .map(request::getHeader)
+                .filter(value -> !value.isEmpty())
+                .orElse(DEFAULT_TRACE_ID);
+
+        MDC.put("TraceId", traceId);
+
+        try {
+            filterChain.doFilter(request, response);
+        } finally {
+            MDC.remove("TraceId");
+        }
+    }
+}
+```
+
+그리고 이걸 간단하게 아래처럼 레이아웃을 수정해서 사용하려고 했는데,
+```
+log4j2.logger.console.layout = [%-5p] [%X{TraceId}] [%24F:%L] - %m%n
+```
+
+레이아웃 포매팅이 잘 되지 않았다.
+
+확인해봤을때 우리 프로젝트가 완전 레거시라.. Log4J 1.2.x 버전을 사용하고 있었고,
+해당 버전에서는 포매팅등 설정하는게 제한적이었다.
+(정확히는 레이아웃 설정은 가능한데 조건부 생략과 같은 것들은 잘 안됐다)
+
+관련해서 EnhancedPatternLayout이라는 구현체를 썼을 때 조금 더 유동적인 포매팅을 레이아웃으로 추가 할 수 있기는 했지만, 조건부로 생략되어도 괄호가 남아있는등 설정이 여의치 않았다.
+
+이것도 찾아보니까 별도의 레이아웃 구현체를 설정하는 방법이 있어서 해당 방법으로 추가했다.
+
+```java
+
+public class CustomPatternLayout extends EnhancedPatternLayout {
+    private static final String TRACE_ID_KEY = "TraceId";
+    private static final String TRACE_ID_PLACEHOLDER = "N/A";
+
+    @Override
+
+    public String format(LoggingEvent event) {
+        String traceId = Optional.ofNullable((String) event.getMDC(TRACE_ID_KEY))
+                                 .filter(id -> !id.isEmpty() && !TRACE_ID_PLACEHOLDER.equals(id))
+                                 .orElse(null);
+
+        String baseLog = super.format(event);
+        return (traceId != null) 
+	          ? baseLog.replaceFirst(event.getLevel()
+	          .toString(), event.getLevel() + " [" + traceId + "]") 
+              : baseLog;
+    }
+
+}
+```
+
+```
+log4j.appender.CONSOLE = org.apache.log4j.ConsoleAppender
+log4j.appender.CONSOLE.layout = ourpackage.util.CustomPatternLayout
+```
+
+그러나 여기서 오버헤드에 대한 걱정이 되어 replaceFirst()를 봤더니 정규식으로 처리하길래 약간의 수정을 더했다.
+
+```java
+public class CustomPatternLayout extends EnhancedPatternLayout {
+    private static final String TRACE_ID_KEY = "TraceId";
+    private static final String TRACE_ID_PLACEHOLDER = "N/A";
+
+    @Override
+    public String format(LoggingEvent event) {
+        String traceId = (String) event.getMDC(TRACE_ID_KEY);
+        if (traceId == null || traceId.isEmpty() || TRACE_ID_PLACEHOLDER.equals(traceId)) {
+            return super.format(event);
+        }
+
+        StringBuilder formattedLog = new StringBuilder(super.format(event));
+        int levelIndex = formattedLog.indexOf(event.getLevel().toString());
+
+        if (levelIndex != -1) {
+            formattedLog.insert(levelIndex + event.getLevel().toString().length(), " [" + traceId + "]");
+
+        }
+        return formattedLog.toString();
+    }
+}
+```
+## 추가작업 : 로그와 메트릭은 조금 더 과감하게 추가해도 괜찮을 것 같다.
+---
