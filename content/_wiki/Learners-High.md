@@ -2,7 +2,7 @@
 title: Learner's high 🏃‍➡️
 summary: 러너스 하이 계획 실행 문서 
 date: 2024-12-14 12:11:58 +0900
-lastmod: 2025-01-20 13:50:44 +0900
+lastmod: 2025-01-20 20:05:21 +0900
 tags: 
 categories: 
 description: 
@@ -57,9 +57,9 @@ tocOpen: true
 		2. 테스트 환경 보호 : jest설정을 변경하여 테스트 실행 시 운영 데이터에 영향이 없도록 방어로직 추가.
 		3. 트랜잭션 처리 개선 : Hasura 트랜잭션 대신, 요청에 맞는 보상트랜잭션 추가
 		4. typedefs 관련 검증 옵션 추가
-> 1주차 상세 작업 내용과 후기 👉  [[Learners-high-1]]
+> 1주차 상세 작업 내용과 후기 링크 ->  [[Learners-high-1]]
 
-###
+### 2주차, 3주차 작업 내용
 1. [[Learners-high-2]] : 인증 관련 로그 로깅 고도화, 메트릭 추가
 2. [[Learners-high-3]] : 카프카를 헥사고날 아키텍처로 클론코딩 해보기
 
