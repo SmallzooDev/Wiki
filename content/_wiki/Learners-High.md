@@ -2,7 +2,7 @@
 title: Learner's high 🏃‍➡️
 summary: 러너스 하이 계획 실행 문서 
 date: 2024-12-14 12:11:58 +0900
-lastmod: 2025-01-20 20:54:11 +0900
+lastmod: 2025-01-20 20:57:21 +0900
 tags: 
 categories: 
 description: 
@@ -23,7 +23,7 @@ tocOpen: true
 
 • **구체적인 데이터**를 바탕으로 의사소통하고,
 
-• **ROI(투자 대비 효과)**를 고민하며 움직이는 방식
+• ROI(투자 대비 효과)를 고민하며 움직이는 방식
 
   
 
