@@ -2,7 +2,7 @@
 title: 개인적인 이야기를 작성할 예정입니다.
 summary: 
 date: 2024-03-30 16:10:39 +0900
-lastmod: 2024-03-30 16:10:39 +0900
+lastmod: 2025-01-21 21:28:11 +0900
 tags: 
 categories: 
 public: true
@@ -16,6 +16,7 @@ showToc: true
 
 - [[Blog에-대한-생각]]
 - [[Interview-From-Jim-Keller]]
+- [[블로그-작성-가이드라인]]
 
 ### Monthly goal 🚀
 

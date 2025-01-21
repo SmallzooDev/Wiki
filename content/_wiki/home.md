@@ -2,7 +2,7 @@
 title: Index 🧊️
 summary: 
 date: 2024-03-29 09:21:07 +0900
-lastmod: 2025-01-20 21:38:46 +0900
+lastmod: 2025-01-21 21:28:11 +0900
 tags: ["wiki_home"]
 categories: 
 public: true
@@ -61,26 +61,25 @@ TocOpen: true
 ## Vim 🦅 
 
 - [[Neovim-Copilot-Config]]
-- [[Vim이-느리다면-해볼-것들]]
+- [[Vim-Profile-Log-Debugging]]
 - [[Vim-Impove-Sheet]]
 
 ## Postings 🌳
 
 - [[새로운-블로그-정착하기]]
 - [[Neovim-Migration-하기]]
-- [[Interview-From-Jim-Keller]]
-- [[코딩-테스트-언어-정하기]]
+- [[Interview-From-Jim-Keller]] : ai와 관련된 고민중에 보게된 인터뷰 (ai와 관련은 별로 없다)
 - [[튜터링-질의-응답-모음]]
-- [[블로그-작성-가이드라인]]
 - [[redis-handshake-for-replicas]] : 레플리카(슬레이브) 등록을 위한 HandShake중 클라이언트를 식별하는 이슈
 - [[Redis-Stream-Issue]]
-- [[rust-mpsc]]
-- [[난개발된-레디스를-이벤트루프-기반으로-리팩토링하기]]
+- [[rust-mpsc]] : rust tokio의 mpsc 기능 이해하기
+- [[난개발된-레디스를-이벤트루프-기반으로-리팩토링하기]] : 레디스 클론코딩중 발생한 이슈 트러블슈팅
 - [[Learners-High]] : 토스 러너스 하이 1기를 진행하면서 겪은 이야기들
-- [[vimwiki-obsidian-같이-사용하기]]
+- [[vimwiki-obsidian-같이-사용하기]] : 빔위키로 관리하던 블로그를 옵시디언 볼트로도 관리하도록 설정하기
 - [[전시영역-백엔드-테스트코드-도입기]] : 전시영역 백엔드 레거시 프로젝트에 테스트코드를 도입하면서 했던 고민들 정리
 - [[레거시-프로젝트의-로깅-개선하기]] : 레거시 프로젝트의 로깅 개선하기
 - [[카프카를-헥사고날하게-클론코딩-해보기]] : 러스트로 카프카를 헥사고날하게 클론코딩 해보기
+- [[결제-서비스-리뉴얼하기]] : 10몇년된 서비스의 결제 전면 리뉴얼
 
 ## ETC 👻
 
