@@ -2,8 +2,9 @@
 title: vimwiki obsidian 같이 사용하기
 summary: 
 date: 2025-01-17 19:45:31 +0900
-lastmod: 2025-01-21 21:28:11 +0900
-tags: 
+lastmod: 2025-01-23 18:34:14 +0900
+tags:
+  - Postings
 categories: 
 description: 
 showToc: true

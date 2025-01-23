@@ -1,9 +1,10 @@
 ---
 title: Learner's high 🏃‍➡️
-summary: 러너스 하이 계획 실행 문서 
+summary: 러너스 하이 계획 실행 문서
 date: 2024-12-14 12:11:58 +0900
-lastmod: 2025-01-20 21:38:46 +0900
-tags: 
+lastmod: 2025-01-23 18:34:14 +0900
+tags:
+  - Postings
 categories: 
 description: 
 showToc: true
