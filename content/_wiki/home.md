@@ -2,7 +2,7 @@
 title: Index 🧊️
 summary: 
 date: 2024-03-29 09:21:07 +0900
-lastmod: 2025-01-22 13:59:46 +0900
+lastmod: 2025-01-25 14:42:57 +0900
 tags: ["wiki_home"]
 categories: 
 public: true
@@ -18,6 +18,7 @@ TocOpen: true
 - This wiki inspired by : [기계인간 Johngrib 💭](https://johngrib.github.io/wiki/my-wiki/)
 ---
 
+> 큰 문제를 작은 문제 여러개로 볼 수 있는 지혜와, 가장 작은 문제 하나를 시작할 만큼의 실행력을 갖기를
 ## Main 🏠
 - [[Daily-Log-2024]] : 저에 대해 궁금하시다면 이 문서를 참고해주세요(데일리 아님 주의 🙉)
 - [[Daily-Log-2025]] : 2025 시작!
@@ -45,7 +46,7 @@ TocOpen: true
 
 ## Backend 💰
 - [[헥사고날-아키텍처]]
-- [[코틀린-완벽-가이드]]
+- [[코틀린-완벽-가이드]] : 코틀린관련 책, 강의, 스터디 내용정리
 
 
 ## DataBase 🗄️
@@ -66,7 +67,7 @@ TocOpen: true
 
 ## Postings 🌳
 
-- [[새로운-블로그-정착하기]]
+- [[새로운-블로그-정착하기]] : 블로그 개발기
 - [[Neovim-Migration-하기]]
 - [[Interview-From-Jim-Keller]] : ai와 관련된 고민중에 보게된 인터뷰 (ai와 관련은 별로 없다)
 - [[튜터링-질의-응답-모음]]
