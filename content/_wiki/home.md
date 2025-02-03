@@ -2,7 +2,7 @@
 title: Index 🧊️
 summary: 
 date: 2024-03-29 09:21:07 +0900
-lastmod: 2025-02-03 18:42:24 +0900
+lastmod: 2025-02-03 18:44:23 +0900
 tags: ["wiki_home"]
 categories: 
 public: true
@@ -53,7 +53,7 @@ TocOpen: true
 
 ## DataBase 🗄️
 - [[데이터-중심-애플리케이션-설계]] : 해당 도서에 대한 스터디 내용정리 문서
-- [[Interview-Queries]] : sql50, advanced sql 50을 하루에 다섯개씩 풀 예정
+- [[Interview-Queries]] : sql50, advanced sql 50을 하루에 다섯개씩 풀 예정, 정리는 필요한것만 할 것 같다.
 
 
 

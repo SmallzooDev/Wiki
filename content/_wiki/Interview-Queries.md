@@ -1,17 +1,16 @@
 ---
-title: untitle
+title: Coding Interview SQL
 summary: 
 date: 2025-02-03 17:53:08 +0900
-lastmod: 2025-02-03 18:42:24 +0900
+lastmod: 2025-02-03 18:44:23 +0900
 tags: 
 categories: 
 description: 
 showToc: true
 tocOpen: true
 ---
-
-## Leetcode
-
+## 2024-02-03
+---
 ### 197. Rising Temperature
 [LeetcodeLink](https://leetcode.com/problems/rising-temperature/?envType=study-plan-v2&envId=top-sql-50)
 
