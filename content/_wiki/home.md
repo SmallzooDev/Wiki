@@ -2,7 +2,7 @@
 title: Index 🧊️
 summary: 
 date: 2024-03-29 09:21:07 +0900
-lastmod: 2025-01-27 16:53:04 +0900
+lastmod: 2025-02-03 18:42:24 +0900
 tags: ["wiki_home"]
 categories: 
 public: true
@@ -47,12 +47,14 @@ TocOpen: true
 ## Backend 💰
 - [[헥사고날-아키텍처]]
 - [[코틀린-완벽-가이드-1장-6장]] : 코틀린관련 책, 강의, 스터디 내용정리
-- [[코틀린-완벽-가이드-7장-12장]]
+- [[코틀린-완벽-가이드-7장-12장]] : 위의 2편!
 
 
 
 ## DataBase 🗄️
 - [[데이터-중심-애플리케이션-설계]] : 해당 도서에 대한 스터디 내용정리 문서
+- [[Interview-Queries]] : sql50, advanced sql 50을 하루에 다섯개씩 풀 예정
+
 
 
 ## Computer Science 🦉
