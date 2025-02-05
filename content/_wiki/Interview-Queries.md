@@ -2,7 +2,7 @@
 title: Coding Interview SQL
 summary: 
 date: 2025-02-03 17:53:08 +0900
-lastmod: 2025-02-03 18:44:23 +0900
+lastmod: 2025-02-05 20:30:28 +0900
 tags: 
 categories: 
 description: 
@@ -64,3 +64,51 @@ where bonus < 1000 or bonus is null;
 
 
 > 바로 다음 문제인데, 왜 이것들이 같이 묶여있는지 모르겠다. 이런건 스킵해야겠다.
+
+
+## 2025-02-05
+---
+[LeecodeLink](https://leetcode.com/problems/students-and-examinations/submissions/1532223359/?envType=study-plan-v2&envId=top-sql-50)
+
+```sql
+select 
+    s.student_id, 
+    s.student_name, 
+    sub.subject_name, 
+    coalesce(count(e.student_id), 0) as attended_exams
+from 
+    students s
+join 
+    subjects sub on 1=1
+left join 
+    examinations e on s.student_id = e.student_id and sub.subject_name = e.subject_name
+group by 
+    s.student_id, 
+    s.student_name, 
+    sub.subject_name
+order by 
+    s.student_id, 
+    sub.subject_name;
+```
+
+- students 테이블과 subjects 테이블을 on 1=1로 단순하게 조인하여 모든 학생과 모든 과목의 조합을 생성
+- 생성된 학생-과목 쌍을 examinations 테이블과 left join으로 연결
+- coalesce(count(e.student_id), 0)을 사용하여 참석 기록이 없는 경우 0으로 반환
+
+> 1번을 cross join을 이용해서 가능하다고 하는데, cross join을 쓰는게 생각이 안났다.
+
+
+```sql
+select
+m.name
+from
+employee e
+join
+employee m on e.managerId = m.id
+group by
+m.id, m.name
+having
+count(e.id) >= 5;
+```
+> 이건 왜 medium일까
+
