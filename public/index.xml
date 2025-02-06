@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>SmallzooDevWiki🧊️</title>
-    <link>http://localhost:57767/</link>
+    <link>http://localhost:59040/</link>
     <description>Recent content on SmallzooDevWiki🧊️</description>
     <generator>Hugo -- 0.143.1</generator>
     <language>en</language>
     <lastBuildDate>Thu, 06 Feb 2025 14:02:05 +0900</lastBuildDate>
-    <atom:link href="http://localhost:57767/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:59040/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>untitle</title>
-      <link>http://localhost:57767/_wiki/%EC%8A%A4%ED%94%84%EB%A7%81%EB%B6%80%ED%8A%B8%EB%A1%9C-%EC%A7%81%EC%A0%91-%EB%A7%8C%EB%93%A4%EB%A9%B4%EC%84%9C-%EB%B0%B0%EC%9A%B0%EB%8A%94-%EB%8C%80%EA%B7%9C%EB%AA%A8-%EC%8B%9C%EC%8A%A4%ED%85%9C-%EC%84%A4%EA%B3%84/</link>
+      <link>http://localhost:59040/_wiki/%EC%8A%A4%ED%94%84%EB%A7%81%EB%B6%80%ED%8A%B8%EB%A1%9C-%EC%A7%81%EC%A0%91-%EB%A7%8C%EB%93%A4%EB%A9%B4%EC%84%9C-%EB%B0%B0%EC%9A%B0%EB%8A%94-%EB%8C%80%EA%B7%9C%EB%AA%A8-%EC%8B%9C%EC%8A%A4%ED%85%9C-%EC%84%A4%EA%B3%84/</link>
       <pubDate>Tue, 04 Feb 2025 18:30:49 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/%EC%8A%A4%ED%94%84%EB%A7%81%EB%B6%80%ED%8A%B8%EB%A1%9C-%EC%A7%81%EC%A0%91-%EB%A7%8C%EB%93%A4%EB%A9%B4%EC%84%9C-%EB%B0%B0%EC%9A%B0%EB%8A%94-%EB%8C%80%EA%B7%9C%EB%AA%A8-%EC%8B%9C%EC%8A%A4%ED%85%9C-%EC%84%A4%EA%B3%84/</guid>
+      <guid>http://localhost:59040/_wiki/%EC%8A%A4%ED%94%84%EB%A7%81%EB%B6%80%ED%8A%B8%EB%A1%9C-%EC%A7%81%EC%A0%91-%EB%A7%8C%EB%93%A4%EB%A9%B4%EC%84%9C-%EB%B0%B0%EC%9A%B0%EB%8A%94-%EB%8C%80%EA%B7%9C%EB%AA%A8-%EC%8B%9C%EC%8A%A4%ED%85%9C-%EC%84%A4%EA%B3%84/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;&lt;a href=&#34;https://www.inflearn.com/course/%EC%8A%A4%ED%94%84%EB%A7%81%EB%B6%80%ED%8A%B8%EB%A1%9C-%EB%8C%80%EA%B7%9C%EB%AA%A8-%EC%8B%9C%EC%8A%A4%ED%85%9C%EC%84%A4%EA%B3%84-%EA%B2%8C%EC%8B%9C%ED%8C%90/dashboard&#34;&gt;인프런강의링크&lt;/a&gt;
 코틀린으로 진행&lt;/p&gt;&lt;/blockquote&gt;</description>
     </item>
     <item>
       <title>Coding Interview SQL</title>
-      <link>http://localhost:57767/_wiki/interview-queries/</link>
+      <link>http://localhost:59040/_wiki/interview-queries/</link>
       <pubDate>Mon, 03 Feb 2025 17:53:08 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/interview-queries/</guid>
+      <guid>http://localhost:59040/_wiki/interview-queries/</guid>
       <description>&lt;h2 id=&#34;2024-02-03&#34;&gt;2024-02-03&lt;/h2&gt;
 &lt;hr&gt;
 &lt;h3 id=&#34;197-rising-temperature&#34;&gt;197. Rising Temperature&lt;/h3&gt;
@@ -54,9 +54,9 @@
     </item>
     <item>
       <title>코틀린 완벽 가이드 간단 정리</title>
-      <link>http://localhost:57767/_wiki/%EC%BD%94%ED%8B%80%EB%A6%B0-%EC%99%84%EB%B2%BD-%EA%B0%80%EC%9D%B4%EB%93%9C-7%EC%9E%A5-12%EC%9E%A5/</link>
+      <link>http://localhost:59040/_wiki/%EC%BD%94%ED%8B%80%EB%A6%B0-%EC%99%84%EB%B2%BD-%EA%B0%80%EC%9D%B4%EB%93%9C-7%EC%9E%A5-12%EC%9E%A5/</link>
       <pubDate>Mon, 27 Jan 2025 15:20:34 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/%EC%BD%94%ED%8B%80%EB%A6%B0-%EC%99%84%EB%B2%BD-%EA%B0%80%EC%9D%B4%EB%93%9C-7%EC%9E%A5-12%EC%9E%A5/</guid>
+      <guid>http://localhost:59040/_wiki/%EC%BD%94%ED%8B%80%EB%A6%B0-%EC%99%84%EB%B2%BD-%EA%B0%80%EC%9D%B4%EB%93%9C-7%EC%9E%A5-12%EC%9E%A5/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;코틀린 완벽 가이드 책과 코드스피츠 유튜브 스터디 영상 내용을 정리하거나 생각을 정리한 문서 (인용 태그를 제외한 모든 텍스트들은 스터디 내용을 필사하거나, 책에서 정리한 내용입니다.)&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;출쳐 : &lt;a href=&#34;https://product.kyobobook.co.kr/detail/S000001834805?utm_source=google&amp;amp;utm_medium=cpc&amp;amp;utm_campaign=googleSearch&amp;amp;gt_network=g&amp;amp;gt_keyword=&amp;amp;gt_target_id=aud-901091942354:dsa-435935280379&amp;amp;gt_campaign_id=9979905549&amp;amp;gt_adgroup_id=132556570510&amp;amp;gad_source=1&#34;&gt;코틀린완벽가이드&lt;/a&gt;, &lt;a href=&#34;https://www.youtube.com/watch?v=tp-C6TtVjVA&#34;&gt;코드스피츠 유튜브 영상&lt;/a&gt;&lt;/p&gt;
@@ -73,9 +73,9 @@
     </item>
     <item>
       <title>PostMessage를 이용해서 본인인증 안전하게 처리하기 🛟</title>
-      <link>http://localhost:57767/_wiki/%EC%8B%A0%EA%B7%9C-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EC%97%90%EC%84%9C-%EB%B3%B8%EC%9D%B8%EC%9D%B8%EC%A6%9D-%EC%97%B0%EB%8F%99-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0/</link>
+      <link>http://localhost:59040/_wiki/%EC%8B%A0%EA%B7%9C-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EC%97%90%EC%84%9C-%EB%B3%B8%EC%9D%B8%EC%9D%B8%EC%A6%9D-%EC%97%B0%EB%8F%99-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0/</link>
       <pubDate>Wed, 22 Jan 2025 12:28:13 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/%EC%8B%A0%EA%B7%9C-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EC%97%90%EC%84%9C-%EB%B3%B8%EC%9D%B8%EC%9D%B8%EC%A6%9D-%EC%97%B0%EB%8F%99-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0/</guid>
+      <guid>http://localhost:59040/_wiki/%EC%8B%A0%EA%B7%9C-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EC%97%90%EC%84%9C-%EB%B3%B8%EC%9D%B8%EC%9D%B8%EC%A6%9D-%EC%97%B0%EB%8F%99-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0/</guid>
       <description>&lt;h2 id=&#34;intro-&#34;&gt;Intro 👋&lt;/h2&gt;
 &lt;hr&gt;
 &lt;p&gt;배경 : 본인인증 서비스 리뉴얼하는 태스크를 진행했었다.&lt;/p&gt;
@@ -100,16 +100,16 @@
     </item>
     <item>
       <title>레거시 결제 서비스 리뉴얼, 모든 pg 서비스 연동 개발 회고 💸</title>
-      <link>http://localhost:57767/_wiki/%EA%B2%B0%EC%A0%9C-%EC%84%9C%EB%B9%84%EC%8A%A4-%EB%A6%AC%EB%89%B4%EC%96%BC%ED%95%98%EA%B8%B0/</link>
+      <link>http://localhost:59040/_wiki/%EA%B2%B0%EC%A0%9C-%EC%84%9C%EB%B9%84%EC%8A%A4-%EB%A6%AC%EB%89%B4%EC%96%BC%ED%95%98%EA%B8%B0/</link>
       <pubDate>Tue, 21 Jan 2025 17:15:43 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/%EA%B2%B0%EC%A0%9C-%EC%84%9C%EB%B9%84%EC%8A%A4-%EB%A6%AC%EB%89%B4%EC%96%BC%ED%95%98%EA%B8%B0/</guid>
+      <guid>http://localhost:59040/_wiki/%EA%B2%B0%EC%A0%9C-%EC%84%9C%EB%B9%84%EC%8A%A4-%EB%A6%AC%EB%89%B4%EC%96%BC%ED%95%98%EA%B8%B0/</guid>
       <description>이걸 전부 내가 했다고.. 스스로 뿌듯해서 쓰는 후기</description>
     </item>
     <item>
       <title>러너스 하이 3~4주차 회고</title>
-      <link>http://localhost:57767/_wiki/%EC%B9%B4%ED%94%84%EC%B9%B4%EB%A5%BC-%ED%97%A5%EC%82%AC%EA%B3%A0%EB%82%A0%ED%95%98%EA%B2%8C-%ED%81%B4%EB%A1%A0%EC%BD%94%EB%94%A9-%ED%95%B4%EB%B3%B4%EA%B8%B0/</link>
+      <link>http://localhost:59040/_wiki/%EC%B9%B4%ED%94%84%EC%B9%B4%EB%A5%BC-%ED%97%A5%EC%82%AC%EA%B3%A0%EB%82%A0%ED%95%98%EA%B2%8C-%ED%81%B4%EB%A1%A0%EC%BD%94%EB%94%A9-%ED%95%B4%EB%B3%B4%EA%B8%B0/</link>
       <pubDate>Sun, 19 Jan 2025 20:37:30 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/%EC%B9%B4%ED%94%84%EC%B9%B4%EB%A5%BC-%ED%97%A5%EC%82%AC%EA%B3%A0%EB%82%A0%ED%95%98%EA%B2%8C-%ED%81%B4%EB%A1%A0%EC%BD%94%EB%94%A9-%ED%95%B4%EB%B3%B4%EA%B8%B0/</guid>
+      <guid>http://localhost:59040/_wiki/%EC%B9%B4%ED%94%84%EC%B9%B4%EB%A5%BC-%ED%97%A5%EC%82%AC%EA%B3%A0%EB%82%A0%ED%95%98%EA%B2%8C-%ED%81%B4%EB%A1%A0%EC%BD%94%EB%94%A9-%ED%95%B4%EB%B3%B4%EA%B8%B0/</guid>
       <description>&lt;h2 id=&#34;learners-high-week-34-summary&#34;&gt;Learners High Week 3,4 Summary!&lt;/h2&gt;
 &lt;hr&gt;
 &lt;p&gt;카프카를 헥사고날 아키텍처를 토대로 클론코딩 해봤다.
@@ -124,9 +124,9 @@
     </item>
     <item>
       <title>vimwiki obsidian 같이 사용하기</title>
-      <link>http://localhost:57767/_wiki/vimwiki-obsidian-%EA%B0%99%EC%9D%B4-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/</link>
+      <link>http://localhost:59040/_wiki/vimwiki-obsidian-%EA%B0%99%EC%9D%B4-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/</link>
       <pubDate>Fri, 17 Jan 2025 19:45:31 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/vimwiki-obsidian-%EA%B0%99%EC%9D%B4-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/</guid>
+      <guid>http://localhost:59040/_wiki/vimwiki-obsidian-%EA%B0%99%EC%9D%B4-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/</guid>
       <description>&lt;h2 id=&#34;00-why-&#34;&gt;00. Why..? 😬&lt;/h2&gt;
 &lt;hr&gt;
 &lt;p&gt;일단 vimwiki 자체는 매우 만족하면서 잘 쓰고 있다.
@@ -137,9 +137,9 @@
     </item>
     <item>
       <title>코틀린 완벽 가이드 간단 정리</title>
-      <link>http://localhost:57767/_wiki/%EC%BD%94%ED%8B%80%EB%A6%B0-%EC%99%84%EB%B2%BD-%EA%B0%80%EC%9D%B4%EB%93%9C-1%EC%9E%A5-6%EC%9E%A5/</link>
+      <link>http://localhost:59040/_wiki/%EC%BD%94%ED%8B%80%EB%A6%B0-%EC%99%84%EB%B2%BD-%EA%B0%80%EC%9D%B4%EB%93%9C-1%EC%9E%A5-6%EC%9E%A5/</link>
       <pubDate>Tue, 14 Jan 2025 11:49:42 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/%EC%BD%94%ED%8B%80%EB%A6%B0-%EC%99%84%EB%B2%BD-%EA%B0%80%EC%9D%B4%EB%93%9C-1%EC%9E%A5-6%EC%9E%A5/</guid>
+      <guid>http://localhost:59040/_wiki/%EC%BD%94%ED%8B%80%EB%A6%B0-%EC%99%84%EB%B2%BD-%EA%B0%80%EC%9D%B4%EB%93%9C-1%EC%9E%A5-6%EC%9E%A5/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;코틀린 완벽 가이드 책과 코드스피츠 유튜브 스터디 영상 내용을 정리하거나 생각을 정리한 문서 (인용 태그를 제외한 모든 텍스트들은 스터디 내용을 필사하거나, 책에서 정리한 내용입니다.)&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;출쳐 : &lt;a href=&#34;https://product.kyobobook.co.kr/detail/S000001834805?utm_source=google&amp;amp;utm_medium=cpc&amp;amp;utm_campaign=googleSearch&amp;amp;gt_network=g&amp;amp;gt_keyword=&amp;amp;gt_target_id=aud-901091942354:dsa-435935280379&amp;amp;gt_campaign_id=9979905549&amp;amp;gt_adgroup_id=132556570510&amp;amp;gad_source=1&#34;&gt;코틀린완벽가이드&lt;/a&gt;, &lt;a href=&#34;https://www.youtube.com/watch?v=tp-C6TtVjVA&#34;&gt;코드스피츠 유튜브 영상&lt;/a&gt;&lt;/p&gt;
@@ -152,9 +152,9 @@
     </item>
     <item>
       <title>Daily Log 2025</title>
-      <link>http://localhost:57767/_wiki/daily-log-2025/</link>
+      <link>http://localhost:59040/_wiki/daily-log-2025/</link>
       <pubDate>Wed, 08 Jan 2025 20:19:31 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/daily-log-2025/</guid>
+      <guid>http://localhost:59040/_wiki/daily-log-2025/</guid>
       <description>&lt;h3 id=&#34;2025-01-08&#34;&gt;2025-01-08&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;너무 바빠서 뭘 못하고있다.&lt;/li&gt;
@@ -195,9 +195,9 @@
     </item>
     <item>
       <title>헥사고날 아키텍처 정리 🧔‍♂️</title>
-      <link>http://localhost:57767/_wiki/%ED%97%A5%EC%82%AC%EA%B3%A0%EB%82%A0-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98/</link>
+      <link>http://localhost:59040/_wiki/%ED%97%A5%EC%82%AC%EA%B3%A0%EB%82%A0-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98/</link>
       <pubDate>Wed, 01 Jan 2025 19:46:07 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/%ED%97%A5%EC%82%AC%EA%B3%A0%EB%82%A0-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98/</guid>
+      <guid>http://localhost:59040/_wiki/%ED%97%A5%EC%82%AC%EA%B3%A0%EB%82%A0-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98/</guid>
       <description>&lt;h2 id=&#34;출처&#34;&gt;출처&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;만들면서 배우는 헥사고날 아키텍처 설계와 구현 - &lt;a href=&#34;https://www.yes24.com/product/goods/112927162&#34;&gt;링크&lt;/a&gt;
@@ -222,9 +222,9 @@
     </item>
     <item>
       <title>러너스 하이 2~3주차 회고</title>
-      <link>http://localhost:57767/_wiki/%EB%A0%88%EA%B1%B0%EC%8B%9C-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EC%9D%98-%EB%A1%9C%EA%B9%85-%EA%B0%9C%EC%84%A0%ED%95%98%EA%B8%B0/</link>
+      <link>http://localhost:59040/_wiki/%EB%A0%88%EA%B1%B0%EC%8B%9C-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EC%9D%98-%EB%A1%9C%EA%B9%85-%EA%B0%9C%EC%84%A0%ED%95%98%EA%B8%B0/</link>
       <pubDate>Wed, 25 Dec 2024 23:34:00 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/%EB%A0%88%EA%B1%B0%EC%8B%9C-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EC%9D%98-%EB%A1%9C%EA%B9%85-%EA%B0%9C%EC%84%A0%ED%95%98%EA%B8%B0/</guid>
+      <guid>http://localhost:59040/_wiki/%EB%A0%88%EA%B1%B0%EC%8B%9C-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EC%9D%98-%EB%A1%9C%EA%B9%85-%EA%B0%9C%EC%84%A0%ED%95%98%EA%B8%B0/</guid>
       <description>&lt;h2 id=&#34;learners-high-week-23-summary&#34;&gt;Learners High Week 2,3 Summary!&lt;/h2&gt;
 &lt;hr&gt;
 &lt;ol&gt;
@@ -241,16 +241,16 @@ qa기간중이기는 하지만 일정상 여유가 생긴 덕에 다음 작업�
     </item>
     <item>
       <title>러너스 하이 1~2주차 회고</title>
-      <link>http://localhost:57767/_wiki/%EC%A0%84%EC%8B%9C%EC%98%81%EC%97%AD-%EB%B0%B1%EC%97%94%EB%93%9C-%ED%85%8C%EC%8A%A4%ED%8A%B8%EC%BD%94%EB%93%9C-%EB%8F%84%EC%9E%85%EA%B8%B0/</link>
+      <link>http://localhost:59040/_wiki/%EC%A0%84%EC%8B%9C%EC%98%81%EC%97%AD-%EB%B0%B1%EC%97%94%EB%93%9C-%ED%85%8C%EC%8A%A4%ED%8A%B8%EC%BD%94%EB%93%9C-%EB%8F%84%EC%9E%85%EA%B8%B0/</link>
       <pubDate>Sun, 22 Dec 2024 14:12:48 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/%EC%A0%84%EC%8B%9C%EC%98%81%EC%97%AD-%EB%B0%B1%EC%97%94%EB%93%9C-%ED%85%8C%EC%8A%A4%ED%8A%B8%EC%BD%94%EB%93%9C-%EB%8F%84%EC%9E%85%EA%B8%B0/</guid>
+      <guid>http://localhost:59040/_wiki/%EC%A0%84%EC%8B%9C%EC%98%81%EC%97%AD-%EB%B0%B1%EC%97%94%EB%93%9C-%ED%85%8C%EC%8A%A4%ED%8A%B8%EC%BD%94%EB%93%9C-%EB%8F%84%EC%9E%85%EA%B8%B0/</guid>
       <description>프론트엔드 잔여작업 마치기, 테스트코드 도입하기</description>
     </item>
     <item>
       <title>Day-03, 대충 쓰고 wil 써야지 (뭔가 플래그 같지만)</title>
-      <link>http://localhost:57767/_wiki/ldady-03/</link>
+      <link>http://localhost:59040/_wiki/ldady-03/</link>
       <pubDate>Thu, 19 Dec 2024 20:36:51 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/ldady-03/</guid>
+      <guid>http://localhost:59040/_wiki/ldady-03/</guid>
       <description>&lt;p&gt;일단 너무 바쁘다.&lt;/p&gt;
 &lt;p&gt;이달 말까지 잡힌 프론트업무를 다 쳐냈다.&lt;/p&gt;
 &lt;p&gt;그리고 야근과 틈내나는대로 테스트코드도 도입중이다&lt;/p&gt;
@@ -258,17 +258,17 @@ qa기간중이기는 하지만 일정상 여유가 생긴 덕에 다음 작업�
     </item>
     <item>
       <title>프론트 업무이지만, 더 나은 방법을 고민하며</title>
-      <link>http://localhost:57767/_wiki/lday-02/</link>
+      <link>http://localhost:59040/_wiki/lday-02/</link>
       <pubDate>Wed, 18 Dec 2024 23:31:44 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/lday-02/</guid>
+      <guid>http://localhost:59040/_wiki/lday-02/</guid>
       <description>&lt;h2 id=&#34;커뮤니티-서비스-개발&#34;&gt;커뮤니티 서비스 개발&lt;/h2&gt;
 &lt;hr&gt;</description>
     </item>
     <item>
       <title>Day-01, 목표 설정하기, 기존 프론트엔드 작업 쳐내기</title>
-      <link>http://localhost:57767/_wiki/lday-01/</link>
+      <link>http://localhost:59040/_wiki/lday-01/</link>
       <pubDate>Tue, 17 Dec 2024 19:38:35 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/lday-01/</guid>
+      <guid>http://localhost:59040/_wiki/lday-01/</guid>
       <description>&lt;h2 id=&#34;목표-설정&#34;&gt;목표 설정&lt;/h2&gt;
 &lt;p&gt;목표를 설정하려고 어제오늘 내내 고민했고 어느정도 윤곽이 잡힌 것 같다.
 지금 작업과 관련해서 할 수 있는일과, 다음 작업을 통해서 개선 할 일 두가지의 꼭지로 되어있다.&lt;/p&gt;
@@ -291,37 +291,37 @@ qa기간중이기는 하지만 일정상 여유가 생긴 덕에 다음 작업�
     </item>
     <item>
       <title>데이터 중심 애플리케이션 설계 11장</title>
-      <link>http://localhost:57767/_wiki/11%EC%9E%A5/</link>
+      <link>http://localhost:59040/_wiki/11%EC%9E%A5/</link>
       <pubDate>Sun, 15 Dec 2024 22:44:03 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/11%EC%9E%A5/</guid>
+      <guid>http://localhost:59040/_wiki/11%EC%9E%A5/</guid>
       <description>스트림 처리</description>
     </item>
     <item>
       <title>데이터 중심 애플리케이션 설계 10장</title>
-      <link>http://localhost:57767/_wiki/10%EC%9E%A5/</link>
+      <link>http://localhost:59040/_wiki/10%EC%9E%A5/</link>
       <pubDate>Sun, 15 Dec 2024 21:00:34 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/10%EC%9E%A5/</guid>
+      <guid>http://localhost:59040/_wiki/10%EC%9E%A5/</guid>
       <description>일괄 처리</description>
     </item>
     <item>
       <title>L-Day-00</title>
-      <link>http://localhost:57767/_wiki/l-day-00/</link>
+      <link>http://localhost:59040/_wiki/l-day-00/</link>
       <pubDate>Sat, 14 Dec 2024 12:16:01 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/l-day-00/</guid>
+      <guid>http://localhost:59040/_wiki/l-day-00/</guid>
       <description>준비!</description>
     </item>
     <item>
       <title>Learner&#39;s high 🏃‍➡️</title>
-      <link>http://localhost:57767/_wiki/learners-high/</link>
+      <link>http://localhost:59040/_wiki/learners-high/</link>
       <pubDate>Sat, 14 Dec 2024 12:11:58 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/learners-high/</guid>
+      <guid>http://localhost:59040/_wiki/learners-high/</guid>
       <description>러너스 하이 계획 실행 문서</description>
     </item>
     <item>
       <title>mpsc refactoring review 🦀</title>
-      <link>http://localhost:57767/_wiki/mpsc-%EC%A7%88%EB%AC%B8-%EB%8B%B5%EB%B3%80-%EB%B0%B1%EC%97%85/</link>
+      <link>http://localhost:59040/_wiki/mpsc-%EC%A7%88%EB%AC%B8-%EB%8B%B5%EB%B3%80-%EB%B0%B1%EC%97%85/</link>
       <pubDate>Thu, 28 Nov 2024 18:23:06 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/mpsc-%EC%A7%88%EB%AC%B8-%EB%8B%B5%EB%B3%80-%EB%B0%B1%EC%97%85/</guid>
+      <guid>http://localhost:59040/_wiki/mpsc-%EC%A7%88%EB%AC%B8-%EB%8B%B5%EB%B3%80-%EB%B0%B1%EC%97%85/</guid>
       <description>&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-rust&#34; data-lang=&#34;rust&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6c7086;font-style:italic&#34;&gt;#[tokio::main]&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#cba6f7&#34;&gt;async&lt;/span&gt; &lt;span style=&#34;color:#cba6f7&#34;&gt;fn&lt;/span&gt; &lt;span style=&#34;color:#89b4fa&#34;&gt;main&lt;/span&gt;() {
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#6c7086;font-style:italic&#34;&gt;// 1. 필요한 설정, 데이터 등을 세팅함.
@@ -603,9 +603,9 @@ qa기간중이기는 하지만 일정상 여유가 생긴 덕에 다음 작업�
     </item>
     <item>
       <title>난개발된 레디스를 이벤트 루프 기반으로 리팩토링하기 🥶</title>
-      <link>http://localhost:57767/_wiki/%EB%82%9C%EA%B0%9C%EB%B0%9C%EB%90%9C-%EB%A0%88%EB%94%94%EC%8A%A4%EB%A5%BC-%EC%9D%B4%EB%B2%A4%ED%8A%B8%EB%A3%A8%ED%94%84-%EA%B8%B0%EB%B0%98%EC%9C%BC%EB%A1%9C-%EB%A6%AC%ED%8C%A9%ED%86%A0%EB%A7%81%ED%95%98%EA%B8%B0/</link>
+      <link>http://localhost:59040/_wiki/%EB%82%9C%EA%B0%9C%EB%B0%9C%EB%90%9C-%EB%A0%88%EB%94%94%EC%8A%A4%EB%A5%BC-%EC%9D%B4%EB%B2%A4%ED%8A%B8%EB%A3%A8%ED%94%84-%EA%B8%B0%EB%B0%98%EC%9C%BC%EB%A1%9C-%EB%A6%AC%ED%8C%A9%ED%86%A0%EB%A7%81%ED%95%98%EA%B8%B0/</link>
       <pubDate>Tue, 26 Nov 2024 14:10:39 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/%EB%82%9C%EA%B0%9C%EB%B0%9C%EB%90%9C-%EB%A0%88%EB%94%94%EC%8A%A4%EB%A5%BC-%EC%9D%B4%EB%B2%A4%ED%8A%B8%EB%A3%A8%ED%94%84-%EA%B8%B0%EB%B0%98%EC%9C%BC%EB%A1%9C-%EB%A6%AC%ED%8C%A9%ED%86%A0%EB%A7%81%ED%95%98%EA%B8%B0/</guid>
+      <guid>http://localhost:59040/_wiki/%EB%82%9C%EA%B0%9C%EB%B0%9C%EB%90%9C-%EB%A0%88%EB%94%94%EC%8A%A4%EB%A5%BC-%EC%9D%B4%EB%B2%A4%ED%8A%B8%EB%A3%A8%ED%94%84-%EA%B8%B0%EB%B0%98%EC%9C%BC%EB%A1%9C-%EB%A6%AC%ED%8C%A9%ED%86%A0%EB%A7%81%ED%95%98%EA%B8%B0/</guid>
       <description>&lt;h2 id=&#34;prerequisite&#34;&gt;Prerequisite&lt;/h2&gt;
 &lt;hr&gt;
 &lt;p&gt;내가 직면한 문제는 아래의 문서에 있다.&lt;/p&gt;
@@ -628,9 +628,9 @@ qa기간중이기는 하지만 일정상 여유가 생긴 덕에 다음 작업�
     </item>
     <item>
       <title>러스트의 mpsc 🤔</title>
-      <link>http://localhost:57767/_wiki/rust-mpsc/</link>
+      <link>http://localhost:59040/_wiki/rust-mpsc/</link>
       <pubDate>Tue, 26 Nov 2024 11:03:50 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/rust-mpsc/</guid>
+      <guid>http://localhost:59040/_wiki/rust-mpsc/</guid>
       <description>&lt;h2 id=&#34;mpsc란&#34;&gt;mpsc란?&lt;/h2&gt;
 &lt;hr&gt;
 &lt;blockquote&gt;
@@ -674,23 +674,23 @@ qa기간중이기는 하지만 일정상 여유가 생긴 덕에 다음 작업�
     </item>
     <item>
       <title>Lock과 Stream을 어떻게 접근 할 것인가..</title>
-      <link>http://localhost:57767/_wiki/redis-stream-issue/</link>
+      <link>http://localhost:59040/_wiki/redis-stream-issue/</link>
       <pubDate>Sun, 24 Nov 2024 00:23:54 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/redis-stream-issue/</guid>
+      <guid>http://localhost:59040/_wiki/redis-stream-issue/</guid>
       <description>산넘어 산..</description>
     </item>
     <item>
       <title>레디스 HandShake중 이슈 처리하기😬</title>
-      <link>http://localhost:57767/_wiki/redis-handshake-for-replicas/</link>
+      <link>http://localhost:59040/_wiki/redis-handshake-for-replicas/</link>
       <pubDate>Sat, 23 Nov 2024 15:52:17 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/redis-handshake-for-replicas/</guid>
+      <guid>http://localhost:59040/_wiki/redis-handshake-for-replicas/</guid>
       <description>레디스 레플리카를 등록하는 과정 중 replconf, psync를 처리하는 중 발생한 문제.</description>
     </item>
     <item>
       <title>데이터 중심 어플리케이션 설계 7장</title>
-      <link>http://localhost:57767/_wiki/7%EC%9E%A5/</link>
+      <link>http://localhost:59040/_wiki/7%EC%9E%A5/</link>
       <pubDate>Sat, 16 Nov 2024 22:39:25 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/7%EC%9E%A5/</guid>
+      <guid>http://localhost:59040/_wiki/7%EC%9E%A5/</guid>
       <description>&lt;h1 id=&#34;07장-트랜잭션&#34;&gt;07장 트랜잭션&lt;/h1&gt;
 &lt;blockquote&gt;
 &lt;p&gt;어떤 저자들은 2단계 커밋에서 유발되는 성능이나 가용성 문제 때문에 생기는
@@ -711,9 +711,9 @@ qa기간중이기는 하지만 일정상 여유가 생긴 덕에 다음 작업�
     </item>
     <item>
       <title>데이터 중심 어플리케이션 설계 6장</title>
-      <link>http://localhost:57767/_wiki/6%EC%9E%A5/</link>
+      <link>http://localhost:59040/_wiki/6%EC%9E%A5/</link>
       <pubDate>Sat, 09 Nov 2024 21:32:25 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/6%EC%9E%A5/</guid>
+      <guid>http://localhost:59040/_wiki/6%EC%9E%A5/</guid>
       <description>&lt;h2 id=&#34;파티셔닝&#34;&gt;파티셔닝&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;데이터셋이 매우 크거나 질의 처리량이 매우 높다면 복제만으로는 부족하고, 데이터를 파티션으로 쪼갤 필요가 있다.
@@ -730,9 +730,9 @@ qa기간중이기는 하지만 일정상 여유가 생긴 덕에 다음 작업�
     </item>
     <item>
       <title></title>
-      <link>http://localhost:57767/_wiki/rust-redis-d4/</link>
+      <link>http://localhost:59040/_wiki/rust-redis-d4/</link>
       <pubDate>Thu, 07 Nov 2024 19:19:31 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/rust-redis-d4/</guid>
+      <guid>http://localhost:59040/_wiki/rust-redis-d4/</guid>
       <description>&lt;h2 id=&#34;rust-redis-d4-code-&#34;&gt;Rust-Redis-D4 Code 🥸&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-rust&#34; data-lang=&#34;rust&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#cba6f7&#34;&gt;use&lt;/span&gt; &lt;span style=&#34;color:#cba6f7&#34;&gt;crate&lt;/span&gt;::protocol_constants::{&lt;span style=&#34;color:#f9e2af&#34;&gt;MAGIC_NUMBER&lt;/span&gt;, &lt;span style=&#34;color:#f9e2af&#34;&gt;OPCODE_EOF&lt;/span&gt;, &lt;span style=&#34;color:#f9e2af&#34;&gt;OPCODE_META&lt;/span&gt;, &lt;span style=&#34;color:#f9e2af&#34;&gt;OPCODE_START_DB&lt;/span&gt;};
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#cba6f7&#34;&gt;use&lt;/span&gt; &lt;span style=&#34;color:#cba6f7&#34;&gt;crate&lt;/span&gt;::{Config, Db, ValueEntry};
@@ -933,9 +933,9 @@ qa기간중이기는 하지만 일정상 여유가 생긴 덕에 다음 작업�
     </item>
     <item>
       <title>Build Redis With Rust 🦀</title>
-      <link>http://localhost:57767/_wiki/rust-redis-d3/</link>
+      <link>http://localhost:59040/_wiki/rust-redis-d3/</link>
       <pubDate>Sat, 02 Nov 2024 17:20:03 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/rust-redis-d3/</guid>
+      <guid>http://localhost:59040/_wiki/rust-redis-d3/</guid>
       <description>&lt;h2 id=&#34;day-3-코드&#34;&gt;Day 3 코드&lt;/h2&gt;
 &lt;hr&gt;
 &lt;p&gt;&lt;code&gt;command.rs&lt;/code&gt;&lt;/p&gt;
@@ -1113,9 +1113,9 @@ qa기간중이기는 하지만 일정상 여유가 생긴 덕에 다음 작업�
     </item>
     <item>
       <title>데이터 중심 애플리케이션 설계 5장</title>
-      <link>http://localhost:57767/_wiki/5%EC%9E%A5/</link>
+      <link>http://localhost:59040/_wiki/5%EC%9E%A5/</link>
       <pubDate>Thu, 31 Oct 2024 19:51:28 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/5%EC%9E%A5/</guid>
+      <guid>http://localhost:59040/_wiki/5%EC%9E%A5/</guid>
       <description>&lt;h2 id=&#34;about-part-2&#34;&gt;About Part 2&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;저장소와 데이터 검색에 여러 장비가 관여한다면 어떻게 될까?
@@ -1136,9 +1136,9 @@ qa기간중이기는 하지만 일정상 여유가 생긴 덕에 다음 작업�
     </item>
     <item>
       <title>Rust-Redis-D2</title>
-      <link>http://localhost:57767/_wiki/rust-redis-d2/</link>
+      <link>http://localhost:59040/_wiki/rust-redis-d2/</link>
       <pubDate>Thu, 31 Oct 2024 19:26:52 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/rust-redis-d2/</guid>
+      <guid>http://localhost:59040/_wiki/rust-redis-d2/</guid>
       <description>&lt;h2 id=&#34;1-code&#34;&gt;1. Code&lt;/h2&gt;
 &lt;hr&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-rust&#34; data-lang=&#34;rust&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#cba6f7&#34;&gt;use&lt;/span&gt; regex::Regex;
@@ -1284,9 +1284,9 @@ qa기간중이기는 하지만 일정상 여유가 생긴 덕에 다음 작업�
     </item>
     <item>
       <title>Rust-Redis-D1</title>
-      <link>http://localhost:57767/_wiki/rust-redis-d1/</link>
+      <link>http://localhost:59040/_wiki/rust-redis-d1/</link>
       <pubDate>Wed, 30 Oct 2024 20:28:17 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/rust-redis-d1/</guid>
+      <guid>http://localhost:59040/_wiki/rust-redis-d1/</guid>
       <description>&lt;h2 id=&#34;0-prerequisite&#34;&gt;0. PreRequisite&lt;/h2&gt;
 &lt;hr&gt;
 &lt;blockquote&gt;
@@ -1306,9 +1306,9 @@ qa기간중이기는 하지만 일정상 여유가 생긴 덕에 다음 작업�
     </item>
     <item>
       <title>Build Redis With Rust 🦀</title>
-      <link>http://localhost:57767/_wiki/build-redis-with-rust/</link>
+      <link>http://localhost:59040/_wiki/build-redis-with-rust/</link>
       <pubDate>Wed, 30 Oct 2024 20:26:13 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/build-redis-with-rust/</guid>
+      <guid>http://localhost:59040/_wiki/build-redis-with-rust/</guid>
       <description>&lt;h1 id=&#34;build-redis-with-rust-&#34;&gt;Build Redis With Rust 🦀&lt;/h1&gt;
 &lt;blockquote&gt;
 &lt;p&gt;이건 &lt;a href=&#34;https://app.codecrafters.io/&#34;&gt;코드크래프터스&lt;/a&gt; 에서 진행하는 프로젝트를 따라하면서 작성한 문서입니다.
@@ -1342,9 +1342,9 @@ qa기간중이기는 하지만 일정상 여유가 생긴 덕에 다음 작업�
     </item>
     <item>
       <title>데이저 중심 애플리케이션 4장 스터디</title>
-      <link>http://localhost:57767/_wiki/4%EC%9E%A5/</link>
+      <link>http://localhost:59040/_wiki/4%EC%9E%A5/</link>
       <pubDate>Sat, 26 Oct 2024 16:31:32 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/4%EC%9E%A5/</guid>
+      <guid>http://localhost:59040/_wiki/4%EC%9E%A5/</guid>
       <description>&lt;h2 id=&#34;4장-부호화와-발전&#34;&gt;4장 부호화와 발전&lt;/h2&gt;
 &lt;hr&gt;
 &lt;blockquote&gt;
@@ -1365,9 +1365,9 @@ qa기간중이기는 하지만 일정상 여유가 생긴 덕에 다음 작업�
     </item>
     <item>
       <title>Rust 🦀</title>
-      <link>http://localhost:57767/_wiki/rust-main/</link>
+      <link>http://localhost:59040/_wiki/rust-main/</link>
       <pubDate>Sat, 26 Oct 2024 12:49:33 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/rust-main/</guid>
+      <guid>http://localhost:59040/_wiki/rust-main/</guid>
       <description>&lt;h1 id=&#34;rust-관련-정보-모음&#34;&gt;Rust 관련 정보 모음&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://int-i.github.io/rust/2021-10-03/docker-rust/&#34;&gt;Docker 이미지 만들기  Compile&lt;/a&gt;&lt;/li&gt;
@@ -1375,9 +1375,9 @@ qa기간중이기는 하지만 일정상 여유가 생긴 덕에 다음 작업�
     </item>
     <item>
       <title>데이터 중심 애플리케이션 설계 스터디3장</title>
-      <link>http://localhost:57767/_wiki/3%EC%9E%A5/</link>
+      <link>http://localhost:59040/_wiki/3%EC%9E%A5/</link>
       <pubDate>Sun, 20 Oct 2024 15:51:22 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/3%EC%9E%A5/</guid>
+      <guid>http://localhost:59040/_wiki/3%EC%9E%A5/</guid>
       <description>&lt;h1 id=&#34;저장소와-검색&#34;&gt;저장소와 검색&lt;/h1&gt;
 &lt;hr&gt;
 &lt;blockquote&gt;
@@ -1412,9 +1412,9 @@ qa기간중이기는 하지만 일정상 여유가 생긴 덕에 다음 작업�
     </item>
     <item>
       <title>러스트의 함수영 언어 특징</title>
-      <link>http://localhost:57767/_wiki/funcional-langauges-features/</link>
+      <link>http://localhost:59040/_wiki/funcional-langauges-features/</link>
       <pubDate>Sat, 19 Oct 2024 15:53:40 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/funcional-langauges-features/</guid>
+      <guid>http://localhost:59040/_wiki/funcional-langauges-features/</guid>
       <description>&lt;h2 id=&#34;1300-functional-languages-features-iterators-and-closures&#34;&gt;13.0.0 Functional Languages Features: Iterators and Closures&lt;/h2&gt;
 &lt;hr&gt;
 &lt;blockquote&gt;
@@ -1423,16 +1423,16 @@ In this chapter, we won’t debate the issue of what functional programming is o
     </item>
     <item>
       <title>Effective Rust Item 2  공통 종작은 타입 시스템으로 표현하라</title>
-      <link>http://localhost:57767/_wiki/item-2/</link>
+      <link>http://localhost:59040/_wiki/item-2/</link>
       <pubDate>Sat, 19 Oct 2024 15:44:29 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/item-2/</guid>
+      <guid>http://localhost:59040/_wiki/item-2/</guid>
       <description>&lt;h1 id=&#34;공통-종작은-타입-시스템으로-표현하라&#34;&gt;공통 종작은 타입 시스템으로 표현하라&lt;/h1&gt;</description>
     </item>
     <item>
       <title>Effective Rust Item 1  데이터 구조를 타입 시스템으로 표현하라</title>
-      <link>http://localhost:57767/_wiki/item-1/</link>
+      <link>http://localhost:59040/_wiki/item-1/</link>
       <pubDate>Sat, 19 Oct 2024 15:17:47 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/item-1/</guid>
+      <guid>http://localhost:59040/_wiki/item-1/</guid>
       <description>&lt;h1 id=&#34;데이터-구조를-타입-시스템으로-표현하라&#34;&gt;데이터 구조를 타입 시스템으로 표현하라&lt;/h1&gt;
 &lt;blockquote&gt;
 &lt;p&gt;복잡한 데이터 구조를 구성하는 방법을 배운다. 이 과정에서 enum은 핵심적인 역할을 한다.
@@ -1448,9 +1448,9 @@ In this chapter, we won’t debate the issue of what functional programming is o
     </item>
     <item>
       <title>Effective Rust 🦀</title>
-      <link>http://localhost:57767/_wiki/effective-rust/</link>
+      <link>http://localhost:59040/_wiki/effective-rust/</link>
       <pubDate>Sat, 19 Oct 2024 14:09:41 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/effective-rust/</guid>
+      <guid>http://localhost:59040/_wiki/effective-rust/</guid>
       <description>&lt;h1 id=&#34;effective-rust-&#34;&gt;Effective Rust 🦀&lt;/h1&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Effective Rust를 읽고 기억할만한 내용을 정리하는 문서입니다.&lt;/p&gt;&lt;/blockquote&gt;
@@ -1462,9 +1462,9 @@ In this chapter, we won’t debate the issue of what functional programming is o
     </item>
     <item>
       <title>데이터 모델과 질의 언어 📚</title>
-      <link>http://localhost:57767/_wiki/2%EC%9E%A5/</link>
+      <link>http://localhost:59040/_wiki/2%EC%9E%A5/</link>
       <pubDate>Sun, 13 Oct 2024 16:08:01 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/2%EC%9E%A5/</guid>
+      <guid>http://localhost:59040/_wiki/2%EC%9E%A5/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;데이터 모델은 아마도 소프트웨어 개발에서 제일 중요한 부분일 것이다.
 왜냐하면 데이터 모델은 소프트웨어가 어떻게 작성됐는지 뿐만 아니라, &lt;strong&gt;문제를 어떻게 생각해야 하는지&lt;/strong&gt;에 지대한 영향을 미치기 때문이다.&lt;/p&gt;&lt;/blockquote&gt;
@@ -1477,16 +1477,16 @@ In this chapter, we won’t debate the issue of what functional programming is o
     </item>
     <item>
       <title>블로그 작성 가이드라인(지속적으로 보충할 문서!) 📝</title>
-      <link>http://localhost:57767/_wiki/%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%9E%91%EC%84%B1-%EA%B0%80%EC%9D%B4%EB%93%9C%EB%9D%BC%EC%9D%B8/</link>
+      <link>http://localhost:59040/_wiki/%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%9E%91%EC%84%B1-%EA%B0%80%EC%9D%B4%EB%93%9C%EB%9D%BC%EC%9D%B8/</link>
       <pubDate>Fri, 11 Oct 2024 20:53:03 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%9E%91%EC%84%B1-%EA%B0%80%EC%9D%B4%EB%93%9C%EB%9D%BC%EC%9D%B8/</guid>
+      <guid>http://localhost:59040/_wiki/%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%9E%91%EC%84%B1-%EA%B0%80%EC%9D%B4%EB%93%9C%EB%9D%BC%EC%9D%B8/</guid>
       <description>사실 그냥 나 혼자 지켜야 할 가이드라인 🤔</description>
     </item>
     <item>
       <title>데이터 중심 애플리케이션 설계 1장</title>
-      <link>http://localhost:57767/_wiki/1%EC%9E%A5/</link>
+      <link>http://localhost:59040/_wiki/1%EC%9E%A5/</link>
       <pubDate>Sun, 06 Oct 2024 16:14:30 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/1%EC%9E%A5/</guid>
+      <guid>http://localhost:59040/_wiki/1%EC%9E%A5/</guid>
       <description>&lt;h2 id=&#34;데이터-중심-애플리케이션-설계-1장&#34;&gt;데이터 중심 애플리케이션 설계 1장&lt;/h2&gt;
 &lt;h3 id=&#34;00-머리말&#34;&gt;00 머리말&lt;/h3&gt;
 &lt;ul&gt;
@@ -1501,9 +1501,9 @@ In this chapter, we won’t debate the issue of what functional programming is o
     </item>
     <item>
       <title>데이터 중심 애플리케이션 설계 스터디</title>
-      <link>http://localhost:57767/_wiki/%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%A4%91%EC%8B%AC-%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98-%EC%84%A4%EA%B3%84/</link>
+      <link>http://localhost:59040/_wiki/%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%A4%91%EC%8B%AC-%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98-%EC%84%A4%EA%B3%84/</link>
       <pubDate>Sun, 06 Oct 2024 16:13:53 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%A4%91%EC%8B%AC-%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98-%EC%84%A4%EA%B3%84/</guid>
+      <guid>http://localhost:59040/_wiki/%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%A4%91%EC%8B%AC-%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98-%EC%84%A4%EA%B3%84/</guid>
       <description>&lt;h2 id=&#34;데이터-중심-애플리케이션-설계&#34;&gt;데이터 중심 애플리케이션 설계&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;1부 데이터 시스템의 기초&lt;/strong&gt;&lt;/p&gt;
 &lt;blockquote&gt;
@@ -1526,16 +1526,16 @@ In this chapter, we won’t debate the issue of what functional programming is o
     </item>
     <item>
       <title>AeroSpace Cheat Sheet</title>
-      <link>http://localhost:57767/_wiki/aerospace-macos/</link>
+      <link>http://localhost:59040/_wiki/aerospace-macos/</link>
       <pubDate>Sat, 05 Oct 2024 13:47:32 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/aerospace-macos/</guid>
+      <guid>http://localhost:59040/_wiki/aerospace-macos/</guid>
       <description>i3 like tiling tool for macos</description>
     </item>
     <item>
       <title>AeroSpace Toml</title>
-      <link>http://localhost:57767/_wiki/aerospace/</link>
+      <link>http://localhost:59040/_wiki/aerospace/</link>
       <pubDate>Sat, 05 Oct 2024 13:44:32 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/aerospace/</guid>
+      <guid>http://localhost:59040/_wiki/aerospace/</guid>
       <description>&lt;h1 id=&#34;settings-for-aerospace-&#34;&gt;Settings for AeroSpace 🧊️&lt;/h1&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-toml&#34; data-lang=&#34;toml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6c7086;font-style:italic&#34;&gt;# Place a copy of this config to ~/.aerospace.toml&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6c7086;font-style:italic&#34;&gt;# After that, you can edit ~/.aerospace.toml to your liking&lt;/span&gt;
@@ -1715,9 +1715,9 @@ In this chapter, we won’t debate the issue of what functional programming is o
     </item>
     <item>
       <title>Settings 🧊️</title>
-      <link>http://localhost:57767/_wiki/settings/</link>
+      <link>http://localhost:59040/_wiki/settings/</link>
       <pubDate>Sat, 05 Oct 2024 13:43:15 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/settings/</guid>
+      <guid>http://localhost:59040/_wiki/settings/</guid>
       <description>&lt;h1 id=&#34;settings-&#34;&gt;Settings 🧊️&lt;/h1&gt;
 &lt;blockquote&gt;
 &lt;p&gt;TODO : dotfiles 레포를 만들자!&lt;/p&gt;&lt;/blockquote&gt;
@@ -1727,9 +1727,9 @@ In this chapter, we won’t debate the issue of what functional programming is o
     </item>
     <item>
       <title>러스트 에러 처리하기</title>
-      <link>http://localhost:57767/_wiki/error-handling/</link>
+      <link>http://localhost:59040/_wiki/error-handling/</link>
       <pubDate>Wed, 02 Oct 2024 20:44:13 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/error-handling/</guid>
+      <guid>http://localhost:59040/_wiki/error-handling/</guid>
       <description>&lt;h2 id=&#34;900-error-handling&#34;&gt;9.0.0 Error Handling&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Error는 소프트웨어의 한 요소이다.
@@ -1745,9 +1745,9 @@ In this chapter, we won’t debate the issue of what functional programming is o
     </item>
     <item>
       <title>burrow-checker에 대한 추가 정리자료</title>
-      <link>http://localhost:57767/_wiki/burrow-checker/</link>
+      <link>http://localhost:59040/_wiki/burrow-checker/</link>
       <pubDate>Sun, 29 Sep 2024 16:44:30 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/burrow-checker/</guid>
+      <guid>http://localhost:59040/_wiki/burrow-checker/</guid>
       <description>&lt;h2 id=&#34;burrow-checker에-대해-도움이-될-만-한-내용을-정리한-문서-rust-in-action-내용을-참고하여-작성하였습니다&#34;&gt;burrow-checker에 대해 도움이 될 만 한 내용을 정리한 문서, rust-in-action 내용을 참고하여 작성하였습니다.&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;대여 검사는 서로 연결된 세 가지 개념인 수명, 소유권, 대여에 의존한다.&lt;/p&gt;&lt;/blockquote&gt;
@@ -1813,9 +1813,9 @@ In this chapter, we won’t debate the issue of what functional programming is o
     </item>
     <item>
       <title>Daily-Log 2024 (Daily 아님주의) 🙈</title>
-      <link>http://localhost:57767/_wiki/daily-log-2024/</link>
+      <link>http://localhost:59040/_wiki/daily-log-2024/</link>
       <pubDate>Tue, 24 Sep 2024 21:29:39 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/daily-log-2024/</guid>
+      <guid>http://localhost:59040/_wiki/daily-log-2024/</guid>
       <description>&lt;h1 id=&#34;daily-log-&#34;&gt;Daily-Log 📝&lt;/h1&gt;
 &lt;hr&gt;
 &lt;p&gt;2024-09-24&lt;/p&gt;
@@ -1837,9 +1837,9 @@ In this chapter, we won’t debate the issue of what functional programming is o
     </item>
     <item>
       <title>Week-06</title>
-      <link>http://localhost:57767/_wiki/week-06/</link>
+      <link>http://localhost:59040/_wiki/week-06/</link>
       <pubDate>Tue, 25 Jun 2024 20:33:49 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/week-06/</guid>
+      <guid>http://localhost:59040/_wiki/week-06/</guid>
       <description>&lt;h2 id=&#34;16-세그멘테이션&#34;&gt;16. 세그멘테이션&lt;/h2&gt;
 &lt;h3 id=&#34;161-베이스-바운드의-일반화&#34;&gt;16.1 베이스 바운드의 일반화&lt;/h3&gt;
 &lt;blockquote&gt;
@@ -1868,9 +1868,9 @@ In this chapter, we won’t debate the issue of what functional programming is o
     </item>
     <item>
       <title>cpp-casting 🐋</title>
-      <link>http://localhost:57767/_wiki/cpp-casting/</link>
+      <link>http://localhost:59040/_wiki/cpp-casting/</link>
       <pubDate>Sun, 09 Jun 2024 17:08:32 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/cpp-casting/</guid>
+      <guid>http://localhost:59040/_wiki/cpp-casting/</guid>
       <description>&lt;ol&gt;
 &lt;li&gt;static_cast
 static_cast는 가장 기본적인 형태의 캐스팅이다. 컴파일 시간에 타입 변환을 수행하며, 컴파일러가 타입 안전성을 어느 정도 보장해 준다. 주로 기본 타입 간의 변환, 명시적 생성자를 사용한 객체 생성, 상속 관계에 있는 클래스 간의 변환 등에 사용된다.&lt;/li&gt;
@@ -1907,16 +1907,16 @@ reinterpret_cast는 가장 강력하고 위험한 형태의 캐스팅이다. 포
     </item>
     <item>
       <title>cpp 타입 변환</title>
-      <link>http://localhost:57767/_wiki/%ED%83%80%EC%9E%85-%EB%B3%80%ED%99%98/</link>
+      <link>http://localhost:59040/_wiki/%ED%83%80%EC%9E%85-%EB%B3%80%ED%99%98/</link>
       <pubDate>Sat, 08 Jun 2024 17:39:01 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/%ED%83%80%EC%9E%85-%EB%B3%80%ED%99%98/</guid>
+      <guid>http://localhost:59040/_wiki/%ED%83%80%EC%9E%85-%EB%B3%80%ED%99%98/</guid>
       <description>멀끔한 정리는 항상 좋다.</description>
     </item>
     <item>
       <title>c/cpp free는 어떻게 할당을 해제하는가</title>
-      <link>http://localhost:57767/_wiki/free%EB%8A%94-%EC%96%B4%EB%96%BB%EA%B2%8C-%ED%95%A0%EB%8B%B9%EC%9D%84-%ED%95%B4%EC%A0%9C%ED%95%98%EB%8A%94%EA%B0%80/</link>
+      <link>http://localhost:59040/_wiki/free%EB%8A%94-%EC%96%B4%EB%96%BB%EA%B2%8C-%ED%95%A0%EB%8B%B9%EC%9D%84-%ED%95%B4%EC%A0%9C%ED%95%98%EB%8A%94%EA%B0%80/</link>
       <pubDate>Sat, 08 Jun 2024 17:17:54 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/free%EB%8A%94-%EC%96%B4%EB%96%BB%EA%B2%8C-%ED%95%A0%EB%8B%B9%EC%9D%84-%ED%95%B4%EC%A0%9C%ED%95%98%EB%8A%94%EA%B0%80/</guid>
+      <guid>http://localhost:59040/_wiki/free%EB%8A%94-%EC%96%B4%EB%96%BB%EA%B2%8C-%ED%95%A0%EB%8B%B9%EC%9D%84-%ED%95%B4%EC%A0%9C%ED%95%98%EB%8A%94%EA%B0%80/</guid>
       <description>&lt;h2 id=&#34;malloc이-반환하는-값은-void-타입이다&#34;&gt;malloc()이 반환하는 값은 void* 타입이다.&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;사실 할당하고 데이터의 시작 주소를 반환하긴 하지만, 사실은 내부적으로 헤더값이 있어, 방금 할당한 메모리 공간에 대한 메타 정보를 가지고 있다.&lt;/li&gt;
@@ -1924,9 +1924,9 @@ reinterpret_cast는 가장 강력하고 위험한 형태의 캐스팅이다. 포
     </item>
     <item>
       <title>N &#43; 1 문제와 해결방법 🧊️</title>
-      <link>http://localhost:57767/_wiki/jpa-%EC%97%94%EC%81%A0%EB%9F%AC%EC%8A%A4%EC%9D%BC/</link>
+      <link>http://localhost:59040/_wiki/jpa-%EC%97%94%EC%81%A0%EB%9F%AC%EC%8A%A4%EC%9D%BC/</link>
       <pubDate>Fri, 31 May 2024 22:13:11 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/jpa-%EC%97%94%EC%81%A0%EB%9F%AC%EC%8A%A4%EC%9D%BC/</guid>
+      <guid>http://localhost:59040/_wiki/jpa-%EC%97%94%EC%81%A0%EB%9F%AC%EC%8A%A4%EC%9D%BC/</guid>
       <description>&lt;h2 id=&#34;post-엔티티&#34;&gt;Post 엔티티&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#89b4fa;font-weight:bold&#34;&gt;@Entity&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f38ba8&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#f38ba8&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#f9e2af&#34;&gt;Post&lt;/span&gt; {
@@ -2017,9 +2017,9 @@ DB관점에서 생각해보면,&lt;/p&gt;</description>
     </item>
     <item>
       <title>튜터링 질의 응답 모음 🧊️</title>
-      <link>http://localhost:57767/_wiki/%ED%8A%9C%ED%84%B0%EB%A7%81-%EC%A7%88%EC%9D%98-%EC%9D%91%EB%8B%B5-%EB%AA%A8%EC%9D%8C/</link>
+      <link>http://localhost:59040/_wiki/%ED%8A%9C%ED%84%B0%EB%A7%81-%EC%A7%88%EC%9D%98-%EC%9D%91%EB%8B%B5-%EB%AA%A8%EC%9D%8C/</link>
       <pubDate>Fri, 31 May 2024 22:12:00 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/%ED%8A%9C%ED%84%B0%EB%A7%81-%EC%A7%88%EC%9D%98-%EC%9D%91%EB%8B%B5-%EB%AA%A8%EC%9D%8C/</guid>
+      <guid>http://localhost:59040/_wiki/%ED%8A%9C%ED%84%B0%EB%A7%81-%EC%A7%88%EC%9D%98-%EC%9D%91%EB%8B%B5-%EB%AA%A8%EC%9D%8C/</guid>
       <description>&lt;h2 id=&#34;블로그-글을-퉁치려는-얄팍한-시도&#34;&gt;블로그 글을 퉁치려는 얄팍한 시도&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;근데 진짜 바쁘니까..&lt;/li&gt;
@@ -2028,9 +2028,9 @@ DB관점에서 생각해보면,&lt;/p&gt;</description>
     </item>
     <item>
       <title>TCP/IP Illustrated 📚</title>
-      <link>http://localhost:57767/_wiki/introduction/</link>
+      <link>http://localhost:59040/_wiki/introduction/</link>
       <pubDate>Wed, 29 May 2024 22:28:46 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/introduction/</guid>
+      <guid>http://localhost:59040/_wiki/introduction/</guid>
       <description>&lt;h2 id=&#34;intro-&#34;&gt;Intro 😃&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;프로토콜의 집합을 프로토콜 스위트라고 합니다.
@@ -2043,9 +2043,9 @@ ARPANET 참조 모델(ARM)에서 유래했습니다.&lt;/p&gt;&lt;/blockquote&gt
     </item>
     <item>
       <title>Week-05</title>
-      <link>http://localhost:57767/_wiki/week-05/</link>
+      <link>http://localhost:59040/_wiki/week-05/</link>
       <pubDate>Mon, 27 May 2024 20:41:38 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/week-05/</guid>
+      <guid>http://localhost:59040/_wiki/week-05/</guid>
       <description>&lt;h2 id=&#34;14-막간--메모리-관리-api&#34;&gt;14. 막간 : 메모리 관리 API&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;stack&lt;/code&gt; : 프로그래머를 위해, 컴파일러에 의해 자동으로 할당과 해제가 이루어진다(automatic).&lt;/li&gt;
@@ -2078,9 +2078,9 @@ ARPANET 참조 모델(ARM)에서 유래했습니다.&lt;/p&gt;&lt;/blockquote&gt
     </item>
     <item>
       <title></title>
-      <link>http://localhost:57767/_wiki/%EC%9D%B4%EC%82%AC/</link>
+      <link>http://localhost:59040/_wiki/%EC%9D%B4%EC%82%AC/</link>
       <pubDate>Mon, 20 May 2024 19:21:32 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/%EC%9D%B4%EC%82%AC/</guid>
+      <guid>http://localhost:59040/_wiki/%EC%9D%B4%EC%82%AC/</guid>
       <description>&lt;h2 id=&#34;이사-후-사고싶은-물품-정리&#34;&gt;이사 후 사고싶은 물품 정리&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;커튼이랑 블라인드를 사기로 한 생각은 맞는 것 같다&lt;/li&gt;
@@ -2097,9 +2097,9 @@ ARPANET 참조 모델(ARM)에서 유래했습니다.&lt;/p&gt;&lt;/blockquote&gt
     </item>
     <item>
       <title>포인터 지옥😢</title>
-      <link>http://localhost:57767/_wiki/pointer-%EC%A7%80%EC%98%A5/</link>
+      <link>http://localhost:59040/_wiki/pointer-%EC%A7%80%EC%98%A5/</link>
       <pubDate>Wed, 15 May 2024 23:10:23 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/pointer-%EC%A7%80%EC%98%A5/</guid>
+      <guid>http://localhost:59040/_wiki/pointer-%EC%A7%80%EC%98%A5/</guid>
       <description>&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f38ba8&#34;&gt;int&lt;/span&gt; arr[&lt;span style=&#34;color:#fab387&#34;&gt;10&lt;/span&gt;] &lt;span style=&#34;color:#89dceb;font-weight:bold&#34;&gt;=&lt;/span&gt; {&lt;span style=&#34;color:#fab387&#34;&gt;1&lt;/span&gt;,&lt;span style=&#34;color:#fab387&#34;&gt;2&lt;/span&gt;,&lt;span style=&#34;color:#fab387&#34;&gt;3&lt;/span&gt;,&lt;span style=&#34;color:#fab387&#34;&gt;4&lt;/span&gt;,&lt;span style=&#34;color:#fab387&#34;&gt;5&lt;/span&gt;,&lt;span style=&#34;color:#fab387&#34;&gt;6&lt;/span&gt;,&lt;span style=&#34;color:#fab387&#34;&gt;7&lt;/span&gt;,&lt;span style=&#34;color:#fab387&#34;&gt;8&lt;/span&gt;,&lt;span style=&#34;color:#fab387&#34;&gt;9&lt;/span&gt;,&lt;span style=&#34;color:#fab387&#34;&gt;10&lt;/span&gt;};
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f38ba8&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#89dceb;font-weight:bold&#34;&gt;*&lt;/span&gt;p &lt;span style=&#34;color:#89dceb;font-weight:bold&#34;&gt;=&lt;/span&gt; arr;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
@@ -2125,9 +2125,9 @@ ARPANET 참조 모델(ARM)에서 유래했습니다.&lt;/p&gt;&lt;/blockquote&gt
     </item>
     <item>
       <title></title>
-      <link>http://localhost:57767/_wiki/pointer-array-%ED%97%B7%EA%B0%88%EB%A6%B4%EB%95%8C-%ED%8C%81/</link>
+      <link>http://localhost:59040/_wiki/pointer-array-%ED%97%B7%EA%B0%88%EB%A6%B4%EB%95%8C-%ED%8C%81/</link>
       <pubDate>Wed, 15 May 2024 17:35:10 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/pointer-array-%ED%97%B7%EA%B0%88%EB%A6%B4%EB%95%8C-%ED%8C%81/</guid>
+      <guid>http://localhost:59040/_wiki/pointer-array-%ED%97%B7%EA%B0%88%EB%A6%B4%EB%95%8C-%ED%8C%81/</guid>
       <description>&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f38ba8&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#89b4fa&#34;&gt;main&lt;/span&gt;() {
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#cba6f7&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#f38ba8&#34;&gt;char&lt;/span&gt;&lt;span style=&#34;color:#89dceb;font-weight:bold&#34;&gt;*&lt;/span&gt; test1 &lt;span style=&#34;color:#89dceb;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e3a1&#34;&gt;&amp;#34;Hello World&amp;#34;&lt;/span&gt;;
@@ -2153,9 +2153,9 @@ ARPANET 참조 모델(ARM)에서 유래했습니다.&lt;/p&gt;&lt;/blockquote&gt
     </item>
     <item>
       <title>아주 간단한 팁!</title>
-      <link>http://localhost:57767/_wiki/pointer-reference-%ED%97%B7%EA%B0%88%EB%A6%B4%EB%95%8C-%ED%8C%81/</link>
+      <link>http://localhost:59040/_wiki/pointer-reference-%ED%97%B7%EA%B0%88%EB%A6%B4%EB%95%8C-%ED%8C%81/</link>
       <pubDate>Wed, 15 May 2024 17:04:44 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/pointer-reference-%ED%97%B7%EA%B0%88%EB%A6%B4%EB%95%8C-%ED%8C%81/</guid>
+      <guid>http://localhost:59040/_wiki/pointer-reference-%ED%97%B7%EA%B0%88%EB%A6%B4%EB%95%8C-%ED%8C%81/</guid>
       <description>&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f38ba8&#34;&gt;int&lt;/span&gt; value &lt;span style=&#34;color:#89dceb;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#fab387&#34;&gt;10&lt;/span&gt;;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f38ba8&#34;&gt;int&lt;/span&gt;&lt;span style=&#34;color:#89dceb;font-weight:bold&#34;&gt;&amp;amp;&lt;/span&gt; reference &lt;span style=&#34;color:#89dceb;font-weight:bold&#34;&gt;=&lt;/span&gt; value;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f38ba8&#34;&gt;int&lt;/span&gt;&lt;span style=&#34;color:#89dceb;font-weight:bold&#34;&gt;*&lt;/span&gt; pointer &lt;span style=&#34;color:#89dceb;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#89dceb;font-weight:bold&#34;&gt;&amp;amp;&lt;/span&gt;value;
@@ -2166,9 +2166,9 @@ ARPANET 참조 모델(ARM)에서 유래했습니다.&lt;/p&gt;&lt;/blockquote&gt
     </item>
     <item>
       <title>Week-04 📚</title>
-      <link>http://localhost:57767/_wiki/week-04/</link>
+      <link>http://localhost:59040/_wiki/week-04/</link>
       <pubDate>Mon, 13 May 2024 20:44:06 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/week-04/</guid>
+      <guid>http://localhost:59040/_wiki/week-04/</guid>
       <description>&lt;h2 id=&#34;11-cpu-가상화에-대한-마무리-대화&#34;&gt;11. CPU 가상화에 대한 마무리 대화&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;간단한 Wrapup 대화를 진행한다.&lt;/li&gt;
@@ -2190,9 +2190,9 @@ ARPANET 참조 모델(ARM)에서 유래했습니다.&lt;/p&gt;&lt;/blockquote&gt
     </item>
     <item>
       <title>네트워크 기본 개념 Cheatsheet 🦉</title>
-      <link>http://localhost:57767/_wiki/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EA%B8%B0%EB%B3%B8-%EA%B0%9C%EB%85%90/</link>
+      <link>http://localhost:59040/_wiki/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EA%B8%B0%EB%B3%B8-%EA%B0%9C%EB%85%90/</link>
       <pubDate>Sat, 11 May 2024 09:52:36 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EA%B8%B0%EB%B3%B8-%EA%B0%9C%EB%85%90/</guid>
+      <guid>http://localhost:59040/_wiki/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EA%B8%B0%EB%B3%B8-%EA%B0%9C%EB%85%90/</guid>
       <description>&lt;h2 id=&#34;네트워크-기본-개념cheatsheet--from-외워서-끝내는-네트워크-핵심이론&#34;&gt;네트워크 기본 개념Cheatsheet 🦉 from 외워서 끝내는 네트워크 핵심이론&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;OSI 7 Layer&lt;/code&gt; : 의존적 관계가 성립하는 (Layered, 상위 계층이 하위 계층에 의존) 프로토콜을 계층적으로 나열한 것&lt;/li&gt;
@@ -2214,9 +2214,9 @@ ARPANET 참조 모델(ARM)에서 유래했습니다.&lt;/p&gt;&lt;/blockquote&gt
     </item>
     <item>
       <title>Network 🦉</title>
-      <link>http://localhost:57767/_wiki/network/</link>
+      <link>http://localhost:59040/_wiki/network/</link>
       <pubDate>Sat, 11 May 2024 09:51:35 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/network/</guid>
+      <guid>http://localhost:59040/_wiki/network/</guid>
       <description>&lt;h2 id=&#34;intro-&#34;&gt;Intro 😃&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;게임 서버 프로그래밍을 보는데, 소켓등 네트워크 관련 지식이 부족하다고 느껴서 마찬가지로 책을 한권 읽어보려고 하는데,&lt;/li&gt;
@@ -2234,9 +2234,9 @@ ARPANET 참조 모델(ARM)에서 유래했습니다.&lt;/p&gt;&lt;/blockquote&gt
     </item>
     <item>
       <title>Week-03 📚</title>
-      <link>http://localhost:57767/_wiki/week-03/</link>
+      <link>http://localhost:59040/_wiki/week-03/</link>
       <pubDate>Mon, 06 May 2024 21:32:31 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/week-03/</guid>
+      <guid>http://localhost:59040/_wiki/week-03/</guid>
       <description>&lt;h2 id=&#34;80-스케줄링--멀티-레벨-피드백-큐&#34;&gt;8.0 스케줄링 : 멀티 레벨 피드백 큐&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;MLFQ가 해결하려고 하는 기본적인 문제는 두 가지 이다.&lt;/li&gt;
@@ -2260,9 +2260,9 @@ ARPANET 참조 모델(ARM)에서 유래했습니다.&lt;/p&gt;&lt;/blockquote&gt
     </item>
     <item>
       <title>Cpp 변수의 메모리 공간(작성중)</title>
-      <link>http://localhost:57767/_wiki/cpp-%EB%B3%80%EC%88%98%EC%9D%98-%EB%A9%94%EB%AA%A8%EB%A6%AC-%EA%B3%B5%EA%B0%84/</link>
+      <link>http://localhost:59040/_wiki/cpp-%EB%B3%80%EC%88%98%EC%9D%98-%EB%A9%94%EB%AA%A8%EB%A6%AC-%EA%B3%B5%EA%B0%84/</link>
       <pubDate>Fri, 03 May 2024 15:57:54 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/cpp-%EB%B3%80%EC%88%98%EC%9D%98-%EB%A9%94%EB%AA%A8%EB%A6%AC-%EA%B3%B5%EA%B0%84/</guid>
+      <guid>http://localhost:59040/_wiki/cpp-%EB%B3%80%EC%88%98%EC%9D%98-%EB%A9%94%EB%AA%A8%EB%A6%AC-%EA%B3%B5%EA%B0%84/</guid>
       <description>&lt;h2 id=&#34;1-변수의-메모리-공간&#34;&gt;1. 변수의 메모리 공간&lt;/h2&gt;
 &lt;p&gt;[데이터 영역]&lt;/p&gt;
 &lt;ul&gt;
@@ -2280,38 +2280,38 @@ ARPANET 참조 모델(ARM)에서 유래했습니다.&lt;/p&gt;&lt;/blockquote&gt
     </item>
     <item>
       <title>어셈블리</title>
-      <link>http://localhost:57767/_wiki/%EC%96%B4%EC%85%88%EB%B8%94%EB%A6%AC/</link>
+      <link>http://localhost:59040/_wiki/%EC%96%B4%EC%85%88%EB%B8%94%EB%A6%AC/</link>
       <pubDate>Fri, 03 May 2024 15:48:55 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/%EC%96%B4%EC%85%88%EB%B8%94%EB%A6%AC/</guid>
+      <guid>http://localhost:59040/_wiki/%EC%96%B4%EC%85%88%EB%B8%94%EB%A6%AC/</guid>
       <description>어셈블리 디버깅을 위한 간단한 cheat sheet</description>
     </item>
     <item>
       <title>비트 연산</title>
-      <link>http://localhost:57767/_wiki/%EB%B9%84%ED%8A%B8-%EC%97%B0%EC%82%B0/</link>
+      <link>http://localhost:59040/_wiki/%EB%B9%84%ED%8A%B8-%EC%97%B0%EC%82%B0/</link>
       <pubDate>Fri, 03 May 2024 15:33:35 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/%EB%B9%84%ED%8A%B8-%EC%97%B0%EC%82%B0/</guid>
+      <guid>http://localhost:59040/_wiki/%EB%B9%84%ED%8A%B8-%EC%97%B0%EC%82%B0/</guid>
       <description>거의 처음으로 실사용 하는 예제를 찾아서 정리하는 중</description>
     </item>
     <item>
       <title>Cpp-basic 🐋</title>
-      <link>http://localhost:57767/_wiki/cpp-basic/</link>
+      <link>http://localhost:59040/_wiki/cpp-basic/</link>
       <pubDate>Wed, 01 May 2024 10:19:44 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/cpp-basic/</guid>
+      <guid>http://localhost:59040/_wiki/cpp-basic/</guid>
       <description>결국 리마인드 강의를 보면서 Cheatsheet 형식정도로만 가볍게 정리</description>
     </item>
     <item>
       <title></title>
-      <link>http://localhost:57767/_wiki/2024-05/</link>
+      <link>http://localhost:59040/_wiki/2024-05/</link>
       <pubDate>Mon, 29 Apr 2024 10:50:53 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/2024-05/</guid>
+      <guid>http://localhost:59040/_wiki/2024-05/</guid>
       <description>&lt;h2 id=&#34;로드맵&#34;&gt;로드맵&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://www.inflearn.com/roadmaps/375&#34;&gt;https://www.inflearn.com/roadmaps/375&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>운영체제 아주 쉬운 세 가지 이야기 📚</title>
-      <link>http://localhost:57767/_wiki/week-02/</link>
+      <link>http://localhost:59040/_wiki/week-02/</link>
       <pubDate>Sat, 27 Apr 2024 13:42:50 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/week-02/</guid>
+      <guid>http://localhost:59040/_wiki/week-02/</guid>
       <description>&lt;h2 id=&#34;050-막간--프로세스-api&#34;&gt;05.0 막간 : 프로세스 API&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;거의 모든 소스코드와 강의자료는 아래 링크가 출처 입니다.&lt;/strong&gt;&lt;/p&gt;
 &lt;ol&gt;
@@ -2340,16 +2340,16 @@ ARPANET 참조 모델(ARM)에서 유래했습니다.&lt;/p&gt;&lt;/blockquote&gt
     </item>
     <item>
       <title>코딩 테스트 언어 정하기</title>
-      <link>http://localhost:57767/_wiki/%EC%BD%94%EB%94%A9-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%96%B8%EC%96%B4-%EC%A0%95%ED%95%98%EA%B8%B0/</link>
+      <link>http://localhost:59040/_wiki/%EC%BD%94%EB%94%A9-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%96%B8%EC%96%B4-%EC%A0%95%ED%95%98%EA%B8%B0/</link>
       <pubDate>Thu, 25 Apr 2024 19:56:20 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/%EC%BD%94%EB%94%A9-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%96%B8%EC%96%B4-%EC%A0%95%ED%95%98%EA%B8%B0/</guid>
+      <guid>http://localhost:59040/_wiki/%EC%BD%94%EB%94%A9-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%96%B8%EC%96%B4-%EC%A0%95%ED%95%98%EA%B8%B0/</guid>
       <description>놀랍게도 언어 정하는데도 시간이 많이 필요하다..</description>
     </item>
     <item>
       <title>Vim Improve Sheet 🦅</title>
-      <link>http://localhost:57767/_wiki/vim-impove-sheet/</link>
+      <link>http://localhost:59040/_wiki/vim-impove-sheet/</link>
       <pubDate>Tue, 23 Apr 2024 19:37:38 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/vim-impove-sheet/</guid>
+      <guid>http://localhost:59040/_wiki/vim-impove-sheet/</guid>
       <description>&lt;h2 id=&#34;vim-improve-sheet-&#34;&gt;Vim Improve Sheet 🦅&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Vim Improve Sheet 라고 작성했는데, 사실 안좋은 습관을 고치기 위한 시트라고 생각하면 더 좋을 것 같다.
@@ -2383,9 +2383,9 @@ delete(functi*on calls)     dsf             function calls
     </item>
     <item>
       <title>추석 일본여행</title>
-      <link>http://localhost:57767/_wiki/2024-%EC%B6%94%EC%84%9D-%EC%9D%BC%EB%B3%B8%EC%97%AC%ED%96%89/</link>
+      <link>http://localhost:59040/_wiki/2024-%EC%B6%94%EC%84%9D-%EC%9D%BC%EB%B3%B8%EC%97%AC%ED%96%89/</link>
       <pubDate>Tue, 23 Apr 2024 19:23:03 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/2024-%EC%B6%94%EC%84%9D-%EC%9D%BC%EB%B3%B8%EC%97%AC%ED%96%89/</guid>
+      <guid>http://localhost:59040/_wiki/2024-%EC%B6%94%EC%84%9D-%EC%9D%BC%EB%B3%B8%EC%97%AC%ED%96%89/</guid>
       <description>&lt;h1 id=&#34;추석-민숙이와-함께하는-일본-여행-&#34;&gt;추석 민숙이와 함께하는 일본 여행 ❤️&lt;/h1&gt;
 &lt;h2 id=&#34;00-참고-링크-&#34;&gt;00. 참고 링크 📌&lt;/h2&gt;
 &lt;ul&gt;
@@ -2468,9 +2468,9 @@ delete(functi*on calls)     dsf             function calls
     </item>
     <item>
       <title>프로세스 시뮬레이션 숙제 📚</title>
-      <link>http://localhost:57767/_wiki/chapter-04/</link>
+      <link>http://localhost:59040/_wiki/chapter-04/</link>
       <pubDate>Sun, 21 Apr 2024 19:31:01 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/chapter-04/</guid>
+      <guid>http://localhost:59040/_wiki/chapter-04/</guid>
       <description>&lt;p&gt;source code : process-run.py
 link : &lt;a href=&#34;https://github.com/remzi-arpacidusseau/ostep-homework/blob/master/cpu-intro/process-run.py&#34;&gt;https://github.com/remzi-arpacidusseau/ostep-homework/blob/master/cpu-intro/process-run.py&lt;/a&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6c7086;font-style:italic&#34;&gt;#! /usr/bin/env python&lt;/span&gt;
@@ -3059,16 +3059,16 @@ link : &lt;a href=&#34;https://github.com/remzi-arpacidusseau/ostep-homework/blo
     </item>
     <item>
       <title>OSTEP-Week-01 질의 응답 📚</title>
-      <link>http://localhost:57767/_wiki/ostep-week-01/</link>
+      <link>http://localhost:59040/_wiki/ostep-week-01/</link>
       <pubDate>Sun, 21 Apr 2024 17:50:41 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/ostep-week-01/</guid>
+      <guid>http://localhost:59040/_wiki/ostep-week-01/</guid>
       <description></description>
     </item>
     <item>
       <title>Week-01 📚</title>
-      <link>http://localhost:57767/_wiki/week-01/</link>
+      <link>http://localhost:59040/_wiki/week-01/</link>
       <pubDate>Sun, 21 Apr 2024 14:26:30 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/week-01/</guid>
+      <guid>http://localhost:59040/_wiki/week-01/</guid>
       <description>&lt;h2 id=&#34;01-장---이-책에-대한-대화&#34;&gt;01 장 - 이 책에 대한 대화&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -3094,16 +3094,16 @@ c/cpp를 공부할 때 이분의 블로그와 강의자료를 들었는데 상�
     </item>
     <item>
       <title>운영체제 아주 쉬운 세 가지 이야기 📚</title>
-      <link>http://localhost:57767/_wiki/ostep/</link>
+      <link>http://localhost:59040/_wiki/ostep/</link>
       <pubDate>Sun, 21 Apr 2024 14:20:57 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/ostep/</guid>
+      <guid>http://localhost:59040/_wiki/ostep/</guid>
       <description>OSTEP 스터디</description>
     </item>
     <item>
       <title>nvim cheat sheet</title>
-      <link>http://localhost:57767/_wiki/lsp-cheat-sheet/</link>
+      <link>http://localhost:59040/_wiki/lsp-cheat-sheet/</link>
       <pubDate>Sat, 20 Apr 2024 16:30:53 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/lsp-cheat-sheet/</guid>
+      <guid>http://localhost:59040/_wiki/lsp-cheat-sheet/</guid>
       <description>&lt;h3 id=&#34;1일-1커맨드-정리&#34;&gt;1일 1커맨드 정리&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;^ + b, f&lt;/code&gt; : 한 페이지씩 스크롤&lt;/li&gt;
@@ -3168,9 +3168,9 @@ c/cpp를 공부할 때 이분의 블로그와 강의자료를 들었는데 상�
     </item>
     <item>
       <title>개발 관련 Cheat Sheet</title>
-      <link>http://localhost:57767/_wiki/cheat-sheet/</link>
+      <link>http://localhost:59040/_wiki/cheat-sheet/</link>
       <pubDate>Fri, 19 Apr 2024 22:55:18 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/cheat-sheet/</guid>
+      <guid>http://localhost:59040/_wiki/cheat-sheet/</guid>
       <description>&lt;h2 id=&#34;cheat-sheet-&#34;&gt;Cheat Sheet 📜&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://kimchanjung.github.io/programming/2020/05/06/kotlin-basic-syntax-summary/&#34;&gt;코틀린 Cheat Sheet&lt;/a&gt; : 코틀린을 배워놓고 안써먹다보니 까먹는 부분이 많아 찾아온 Cheat Sheet&lt;/li&gt;
@@ -3190,9 +3190,9 @@ c/cpp를 공부할 때 이분의 블로그와 강의자료를 들었는데 상�
     </item>
     <item>
       <title>러스트의 컬렉션 모아보기</title>
-      <link>http://localhost:57767/_wiki/common-collections/</link>
+      <link>http://localhost:59040/_wiki/common-collections/</link>
       <pubDate>Sun, 14 Apr 2024 13:53:34 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/common-collections/</guid>
+      <guid>http://localhost:59040/_wiki/common-collections/</guid>
       <description>&lt;h2 id=&#34;800-common-collections&#34;&gt;8.0.0 Common Collections&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -3221,9 +3221,9 @@ c/cpp를 공부할 때 이분의 블로그와 강의자료를 들었는데 상�
     </item>
     <item>
       <title>Package, Crates, Modules</title>
-      <link>http://localhost:57767/_wiki/managing-growing-projects-with-packages-crates-and-modules/</link>
+      <link>http://localhost:59040/_wiki/managing-growing-projects-with-packages-crates-and-modules/</link>
       <pubDate>Sat, 13 Apr 2024 23:04:16 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/managing-growing-projects-with-packages-crates-and-modules/</guid>
+      <guid>http://localhost:59040/_wiki/managing-growing-projects-with-packages-crates-and-modules/</guid>
       <description>&lt;h2 id=&#34;70-패키지-크래이트-모듈을-이용해-커지는-프로젝트를-관리하기&#34;&gt;7.0 패키지, 크래이트, 모듈을 이용해 커지는 프로젝트를 관리하기&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -3258,9 +3258,9 @@ c/cpp를 공부할 때 이분의 블로그와 강의자료를 들었는데 상�
     </item>
     <item>
       <title>짐켈러의 인터뷰를 보고 든 생각</title>
-      <link>http://localhost:57767/_wiki/interview-from-jim-keller/</link>
+      <link>http://localhost:59040/_wiki/interview-from-jim-keller/</link>
       <pubDate>Sat, 13 Apr 2024 12:05:56 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/interview-from-jim-keller/</guid>
+      <guid>http://localhost:59040/_wiki/interview-from-jim-keller/</guid>
       <description>&lt;h2 id=&#34;0-요즘-드는-생각과-걱정은-보통-ai와-관련된-것&#34;&gt;0. 요즘 드는 생각과 걱정은 보통 AI와 관련된 것..&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -3299,9 +3299,9 @@ c/cpp를 공부할 때 이분의 블로그와 강의자료를 들었는데 상�
     </item>
     <item>
       <title>Blog에 대한 생각 정리 글</title>
-      <link>http://localhost:57767/_wiki/blog%EC%97%90-%EB%8C%80%ED%95%9C-%EC%83%9D%EA%B0%81/</link>
+      <link>http://localhost:59040/_wiki/blog%EC%97%90-%EB%8C%80%ED%95%9C-%EC%83%9D%EA%B0%81/</link>
       <pubDate>Sat, 13 Apr 2024 11:45:31 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/blog%EC%97%90-%EB%8C%80%ED%95%9C-%EC%83%9D%EA%B0%81/</guid>
+      <guid>http://localhost:59040/_wiki/blog%EC%97%90-%EB%8C%80%ED%95%9C-%EC%83%9D%EA%B0%81/</guid>
       <description>&lt;h2 id=&#34;블로그를-만드는데-시간을-쏟고-글을-쓰면서-들던-생각들&#34;&gt;블로그를 만드는데 시간을 쏟고, 글을 쓰면서 들던 생각들&lt;/h2&gt;
 &lt;p&gt;3월과 4월간 가장 많은 시간을 쏟은건 블로그와 neovim인 것 같다. 원하는 만큼의 공부 진도가 아니라 아쉬운 와중에, 블로그등에 뭔가 개인 시간을 지나치게 많이 썼나 싶어서 드는 생각을 써보려고 한다.&lt;/p&gt;
 &lt;h3 id=&#34;블로그를-만들게-된-계기&#34;&gt;블로그를 만들게 된 계기&lt;/h3&gt;
@@ -3310,9 +3310,9 @@ c/cpp를 공부할 때 이분의 블로그와 강의자료를 들었는데 상�
     </item>
     <item>
       <title>Enums and Pattern Matching in Rust</title>
-      <link>http://localhost:57767/_wiki/enums-and-pattern-matching/</link>
+      <link>http://localhost:59040/_wiki/enums-and-pattern-matching/</link>
       <pubDate>Tue, 09 Apr 2024 21:57:53 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/enums-and-pattern-matching/</guid>
+      <guid>http://localhost:59040/_wiki/enums-and-pattern-matching/</guid>
       <description>&lt;h2 id=&#34;6-enum-and-pattern-matching&#34;&gt;6 Enum and Pattern Matching&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;In this chapter, we’ll look at enumerations, also referred to as enums. Enums allow you to define a type by enumerating its possible variants
@@ -3328,9 +3328,9 @@ c/cpp를 공부할 때 이분의 블로그와 강의자료를 들었는데 상�
     </item>
     <item>
       <title>Using Structs to Structure Related Data</title>
-      <link>http://localhost:57767/_wiki/using-structs-to-structure-related-data/</link>
+      <link>http://localhost:59040/_wiki/using-structs-to-structure-related-data/</link>
       <pubDate>Tue, 09 Apr 2024 00:11:26 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/using-structs-to-structure-related-data/</guid>
+      <guid>http://localhost:59040/_wiki/using-structs-to-structure-related-data/</guid>
       <description>&lt;h2 id=&#34;50-defining-and-instantiating-structs&#34;&gt;5.0 Defining and Instantiating Structs&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-rust&#34; data-lang=&#34;rust&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#cba6f7&#34;&gt;struct&lt;/span&gt; &lt;span style=&#34;color:#f9e2af&#34;&gt;User&lt;/span&gt; {
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    username: &lt;span style=&#34;color:#89dceb&#34;&gt;String&lt;/span&gt;,
@@ -3412,9 +3412,9 @@ c/cpp를 공부할 때 이분의 블로그와 강의자료를 들었는데 상�
     </item>
     <item>
       <title>Understanding the Ownership of the Rust Programming Language</title>
-      <link>http://localhost:57767/_wiki/understanding-ownership/</link>
+      <link>http://localhost:59040/_wiki/understanding-ownership/</link>
       <pubDate>Fri, 05 Apr 2024 20:22:13 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/understanding-ownership/</guid>
+      <guid>http://localhost:59040/_wiki/understanding-ownership/</guid>
       <description>&lt;h2 id=&#34;40-ownership&#34;&gt;4.0 Ownership&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;소유권은 러스트의 가장 특징적인 개념이다, 러스트를 이해하기 위해서, 또는 러스트가 왜 다른 언어들보다 주목받는지 이해하기 위해서 가장 중요한 장이라고 생각한다.&lt;/p&gt;&lt;/blockquote&gt;
@@ -3436,9 +3436,9 @@ c/cpp를 공부할 때 이분의 블로그와 강의자료를 들었는데 상�
     </item>
     <item>
       <title>Neovim 마이그레이션(?) 하기</title>
-      <link>http://localhost:57767/_wiki/neovim-migration-%ED%95%98%EA%B8%B0/</link>
+      <link>http://localhost:59040/_wiki/neovim-migration-%ED%95%98%EA%B8%B0/</link>
       <pubDate>Fri, 05 Apr 2024 17:59:28 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/neovim-migration-%ED%95%98%EA%B8%B0/</guid>
+      <guid>http://localhost:59040/_wiki/neovim-migration-%ED%95%98%EA%B8%B0/</guid>
       <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://github.com/SmallzooDev/NeovimConfig/assets/121675217/0153f5a4-323d-4ee0-b270-fb47f991f994&#34; alt=&#34;Welcome To my New Neovim&#34;  /&gt;
 &lt;/p&gt;
 &lt;h2 id=&#34;01-왜-마이그레이션을-하게-되었을까&#34;&gt;01. 왜 마이그레이션을 하게 되었을까?&lt;/h2&gt;
@@ -3457,9 +3457,9 @@ packer나 lsp-saga와 같이 기존에 불편하던 부분들을 귀신같이 �
     </item>
     <item>
       <title>2024년 4월의 목표</title>
-      <link>http://localhost:57767/_wiki/2024-04/</link>
+      <link>http://localhost:59040/_wiki/2024-04/</link>
       <pubDate>Thu, 04 Apr 2024 00:48:59 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/2024-04/</guid>
+      <guid>http://localhost:59040/_wiki/2024-04/</guid>
       <description>&lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;기본적으로 이직이다&lt;/p&gt;
@@ -3483,9 +3483,9 @@ packer나 lsp-saga와 같이 기존에 불편하던 부분들을 귀신같이 �
     </item>
     <item>
       <title>러스트 공식 가이드 3장 정리</title>
-      <link>http://localhost:57767/_wiki/common-programming-concepts/</link>
+      <link>http://localhost:59040/_wiki/common-programming-concepts/</link>
       <pubDate>Mon, 01 Apr 2024 21:00:33 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/common-programming-concepts/</guid>
+      <guid>http://localhost:59040/_wiki/common-programming-concepts/</guid>
       <description>&lt;h2 id=&#34;3-common-programming-concepts&#34;&gt;3 Common Programming Concepts&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;이번 장에서는 러스트의 기본적인 프로그래밍 개념들을 다룬다, 가장 특징적인 부분이라면 다른 언어를 대비해서 러스트가 어떤 부분이 다른지 위주로 설명하는 가장 크게 두드러진다는 것이다.&lt;/p&gt;&lt;/blockquote&gt;
@@ -3525,9 +3525,9 @@ packer나 lsp-saga와 같이 기존에 불편하던 부분들을 귀신같이 �
     </item>
     <item>
       <title>Vim이 느린 경우 Trouble Shootings</title>
-      <link>http://localhost:57767/_wiki/vim-profile-log-debugging/</link>
+      <link>http://localhost:59040/_wiki/vim-profile-log-debugging/</link>
       <pubDate>Mon, 01 Apr 2024 15:52:53 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/vim-profile-log-debugging/</guid>
+      <guid>http://localhost:59040/_wiki/vim-profile-log-debugging/</guid>
       <description>&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-gdscript3&#34; data-lang=&#34;gdscript3&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;:profile start profile&lt;span style=&#34;color:#89dceb;font-weight:bold&#34;&gt;.&lt;/span&gt;log
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;:profile &lt;span style=&#34;color:#cba6f7&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#89dceb;font-weight:bold&#34;&gt;*&lt;/span&gt;
@@ -3543,16 +3543,16 @@ packer나 lsp-saga와 같이 기존에 불편하던 부분들을 귀신같이 �
     </item>
     <item>
       <title>회사 컴퓨터 세팅 관련</title>
-      <link>http://localhost:57767/_wiki/%ED%9A%8C%EC%82%AC%EC%BB%B4-%EC%84%B8%ED%8C%85/</link>
+      <link>http://localhost:59040/_wiki/%ED%9A%8C%EC%82%AC%EC%BB%B4-%EC%84%B8%ED%8C%85/</link>
       <pubDate>Mon, 01 Apr 2024 15:46:56 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/%ED%9A%8C%EC%82%AC%EC%BB%B4-%EC%84%B8%ED%8C%85/</guid>
+      <guid>http://localhost:59040/_wiki/%ED%9A%8C%EC%82%AC%EC%BB%B4-%EC%84%B8%ED%8C%85/</guid>
       <description>&lt;p&gt;Hello World!&lt;/p&gt;</description>
     </item>
     <item>
       <title>러스트 공식 가이드 2장 정리</title>
-      <link>http://localhost:57767/_wiki/programming-a-guessing-game/</link>
+      <link>http://localhost:59040/_wiki/programming-a-guessing-game/</link>
       <pubDate>Sun, 31 Mar 2024 20:35:47 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/programming-a-guessing-game/</guid>
+      <guid>http://localhost:59040/_wiki/programming-a-guessing-game/</guid>
       <description>&lt;h4 id=&#34;2-programming-a-guessing-game&#34;&gt;2. Programming a Guessing Game&lt;/h4&gt;
 &lt;blockquote&gt;
 &lt;p&gt;간단한 숫자 맞추는 게임을 통해 러스트의 기본적인 문법과 기능을 익히는 예제, 처음 문법을 배우는 입장에서 생각보다 다룰 내용이 많았었던 기억이 난다.&lt;/p&gt;&lt;/blockquote&gt;
@@ -3588,9 +3588,9 @@ packer나 lsp-saga와 같이 기존에 불편하던 부분들을 귀신같이 �
     </item>
     <item>
       <title>러스트 공식 가이드 1장 정리</title>
-      <link>http://localhost:57767/_wiki/getting-started/</link>
+      <link>http://localhost:59040/_wiki/getting-started/</link>
       <pubDate>Sun, 31 Mar 2024 16:59:07 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/getting-started/</guid>
+      <guid>http://localhost:59040/_wiki/getting-started/</guid>
       <description>&lt;h4 id=&#34;11-installation&#34;&gt;1.1. Installation&lt;/h4&gt;
 &lt;blockquote&gt;
 &lt;p&gt;러스트 설치에 대한 아주 간단한 가이드.&lt;/p&gt;&lt;/blockquote&gt;
@@ -3627,9 +3627,9 @@ packer나 lsp-saga와 같이 기존에 불편하던 부분들을 귀신같이 �
     </item>
     <item>
       <title>The Rust Programming Language</title>
-      <link>http://localhost:57767/_wiki/the-rust-programming-language/</link>
+      <link>http://localhost:59040/_wiki/the-rust-programming-language/</link>
       <pubDate>Sun, 31 Mar 2024 15:59:52 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/the-rust-programming-language/</guid>
+      <guid>http://localhost:59040/_wiki/the-rust-programming-language/</guid>
       <description>&lt;h2 id=&#34;러스트-공식-가이드-문서-정리&#34;&gt;러스트 공식 가이드 문서 정리&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://doc.rust-lang.org/book/&#34;&gt;The Rust Programming Language&lt;/a&gt;&lt;/li&gt;
@@ -3655,9 +3655,9 @@ packer나 lsp-saga와 같이 기존에 불편하던 부분들을 귀신같이 �
     </item>
     <item>
       <title>Neovim Copilot 관련 설정 이슈</title>
-      <link>http://localhost:57767/_wiki/neovim-copilot-config/</link>
+      <link>http://localhost:59040/_wiki/neovim-copilot-config/</link>
       <pubDate>Sun, 31 Mar 2024 14:02:03 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/neovim-copilot-config/</guid>
+      <guid>http://localhost:59040/_wiki/neovim-copilot-config/</guid>
       <description>&lt;h2 id=&#34;neovim-copilot-관련-설정&#34;&gt;Neovim Copilot 관련 설정&lt;/h2&gt;
 &lt;h3 id=&#34;이슈&#34;&gt;이슈&lt;/h3&gt;
 &lt;ul&gt;
@@ -3724,9 +3724,9 @@ packer나 lsp-saga와 같이 기존에 불편하던 부분들을 귀신같이 �
     </item>
     <item>
       <title>ToDoList✅</title>
-      <link>http://localhost:57767/_wiki/todolist/</link>
+      <link>http://localhost:59040/_wiki/todolist/</link>
       <pubDate>Sat, 30 Mar 2024 18:11:43 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/todolist/</guid>
+      <guid>http://localhost:59040/_wiki/todolist/</guid>
       <description>&lt;ul&gt;
 &lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 이미지 호스팅 알아보기&lt;/li&gt;
 &lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 구글 검색 노출 관련 검색, 테스팅 징행하기&lt;/li&gt;
@@ -3736,9 +3736,9 @@ packer나 lsp-saga와 같이 기존에 불편하던 부분들을 귀신같이 �
     </item>
     <item>
       <title>사고싶은 장비 List</title>
-      <link>http://localhost:57767/_wiki/%EC%82%AC%EA%B3%A0-%EC%8B%B6%EC%9D%80-%EC%9E%A5%EB%B9%84/</link>
+      <link>http://localhost:59040/_wiki/%EC%82%AC%EA%B3%A0-%EC%8B%B6%EC%9D%80-%EC%9E%A5%EB%B9%84/</link>
       <pubDate>Sat, 30 Mar 2024 17:02:03 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/%EC%82%AC%EA%B3%A0-%EC%8B%B6%EC%9D%80-%EC%9E%A5%EB%B9%84/</guid>
+      <guid>http://localhost:59040/_wiki/%EC%82%AC%EA%B3%A0-%EC%8B%B6%EC%9D%80-%EC%9E%A5%EB%B9%84/</guid>
       <description>&lt;h3 id=&#34;모니터&#34;&gt;모니터🖥️&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://prod.danawa.com/info/?pcode=17054663&#34;&gt;Lg 듀얼업 모니터&lt;/a&gt; : 꼭 사고싶은 모니터, 최종적인 조합은 이것과 피벗용 27인치 모니터로 마무리 하고 싶다.&lt;/li&gt;
@@ -3750,9 +3750,9 @@ packer나 lsp-saga와 같이 기존에 불편하던 부분들을 귀신같이 �
     </item>
     <item>
       <title>개인적인 이야기를 작성할 예정입니다.</title>
-      <link>http://localhost:57767/_wiki/private-wiki/</link>
+      <link>http://localhost:59040/_wiki/private-wiki/</link>
       <pubDate>Sat, 30 Mar 2024 16:10:39 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/private-wiki/</guid>
+      <guid>http://localhost:59040/_wiki/private-wiki/</guid>
       <description>&lt;h3 id=&#34;inbox-&#34;&gt;Inbox 💭&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;[[Blog에-대한-생각]]&lt;/li&gt;
@@ -3785,9 +3785,9 @@ packer나 lsp-saga와 같이 기존에 불편하던 부분들을 귀신같이 �
     </item>
     <item>
       <title>Vim 자주 깜빡하는 커맨드</title>
-      <link>http://localhost:57767/_wiki/%EC%9E%90%EC%A3%BC-%EA%B9%8C%EB%A8%B9%EB%8A%94-%EC%BB%A4%EB%A7%A8%EB%93%9C-%EC%A0%95%EB%A6%AC/</link>
+      <link>http://localhost:59040/_wiki/%EC%9E%90%EC%A3%BC-%EA%B9%8C%EB%A8%B9%EB%8A%94-%EC%BB%A4%EB%A7%A8%EB%93%9C-%EC%A0%95%EB%A6%AC/</link>
       <pubDate>Sat, 30 Mar 2024 15:59:49 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/%EC%9E%90%EC%A3%BC-%EA%B9%8C%EB%A8%B9%EB%8A%94-%EC%BB%A4%EB%A7%A8%EB%93%9C-%EC%A0%95%EB%A6%AC/</guid>
+      <guid>http://localhost:59040/_wiki/%EC%9E%90%EC%A3%BC-%EA%B9%8C%EB%A8%B9%EB%8A%94-%EC%BB%A4%EB%A7%A8%EB%93%9C-%EC%A0%95%EB%A6%AC/</guid>
       <description>&lt;h3 id=&#34;1일-1커맨드-정리&#34;&gt;1일 1커맨드 정리&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;^ + b, f&lt;/code&gt; : 한 페이지씩 스크롤&lt;/li&gt;
@@ -3834,9 +3834,9 @@ packer나 lsp-saga와 같이 기존에 불편하던 부분들을 귀신같이 �
     </item>
     <item>
       <title>생활 관련 링크 Archive</title>
-      <link>http://localhost:57767/_wiki/life-archive-2025/</link>
+      <link>http://localhost:59040/_wiki/life-archive-2025/</link>
       <pubDate>Fri, 29 Mar 2024 22:47:39 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/life-archive-2025/</guid>
+      <guid>http://localhost:59040/_wiki/life-archive-2025/</guid>
       <description>&lt;h1 id=&#34;생활-관련-링크-archive&#34;&gt;생활 관련 링크 Archive&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -3852,9 +3852,9 @@ packer나 lsp-saga와 같이 기존에 불편하던 부분들을 귀신같이 �
     </item>
     <item>
       <title>개발 관련 링크 Archive</title>
-      <link>http://localhost:57767/_wiki/dev-archive-2025/</link>
+      <link>http://localhost:59040/_wiki/dev-archive-2025/</link>
       <pubDate>Fri, 29 Mar 2024 22:46:50 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/dev-archive-2025/</guid>
+      <guid>http://localhost:59040/_wiki/dev-archive-2025/</guid>
       <description>&lt;h3 id=&#34;개발-관련-링크-archive&#34;&gt;개발 관련 링크 Archive&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://news.hada.io/topic?id=19034&#34;&gt;나이들어가는 프로그래머&lt;/a&gt; : 63세의 나이에도 더 일을 하고싶은 마음이 부러워서, 나도 그러고 싶은 사람으로써 이미 그런사람을 보는 기분&lt;/li&gt;
@@ -3863,16 +3863,16 @@ packer나 lsp-saga와 같이 기존에 불편하던 부분들을 귀신같이 �
     </item>
     <item>
       <title>Hugo, Vimwiki로 블로그 정착하기</title>
-      <link>http://localhost:57767/_wiki/%EC%83%88%EB%A1%9C%EC%9A%B4-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%A0%95%EC%B0%A9%ED%95%98%EA%B8%B0/</link>
+      <link>http://localhost:59040/_wiki/%EC%83%88%EB%A1%9C%EC%9A%B4-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%A0%95%EC%B0%A9%ED%95%98%EA%B8%B0/</link>
       <pubDate>Fri, 29 Mar 2024 21:13:43 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/%EC%83%88%EB%A1%9C%EC%9A%B4-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%A0%95%EC%B0%A9%ED%95%98%EA%B8%B0/</guid>
+      <guid>http://localhost:59040/_wiki/%EC%83%88%EB%A1%9C%EC%9A%B4-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%A0%95%EC%B0%A9%ED%95%98%EA%B8%B0/</guid>
       <description>빔위키블로그좋아..</description>
     </item>
     <item>
       <title>Index 🧊️</title>
-      <link>http://localhost:57767/_wiki/home/</link>
+      <link>http://localhost:59040/_wiki/home/</link>
       <pubDate>Fri, 29 Mar 2024 09:21:07 +0900</pubDate>
-      <guid>http://localhost:57767/_wiki/home/</guid>
+      <guid>http://localhost:59040/_wiki/home/</guid>
       <description>&lt;hr&gt;
 &lt;ul&gt;
 &lt;li&gt;Contact : &lt;a href=&#34;mailto:joongyue@gmail.com&#34;&gt;Email 📧&lt;/a&gt;&lt;/li&gt;
@@ -3953,16 +3953,16 @@ packer나 lsp-saga와 같이 기존에 불편하던 부분들을 귀신같이 �
     </item>
     <item>
       <title></title>
-      <link>http://localhost:57767/_wiki/kotlin%EC%9D%B4-%EC%A2%8B%EC%A7%80%EB%A7%8E%EC%9D%80-%EC%95%8A%EC%9D%80-%EC%9D%B4%EC%9C%A0/</link>
+      <link>http://localhost:59040/_wiki/kotlin%EC%9D%B4-%EC%A2%8B%EC%A7%80%EB%A7%8E%EC%9D%80-%EC%95%8A%EC%9D%80-%EC%9D%B4%EC%9C%A0/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:57767/_wiki/kotlin%EC%9D%B4-%EC%A2%8B%EC%A7%80%EB%A7%8E%EC%9D%80-%EC%95%8A%EC%9D%80-%EC%9D%B4%EC%9C%A0/</guid>
+      <guid>http://localhost:59040/_wiki/kotlin%EC%9D%B4-%EC%A2%8B%EC%A7%80%EB%A7%8E%EC%9D%80-%EC%95%8A%EC%9D%80-%EC%9D%B4%EC%9C%A0/</guid>
       <description></description>
     </item>
     <item>
       <title>About Me🧊️</title>
-      <link>http://localhost:57767/about/</link>
+      <link>http://localhost:59040/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:57767/about/</guid>
+      <guid>http://localhost:59040/about/</guid>
       <description>백엔드 개발자로 일하고 있는 강준규 입니다!</description>
     </item>
   </channel>
