@@ -71,3 +71,7 @@ markup:
         # noClasses: false
         style: catppuccin-mocha
         lineNos: false
+
+
+ignoreFiles:
+  - "content/_wiki/obsidian_templates/.*"
