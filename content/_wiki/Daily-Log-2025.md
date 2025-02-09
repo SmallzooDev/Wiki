@@ -2,7 +2,7 @@
 title: Daily Log 2025
 summary: 
 date: 2025-01-08 20:19:31 +0900
-lastmod: 2025-02-08 17:53:59 +0900
+lastmod: 2025-02-09 13:55:05 +0900
 tags: 
 categories: 
 description: 
@@ -49,5 +49,8 @@ tocOpen: true
 ### 2025-02-07
 - 컨디션이 쉽지는 않다, 그래도 할일은 해서 뿌듯하다
 
-### 2025-02-07
+### 2025-02-09
 - 늦은 나이까지 일을 하기 위해서 뭘 미리하면 좋을지에 대한 이야기를 많이 하는 것 같다.
+
+### 2025-02-10
+- 2년 뒤에 [이런 식견을 이야기 할 수 있으면 좋겠다](https://chriskiehl.com/article/thoughts-after-10-years)
