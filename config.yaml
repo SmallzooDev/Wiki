@@ -78,3 +78,8 @@ markup:
 
 ignoreFiles:
   - "content/_wiki/obsidian_templates/.*"
+
+sitemap:
+  changefreq: weekly
+  filename: sitemap.xml
+  priority: 0.5
