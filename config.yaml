@@ -16,6 +16,9 @@ params:
         url: "mailto:joongyue@gmail.com"
   defaultTheme: light
   disableThemeToggle: true
+  analytics:
+    google:
+      SiteVerificationTag: "p0wE2j_epPsQ7CThAB2BJTDxv8Aq_e09J4JpWIh8qTo"
   assets:
     favicon: "favicon.ico"
     favicon16x16: "favicon-16x16.png"
