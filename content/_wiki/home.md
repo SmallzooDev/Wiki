@@ -2,7 +2,7 @@
 title: Index 🧊️
 summary: 
 date: 2024-03-29 09:21:07 +0900
-lastmod: 2025-02-04 18:33:46 +0900
+lastmod: 2025-02-11 22:10:33 +0900
 tags: ["wiki_home"]
 categories: 
 public: true
@@ -35,6 +35,7 @@ TocOpen: true
 - [[The-Rust-Programming-Language]]
 - [[Effective-Rust]]
 - [[Build-Redis-With-Rust]]
+- [[Rust-Algorithms]]
 
 ## Cpp 🐋
 
