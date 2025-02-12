@@ -2,7 +2,7 @@
 title: Daily Log 2025
 summary: 
 date: 2025-01-08 20:19:31 +0900
-lastmod: 2025-02-09 13:55:05 +0900
+lastmod: 2025-02-12 19:42:16 +0900
 tags: 
 categories: 
 description: 
@@ -54,3 +54,6 @@ tocOpen: true
 
 ### 2025-02-10
 - 2년 뒤에 [이런 식견을 이야기 할 수 있으면 좋겠다](https://chriskiehl.com/article/thoughts-after-10-years)
+
+### 2025-02-11
+- 완벽한 설정은 없으려나!
