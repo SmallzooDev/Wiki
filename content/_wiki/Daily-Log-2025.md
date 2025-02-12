@@ -2,7 +2,7 @@
 title: Daily Log 2025
 summary: 
 date: 2025-01-08 20:19:31 +0900
-lastmod: 2025-02-09 13:55:05 +0900
+lastmod: 2025-02-12 10:43:15 +0900
 tags: 
 categories: 
 description: 
@@ -54,3 +54,6 @@ tocOpen: true
 
 ### 2025-02-10
 - 2년 뒤에 [이런 식견을 이야기 할 수 있으면 좋겠다](https://chriskiehl.com/article/thoughts-after-10-years)
+
+### 2025-02-12
+- 모던 유닉스 툴을 사용하면 좋지만 지나치게 nerd-font에 있는 아이콘들을 사용해서 pbcopy와 같은 것들을 이용할때 귀찮아 지는 경우가 있다.
