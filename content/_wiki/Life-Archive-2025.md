@@ -2,7 +2,7 @@
 title: 생활 관련 링크 Archive 
 summary: 
 date: 2024-03-29 22:47:39 +0900
-lastmod: 2025-02-12 19:43:25 +0900
+lastmod: 2025-02-14 09:44:56 +0900
 tags: 
 categories: 
 public: true
@@ -24,4 +24,4 @@ showToc: true
 - obsidian to 1 (a)
 - raycast to opt opt
 - chrome to w
-- system window cycle to cmd + ;
+- system window cycle to  hyper + c ;
