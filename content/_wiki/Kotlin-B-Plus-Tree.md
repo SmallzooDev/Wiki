@@ -1,5 +1,5 @@
 ---
-title: b+ tree on rust
+title: b+ tree on kotlin
 summary: 
 date: 2025-02-11 22:07:49 +0900
 lastmod: 2025-02-11 22:10:33 +0900

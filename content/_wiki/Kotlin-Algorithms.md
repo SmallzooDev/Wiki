@@ -14,4 +14,4 @@ tocOpen: true
 
 ## 자료구조 목록
 
-- [[Rust-B-Plus-Tree]]
+- [[Kotlin-B-Plus-Tree]]
