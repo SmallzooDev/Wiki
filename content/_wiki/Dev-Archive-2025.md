@@ -2,7 +2,7 @@
 title: 개발 관련 링크 Archive
 summary: 
 date: 2024-03-29 22:46:50 +0900
-lastmod: 2025-02-12 19:43:25 +0900
+lastmod: 2025-02-17 12:39:17 +0900
 tags: 
 categories: 
 public: true
@@ -16,3 +16,4 @@ showToc: true
 - [업계에서 10년 있은 뒤, 마음이 바뀐 소프트웨어 개발 토픽들](https://news.hada.io/topic?id=19081)
 - [shunpo](https://news.hada.io/topic?id=19165) : directory 북마크 cli app, yazi와는 다른 맥락으로 유용할듯
 - [modern unix](https://github.com/ibraheemdev/modern-unix?tab=readme-ov-file) : 유용한 modern unix cli tool을 소개하는 레포, 주기적으로 업데이트 된다.
+- [2024년 가장 조회수 높은 소프트 엔지니어링 발표들](https://news.hada.io/topic?id=19269) : 재미있는 내용들이 많은 것 같다.
