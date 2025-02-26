@@ -2,7 +2,7 @@
 title: The Rust Programming Language
 summary: 
 date: 2024-03-31 15:59:52 +0900
-lastmod: 2024-03-31 15:59:52 +0900
+lastmod: 2025-02-26 11:29:17 +0900
 tags: 
 categories: 
 public: true
@@ -30,6 +30,7 @@ showToc: true
  09. [[Error-Handling]] : 에러 처리하기
  13. [[Funcional-Langauges-Features]] : Iterators and Closures
 
-
+- 변수의 수명은 컴파일 시점에서  스코프 내에서 더이상 사용이 되지 않는걸 확인 가능한 마지막 줄까지
+- 이걸 악용해서 여러개의 가변 참조를 가지는게 약간 안티패턴 같다.
 
 
