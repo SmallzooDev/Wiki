@@ -2,7 +2,7 @@
 title: RealMySql 8.0
 summary: 
 date: 2025-02-27 10:17:43 +0900
-lastmod: 2025-02-27 20:12:45 +0900
+lastmod: 2025-02-27 21:06:42 +0900
 tags: 
 categories: 
 description: 
@@ -300,3 +300,46 @@ where it.name=concat('employees','/','employess')
 - 바이너리 로그에 기록되는 쿼리가 레플리카 서버에서 실행될 때, 소스 서버에서 만들어낸 결과와 동일한 결과를 만들어내도록 보장하는것이 주목적
 - 근데 데드락이 은근 걸려서 그냥 ROW 포맷의 로그를 쓰기를 권한다.
 - [전체적인설명](https://chatgpt.com/share/67c04835-9394-8013-98bd-d6c4b283029a1)
+
+#### AUTO_INCREMENT 락
+- 테이블락이었다.
+- 명시적으로 얻을 방법은 없다.(postgres 최고..)
+
+### 인덱스와 잠금
+- 인덱스 기반 락이기 때문에, 업데이트되는 레코드가 인덱스가 안걸려 있다면, 해당하는 모든 데이터가 락이걸린다. 풀테이블 스캔을 하면 테이블락이 걸린다.
+
+```mysql
+CREATE TABLE orders (
+
+    id INT AUTO_INCREMENT PRIMARY KEY,
+
+    customer_id INT,
+
+    amount DECIMAL(10,2),
+
+    status VARCHAR(20),
+
+    INDEX idx_customer (customer_id) -- customer_id에 인덱스 추가
+
+) ENGINE=InnoDB;
+
+  
+
+INSERT INTO orders (customer_id, amount, status) VALUES
+(1, 100.00, 'pending'),
+(1, 200.00, 'pending'),
+(1, 300.00, 'pending'),
+(2, 400.00, 'pending'), 
+(2, 500.00, 'pending');
+
+BEGIN;
+UPDATE orders SET status = 'completed' WHERE customer_id = 1 AND amount = 300;
+
+-- customer id 1인 주문 rows 다잠김
+```
+
+#### 레코드 수준의 잠금 확인 및 해제
+> information_schema는 deprecated 되는중 performance_schema의 data_locks, data_lock_waits를 위주로 사용할 것
+
+조회 예시는 [[MySQL-Record-Lock-Queries]] 여기에 별도 정리
+
