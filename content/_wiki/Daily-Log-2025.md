@@ -2,7 +2,7 @@
 title: Daily Log 2025
 summary: 
 date: 2025-01-08 20:19:31 +0900
-lastmod: 2025-02-28 19:32:30 +0900
+lastmod: 2025-02-28 21:55:39 +0900
 tags: 
 categories: 
 description: 
@@ -106,3 +106,9 @@ tocOpen: true
 	- `Orchestration Saga` : orchestration을 둔다
 		- Orchestrator가 단일 장애점, 현재 상태 추적이 용이하다.
 - 난 이런 고민 없이, 데이터서버가 orchestrator역할을 수행하게 되었던 것 같다.
+- 1 - ~ real mysql
+- 2,3 - 데이터베이스 인터널스
+- 3,4 - 대규모 1,2
+- 5 - 버퍼
+- 6,7,8,9 - jvm, ostep 카프카
+- prj, springboot, 
