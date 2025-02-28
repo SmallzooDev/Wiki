@@ -2,7 +2,7 @@
 title: Daily Log 2025
 summary: 
 date: 2025-01-08 20:19:31 +0900
-lastmod: 2025-02-26 22:18:48 +0900
+lastmod: 2025-02-28 19:32:30 +0900
 tags: 
 categories: 
 description: 
@@ -97,3 +97,12 @@ tocOpen: true
 
 ### 2025-02-26
 - 빅 샤이닝 슈퍼해피
+
+
+### 2025-02-28
+- `TIL` : saga 패턴에는 두가지 방식이 존재한다
+	- `Choreography Saga` : 메세지브로커로 이벤트를 교환하며 진행하는 방식
+		- 단일장애점이 없음, 현재 상태 추적이 어려움
+	- `Orchestration Saga` : orchestration을 둔다
+		- Orchestrator가 단일 장애점, 현재 상태 추적이 용이하다.
+- 난 이런 고민 없이, 데이터서버가 orchestrator역할을 수행하게 되었던 것 같다.
