@@ -2,7 +2,7 @@
 title: RealMySql 8.0
 summary: 
 date: 2025-02-27 10:17:43 +0900
-lastmod: 2025-02-27 21:06:42 +0900
+lastmod: 2025-02-28 11:38:10 +0900
 tags: 
 categories: 
 description: 
@@ -310,17 +310,11 @@ where it.name=concat('employees','/','employess')
 
 ```mysql
 CREATE TABLE orders (
-
     id INT AUTO_INCREMENT PRIMARY KEY,
-
     customer_id INT,
-
     amount DECIMAL(10,2),
-
     status VARCHAR(20),
-
     INDEX idx_customer (customer_id) -- customer_id에 인덱스 추가
-
 ) ENGINE=InnoDB;
 
   
@@ -343,3 +337,30 @@ UPDATE orders SET status = 'completed' WHERE customer_id = 1 AND amount = 300;
 
 조회 예시는 [[MySQL-Record-Lock-Queries]] 여기에 별도 정리
 
+### MySQL의 격리 수준
+
+| 격리 수준                | Dirty Read | Non-repeatable Read | Phantom Read | 설명                                        |
+| -------------------- | ---------- | ------------------- | ------------ | ----------------------------------------- |
+| **READ UNCOMMITTED** | O          | O                   | O            | 커밋되지 않은 데이터를 읽을 수 있음                      |
+| **READ COMMITTED**   | X          | O                   | O            | 다른 트랜잭션이 커밋한 데이터만 읽을 수 있음 (Oracle 기본값)    |
+| **REPEATABLE READ**  | X          | X                   | O            | 동일한 트랜잭션 내에서는 같은 데이터를 읽을 수 있음 (MySQL 기본값) |
+| **SERIALIZABLE**     | X          | X                   | X            | 모든 트랜잭션을 직렬화하여 처리, 동시성을 거의 허용하지 않음        |
+- **Dirty Read**: 다른 트랜잭션에서 아직 **커밋되지 않은 데이터**를 읽는 것
+- **Non-repeatable Read**: 동일한 트랜잭션 내에서 같은 데이터를 읽었을 때 **다른 값**이 반환되는 것
+- **Phantom Read**: 동일한 트랜잭션 내에서 **새로운 데이터가 삽입되거나 삭제되는 것**이 감지되는 현상
+- 아래로 갈수록 격리(고립) 정도가 높아지며, 동시처리 성능이 떨어진다.
+- SQL표준 상 `REPEATABLE READ`에서 Pantom read는 발생할수 있지만, MySQL특성상 발생하지 않는다.
+> 일반적인 온라인 서비스 용도의 데이터베이스는 주로 READ COMMITTED, REPEATABLE READ 중 하나를 사용한다.
+
+#### READ_COMMITTED
+- Dirty Read가 발생함.
+- 트랜잭션 격리 수준으로 인정하지 않을정도로 정합성에 문제가 많음.
+
+#### READ COMMITTED
+- 요점은 다른 트랜잭션이 진행중이면, 언두로그에서 레코드를 읽어간다는 것.
+- '일반적인'온라인 서비스에서 가장 많이 사용되는 트랜잭션 레벨
+- Non-repeatable-read는 발생함
+	- 참고로 READ_COMMITTED, REPEATABLE READ 에서의 가장 큰 차이점은 select
+	- READ_COMMITED는 한 트랜잭션 진행중에 다른트랜이 커밋을 성공하면 그 트랜잭션은 동일한 select를 보장받지 못한다.
+
+#### REPEATABLE READ
