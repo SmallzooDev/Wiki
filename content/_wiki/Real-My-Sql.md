@@ -2,7 +2,7 @@
 title: RealMySql 8.0
 summary: 
 date: 2025-02-27 10:17:43 +0900
-lastmod: 2025-03-01 14:57:17 +0900
+lastmod: 2025-03-01 23:14:17 +0900
 tags: 
 categories: 
 description: 
@@ -1041,4 +1041,177 @@ where emp_no between 10001 and 10200;
 - [인덱스 푸쉬 다운](https://neverfadeaway.tistory.com/76)
 - [고급회적화2](https://velog.io/@p0tat0_chip/%EA%B3%A0%EA%B8%89-%EC%B5%9C%EC%A0%81%ED%99%94)
 - [쿼리 힌트](https://bommbom.tistory.com/entry/MySQL-%ED%9E%8C%ED%8A%B8Hint-%EC%A2%85%EB%A5%98-%EB%B0%8F-%EC%82%AC%EC%9A%A9%EB%B2%95-%EA%BC%AD-%ED%99%95%EC%9D%B8%ED%95%B4%EC%95%BC-%ED%95%A0-%EC%A3%BC%EC%9D%98%EC%82%AC%ED%95%AD)
+
+## 실행 계획
+
+### 통계 정보
+- 8.0 버전 이후부터 인덱스되지 않은 칼럼들에 대해서도 데이터 분포도를 수집해서 저장하는 히스토그램이 도입됐다.
+
+#### 테이블 및 인덱스 통계정보
+- 비용기반 최적화에서 가장 중요한건 통계정보
+- 8.0 이전까지는 통계정보가 지나치게 부정확해서 이슈였음
+
+**MySQL 서버의 통계 정보**
+- 기존에는 통계정보가 메모리에만 있어서 휘발성이 있었음
+- 그러나 최근에는 테이블로 관리함으로써 유지
+
+| database_name | table_name | index_name   | stat_name      | stat_value | sample_size | last_update |
+|--------------|-----------|-------------|--------------|-----------|------------|-------------|
+| employees    | employees | PRIMARY     | n_diff_pfx01 | 300024    | 100        | 2025-03-01  |
+| employees    | employees | PRIMARY     | n_leaf_pages | 1024      | NULL       | 2025-03-01  |
+| employees    | employees | PRIMARY     | size         | 2048      | NULL       | 2025-03-01  |
+| employees    | employees | idx_lastname | n_diff_pfx01 | 250000    | 100        | 2025-03-01  |
+| employees    | employees | idx_lastname | n_leaf_pages | 512       | NULL       | 2025-03-01  |
+| employees    | employees | idx_lastname | size         | 1024      | NULL       | 2025-03-01  |
+
+- 각 칼럼의 의미
+
+| 컬럼명           | 의미                                                           |
+| ------------- | ------------------------------------------------------------ |
+| database_name | 해당 인덱스가 속한 데이터베이스의 이름 (`employees`)                          |
+| table_name    | 해당 인덱스가 속한 테이블의 이름 (`employees`)                             |
+| index_name    | 해당 테이블에서 수집된 통계 정보를 가진 인덱스의 이름 (`PRIMARY`, `idx_lastname` 등) |
+| stat_name     | 인덱스의 통계 정보 항목 (설명은 아래 참고)                                    |
+| stat_value    | 해당 통계 항목의 값                                                  |
+| sample_size   | 통계를 수집할 때 사용한 샘플 크기 (일부 통계 항목에 적용됨)                          |
+| last_update   | 통계 정보가 마지막으로 업데이트된 날짜 및 시간                                   |
+- stat_name 항목 설명
+
+| stat_name               | 설명                                              |
+| ----------------------- | ----------------------------------------------- |
+| n_diff_pfx01            | 인덱스의 첫 번째 컬럼에서 서로 다른 값의 개수 (카디널리티)              |
+| n_leaf_pages            | 해당 인덱스의 리프(leaf) 페이지 개수 (B-트리 인덱스의 리프 노드)       |
+| size                    | 해당 인덱스가 차지하는 전체 페이지 수 (`n_leaf_pages`보다 크거나 같음) |
+| n_rows                  | 전체 레코드 건수                                       |
+| clustered_index_size    | 프라이머리 키의 크기 (InnoDB 페이지 개수)                     |
+| sum_of_other_index_size | 프라이머리 키를 제외한 인덱스의 크기                            |
+#### 히스토그램
+- 분포를 보기위함
+- 직접 수집되지는 않고 명시적으로 `analyze table ... update histogram`이라는 쿼리로 수행해야함
+- 샘플링 갯수등을 설정 가능함
+- 환경변수값으로 옵티마이저가 히스토그램을 참고할지 말지 정할 수 있음
+
+**히스토그램의 용도**
+- 버킷별로 레코드의 갯수와, 유니크한 값의 개수 정보를 가진다.
+- 이 정보를 토대로 성능적으로 유리한 선택을 한다.
+- 주로 인덱스 되지 않은 칼럼에 분포를 사용할 때 씀
+
+> 조인 전에 작은 테이블을 필터링하면 빠름, 분포가 25퍼센트가 넘는다고 판단하면 풀테이블 스캔이 빠름 등등으로 유리한 선택을 한다는 뜻.
+
+
+**히스토그램과 인덱스**
+- 사실 통계정보만 활용하는것이 아니라, 인덱스를 샘플링해서 계획을 수립하는 경우가 많음
+- 조건절의 레코드 건수를 예측하기 위해 옵티마이저는 실제 인덱스의 b-tree를 샘플링해서 살펴본다.
+- 이 작음을 `Index Dive`라고 함
+
+#### 코스트 모델
+- mysql 서버가 쿼리를 처리하려면 다음과 같은 다양한 작업을 필요로 한다.
+	- 디스크로부터 데이터 페이지 읽기
+	- 메모리로부터 데이터 페이지 읽기
+	- 인덱스 키 비교
+	- 레코드 평가
+	- 메모리 임시 테이블 작업
+	- 디스크 임시 테이블 작업
+- 위와 같은 작업이 얼마나 필요할지 예측하고 전체 작업ㅂ 비용을 계산한 결과를 바탕으로 최적의 실행 계획을 찾는다.
+- 이렇게 전체 쿼리의 비용을 계산하는데 필요한 단위 작업들의 비용을 `Cost Model`이라고 한다.
+- 결론적으로 8.0 이상의 코스트모델은 다음 두개의 설정값을 사용한다.
+	- `server_cost`: 인덱스를 찾고 레코드를 비교하고 임시 테이블 처리에 대한 비용 관리
+	- `engine_cost`: 레코드를 가진 데이터 페이지를 가져오는 데 필요한 비용 관리
+	- 두 값은 테이블로 관리되는데 다음과같은 칼럼들을 가지고 있다.
+		- 이하 공통
+			- `cost_name`: 코스트 모델의 각 단위 작업
+			- `default_vallue`: 각 단위 작업의 비용
+			- `cost_value` : dbms관리자가 설정한 값
+			- `last_updated` : 단위 작업의 비용이 변경된 시점
+			- `comment` : 비용에 대한 추가 설명
+		- 이하 engine_cost에만 추가적으로 있는 칼럼
+			- `engine_name` : 비용이 적용된 스토리지 엔진
+			- `device_type` : 디스크 타입
+
+| 단위 작업                          | 기본값 (Default Value) | 설명                                                                                           | 엔진 코스트 | 서버 코스트 | 높이면                                          |
+| ------------------------------ | ------------------- | -------------------------------------------------------------------------------------------- | ------ | ------ | -------------------------------------------- |
+| `disk_temptable_create_cost`   | 20.0                | 디스크 기반 임시 테이블을 생성하는 비용. 내부적으로 디스크 기반 스토리지 엔진(InnoDB 또는 MyISAM)을 사용하는 임시 테이블 생성 시 발생.         |        | ✔      | 디스크의 임시 테이블을 만들지 않는 방향으로 실행계획 수립             |
+| `disk_temptable_row_cost`      | 0.5                 | 디스크 기반 임시 테이블에 행을 추가하는 비용.                                                                   |        | ✔      | 디스크의 임시 테이블을 만들지 않는 방향으로 실행계획 수립             |
+| `memory_temptable_create_cost` | 1.0                 | 메모리 기반 임시 테이블을 생성하는 비용. `MEMORY` 스토리지 엔진을 사용하는 임시 테이블 생성 시 발생.                               |        | ✔      | 메모리의 임시 테이블을 만들지 않는 방향으로 실행계획 수립             |
+| `memory_temptable_row_cost`    | 0.1                 | 메모리 기반 임시 테이블에 행을 추가하는 비용.                                                                   |        | ✔      | 메모리의 임시 테이블을 만들지 않는 방향으로 실행계획 수립             |
+| `key_compare_cost`             | 0.05                | 레코드 키를 비교하는 비용. 이 값이 높을수록 많은 키 비교를 수행하는 쿼리 계획의 비용이 증가하여, 정렬을 피하기 위해 인덱스를 사용하는 쿼리 계획을 선호하게 됨. |        | ✔      | 정렬을 수행하지 않는 방향의 수행 계획을 수립                    |
+| `row_evaluate_cost`            | 0.1                 | 단일 행을 평가(계산)하는 비용.                                                                           |        | ✔      | 풀스캔을 실행하는 비용이 늘어나서 가능한 인덱스 스캔을 실행하도록 실행계획 수립 |
+| `io_block_read_cost`           | 1.0                 | 디스크에서 블록을 읽는 비용.                                                                             | ✔      |        | 버퍼풀에서 사용할 가능성 높아짐                            |
+| `memory_block_read_cost`       | 0.25                | 메모리에서 블록을 읽는 비용.                                                                             | ✔      |        |                                              |
+- `row_evaluate_cost` : 스토리지 엔진이 반환한 레코드가 쿼리의 조건에 일치하는지를 평가하는 단위 작업
+	- 이 값이 증가할수록 풀테이블 스캔과 같이 많은 레코드를 처리하는 비용이 높아지고, 
+	- 반대로 레인지 스캔과 같이 상대적으로 적은 수의 레코드를 처리하는 쿼리의 비용이 낮아진다.
+- `key_compare_cost` : 키값의 비교작업에 필요한 비용을 의미하는데, 레코드 정렬과 같이 키값 비교 처리가 많은 경우 쿼리의 비용이 높아진다.
+
+> 확실히 DBA의 영역인 것 같다
+
+### 실행 계획 확인
+
+#### 실행 계획 출력 포맷
+- `FORMAT=` 으로 줄 수 있음 (json, tree 등등)
+
+#### 쿼리의 실행 시간 확인
+- `EXPLAIN ANALYZE`로 트리형식으로 단계별 소요시간을 볼 수 있음
+
+```sql
+EXPLAIN ANALYZE
+SELECT e.emp_no, AVG(s.salary)
+FROM employees e
+    INNER JOIN salaries s ON s.emp_no = e.emp_no
+                AND s.salary > 50000
+                AND s.from_date <= '1990-01-01'
+                AND s.to_date > '1990-01-01'
+WHERE e.first_name = 'Matt'
+GROUP BY e.hire_date;
+
+A) -> Table scan on <temporary> (actual time=0.001..0.004 rows=48 loops=1)
+B)   -> Aggregate using temporary table (actual time=3.779..3.808 rows=48 loops=1)
+C)     -> Nested loop inner join (cost=685.24 rows=135) (actual time=0.367..3.602 rows=48 loops=1)
+D)       -> Index lookup on e using ix_firstname (first_name='Matt') (cost=215.08 rows=233) (actual time=0.348 1.046 rows=233 loops=1)
+E)       -> Filter: (...where절 필터들)
+F)         -> Index lookup on s using primary (emp_no=e.emp_no)
+```
+- 들여쓰기가 같은 레벨에서는 상단의 라인이 먼저
+- 들여쓰기가 다른 레벨에서는 가장 안쪽에 위치한 라인이 먼저
+
+그래서 아래처럼 실행된다
+```
+1. D) Index lookup on e using ix_firstname // employees 테이블의 인덱스를 통해 first_name=Matt조건의 레코드 찾기
+2. F) Index lookup on s using primary // salaries 테이블의 pk로 emp_no가 1번 결과의 emp_no와 동일한 레코드를 찾아서
+3. E) filter // 2번을 filter하고 일치하는값 뽑기
+4. C) Nested  loop inner join // 1,3번의 결과를 조인해서
+5. B) aggregate using temporary table // 임시테이블에 결과를 저장하며 group by 집계
+6. A) table scan on <temporary> // 임시테이블의 결과를 반환
+```
+
+### 실행 계획 분석
+
+#### id칼럼
+- select별로 부여되는 id
+- 접근 순서를 의미하지는 않음
+
+#### select_type 칼럼
+- 각 단위 select쿼리가 어떤 타입의 쿼리인지 표시되는 칼럼
+- simple : union이나 서브쿼리를 사용하지 않는 단순한 select, 쿼리가 아무리 복잡해도 단 하나(일반적으로 제일 바깥)
+- primary : union이나 서브쿼리의 실행계획에서 가장 바깥쪽, 마찬가지로 단하나
+- union : 유니온으로 결합하나는 단위 셀렉트 쿼리 가운데 첫 번째를 제외한 두 번째 이후 단위의 셀렉트 쿼리의 타입, 유니온의 첫번째 단위 셀렉트의 타입은 union되는 쿼리 결과들을 모아서 저장하는 임시테이블(derived)가 select_type으로 설정됨
+- dependent union : union 혹은 union all로 결합된 단위 쿼리가 외부 쿼리에 의해 영향을 받는걸 의미
+- union result : union결과를 담는 테이블 (실제 쿼리에서 단위 쿼리가 아니기에 별도의 id 없음)
+```sql
+explain
+select emp_no from salaries where salary > 100000
+union  distinct
+select emp_no from dept_emp where from_date > '2001-01-01'
+```
+
+| id   | select_type  | table    | type  | possible_keys   | key             | key_len | ref   | rows | Extra           |
+| ---- | ------------ | -------- | ----- | --------------- | --------------- | ------- | ----- | ---- | --------------- |
+| 1    | PRIMARY      | salaries | ref   | salary_index    | salary_index    | 4       | const | 100  | Using where     |
+| 2    | UNION        | dept_emp | range | from_date_index | from_date_index | 3       | NULL  | 200  | Using where     |
+| NULL | UNION RESULT | NULL     | NULL  | NULL            | NULL            | NULL    | NULL  | NULL | Using temporary |
+
+- subquery : from절 이외에서 사용되는 서브쿼리만을 의미
+
+
+
 
