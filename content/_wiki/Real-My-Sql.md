@@ -2,7 +2,7 @@
 title: RealMySql 8.0
 summary: 
 date: 2025-02-27 10:17:43 +0900
-lastmod: 2025-02-28 22:00:27 +0900
+lastmod: 2025-03-01 14:45:51 +0900
 tags: 
 categories: 
 description: 
@@ -253,7 +253,6 @@ where it.name=concat('employees','/','employess')
 	- 디스크읽기가 많은 경우
 	- 특정패턴의 쿼리가 많은경우 (join like)
 	- 매우 큰 데이터를 가진 테이블레ㅔ코드를 폭넓게 읽는 경우
-	- 
 
 ## 트랜잭션과 잠금
 ---
@@ -702,3 +701,336 @@ where dept_no='d002' and emp_no >= 10114
 
 ## 옵티마이저와 힌트
 ---
+> 결과는 동일하지만 내부적으로 그 결과를 만들어내는 방법은 매우 다양하다.
+> 이런 다양한 방법중에서 어떤 방법이 최적이고 최소의 비용이 소모될지 결정해야한다.
+> (동일한 결과 다양한 방법중에서의 최적화가 옵티마이저)
+
+### 개요
+#### 쿼리 실행 절차
+- 첫 단계 : 사용자로부터 요청된 SQL 문장을 잘게 쪼개서 MySQL 서버가 이해할 수 있는 수준으로 분리 (parse tree) 한다.
+	- 문법적으로 잘못됐으면 여기서 걸러짐
+	- MySQL 서버는 파스트리를 이용해 쿼리를 실행한다.
+- 두번째 단계 : SQL의 파싱 정보 (파스 트리)를 확인하면서 어떤 테이블부터 읽고 어떤 인덱스를 이용해 테이블을 읽을지 선택한다.
+	- 불필요한 조건제거하고 가능하다면 복잡한 연산을 단순화한다.
+	- 여러 테이블의 조인이 있는 경우 어떤 순서로 읽을지 결정한다.
+	- 각 테이블에 사용된 조건과 인덱스 통계 정보를 이용해 사용할 인덱스를 결정한다.
+	- 가져온 레코드들을 임시 테이블에 넣고 다시 한 번 가공해야 하는지 결정한다.
+- 세번째 단계 : 두 번째 단계에서 결정된 테이블의 읽기 순서나 선택된 인덱스를 이용해 스토리지 엔진으로부터 데이터를 가져온다.
+
+
+### 옵티마이저의 종류
+- CBO (Cost Based Optimizer) : 여러가지 가능한 방법을 만들고 각 단위작업의 비용정보와 대상 테이블의 예측된 통계 정보를 이용해 실행계획별 비용을 산출한다.
+- RBO (Rule Based Optimizer) : 그냥 옵티마이저에 내장된 우선순위에 따라 실행 계획을 수립한다. 다만 요즘은 거의 CBO를 이용한다. 인덱스나 테이블의 통계정보가 없고 CPU연산이 느리던 시절에 사용했었읍
+
+### 기본 데이터 처리
+
+#### 풀 테이블 스캔과 풀 인덱스 스캔
+- 풀테이블 스캔은 말 그대로 테이블의 테이터를 처음부터 끝까지 읽어서 요청을 처리하는것
+- 옵티마이저가 풀테이블 선택을 선택하는경우
+	- 테이블 레코드 건수가 너무 작아서 인덱스보다 풀테이블스캔이 빠른경우 (페이지 1개로 구성된경우)
+	- where절이나 on절에 인덱스를 이용할 수 있는 적절한 조건이 없는 경우
+	- 인덱스 레인지 스캔을 사용할 수 있는 쿼리라고 하더라도 옵티마이저가 판단한 조건 일치 레코드 건수가 너무 많은 경우 (인덱스 b-tree를 샘플링해서 조사한 통계정보 기준)
+- 리드 어헤드(read ahead)가 일어남
+	- 포어그라운드 스레드가 페이지를 읽다가, 읽는 작업을 백그라운드 스레드에 양도하는일
+	- 일반적으로 디폴트로 리드어헤드 설정을 쓰지만, 데이터 웨어하우스용으로 사용하면 이 옵션을 더 낮은 값으로 설정해서 리드어헤드를 빠르게 유발하는게 나은 경우도 있다. (애초에 시퀀셜 스캔이 많고, 백그라운드가 빨리 처리해놓는게 낫기 때문에)
+- 풀 인덱스 스캔은 집계쿼리등에서 자주 일어남
+	- 레코드의 데이터가 필요 없고 적절한 인덱스를 찾을 수 있다면 데이터 크기가 압도적으로 적어서 유리
+
+### 병렬 처리
+> 하나의 쿼리를 나눠서 처리한다는걸 이야기한다.
+> 여러개의 스레드가 각각의 쿼리는 원래도 됐었다.
+
+```sql
+set session innodb_parallel_read_threads=1;
+set count(*) from salaries;
+1 row in set (0.32 sec)
+
+set session innodb_parallel_read_threads=2;
+set count(*) from salaries;
+1 row in set (0.20 sec)
+
+set session innodb_parallel_read_threads=3;
+set count(*) from salaries;
+1 row in set (0.13 sec)
+```
+
+### Order by 처리 (Using filesort)
+- 메모리에서 별도의 정렬을 진행하는것
+- 레코드 크기에 비례해서 쿼리의 속도가 줄어든다
+- 아래와 같은 경우에 주로 사용
+	- 정렬기준이 너무 많아서 요건별로 모두 인덱스 생성이 불가능한경우
+	- group by의 결과 또는 distict 같은 처리의 결과를 정렬해야하는경우
+	- Union의 결과 같이 임시 테이블의 결과를 다시 정렬해야하는경우
+	- 랜덤하게 결과 레코드를 가져와야하는 경우
+
+#### 소트 버퍼
+- 메모리내에서 정렬하는데 쓰이는 버퍼
+- 문제는 레코드가 너무 크면 disk i/o가 발생해서 성능이 현저히 줄어든다.
+- 그렇다고 메모리를 늘리는건 부작용이 너무 커서 신중하게 결정해야한다. (전체적인 서버풀의 메모리 부족인경우 종료대상 프로세스 1순위)
+
+#### 정렬 알고리즘
+- 크게는 투패스와 싱글패스가 있다.
+- 레코드 전체를 소트버퍼에 담으면 싱글패스, 정렬 기준 칼럼을 분리하면 투패스
+
+**Single Pass Sort**
+- 말 그대로 쿼리 요청의 모든 칼럼을 버퍼에 담고, 그 버퍼를 정렬시킨뒤 반환
+
+**Two Pass Sort**
+- 정렬 대상 칼럼과 프라이머리 키 값만 소트 버퍼에 담아서 정렬을 수행하고, 정렬된 순서대로 다시 프라이머리키로 select
+
+- 최신 버전에서는 보통은 Single Pass 를 이용하지만, 경우에따라 Two Pass를 사용하기도 한다.
+	- 레코드 크기가 시스템 변수에 설정된 소트할 대상 레코드 값보다 클 때
+	- BLOB or Text Type Comlumn이 Select 대상에 포함될 때
+	- 그 외에도 일반적으로 레코드 크기가 커질수록 Two Pass Sort가 빠르다. (다만 큰 경우는 인덱스를 태울것 같아서 이렇게 이야기 한 것 같다)
+
+#### 정렬 처리 방법
+- 쿼리에 order by가 사용되면 반드시 아래 세개 처리방법이 사용된다.
+	- **인덱스를 이용한 정렬** : (extra column에) 별도 표기 없음
+	- **조인에서 드라이빙 테이블만 정렬** : (extra column에) "Using filesort"
+	- **조인에서 조인 결과를 임시 테이블로 저장 후 정렬** : (extra column에) "Using temporary; Using filesort"
+- 만약 조인이 낀다면
+	- 조인의 드라이빙 테이블만 정렬한 다음 조인 수행
+	- 조인이 끝나고 일치하는 레코드를 모두 가져온 후 정렬을 수행
+- 당연하지만, 전자가 훨씬 공간효율성이 높기때문에 전자를 먼저 고려할 것이다.
+
+**인덱스를 이용한 정렬**
+- 반드시 order by에 명시된 칼럼이 제일 먼저 읽는 테이블에 속하고, order by 순서대로 생성된 인덱스가 있어야함.
+- 또한 where절에 첫 번째로 읽는 테이블의 칼럼에 대한 조건이 있다면 그 조건과 orderby는 같은 인덱스를 사용할 수 있어야 한다.
+- 여러 테이블이 조인되는 경우 네스티드 루프 방식의 조인에서만 이 방식을 이용할 수 있다.
+- 이렇게 조건을 만족하면 엔진에서 별도의 처리를 하지는 않는다 정렬된 인덱스대로 읽어온다.
+
+```sql
+CREATE TABLE customers (
+    customer_id INT PRIMARY KEY,
+    customer_name VARCHAR(100)
+);
+
+  
+
+CREATE TABLE orders (
+    order_id INT PRIMARY KEY,
+    customer_id INT,
+    order_date DATE,
+    amount DECIMAL(10, 2),
+    FOREIGN KEY (customer_id) REFERENCES customers(customer_id)
+);
+
+CREATE INDEX idx_orders_order_date ON orders(order_date);
+
+EXPLAIN ANALYZE
+SELECT o.order_id, o.order_date, c.customer_name, o.amount
+FROM orders o
+JOIN customers c ON o.customer_id = c.customer_id
+WHERE o.order_date >= '2024-02-02'
+ORDER BY o.order_date;
+
+-- Index Scan using idx_orders_order_date on orders o
+  -- Index Cond: (order_date >= '2024-02-02')
+  -- -> Nested Loop Join with customers c
+     -- Filter: o.customer_id = c.customer_id
+
+SELECT o.order_id, o.order_date, c.customer_name, o.amount
+FROM orders o
+JOIN customers c ON o.customer_id = c.customer_id
+WHERE o.order_date >= '2024-02-02'
+ORDER BY c.customer_name; -- Warn : customers 테이블의 컬럼으로 정렬
+```
+
+**조인에서 드라이빙 테이블만 정렬**
+```sql
+SELECT *
+FROM employees e, salaries s
+WHERE s.emp_no=e.emp_no
+AND e.emp_no BETWEEN 10002 AND 10010
+ORDER BY e.last_name;
+```
+- employees 에서 `e.emp_no BETWEEN 10002 AND 10010` 만족하는 9건을 검색
+- 이 단계에서 Filesort by last_name
+- 정렬된 결과로 조인을 수행
+
+**임시 테이블을 이용한 정렬**
+```sql
+SELECT *
+FROM employees e, salaries s
+WHERE s.emp_no=e.emp_no
+AND e.emp_no BETWEEN 10002 AND 10010
+ORDER BY s.salary;
+```
+- employees 에서 `e.emp_no BETWEEN 10002 AND 10010` 만족하는 9건을 검색
+- 이 단계에서 Filesort를 할 수 없음
+- 조인 이후 정렬해서 반환 (메모리는 많이 낭비)
+
+**정렬 처리 방법의 성능 비교**
+- 잘못된 order by나 group by 때문에 쿼리가 느려지는 경우가 있음
+- 왜 쿼리에서 인덱스를 사용하지 못하는 정렬이나 그루핑 작업이 느리게 동작하는지 확인
+- 그러기 위해서 쿼리가 처리되는 방식을 "스트리밍처리", "버퍼링처리"로 구분해야한다.
+
+**스트리밍 방식**
+- 레코드가 검색될 때마다 바로바로 클라이언트로 전송
+- 클라이언트는 곧바로 원했던 첫 번째 레코드를 전달받음
+- `OLTP` 환경에서는 쿼리의 첫 요청에서부터 첫 레코드를 전달받게까지의 응답시간이 가장 중요해서 자주쓰임
+- 이 방식에서는 `LIMIT`이 쿼리의 비용을 상당히 줄여줌
+
+**버퍼링방식**
+- `ORDER BY`나 `GROUP BY`같은 처리는 쿼리의 결과가 스트리밍되는 것을 불가능하게 한다.
+- 일단 모든 레코드를 가져온 다음에 처리를해야 논리적으로 충족되기 때문
+- 네트워크로 전송되는 레코드의 건수를 줄일수는 있으나 성능향상에는 도움이 별로 안된ㄷ다 (서버작업 측면에서는 기다지 변화가 없음)
+- 아래를 다시 보면
+	- **인덱스를 이용한 정렬** : 스트리밍 방식으로 limit 충족할때까지 읽어서 그때그때 던져주면 된다.
+	- **조인에서 드라이빙 테이블만 정렬** : limit 의미없음, filesort 대상이 되는 레코드들을 불러와 정렬한뒤 잘라서 던져줘야한다.
+	- **조인에서 조인 결과를 임시 테이블로 저장 후 정렬**  : 위와 마찬가지
+
+```sql
+select *
+from tb_test1 t1, tb_test2 t2
+where t1.col1 = t2.col2
+order by t1.col2
+limit 10
+;
+
+-- tb_test1의 레코드가 100건이고, tb_test2의 레코드가 1000건 (1건의 tb_test1당 test2에 10건 존재 가정)
+```
+
+- tb_test1이 드라이빙 되는 경우
+	- (인덱스)읽어야할 건수 : t1 - 1건, t2 - 10건
+	- (인덱스)조인 횟수 1번
+	- (인덱스)정렬대상 건수 : 0건
+	- (조인의 드라이빙 테이블만 정렬) 읽어야할 건수 : t1 - 100건, t2-10건
+	- (조인의 드라이빙 테이블만 정렬) 조인 횟수 : 1번 
+	- (조인의 드라이빙 테이블만 정렬) 정렬 대상 건수 : 100건 (t1의 레코드 건수 만큼)
+	- (임시 테이블 사용후 정렬) 읽어야할 건수 : t1 - 100건, t2 - 1000건
+	- (임시 테이블 사용후 정렬) 조인 횟수 : 100번 (t1의 레커드 건 수 만큼)
+	- (임시 테이블 사용후 정렬) 정렬대상 건수 : 1000건
+- tb_test2이 드라이빙 되는 경우
+	- (인덱스)읽어야할 건수 : t1 - 10건, t2 - 10건
+	- (인덱스)조인 횟수 10번
+	- (인덱스)정렬대상 건수 : 0건
+	- ...
+> 결론은 가능하면 인덱스를 사용하도록 유도하고, 그게 어렵더라도 드라이빙 테이블만 정렬해도 되도록 처리해야한다.
+
+#### 정렬 관련 상태 변수
+| 변수명                     | 설명 |
+|----------------------------|------------------------------------------------------------|
+| Sort_merge_passes          | 정렬을 위해 병합이 수행된 횟수 |
+| Sort_range                 | `ORDER BY`가 범위 스캔을 사용하여 정렬된 횟수 |
+| Sort_rows                  | 정렬을 위해 처리된 총 행 수 |
+| Sort_scan                  | `ORDER BY`가 전체 테이블 스캔을 사용하여 정렬된 횟수 |
+
+### Group by 처리
+> Group by 또한, order by와 같이 쿼리가 스트리밍된 처리를 할 수 없게함
+> group by에 사용된 조건을 인덱스를 사용해서 처리될 수 없으므로 having절을 튜닝하려고 인덱스를 생성하거나 할 필요는 없음
+
+
+#### 인덱스 스캔을 이용하는 group by (타이트 인덱스 스캔)
+- 조인의 드라이빙 테이블에 속한 칼럼만 이용해 그루핑 할 때 group by 칼럼으로 이미 인덱스가 있다면 그 인덱스를 차례대로 읽으면서 그루핑 작업을 수행하고 그 결과로 조인을 처리함
+- 물론 집계함수등을 쓰면서 임시 테이블이 필요 할 수 있긴 함
+
+#### 루스 인덱스 스캔을 이용하는 group by
+- GROUP BY 연산 시 일부 인덱스 키만 읽고, 나머지 행을 건너뛰는 방식
+- GROUP BY 대상 컬럼이 인덱스의 선두(prefix) 부분과 일치해야 한다.  
+```sql
+-- min, max 이외의 집합 함수 사용시 루스인덱스 안탐
+select col1, sum(col2) from test group by col1;
+
+-- group by에 사용된 칼럼이 인덱스 구성 칼럼의 왼쪽부터 일치하지 않기 때문에 사용 불가
+select col1, col2 from test group by col2, col3;
+
+-- select절의 칼럼이 group by와 일치하지 않기 때문에 사용 불가
+select col1, col3 from test group by col1, col2;
+```
+
+| 비교 항목              | 타이트 인덱스 스캔 | 루스 인덱스 스캔        |
+| ------------------ | ---------- | ---------------- |
+| 처리 방식              | 모든 인덱스를 읽음 | 일부 인덱스만 읽음       |
+| 성능                 | 보통 빠름      | 더 빠름             |
+| 적용 가능 함수           | COUNT() 가능 | MIN(), MAX() 가능  |
+| WHERE 절 필요 여부      | 필요 없음      | WHERE가 있으면 더 효과적 |
+| FileSort 사용 여부     | 사용 안 함     | 사용 안 함           |
+
+#### 임시 테이블을 사용하는 group by
+- GROUP BY 대상 컬럼이 적절한 인덱스를 활용하지 못할 때  
+- GROUP BY에 포함되지 않은 컬럼을 SELECT 할 때 (Loose Index Scan 적용 불가)  
+- ORDER BY가 GROUP BY와 다른 경우  
+- HAVING 절이 포함된 경우  
+
+### Distinct 처리
+> 특정 칼럼의 유니크한 값만 조회하려면 distinct를 사용한다.
+> distinct는 min, max 또는 count같은 집합함수와 함께 사용되는경우와 그렇지 않은 경우가 다르다.
+> 그리고 집합함수와 같이 distinct가 사용되는 쿼리의 실행 계획에서 distinct처리가 인덱스를 사용하지 못할 때 항상 임시 테이블이 필요하다. (실행계획의 extra column에서는 using temporary가 출력되진 않는다.)
+
+#### select distinct ...
+```sql
+-- 8.0 이상에서는 group by 수행하는 쿼리에 orderby절이 없으면 정렬을 사용하지 않기 때문에, 
+-- 다음의 두 쿼리는 내부적으로 같은 작업을 수행한다.
+select distinct emp_no from salaries;
+select emp_no from salaries group by emp_no;
+```
+
+#### 집합 함수와 함께 사용된 distinct
+- 집합 함수가 없는 select쿼리에서 distinct는 조회하는 모든 칼럼의 '조합이' 유니크한 것들만 가져온다.
+- 하지만 집합함수 내에서 사용된 distinct는 그 집합 함수의 '인자로 전달된 칼럼값이 유니크한 것들'을 가져온다.
+
+| id  | department | role     | salary |
+| --- | ---------- | -------- | ------ |
+| 1   | HR         | Manager  | 60000  |
+| 2   | HR         | Staff    | 50000  |
+| 3   | HR         | Staff    | 50000  |
+| 4   | IT         | Engineer | 70000  |
+| 5   | IT         | Engineer | 75000  |
+
+| DISTINCT 사용 방식       | 동작 방식                                | 예제 쿼리                                               | 결과 예시                                          |
+| -------------------- | ------------------------------------ | --------------------------------------------------- | ---------------------------------------------- |
+| 집합 함수 없이 사용          | 조회하는 모든 컬럼의 조합이 유니크한 값들만 반환          | `SELECT DISTINCT department, role FROM employees;`  | `HR, Manager`<br>`HR, Staff`<br>`IT, Engineer` |
+| 집합 함수 내에서 사용         | 함수의 인자로 전달된 컬럼에서 유니크한 값들만 고려하여 연산 수행 | `SELECT COUNT(DISTINCT department) FROM employees;` | `2`                                            |
+| SUM(DISTINCT salary) | `salary` 컬럼의 고유한 값들만 합산              | `SELECT SUM(DISTINCT salary) FROM employees;`       | `255000`                                       |
+```sql
+-- 쿼리 A
+select distinct first_name, last_name
+from employees
+where emp_no between 10001 and 10200;
+
+-- 쿼리 B
+select distinct count(distinct first_name), count(distinct last_name)
+from employees
+where emp_no between 10001 and 10200;
+
+-- 쿼리 C
+select count(distinct first_name, last_name)
+from employees
+where emp_no between 10001 and 10200;
+```
+
+| 쿼리     | 내부 테이블 생성 방식                                             | 정렬 및 인덱스 사용                                        | 처리 방식                                                         |
+| ------ | -------------------------------------------------------- | -------------------------------------------------- | ------------------------------------------------------------- |
+| `쿼리 A` | `first_name, last_name`을 포함하는 임시 테이블 생성                  | `first_name, last_name`을 기준으로 정렬하여 중복 제거           | 테이블을 스캔한 후 중복을 제거하여 유니크한 `(first_name, last_name)` 조합만 반환     |
+| `쿼리 B` | `first_name`과 `last_name` 각각의 유니크한 값만 저장하는 임시 테이블 두 개 생성 | `first_name`과 `last_name` 각각 인덱스를 활용할 수 있음         | `first_name`과 `last_name`을 개별적으로 정렬 후 유니크한 값들의 개수를 계산         |
+| `쿼리 C` | `(first_name, last_name)` 조합을 저장하는 단일 임시 테이블 생성          | `(first_name, last_name)`을 기준으로 정렬하여 중복 제거 후 개수 계산 | 전체 데이터를 스캔한 후 `(first_name, last_name)` 조합을 중복 없이 저장하고 개수를 계산 |
+**내부 테이블 생성 관점에서의 차이점**
+- 첫 번째 쿼리는 first_name, last_name을 포함하는 임시 테이블을 만들고, **전체 데이터를 스캔하여 중복을 제거한 후 반환**한다.
+- 두 번째 쿼리는 first_name과 last_name을 각각 다루므로, 내부적으로 두 개의 **별도 집합을 생성**하여 각 컬럼에서 유니크한 값을 카운트한다.
+- 세 번째 쿼리는 (first_name, last_name)의 조합이 유니크한 개수를 찾기 위해 **단일 임시 테이블을 생성**하고, 해당 조합을 정렬한 후 중복을 제거하여 개수를 반환한다.
+**인덱스 사용 여부**
+- first_name, last_name에 **개별 인덱스**가 있다면, 두 번째 쿼리는 인덱스를 활용할 가능성이 높다.
+- 하지만 첫 번째와 세 번째 쿼리는 **두 개의 컬럼을 동시에 고려해야 하므로**, 단일 컬럼 인덱스만으로 최적화되기 어렵고, **정렬(Sort) 또는 임시 테이블을 사용하여 처리될 가능성이 높다.**
+- (first_name, last_name) 복합 인덱스가 존재한다면, 첫 번째와 세 번째 쿼리는 성능이 개선될 수 있다.
+
+
+**결론**
+- **단순한 DISTINCT 조회**(SELECT DISTINCT first_name, last_name)는 결과 집합을 반환해야 하므로, 임시 테이블을 생성하고 정렬을 수행해야 한다.
+- **COUNT(DISTINCT 컬럼)을 사용할 경우, 컬럼별로 중복을 제거하는 방식이 다르며, 인덱스를 더 효과적으로 활용할 가능성이 있다.
+- **두 개 이상의 컬럼을 DISTINCT로 개수를 세는 경우**(COUNT(DISTINCT first_name, last_name))는 (first_name, last_name)을 하나의 조합으로 인식하여 처리하는 단일 임시 테이블을 사용한다.
+
+### 내부 임시 테이블 활용
+> 정렬 혹은 그루핑 할 때 암시적으로 사용하는 테이블, 즉 직접 만든 create temporary table과는 다름
+> 디스크에 임시테이블이 만들어질때도 있음
+
+#### disk vs memory
+- 1gb가 넘으면 디스크로 넘김
+- 오버헤드가 적은 mmap으로 넘기는게 기본 변수로 설정되어있음
+
+#### 임시테이블이 필요한 쿼리
+- order by, group by에 명시된 칼럼이 다른 쿼리
+- order by, group by에 명시된 칼럼이 조인의 순서상 첫 번째 테이블이 아닌 쿼리
+- distinct와 order by가 동시에 쿼리에 존재하는경우 또는 distinct가 인덱스로 처리되지 못하는 쿼리
+- union이나 union distinct가 사용된 쿼리
+- 쿼리 실행 계획에서 select_type이 derived인 쿼리
