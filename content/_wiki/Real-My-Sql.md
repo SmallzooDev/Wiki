@@ -2,7 +2,7 @@
 title: RealMySql 8.0
 summary: 
 date: 2025-02-27 10:17:43 +0900
-lastmod: 2025-03-01 14:45:51 +0900
+lastmod: 2025-03-01 14:57:17 +0900
 tags: 
 categories: 
 description: 
@@ -1034,3 +1034,11 @@ where emp_no between 10001 and 10200;
 - distinct와 order by가 동시에 쿼리에 존재하는경우 또는 distinct가 인덱스로 처리되지 못하는 쿼리
 - union이나 union distinct가 사용된 쿼리
 - 쿼리 실행 계획에서 select_type이 derived인 쿼리
+
+
+### 고급 최적화
+- [고급최적화](https://neverfadeaway.tistory.com/73)
+- [인덱스 푸쉬 다운](https://neverfadeaway.tistory.com/76)
+- [고급회적화2](https://velog.io/@p0tat0_chip/%EA%B3%A0%EA%B8%89-%EC%B5%9C%EC%A0%81%ED%99%94)
+- [쿼리 힌트](https://bommbom.tistory.com/entry/MySQL-%ED%9E%8C%ED%8A%B8Hint-%EC%A2%85%EB%A5%98-%EB%B0%8F-%EC%82%AC%EC%9A%A9%EB%B2%95-%EA%BC%AD-%ED%99%95%EC%9D%B8%ED%95%B4%EC%95%BC-%ED%95%A0-%EC%A3%BC%EC%9D%98%EC%82%AC%ED%95%AD)
+
