@@ -2,7 +2,7 @@
 title: OSTEP, 페이징
 summary: 
 date: 2025-03-02 17:09:37 +0900
-lastmod: 2025-03-02 18:02:05 +0900
+lastmod: 2025-03-02 21:02:18 +0900
 tags: 
 categories: 
 description: 
@@ -108,3 +108,175 @@ if (Success == True) { // TLB Hit
 - p5 진입 시점에 p1을 버리고, 다음접근이 p1이라 맞물려 미스가 나는걸 의미
 
 
+## 20 페이징: 더 작은 테이블
+> 핵심 질문: 페이지 테이블을 어떻게 더 작게 만들까
+> 단순한 배열 기반의 페이지 테이블은 크기가 크며 일반적인 시스템에서 메모리를 과도하게 차지한다.
+
+- 32비트 주소공간에서 4kb는 4mb의 페이지테이블을 가진다.
+### 20.1 간단한 해법: 더 큰 페이지
+- 32비트 주소공간에서 16kb를 가정해보자, 이제는 18비트 vpn과 14비트의 오프셋을 갖게된다.
+- 문제는 이러면 내부 단편화가 심해진다.
+- 결론적으로 옳바른 해결방법은 아니다.
+
+### 20.2 하이브리드 접근 방법: 페이징과 세그먼트
+- 힙 코드, 스택 세그먼트에 대한 페이지 테이블을 따로 주는것이다.
+- 일견 좋아보이기는 하지만, 외부단편화, 내부단편화가 심했다.
+
+### 20.3 멀티 레벨 페이지 테이블
+> 페이지 테이블을 트리 구조로 표현한다. 매우 효율적이기 때문에 많은 현대 시스템에서 사용되고 있다.
+
+- 기본 개념은 간단하다.
+	- 먼저, 페이지 테이블을 페이지 크기의 단위로 다눈다.
+	- 그 다음, 페이지 테이블의 페이지가 유효하지 않은 항목이 있으면, 해당 페이지를 할당하지 않는다.
+	- 페이지 디렉터리라는 자료 구조를 사용하여 페이지 테이블 각페이지의 할당 여부와 위치를 파악한다.
+![Image](https://github.com/user-attachments/assets/9d5ec32a-ca78-455d-902d-5e477d962ca7)
+- pfn은 page frame number
+- valid는 그 페이지 내에 valid한 페이지가 있는지
+- 없으면 그냥 메모리에 안올린다.
+- 장점은 메모리 관리 자체가 유리하고, 사용된 주소 공간의 크기에 비례하여 페이지 테이블 공간이 생긴다는것
+- 추가 비용은 tlb미스시 주소 변환을 위해 두번의 메모리 로드가 필요하다는것
+- 리눅스(x86-64)에서는 **4단계 페이지 테이블(PML4, PDPT, PD, PT)**을 사용하여 **필요한 부분만 동적 할당**한다.
+- 최신 Intel CPU에서는 5-Level 페이지 테이블을 지원하여 더 넓은 주소 공간을 관리한다.
+- 64bit, 4kb기준 
+	- 2^64/2^12 = (64비트 / 4kb) = 2^52개의 엔트리이고,
+	- 거기에 8byte를 곱하면 32(PB)
+```c
+VPN = (VirtualAddress & VPN_MASK) >> SHIFT;
+(Success, TlbEntry) = TLB_Lookup(VPN);
+if (Success == True) { // TLB 히트 (TLB에서 해당 가상 페이지 번호를 찾음)
+    if (CanAccess(TlbEntry.ProtectBits) == True) { // 접근 권한 확인
+        Offset = VirtualAddress & OFFSET_MASK;
+        PhysAddr = (TlbEntry.PFN << SHIFT) | Offset; // 물리 주소 계산
+        Register = AccessMemory(PhysAddr); // 메모리 접근
+    } else {
+        RaiseException(PROTECTION_FAULT); // 접근 권한이 없으면 예외 발생
+    }
+} else { // TLB 미스 (TLB에 해당 항목이 없음)
+    PDIndex = (VPN & PD_MASK) >> PD_SHIFT; // 페이지 디렉터리에서 인덱스 추출
+    PDEAddr = PDBR + (PDIndex * sizeof(PDE)); // 페이지 디렉터리 엔트리 주소 계산
+    PDE = AccessMemory(PDEAddr); // 페이지 디렉터리 엔트리 가져오기
+
+    if (PDE.Valid == False) { // 페이지 디렉터리 엔트리가 유효하지 않음
+        RaiseException(SEGMENTATION_FAULT); // 세그멘테이션 오류 발생
+    } else {
+        // 페이지 디렉터리 엔트리가 유효함 -> 페이지 테이블에서 PTE 조회
+        PTIndex = (VPN & PT_MASK) >> PT_SHIFT; // 페이지 테이블 인덱스 추출
+        PTEAddr = (PDE.PFN << SHIFT) + (PTIndex * sizeof(PTE)); // 페이지 테이블 엔트리 주소 계산
+        PTE = AccessMemory(PTEAddr); // 페이지 테이블 엔트리 가져오기
+
+        if (PTE.Valid == False) { // 페이지 테이블 엔트리가 유효하지 않음
+            RaiseException(SEGMENTATION_FAULT);
+        } else if (CanAccess(PTE.ProtectBits) == False) { // 접근 권한 확인
+            RaiseException(PROTECTION_FAULT);
+        } else {
+            TLB_Insert(VPN, PTE.PFN, PTE.ProtectBits); // TLB에 페이지 테이블 엔트리 추가
+            RetryInstruction(); // 다시 명령어 실행
+        }
+    }
+}
+```
+### 20.5 페이지 테이블을 디스크로 스와핑하기
+- 말 그대로 너무 심하면 디스크로 스왑
+
+## 21 물리 메모리 크기의 극복: 메커니즘
+> 핵심 질문: 물리 메모리 이상으로 나아가기 위해서 어떻게할까
+> 운영체제는 어떻게 크고 느린 장치를 사용하면서 마치 커다란 가상 주소 공간이 있는 것처럼 할 수 있을까?
+
+- 멀티프로그래밍 시스템이 발명되면서 많은 프로세스들의 페이지를 물리 메모리에 전부 저장하는것이 불가능하게 되었다.
+- 그래서 일부 페이지들을 스왑 아웃하는 기능이 필요하게 되었다.
+- 멀티프로그램밍과 사용 편의성 등의 이유로 실제 물리 메모리보다 더많은 용량의 메모리가 필요하게 됭ㅆ다.
+- 이게 현대 Virtual Memory의 역할이다.
+
+### 21.1 스왑 공간
+- 먼저 디스크에 페이지들을 저장할 수 있는 일정 곤간을 확보하는게 필요하다.
+- 이 용도의 공간을 스왑 공간이라고 한다.
+- 운영체제는 스왑 공간에 있는 모든 페이지들의 디스크 주소를 기억해야한다.
+- 이러면 운영체제는 프로세스들에게 매우 큰 메모리 공간이 있는것처럼 여겨지게 할 ㅅ ㅜ있다.
+
+### 21.2 Present Bit
+> 막간을 이용한 윗 내용 정리:
+> 만약 vpn을 tlb에서 찾을 수 없다면, 하드웨어는 페이지 테이블의 메모리 주소를 파악하고(페이지 테이블 베이스 레지스터 이용) vpn을 인덱스하여 원하는 페이지 테이블 항목을 추출한다. 해당 페이지 테이블 항목이 유효하고 관련 페이지가 물리 메모리에 존재한다면 하드웨어는 pte에서 pfn정보를 추출하고 그 정보를 tlb에 탑재후 명령어를 재실행한다.
+
+- 여기서 디스크 스왑이 가능하려면, 하드웨어가 pte에서 해당 페이지가 물리 메모리에 존재하지 않는다는것을 표현해야한다. 그걸 present bit를 이용해서 하는데, 만약 해당 비트가 0이면 물리 메모리에 존재하지 않는다는 것이고, 그 상황을 page fault라고 한다.
+- 페이지 폴트가 발생하면 page fault handler 가 실행된다.
+
+### 21.3 페이지 폴트
+- 페이지 폴트는 보통 운영체제에서 처리된다.
+- 그러면 자연적으로 드는 의문이 있다. "디스크 어디에 있는 지 어떻게 알지?"
+	- 해당 정보는 페이지 테이블에 저장된다
+	- pfn과 같은 pte 비트들은 페이지 디스크 주소를 나타내는데 사용할 수 있다.
+- 이후 재실행하면 tlb미스가 발생할거고 그 미스를 처리하는 과정에서 tlb값이 갱신된다.
+- 물론 이 과정은 I/O전송중에 차단된 상태가 된다.
+
+```c
+VPN = (VirtualAddress & VPN_MASK) >> SHIFT;
+(Success, TlbEntry) = TLB_Lookup(VPN);
+
+if (Success == True) { // TLB 히트 (TLB에서 해당 가상 페이지 번호를 찾음)
+    if (CanAccess(TlbEntry.ProtectBits) == True) { // 접근 권한 확인
+        Offset = VirtualAddress & OFFSET_MASK;
+        PhysAddr = (TlbEntry.PFN << SHIFT) | Offset; // 물리 주소 계산
+        Register = AccessMemory(PhysAddr); // 메모리 접근
+    } else {
+        RaiseException(PROTECTION_FAULT); // 접근 권한이 없으면 예외 발생
+    }
+} else { // TLB 미스 (TLB에 해당 항목이 없음)
+    PTEAddr = PTBR + (VPN * sizeof(PTE)); // 페이지 테이블 엔트리 주소 계산
+    PTE = AccessMemory(PTEAddr); // 페이지 테이블 엔트리 가져오기
+
+    if (PTE.Valid == False) { // 페이지 테이블 엔트리가 유효하지 않음
+        RaiseException(SEGMENTATION_FAULT);
+    } else {
+        if (CanAccess(PTE.ProtectBits) == False) { // 접근 권한 확인
+            RaiseException(PROTECTION_FAULT);
+        } else if (PTE.Present == True) { // 페이지가 물리 메모리에 존재하는 경우
+            // 하드웨어 관리 TLB를 가정
+            TLB_Insert(VPN, PTE.PFN, PTE.ProtectBits); // TLB에 PTE 정보 삽입
+            RetryInstruction(); // 다시 명령어 실행
+        } else if (PTE.Present == False) { // 페이지가 메모리에 존재하지 않는 경우
+            RaiseException(PAGE_FAULT); // 페이지 폴트 예외 발생
+        }
+    }
+}
+```
+- 하드웨어에서
+
+```c
+PFN = FindFreePhysicalPage(); // 사용 가능한 물리 페이지를 찾음
+
+if (PFN == -1) { // 사용 가능한 물리 페이지가 없음
+    PFN = EvictPage(); // 페이지 교체 알고리즘 실행 (기존 페이지를 제거)
+}
+
+DiskRead(PTE.DiskAddr, PFN); // 디스크에서 페이지를 읽어 물리 메모리에 로드 (I/O 대기)
+
+PTE.present = True; // 페이지 테이블 갱신: 페이지가 이제 메모리에 있음
+PTE.PFN = PFN; // 페이지 프레임 번호(PFN) 설정
+
+RetryInstruction(); // 원래 명령어 재시도
+```
+- 소프트웨어에서
+### 21.4 메모리에 빈 공간이 없으면
+- 페이지 교체를 통해서 물리메모리상의 페이지를 디스크로 내보낸다.
+- 다음장의 정책에서 다룸!
+
+## 물리메모리 크기의 극복 : 정책
+> 위에 언급된 빈 굥간이 없으면 (디스크에서 불러올때)
+> 메모리에 있는 페이지를 evict해야 하는데 이걸 교체정책이라고 한다.
+> 핵심 질문 : 내보낼 페이지는 어떻게 결정하는가?
+
+
+### 22.1 캐시 관리
+- 일단 이 상황 자체르 캐시로 볼 수 있다.
+- 시스템의 가상 메모리 페이지를 가져다 좋기 위한 캐시로 메인 메모리를 생각 할 수 있다.
+- 그렇다면 이 관리 정책은 캐시 미스를 최소화하고 캐시 히트를 최대화 하는 방식으로 접근 할 수 있다.
+- 그리고 미스와 히트 정보를 안다면 프로그램의 amat (평균 메모리 접근 시간)을 계산 할 수있다.
+- AMAT = TimeToMemory + (PageMissPercent * TimeToDiskk)
+- 현대 시스템에서는 디스크 접근 비용이 너무 크기 때문에 아주 작은 미스가 전체적인 AMAT에 큰 영향을 주게 된다.
+
+### 22.2 최적 교체 정책
+- Belady는 가장 나중에 접근될 페이지를 교체하는 것이 최적이며, 가장 적은 횟수의 미스를 발생시킨다는 것을 증명했다. 이 정책은 간단하지만 구현하기는 어려운 정책이다.
+
+![Image](https://github.com/user-attachments/assets/f8b46418-b88a-4df4-a6f3-484b41aa95d0)
+- 아주아주 심각한 맹점이 있다, 미래를 보는 경우에만 가능하다는 것이다!
+- 하지만 확실한건 이건 최적의 선택이라는 것이다 즉 성능 판단의 지표가 미래를 보고 스케줄링했을때의 최적을 100점으로 두는 것이다.
