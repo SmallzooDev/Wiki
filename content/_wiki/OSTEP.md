@@ -2,7 +2,7 @@
 title: 운영체제 아주 쉬운 세 가지 이야기 📚
 summary: OSTEP 스터디
 date: 2024-04-21 14:20:57 +0900
-lastmod: 2025-03-02 11:47:21 +0900
+lastmod: 2025-03-02 15:09:49 +0900
 tags: 
 categories: 
 description: 
@@ -25,10 +25,10 @@ tocOpen: true
 ## 02. Contents
 
 - [[Week-01-운영체제-개요와-프로세스]] : 개인 정리 내용 링크
-- [[Week-02]] : 개인 정리 내용 링크
-- [[Week-03]] : 개인 정리 내용 링크
-- [[Week-04]] : 개인 정리 내용 링크
-- [[Week-05]] : 개인 정리 내용 링크
+- [[Week-02-LDE-Scheduling]] : 개인 정리 내용 링크
+- [[Week-03-MLFQ-Multiprocessor-Schedule]] : 개인 정리 내용 링크
+- [[Week-04-Memory-Virtual-Intro]] : 개인 정리 내용 링크
+- [[Week-05-Memory-Virtualization]] : 개인 정리 내용 링크
 - [[Week-06]] : 개인 정리 내용 링크
 
 ## 03. Homeworks
