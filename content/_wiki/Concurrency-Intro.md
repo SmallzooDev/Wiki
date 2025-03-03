@@ -2,7 +2,7 @@
 title: Concurrency-Intro
 summary: 
 date: 2025-03-03 11:58:56 +0900
-lastmod: 2025-03-03 17:13:45 +0900
+lastmod: 2025-03-03 18:08:15 +0900
 tags: 
 categories: 
 description: 
@@ -913,3 +913,272 @@ int Queue_Dequeue(queue_t *q, int *value) {
     return 0;
 }
 ```
+
+## 30 Condition Variables
+- 락 이외에도 병행 프로그램을 제작할 수 있는 다른 기법들이 존재한다.
+- 스레드가 실행을 계속하기 전에 특정 조건의 만족여부를 검사해야하는 경우가 많이 있다.
+```c
+void *child(void *arg) {
+    printf("child\n");
+    // XXX how to indicate we are done?
+    return NULL;
+}
+
+int main(int argc, char *argv[]) {
+    printf("parent: begin\n");
+    pthread_t c;
+    pthread_create(&c, NULL, child, NULL); // create child
+    // XXX how to wait for child?
+    printf("parent: end\n");
+    return 0;
+}
+```
+- 우리가 원하는것
+```c
+parent: begin
+child
+parent: end
+```
+- 공유 변수를 쓸 수 있기도 하지만, 그러면 부모가 회전을 해야하기때문에 효율적이지 않다.
+
+### 30.1 컨디션 변수의 개념과 관련 루틴
+- 컨디션 변수는 일존의 큐 자료 구조이다.
+- 어떤 상태가 원하는 것과 다를때 조건이 만족되기를 대기하는 큐이다.
+```c
+int done = 0;
+pthread_mutex_t m = PTHREAD_MUTEX_INITIALIZER;
+pthread_cond_t c = PTHREAD_COND_INITIALIZER;
+
+void thr_exit() {
+    Pthread_mutex_lock(&m);
+    done = 1;
+    Pthread_cond_signal(&c);
+    Pthread_mutex_unlock(&m);
+}
+
+void *child(void *arg) {
+    printf("child\n");
+    thr_exit();
+    return NULL;
+}
+
+void thr_join() {
+    Pthread_mutex_lock(&m);
+    while (done == 0)
+        Pthread_cond_wait(&c, &m);
+    Pthread_mutex_unlock(&m);
+}
+
+int main(int argc, char *argv[]) {
+    printf("parent: begin\n");
+    pthread_t p;
+    Pthread_create(&p, NULL, child, NULL);
+    thr_join();
+    printf("parent: end\n");
+    return 0;
+}
+```
+- pthread_cond_t c; 라고 써서 c가 컨디션 변수가 되도록 한다.
+- 컨디션 변수에는 wait()과 signal()이라는 두개의 연산이 있다.
+	- wait은 스레드가 스스로를 잠재우기 위해서
+	- signal은 조건이 만족되기를 대기하며 잠자고 있던 스레드를 깨울때 호출한다.
+```c
+pthread_cond_wait (pthread_cond_t *c, thread_mutex_t *m) ;
+pthread_cond_signal (pthread_cond_t *c) ;
+```
+- 과정을 명확히 기억해야 한다.
+	1. 슬립에서 깨어난 프로세스는 리턴하기 전에 락을 재획득해야한다.
+	2. 시그널을 받아서 대기상태에서 깨어났더라도 락획득에 실패하면 다시 슬립한다.
+
+### 30.2 생산자/소비자 (유한버퍼) 문제
+- 자주 사용되는 패턴
+- 생산자는 데이터를 만들어 버퍼에 넣고, 소비자는 버퍼에서 데이터를 꺼내어 사용한다.
+- 웹서버등 엄청 많이 사용되는 패턴
+- 유닉스도 마찬가지이다.
+```bash
+grep foo file.txt | wc -1
+```
+- grep이 생산자 wc가 소비자
+- 문제는 유한 버퍼가 공유 자원이라는 것이다, 경쟁 조건의 발생을 방지하기 위해 동기화기 필요하다.
+```c
+int buffer;
+int count = 0; // initially, empty
+
+void put(int value) {
+    assert(count == 0);
+    count = 1;
+    buffer = value;
+}
+
+int get() {
+    assert(count == 1);
+    count = 0;
+    return buffer;
+}
+```
+- 간단하다, 생산자는 버퍼가 비어있다면 (count = 0) 넣고,
+- 소비자는 버퍼가 차있으면 (count = 1) 뺀다.
+```c
+void *producer(void *arg) {
+    int i;
+    int loops = (int) arg;
+    for (i = 0; i < loops; i++) {
+        put(i);
+    }
+}
+
+void *consumer(void *arg) {
+    while (1) {
+        int tmp = get();
+        printf("%d\n", tmp);
+    }
+}
+```
+- 이런 코드는 제대로 동작하지 않는다.
+- 공유변수 (count에서 경쟁 조건이 발생하기 때문이다.)
+
+#### 불완전한 해답.
+```c
+int loops; // must initialize somewhere...
+cond_t cond;
+mutex_t mutex;
+
+void *producer(void *arg) {
+    int i;
+    for (i = 0; i < loops; i++) {
+        Pthread_mutex_lock(&mutex); // p1
+        if (count == 1) // p2
+            Pthread_cond_wait(&cond, &mutex); // p3
+        put(i); // p4
+        Pthread_cond_signal(&cond); // p5
+        Pthread_mutex_unlock(&mutex); // p6
+    }
+}
+
+void *consumer(void *arg) {
+    int i;
+    for (i = 0; i < loops; i++) {
+        Pthread_mutex_lock(&mutex); // c1
+        if (count == 0) // c2
+            Pthread_cond_wait(&cond, &mutex); // c3
+        int tmp = get(); // c4
+        Pthread_cond_signal(&cond); // c5
+        Pthread_mutex_unlock(&mutex); // c6
+        printf("%d\n", tmp);
+    }
+}
+```
+- 이코드는 동작할 것 같지만 스레드가 늘어나면 문제가 생긴다.
+- 소비자 먼저 실행된다 (TC1)
+- 락을 획득하고(c1) 버퍼를 소비할 수 있는지 검사한다(c2)
+- 비어있음을 확인하고 대기하며 (c3) 락을 해제한다.
+- 그리고 생산자가 실행된다.
+- 락을 획득하고(p1), 버퍼가 비었는지 확인한다 (p2)
+- 비어있음을 확인하고 버퍼를 채운다(p4)
+- 버퍼가 가득찼다는 시그널을 보낸다 (p5)
+- 소비자는 준비 큐로 이동한다.
+- 소비자는 준비되었지만 실행가능하지는 않은 상태이다.
+- 생산자는 실행을 계속한다.
+- 버퍼가 차있으므로 대기상태로 전이한다.(p6, p1-p3)
+- 여기서 문제가 발생한다. (Tc2)가 끼어들면서 버퍼값을 수행한다.
+- Tc2가 버퍼를 소비한 직후 Tc1이 실행된다고 하자
+- 절묘하게도 대기에서 리턴하기전에 락을 획득하지만 버퍼가 비어있다.
+- Tc1이 버퍼를 읽는 행위를 막지 못했다.
+![이미지](https://github.com/user-attachments/assets/d5da1eec-4a37-4c31-82ce-ab2b09d898e4)
+- 문제의 원인은 단순하다 Tc1이 시그널을 받는 시점과 스레드가 실행되는 시점의 시차 때문이다.
+- 깨운다는 행위의 본질은 스레드의 상태를 변경하는것이다, 깨우고 실되는 시점 사이에 버퍼는 다시 변경될 수 있다.
+- 때문에 깨어난 스레드가 실제 실행되는 시점에는 시그널을 받았던 시점의 상태가 그대로 유지되어있는지를 체크해야한다.
+- 이것을 Mesa semantic이라고 한다.
+- 가장 간단한 해결책은 if를 while문으로 변경하는것이다
+```c
+int loops; // must initialize somewhere...
+cond_t cond;
+mutex_t mutex;
+
+void *producer(void *arg) {
+    int i;
+    for (i = 0; i < loops; i++) {
+        Pthread_mutex_lock(&mutex); // p1
+        while (count == 1) // p2
+            Pthread_cond_wait(&cond, &mutex); // p3
+        put(i); // p4
+        Pthread_cond_signal(&cond); // p5
+        Pthread_mutex_unlock(&mutex); // p6
+    }
+}
+
+void *consumer(void *arg) {
+    int i;
+    for (i = 0; i < loops; i++) {
+        Pthread_mutex_lock(&mutex); // c1
+        while (count == 0) // c2
+            Pthread_cond_wait(&cond, &mutex); // c3
+        int tmp = get(); // c4
+        Pthread_cond_signal(&cond); // c5
+        Pthread_mutex_unlock(&mutex); // c6
+        printf("%d\n", tmp);
+    }
+}
+```
+
+- 또하나의 문제가 있다.
+- 만약에 생산자가 버퍼를 채우고,
+- 소비자가 비우고,
+- 소비자를 또 깨우면
+- 세상에나 세개의 스레드가 다 자버릴 수 있다.
+![임이지](https://github.com/user-attachments/assets/6bacd8a0-4241-4ee6-be11-3fb399e769e0)
+
+- 변수를 두개써서 해결할 수있기는하다.
+```c
+cond_t empty, fill;
+mutex_t mutex;
+
+void *producer(void *arg) {
+    int i;
+    for (i = 0; i < loops; i++) {
+        Pthread_mutex_lock(&mutex);
+        while (count == 1)
+            Pthread_cond_wait(&empty, &mutex);
+        put(i);
+        Pthread_cond_signal(&fill);
+        Pthread_mutex_unlock(&mutex);
+    }
+}
+
+void *consumer(void *arg) {
+    int i;
+    for (i = 0; i < loops; i++) {
+        Pthread_mutex_lock(&mutex);
+        while (count == 0)
+            Pthread_cond_wait(&fill, &mutex);
+        int tmp = get();
+        Pthread_cond_signal(&empty);
+        Pthread_mutex_unlock(&mutex);
+        printf("%d\n", tmp);
+    }
+}
+```
+
+- 여기서 이것까지만 개선해주면!
+```c
+#define MAX 100
+
+int buffer[MAX];
+int fill = 0;
+int use = 0;
+int count = 0;
+
+void put(int value) {
+    buffer[fill] = value;
+    fill = (fill + 1) % MAX;
+    count++;
+}
+
+int get() {
+    int tmp = buffer[use];
+    use = (use + 1) % MAX;
+    count--;
+    return tmp;
+}
+```
+- 다중스레스 생산자/소비자 해법이 완료되었다.
