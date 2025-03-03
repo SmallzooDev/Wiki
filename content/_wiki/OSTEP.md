@@ -2,7 +2,7 @@
 title: 운영체제 아주 쉬운 세 가지 이야기 📚
 summary: OSTEP 스터디
 date: 2024-04-21 14:20:57 +0900
-lastmod: 2025-03-02 18:02:05 +0900
+lastmod: 2025-03-03 17:13:45 +0900
 tags: 
 categories: 
 description: 
@@ -35,6 +35,8 @@ tocOpen: true
 - [[Segmentation-Paging]]
 - [[Paging-TLB]]
 
+### Concurrency
+- [[Concurrency-Intro]]
 ## 03. Homeworks
 
 - [과제-레포](https://github.com/SmallzooDev/OSTEP)
