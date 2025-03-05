@@ -2,7 +2,7 @@
 title: Daily Log 2025
 summary: 
 date: 2025-01-08 20:19:31 +0900
-lastmod: 2025-02-28 21:55:39 +0900
+lastmod: 2025-03-05 19:51:58 +0900
 tags: 
 categories: 
 description: 
@@ -112,3 +112,6 @@ tocOpen: true
 - 5 - 버퍼
 - 6,7,8,9 - jvm, ostep 카프카
 - prj, springboot, 
+
+### 2025-03-05
+- 늘 하던 뭐시기니까?

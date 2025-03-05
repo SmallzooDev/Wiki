@@ -2,7 +2,7 @@
 title: java, jvm
 summary: 
 date: 2025-03-04 12:13:26 +0900
-lastmod: 2025-03-04 17:10:12 +0900
+lastmod: 2025-03-05 19:51:59 +0900
 tags: 
 categories: 
 description: 
@@ -286,10 +286,34 @@ ClassFile {
 - Object Header
 	- klass word : 메타스페이스에 있는 클래스 정보에 대한 참조자
 	- Mark word
-		- Hashcode는 Object.hashCod() 함수가 호출되는 시점에 계산
+		- Hashcode는 Object.hashCode() 함수가 호출되는 시점에 계산
+			- 자바는 메모리 접근을 못하니까 사용
+			- 같은 인스턴스인지 식별 등
 		- age는 GC에서 살아남은 횟수
 		- Lock flag는 객체를 중심으로 멀티스레드 환경에서 경쟁조건이 발생하는 문제를 해결하기 위해서
+		
+| 상태                               | 설명                                                           |
+| -------------------------------- | ------------------------------------------------------------ |
+| **Unlocked**                     | 객체가 잠금되지 않은 상태 (Mark Word에 객체 해시 코드 저장)                      |
+| **Lightweight Lock (Thin Lock)** | spinlock, 경량 락이 적용된 상태 (스레드가 Mark Word를 자신의 Lock Record로 변경) |
+| **Inflated Lock (Fat Lock)**     | 중간 이상의 경쟁이 발생해 OS의 모니터(lock)로 관리되는 상태                        |
+| **Biased Lock**                  | 편향 락이 활성화된 상태 (특정 스레드가 반복적으로 객체를 사용하는 경우)                    |
+| **Heavyweight Lock**             | 뮤텍스 동기화                                                      |
+| **Monitor Locked**               | OS 기반 모니터 락을 사용하여 객체를 보호하는 상태                                |
 - Instance Data
 - Padding
+
+#### Object 클래스
+- java의 모든 클래스는 object의 파생형식
+- equals()
+	- 매개변수로 전달된 참조자와 this가 가리키는 대상이 같은 값인지 값만 비교
+	- 즉 동등성 비교
+- hashCode()
+	- 객체 식별을 위한 고유 해시결과 값(Unique)
+	- jvm의 힙영역에서 주소가 계속 달라지기때문에, 주소값이 아닌 hashCode로 인스턴스 식별
+	- 동일성 비교에 사용
+- toString()
+	- 클래스명@해시코드
+- getClass()
 
 ## JVM Concurrent
