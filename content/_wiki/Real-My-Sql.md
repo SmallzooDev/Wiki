@@ -2,7 +2,7 @@
 title: RealMySql 8.0
 summary: 
 date: 2025-02-27 10:17:43 +0900
-lastmod: 2025-03-01 23:14:17 +0900
+lastmod: 2025-03-11 08:56:26 +0900
 tags: 
 categories: 
 description: 
@@ -241,7 +241,7 @@ where it.name=concat('employees','/','employess')
 - 리두 로그가 가득 차면 새로운 트랜잭션 처리가 지연될 수 있으므로 적절한 크기 설정이 필요함  
 
 #### 어댑티브 해시 인덱스
-- 자주 사용되는 페이지에 nnodb엔진이 직접 생성하는 인덱스
+- 자주 사용되는 페이지에 innodb엔진이 직접 생성하는 인덱스
 - b+ 트리는 종단노드까지 가야 레코드가 있으니까 이걸 그냥 해쉬로 최적화시킴
 - 해쉬값의 키로는 인덱스 고유값 + 인덱스 실제 키값 을 씀
 - 예전 버전까지는 어댑티브 해쉬 인덱스는 하나의 메모리 객체인 이유로 어댑티브 해시 인덱스의 경합이 심했다 그래서 8.0부터는 내부 잠금 경합을 줄이기위해 어댑티브 해쉬 인덱스의 파티션기능을제공한다 (대충 이것도 하나라 경합이 심했는데 파티션을 해준다는 이야기)
@@ -351,7 +351,7 @@ UPDATE orders SET status = 'completed' WHERE customer_id = 1 AND amount = 300;
 - SQL표준 상 `REPEATABLE READ`에서 Pantom read는 발생할수 있지만, MySQL특성상 발생하지 않는다.
 > 일반적인 온라인 서비스 용도의 데이터베이스는 주로 READ COMMITTED, REPEATABLE READ 중 하나를 사용한다.
 
-#### READ_COMMITTED
+#### READ_UNCOMMITTED
 - Dirty Read가 발생함.
 - 트랜잭션 격리 수준으로 인정하지 않을정도로 정합성에 문제가 많음.
 
@@ -376,7 +376,6 @@ UPDATE orders SET status = 'completed' WHERE customer_id = 1 AND amount = 300;
 이 상황에서 READ COMMITTED는 B,C 트랜잭션의 커밋과 함께 해당 레코드의 언두로그를 전부 삭제 할 수 '있지만',
 REPEATABLE READ에서는 100번이 실행중인동안은 언두로그를 100번이전으로 삭제를 못하게 막아준다는 이야기!
 ```
-- 그러나 범위 쿼리같은걸 했을때 아직 pantom read는 발생
 
 #### SERIALIZABLE
 - 가장 단순한 격리수준이자, 가장 엄격한 격리수준
