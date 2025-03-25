@@ -2,7 +2,7 @@
 title: Daily Log 2025
 summary: 
 date: 2025-01-08 20:19:31 +0900
-lastmod: 2025-03-23 14:31:53 +0900
+lastmod: 2025-03-26 00:03:55 +0900
 tags: 
 categories: 
 description: 
@@ -136,3 +136,28 @@ tocOpen: true
 
 ### 2025-03-23
 - 리노 병원 다녀와서 오늘은 휴식!
+
+### 2025-03-26
+- `TIL` : go struct에는 메모리 패딩이 적용된다.
+```go
+package main
+
+import (
+	"fmt"
+	"unsafe"
+)
+
+type User struct {
+	A int8
+	B int
+	C int8
+	D int
+	E int8
+}
+
+func main() {
+	user := User{1, 2, 3, 4, 5}
+	fmt.Println(unsafe.Sizeof(user))
+}
+
+```
