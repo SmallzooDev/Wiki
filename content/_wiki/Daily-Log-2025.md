@@ -2,7 +2,7 @@
 title: Daily Log 2025
 summary: 
 date: 2025-01-08 20:19:31 +0900
-lastmod: 2025-04-04 16:23:24 +0900
+lastmod: 2025-04-04 16:27:20 +0900
 tags: 
 categories: 
 description: 
@@ -191,3 +191,4 @@ func main() {
 - structured output
 - gpt functionCalling
 - mcp
+- browser-use
