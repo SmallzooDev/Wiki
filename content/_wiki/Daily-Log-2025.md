@@ -2,7 +2,7 @@
 title: Daily Log 2025
 summary: 
 date: 2025-01-08 20:19:31 +0900
-lastmod: 2025-04-16 20:54:25 +0900
+lastmod: 2025-04-16 20:55:01 +0900
 tags: 
 categories: 
 description: 
@@ -241,5 +241,5 @@ func main() {
 - 그리고 솔직하게
 
 ### 2024-04-16
-- 회사일이 오랫만에 즐거웠다
+- 회사일이 유난히 즐거웠다
 
