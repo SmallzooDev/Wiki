@@ -2,7 +2,7 @@
 title: 파이써닉 파이썬
 summary: 
 date: 2025-04-21 12:39:58 +0900
-lastmod: 2025-04-21 18:59:03 +0900
+lastmod: 2025-04-21 22:00:22 +0900
 tags: 
 categories: 
 description: 
@@ -262,5 +262,132 @@ for x in nums:
 
 ## 함수
 ---
+- 이런게 가능하다
+```python
+def func(*args, **kargs):
+    # args 는 위치 인수 튜플
+    # kargs는 위치 인수 튜플
+    return
+
+```
+- 이렇게 해야 할 때도 있다..
+```python
+import time
+
+def after(seconds, func, /, *args, **kargs):
+    time.sleep(seconds)
+    return func(*args, **kargs)
+
+def duration(*, seconds, minutes, hours):
+    return seconds + 60 * minutes + 3600 * hours
+
+after(5, duration, seconds=20, minutes=3, hours=2)
+
+```
+- 스타일상 부작용이 있는 함수는 결과로 None을 반환하는것이 일반적이다.
+- 중첩 함수 내의 변수 이름은 렉시컬 스코프에 묶이고, 체이닝도 한다. (지금 스코프부터 하나씩 밖으로 나가며 체이닝)
+- `nonlocal`, `global`같은 변수 키워드로 다른 스코프 변수를 건들 수 있긴 하다.
+
+### 람다
+```python
+# lamda args: expression
+a = lamda x, y: x + y
+r = a(2, 3)
+```
+
+- 클로저 주의, 함수 호출 시점의 환경을 바인딩함 (lazy binding)
+```python
+x = 2
+f = lamda y: x * y
+x = 3
+g = lamda x: x * y
+
+print(f(10)) # 30
+print(g(10)) # 30
+
+# 이렇게 해야함
+# f = lambda y, x=x: x * y
+# g = lambda y, x=x: x * y
+```
 
 
+```python
+def make_greeting(names):
+    funcs = []
+    for name in names:
+        funcs.append(lambda: print('Hello', name))
+    return funcs
+
+a, b, c = make_greeting(['Guido', "Ada", 'Margaret'])
+
+# return funcs 시점의 name의 값이 바인딩
+a() # Hello Margaret
+b() # Hello Margaret
+c() # Hello Margaret
+
+
+
+def make_greeting_correct(names):
+    funcs = []
+    for name in names:
+        funcs.append(lambda name=name: print('Hello', name))
+    return funcs
+
+a2, b2, c2 = make_greeting_correct(['Guido', "Ada", 'Margaret'])
+
+# 직접 바인딩
+a2()
+b2()
+c2()
+
+```
+
+### 콜백 함수에서 인수 전달
+
+```python
+import time
+
+def add(x, y):
+    return x + y
+
+
+def after(seconds, func):
+    time.sleep(seconds)
+    func()
+
+# after(10, add(2,3)) 안됨, 호출 시점에 호출됨
+
+# 람다 thunk 사용
+after(10, lambda: add(2,3))
+
+# partial 사용
+from functools import partial
+
+after(10, partial(add, 2, 3))
+
+
+# partial은 아래와 같은 것들도 가능
+def func(a,b,c,d):
+    print(a,b,c,d)
+
+f = partial(func, 1, 2)
+f(3,4) # func(1,2,3,4)
+f(10, 20) # func(1,2,10,20)
+
+# partial과 lamda의 차이
+def func2(a,b):
+    return a + b
+
+a = 2
+b = 3
+
+f2 = lambda: func2(a,b)
+g2 = partial(func2, a,b)
+
+a = 10
+b = 20
+f2() # 30, 호출 시점의 a, b 바인딩
+g2() # 5 partial 정의 시점의 a, b 바인딩
+
+```
+- 추가적으로 partial로 생성한 객체는 바이트로 직렬화도 가능하다. (lamda는 불가능)
