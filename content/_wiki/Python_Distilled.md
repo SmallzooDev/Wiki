@@ -2,7 +2,7 @@
 title: 파이써닉 파이썬
 summary: 
 date: 2025-04-21 12:39:58 +0900
-lastmod: 2025-04-21 22:00:22 +0900
+lastmod: 2025-04-21 23:07:55 +0900
 tags: 
 categories: 
 description: 
@@ -391,3 +391,21 @@ g2() # 5 partial 정의 시점의 a, b 바인딩
 
 ```
 - 추가적으로 partial로 생성한 객체는 바이트로 직렬화도 가능하다. (lamda는 불가능)
+
+### 데코레이터
+```python
+def trace(func):
+    def call(*args, **kargs):
+        print('Calling', func.__name__)
+        return func(*args, **kargs)
+    return call
+
+@trace
+def square(x):
+    return x+x
+
+square(3)
+square(4)
+square(5)
+square(6)
+```
