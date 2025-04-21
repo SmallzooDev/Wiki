@@ -2,7 +2,7 @@
 title: Index 🧊️
 summary: 
 date: 2024-03-29 09:21:07 +0900
-lastmod: 2025-03-27 16:42:52 +0900
+lastmod: 2025-04-21 18:59:03 +0900
 tags: ["wiki_home"]
 categories: 
 public: true
@@ -43,6 +43,8 @@ TocOpen: true
 - [[Kotlin-Algorithms]]
 - [[Java-Jvm]]
 
+## Python 🐍
+- [[Python]] 
 ## Cpp 🐋
 
 - [[Cpp-basic]] : C++ 기본 문법 정리
