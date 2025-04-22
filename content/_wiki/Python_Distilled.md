@@ -2,7 +2,7 @@
 title: 파이써닉 파이썬
 summary: 
 date: 2025-04-21 12:39:58 +0900
-lastmod: 2025-04-21 23:07:55 +0900
+lastmod: 2025-04-22 19:49:26 +0900
 tags: 
 categories: 
 description: 
@@ -408,4 +408,57 @@ square(3)
 square(4)
 square(5)
 square(6)
+
+# trace(func)
+
+from functools import wraps
+
+def trace(func):
+    @wraps(func)
+    def call(*args, **kargs):
+        print('Calling', func.__name__)
+        return func(*args, **kargs)
+    return call
+
 ```
+- wraps를 쓰면 더 편리, 함수의 메타데이터를 대체 함수에 복사, 이 경우 제공된 함수 func()의 메타데이터는 반환된 래퍼함수 call()에 복사된다.
+- 데코레이터의 나열 순서는 중요하다. `@classmethod`, `@staticmethod`와 같은 데코레이터는 가장 바깥쪽에 위치해야 한다.
+
+```python
+from functools import wraps
+
+def trace(message):
+    def decorate(func):
+        @wraps(func)
+        def wrapper(*args, **kargs):
+            print(message.format(func=func))
+            return func(*args, **kargs)
+        return wrapper
+    return decorate
+
+@trace('Hello {func.__name__}')
+def func1():
+    pass
+
+@trace('Hello {func.__name__}')
+def func2():
+    pass
+
+func1()
+func2()
+
+logged = trace('Simplified with logged {func.__name__}')
+
+@logged
+def func3():
+    pass
+
+@logged
+def func4():
+    pass
+
+func3()
+func4()
+
+```
+
