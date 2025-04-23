@@ -2,7 +2,7 @@
 title: 파이써닉 파이썬
 summary: 
 date: 2025-04-21 12:39:58 +0900
-lastmod: 2025-04-22 19:49:26 +0900
+lastmod: 2025-04-23 11:00:48 +0900
 tags: 
 categories: 
 description: 
@@ -462,3 +462,91 @@ func4()
 
 ```
 
+### 파이써닉한 파이썬: 함수와 조합에 대한 생각
+- 시스템은 모두 구성 요소의 조합으로 구축됨
+- 그리고 그 구성요소의 근본은 함수임
+- 함수의 입력은 어떻게 되는가? 출력은 어떻게 처리되는가? 에러는 어떻게 보고되는가? 이 모든것을 어떻게 컨트롤하고 더 잘 이해할 수 있을까?
+
+## 제너레이터
+---
+> 제너레이터는 파이썬에서 매우 흥미로우면서도 강력한 기능의 하나다. 제너레이터는 새로운 형태의 반복 패턴을 정의하는 편리한 방법으로 소개되고 있지만, 그것보다 훨씬 더 많은 기능들이 있다. 제너레이터는 함수의 전체 실행 모델을 근본적으로 변경할 수 있다.
+
+### 제너레이터와 yield
+- 함수에서 yield 키워드를 사용하면 제너레이터 객체를 정의하게 된다.
+- 제너레이터의 주된 기능은 반복에 사용할 값을 생성하는 것이다.
+
+```python
+def countdown(n):
+    print('Counting down from', n)
+    while n > 0:
+        yield n
+        n -= 1
+
+c = countdown(10)
+print(c)
+print(next(c))
+print(next(c))
+print(next(c))
+print(next(c))
+print(next(c))
+print(next(c))
+print(next(c))
+print(next(c))
+print(next(c))
+print(next(c))
+
+
+for x in countdown(10):
+    print('T-minus', x)
+```
+
+```bash
+<generator object countdown at 0x100e88190>
+Counting down from 10, 
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+Counting down from 10
+T-minus 10
+T-minus 9
+T-minus 8
+T-minus 7
+T-minus 6
+T-minus 5
+T-minus 4
+T-minus 3
+T-minus 2
+T-minus 1
+```
+- 제너레이터 객체는 반복을 시작할 때만 함수를 실행한다.
+- 제너레이터 객체를 수행하는 방법은 다음과 같이 `next()`를 호출하는것이다.
+- next()를 호출하면 처음에는 yield전까지 문을 실행하며, 결과를 반환하고 다음 next()가 호출될 때 까지 함수 실행을 일시적으로 중단한다.
+	- 중단동안 함수는 지역 변수와 실행 환경을 모두 유지한다.
+- 제너레이터는 한번만 반복할 수 있고 여러번 반복하고싶다면 아래처럼 만들어두는것이 좋다.
+```python
+class countdown:
+    def __init__(self, start):
+        self.start = start
+    def __iter__(self):
+        n = self.start
+        while n > 0:
+            yield n
+            n-= 1
+
+
+count = countdown(10)
+for n in count:
+    print(n)
+
+for n in count:
+    print(n)
+```
+
+### 제너레이터 위임
