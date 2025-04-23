@@ -2,7 +2,7 @@
 title: 파이써닉 파이썬
 summary: 
 date: 2025-04-21 12:39:58 +0900
-lastmod: 2025-04-23 15:51:41 +0900
+lastmod: 2025-04-23 17:24:00 +0900
 tags: 
 categories: 
 description: 
@@ -657,3 +657,18 @@ def flatten(items):
             stack.pop()
 
 ```
+### 향상된 generator (코루틴 개념 포함)
+
+- yield를 **할당문 우측에 두어**, 외부에서 값을 전달받을 수 있다.
+  → 예: `value = yield` 형태로 사용하면, `send()`를 통해 전달된 값이 `value`에 들어간다.
+- 제너레이터 객체에 값을 외부에서 넣어줄 수 있는 메서드인 **send()** 를 활용해 **양방향 통신**이 가능하다.
+- `contextlib.contextmanager`는 제너레이터의 `__enter__` / `__exit__` 프로토콜을 활용해 **컨텍스트 관리자**를 간결하게 구현할 수 있게 해준다.
+- `async def` / `await` 구문은 내부적으로 **제너레이터 기반의 코루틴 프레임워크에서 발전된 구조**다.
+  → 초창기에는 `yield from` 기반의 async 구현(`asyncio.coroutine`)이었고, 이후에 `await`가 명시적으로 추가되었다.
+
+> I/O 작업은 보통 지연이 발생하므로, **yield나 await로 중단점(pause point)을 만든 후**, 결과가 준비되었을 때 다시 실행을 재개하는 구조로 동작한다.
+
+실제로는
+- 실행을 **중단(pause)** 하며 Future 객체를 반환
+- 이벤트 루프가 **Future의 완료를 감지**하면
+- 해당 제너레이터에 **다시 send()로 값 주입**, 실행 재개
