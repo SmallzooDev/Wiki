@@ -2,7 +2,7 @@
 title: 파이써닉 파이썬
 summary: 
 date: 2025-04-21 12:39:58 +0900
-lastmod: 2025-04-23 11:00:48 +0900
+lastmod: 2025-04-23 15:51:41 +0900
 tags: 
 categories: 
 description: 
@@ -550,3 +550,110 @@ for n in count:
 ```
 
 ### 제너레이터 위임
+- yield를 포함하는 함수는 스스로 실행되지 않는다는 점이 제네레이터의 중요한 특징이다.
+- 별도의 next()호출에 의해서만 함수 실행 흐름이 관리된다.
+- 그래서 yield from이라는 문이 있다.
+```python
+def countup(stop):
+    n = 1
+    while n <= stop:
+        yield n
+        n += 1
+
+def countdown(start):
+    n = start
+    while n > 0:
+        yield n
+        n-= 1
+
+def up_and_down(n):
+    yield from countup(n)
+    yield from countdown(n)
+
+for x in up_and_down(5):
+    print(x, end=' ')
+
+# 원래면 아래처럼 했어야 함
+def up_and_down_without_yield(n):
+    for x in countup(n):
+        yield x
+    for x in countdown(n):
+        yield x
+
+# 이런 경우에 유용
+def flatten(items):
+    for i in items:
+        if isinstance(i, list):
+            yield from flatten(i)
+        else:
+            yield i
+
+```
+- 위와같이 중첩된 것들도 지연평가 + 분리된 코드로 잘 작성 할 수 있다.
+```python
+import pathlib
+import re
+
+for path in pathlib.Path('.').rglob('*.py'):
+    if path.exists():
+        with path.open('rt', encoding='latin-1') as file:
+            for line in file:
+                m = re.match('.*(#.*)$', line)
+                if m:
+                    comment = m.group(1)
+                    if 'spam' in comment:
+                        print(comment)
+
+
+def get_paths(todir, pattern):
+    for path in pathlib.Path(todir).rglob(pattern):
+        if path.exists():
+            yield path
+
+def get_files(paths):
+    for path in paths:
+        with path.open('rt', encoding='latin-1') as file
+            yield file
+
+def get_lines(files):
+    for file in files:
+        yield from file
+
+def get_comments(lines):
+    for line in  lines:
+        m = re.match('.*(#.*)$', line)
+        if m:
+            yield m.group(1)
+
+def print_matching(lines, substring):
+    for line in lines:
+        if substring in line:
+            print(substring)
+
+paths = get_paths('.', '*py')
+files = get_files(paths)
+lines = get_lines(files)
+comments = get_comments(lines)
+print_matching(comments, 'spam')
+
+
+
+```
+- yield를 응용하여, flatten을 개선한 예재
+```python
+def flatten(items):
+    stack = [ iter(items) ]
+    print(stack)
+    while stack:
+        try:
+            item = next(stack[-1])
+            if isinstance(item, list):
+                    stack.append(iter(item))
+                    print('stack appended')
+                    print(stack)
+            else:
+                yield item
+        except StopIteration:
+            stack.pop()
+
+```
