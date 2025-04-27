@@ -5,10 +5,19 @@ language:
   code: ko-kr
 
 params:
-  homeInfoParams:
-    Title: "[[Hello World! 🚀]](_wiki/index.md)"
-    Content: >
-      - Hugo 개인 위키 블로그 입니다!.
+  profileMode:
+    enabled: true
+    title: "SmallzooDevWiki🧊️"
+    subtitle: "경험을 정리하는 개인 위키입니다."
+    imageUrl: "/images/profile.png"
+    imageTitle: "Profile Image"
+    buttons:
+      - name: 🏡 Wiki Home
+        url: "/_wiki/home"
+      - name: 🏷️ Tags
+        url: "/tags/"
+      - name: 🔍 Search
+        url: "/search/"
     socialIcons:
       - name: github
         url: "https://github.com/SmallzooDev"
