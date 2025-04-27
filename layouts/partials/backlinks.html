@@ -1,0 +1,41 @@
+{{- $currentPagePath := trim (lower .File.Path) " " -}}
+{{- $pageTitle := .Title -}}
+{{- $filename := path.Base (strings.TrimSuffix ".md" $currentPagePath) -}}
+{{- $references := slice -}}
+
+{{- range where .Site.RegularPages "Section" "_wiki" -}}
+  {{- if ne .File.Path $currentPagePath -}}
+    {{- $content := .RawContent -}}
+    {{- $titlePattern := printf "\\[\\[%s\\]\\]" (lower $pageTitle) -}}
+    {{- $filenamePattern := printf "\\[\\[%s\\]\\]" (lower $filename) -}}
+    {{- $titleMatches := findRE $titlePattern (lower $content) -}}
+    {{- $filenameMatches := findRE $filenamePattern (lower $content) -}}
+    
+    {{- if or (gt (len $titleMatches) 0) (gt (len $filenameMatches) 0) -}}
+      {{- $references = $references | append . -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- $has_references := ge (len $references) 1 -}}
+{{- if $has_references -}}
+<div class="backlinks-container">
+    <div class="toc backlinks">
+        <details open>
+            <summary accesskey="b" title="(Alt + B)">
+                <span class="details">Backlinks</span>
+            </summary>
+
+            <div class="inner">
+                <ul>
+                    {{- range $references -}}
+                    <li>
+                        <a href="{{ .RelPermalink }}" aria-label="{{ .Title }}">{{ .Title }}</a>
+                    </li>
+                    {{- end -}}
+                </ul>
+            </div>
+        </details>
+    </div>
+</div>
+{{- end -}} 
