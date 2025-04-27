@@ -2,46 +2,46 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>SmallzooDevWiki🧊️</title>
-    <link>http://localhost:63845/</link>
+    <link>http://localhost:1313/</link>
     <description>Recent content on SmallzooDevWiki🧊️</description>
     <generator>Hugo -- 0.123.8</generator>
     <language>en</language>
     <lastBuildDate>Sun, 27 Apr 2025 13:27:07 +0900</lastBuildDate>
-    <atom:link href="http://localhost:63845/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>코틀린 함수형 프로그래밍</title>
-      <link>http://localhost:63845/_wiki/kotlin-functional/</link>
+      <link>http://localhost:1313/_wiki/kotlin-functional/</link>
       <pubDate>Sun, 27 Apr 2025 11:20:59 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/kotlin-functional/</guid>
+      <guid>http://localhost:1313/_wiki/kotlin-functional/</guid>
       <description>함수 타입 함수 타입 정의 (T) -&amp;gt; Boolean : Boolean을 반환하는 함수 Predicate (T) -&amp;gt; R : 값 하나를 다른 값으로 변환하는 함수 transfrom (T) -&amp;gt; Unit : Unit을 반환하는 함수 operation 함수 타입 활용 invoke라는 단 하나의 메서드만 제공함, 명시적 invoke호출과 ()연산자로 호출 함수타입 파라미터를 ()? 로 감싸서 널러블함을 표현할 수 있음 (이경우는 명시적 invoke만 가능) named parameter 함수 타입을 정의 할 때 &amp;rsquo;named parameter&amp;rsquo;를 사용 가능 오직 개발 편의를 위한 것 익명 함수 익명함수는 함수 타입 객체를 반환하는 표현식 </description>
     </item>
     <item>
       <title>cpp ps용 기본 문법 리마인드 💡</title>
-      <link>http://localhost:63845/_wiki/cpp-ps-basic/</link>
+      <link>http://localhost:1313/_wiki/cpp-ps-basic/</link>
       <pubDate>Sat, 26 Apr 2025 23:54:47 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/cpp-ps-basic/</guid>
+      <guid>http://localhost:1313/_wiki/cpp-ps-basic/</guid>
       <description>C++ Grammar and Syntax Guide for Coding Interviews (Algorithms &amp;amp; DS) Core Data Types and Variables Basic Types int x = 5; // Integer long long bigNum = 1LL&amp;lt;&amp;lt;60; // Large integer (note LL suffix) double y = 3.14; // Double precision floating point bool flag = true; // Boolean char c = &amp;#39;A&amp;#39;; // Character string s = &amp;#34;Hello&amp;#34;; // String (requires #include &amp;lt;string&amp;gt;) Type Modifiers unsigned int positiveOnly = 100; // Only non-negative values const int FIXED = 10; // Cannot be modified after initialization Type Aliases typedef long long ll; // Old style type alias using ll = long long; // Modern style type alias (preferred) Auto Type Deduction auto num = 10; // Compiler deduces type (int in this case) auto it = myVector.</description>
     </item>
     <item>
       <title>파이써닉 파이썬</title>
-      <link>http://localhost:63845/_wiki/python_distilled/</link>
+      <link>http://localhost:1313/_wiki/python_distilled/</link>
       <pubDate>Mon, 21 Apr 2025 12:39:58 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/python_distilled/</guid>
+      <guid>http://localhost:1313/_wiki/python_distilled/</guid>
       <description>1~3장 기본 문법 진짜 간단하게 문법을 훑는다.
 3장 프로그램 구조와 제어 흐름 예외 처리에 대한 조언 코드의 특정 위치에서 처리할 수 없는 예외는 잡지 않는다. def read_data(filename): with open(filename, &amp;#39;rt&amp;#39;) as file: rows = [] for line in file: row = line.split() rows.append((row[0], int(row[1]), float(row[2]))) return rows 위의 경우 함수의 사용자가 잘못된 파일명을 처리할 기회가 사라짐 예외를 호출자한테 전달하는게 바람직하다고함 파이썬은 매번 에러 확인하지 말고, 실패하도록 내버려두라는 철학을 가짐. 예외는 프로그램 흐름을 위로 “전파”시켜서, 상위 책임 코드에서 처리하는 게 자연스럽다는 접근 흠.</description>
     </item>
     <item>
       <title>Python 관련 내용 정리</title>
-      <link>http://localhost:63845/_wiki/python/</link>
+      <link>http://localhost:1313/_wiki/python/</link>
       <pubDate>Mon, 21 Apr 2025 12:39:20 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/python/</guid>
+      <guid>http://localhost:1313/_wiki/python/</guid>
       <description>Basic [[Python_Distilled]] </description>
     </item>
     <item>
       <title>프로그래머로 사는법 간략한 인용과 후기 👨‍💻</title>
-      <link>http://localhost:63845/_wiki/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EB%A1%9C-%EC%82%AC%EB%8A%94%EB%B2%95/</link>
+      <link>http://localhost:1313/_wiki/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EB%A1%9C-%EC%82%AC%EB%8A%94%EB%B2%95/</link>
       <pubDate>Tue, 15 Apr 2025 20:00:49 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EB%A1%9C-%EC%82%AC%EB%8A%94%EB%B2%95/</guid>
+      <guid>http://localhost:1313/_wiki/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EB%A1%9C-%EC%82%AC%EB%8A%94%EB%B2%95/</guid>
       <description>망쳐버린 소프트웨어 프로젝트와 무용담 &amp;ldquo;우리가 만든 소프트웨어는 정말 좋았는데, 시장이 무르익지 않았어&amp;rdquo; -&amp;gt; 소비자 요구를 파악하지 못했다.
 &amp;ldquo;소프트웨어는 잘 만들었는데 영업 판매가 잘 되지 않았어&amp;rdquo; -&amp;gt; 아무도 그런 소프트웨어를 원하지 않았다.
 &amp;ldquo;제품은 끝내줬는데 제대로 좀 해보려는 마당에 윗선에서 잘렸어&amp;rdquo; -&amp;gt; 수익을 창출하기까지 너무 오래걸렸다.
@@ -49,114 +49,114 @@
     </item>
     <item>
       <title>스프링 트랜잭션 전파 속성</title>
-      <link>http://localhost:63845/_wiki/%EC%8A%A4%ED%94%84%EB%A7%81-%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98-%EC%A0%95%EB%A6%AC/</link>
+      <link>http://localhost:1313/_wiki/%EC%8A%A4%ED%94%84%EB%A7%81-%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98-%EC%A0%95%EB%A6%AC/</link>
       <pubDate>Fri, 28 Mar 2025 21:25:06 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/%EC%8A%A4%ED%94%84%EB%A7%81-%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98-%EC%A0%95%EB%A6%AC/</guid>
+      <guid>http://localhost:1313/_wiki/%EC%8A%A4%ED%94%84%EB%A7%81-%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98-%EC%A0%95%EB%A6%AC/</guid>
       <description>트랜잭션 관리 스프링의 빈은 기본적으로 싱글톤이다. 즉, 하나의 서비스 객체 인스턴스가 여러 스레드에서 공유되어 사용된다. 하지만 트랜잭션은 스레드마다 독립적으로 관리되어야 한다. 그래서 ThreadLocal로 관리한다.
 TransactionSynchronizationManager 스프링은 TransactionSynchronizationManager 클래스를 통해 트랜잭션 리소스와 상태를 관리한다. 이 클래스는 ThreadLocal 변수를 사용하여 각 스레드별로 독립적인 트랜잭션 컨텍스트를 유지한다.
 // TransactionSynchronizationManager의 일부 (간략화됨) public abstract class TransactionSynchronizationManager { // 리소스를 스레드별로 저장하는 ThreadLocal 맵 private static final ThreadLocal&amp;lt;Map&amp;lt;Object, Object&amp;gt;&amp;gt; resources = new NamedThreadLocal&amp;lt;&amp;gt;(&amp;#34;Transactional resources&amp;#34;); // 트랜잭션 동기화 활성화 상태 private static final ThreadLocal&amp;lt;Boolean&amp;gt; actualTransactionActive = new NamedThreadLocal&amp;lt;&amp;gt;(&amp;#34;Actual transaction active&amp;#34;); // 현재 트랜잭션 이름 private static final ThreadLocal&amp;lt;String&amp;gt; currentTransactionName = new NamedThreadLocal&amp;lt;&amp;gt;(&amp;#34;Current transaction name&amp;#34;); // 읽기 전용 플래그 private static final ThreadLocal&amp;lt;Boolean&amp;gt; currentTransactionReadOnly = new NamedThreadLocal&amp;lt;&amp;gt;(&amp;#34;Current transaction read-only status&amp;#34;); // 격리 수준 private static final ThreadLocal&amp;lt;Integer&amp;gt; currentTransactionIsolationLevel = new NamedThreadLocal&amp;lt;&amp;gt;(&amp;#34;Current transaction isolation level&amp;#34;); // 트랜잭션 동기화 콜백 객체 private static final ThreadLocal&amp;lt;List&amp;lt;TransactionSynchronization&amp;gt;&amp;gt; synchronizations = new NamedThreadLocal&amp;lt;&amp;gt;(&amp;#34;Transaction synchronizations&amp;#34;); // 리소스 바인딩 메서드 public static void bindResource(Object key, Object value) { Map&amp;lt;Object, Object&amp;gt; map = resources.</description>
     </item>
     <item>
       <title>양방향 순환참조 정리</title>
-      <link>http://localhost:63845/_wiki/%EC%96%91%EB%B0%A9%ED%96%A5-%EC%88%9C%ED%99%98%EC%B0%B8%EC%A1%B0/</link>
+      <link>http://localhost:1313/_wiki/%EC%96%91%EB%B0%A9%ED%96%A5-%EC%88%9C%ED%99%98%EC%B0%B8%EC%A1%B0/</link>
       <pubDate>Thu, 27 Mar 2025 19:58:47 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/%EC%96%91%EB%B0%A9%ED%96%A5-%EC%88%9C%ED%99%98%EC%B0%B8%EC%A1%B0/</guid>
+      <guid>http://localhost:1313/_wiki/%EC%96%91%EB%B0%A9%ED%96%A5-%EC%88%9C%ED%99%98%EC%B0%B8%EC%A1%B0/</guid>
       <description>사실 객체의 참조과 서로 있는 객체라면 발생하지, JPA와 직접적인 연관은 없다.
 양방향 참조 1. toString() 메서드 구현 시 무한루프 @Entity public class Parent { @Id @GeneratedValue private Long id; private String name; @OneToMany(mappedBy = &amp;#34;parent&amp;#34;) private List&amp;lt;Child&amp;gt; children = new ArrayList&amp;lt;&amp;gt;(); @Override public String toString() { return &amp;#34;Parent{id=&amp;#34; + id + &amp;#34;, name=&amp;#39;&amp;#34; + name + &amp;#34;&amp;#39;, children=&amp;#34; + children + &amp;#34;}&amp;#34;; } } @Entity public class Child { @Id @GeneratedValue private Long id; private String name; @ManyToOne private Parent parent; @Override public String toString() { return &amp;#34;Child{id=&amp;#34; + id + &amp;#34;, name=&amp;#39;&amp;#34; + name + &amp;#34;&amp;#39;, parent=&amp;#34; + parent + &amp;#34;}&amp;#34;; } } 이 경우 Parent의 toString()이 Child의 toString()을 호출하고, Child의 toString()이 다시 Parent의 toString()을 호출하는 무한루프가 발생합니다.</description>
     </item>
     <item>
       <title>가상 면접 사례로 배우는 대규모 시스템 설계</title>
-      <link>http://localhost:63845/_wiki/system-design-interview/</link>
+      <link>http://localhost:1313/_wiki/system-design-interview/</link>
       <pubDate>Mon, 10 Mar 2025 13:42:54 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/system-design-interview/</guid>
+      <guid>http://localhost:1313/_wiki/system-design-interview/</guid>
       <description>책의 내용을 일부 &amp;lsquo;발췌&amp;rsquo;해서 정리 각 장별 간단한 개요는 작성하지만, 실질적으로는 내가 조금 더 기억하고 싶은 내용만 일부 발췌해서 기록
 1장 사용자 수에 따른 규모 확장성 개요 기본적인 어플리케이션 설게와 매우 자주 사용되는 컴포넌트 혹은 구현해야하는 요구사항에 대해서 소개해 주는장 예를들어 아래와 같은 것들을 개념을 개략적으로 설명해준다. 데이터 저장소 수직적 확장,수평적 확장 다중화 캐시 안정성과, 가용성과같은 시스템을 측정할 수 있는 요소들도 설명해준다. 내용 캐시 사용시 유의 할 점 어떤 상황에 바람직한지 생각하기 어떤 데이터를 캐시할지 생각하지 만료기한을 잘 설정하기 일관성을 유지 할 수 있도록 생각하기 저장소의 원본을 갱신하는 연산과 캐시를 갱신하는 연산이 단일 트랜잭션으로 처리되지 않는 경우?</description>
     </item>
     <item>
       <title>java, jvm</title>
-      <link>http://localhost:63845/_wiki/java-jvm/</link>
+      <link>http://localhost:1313/_wiki/java-jvm/</link>
       <pubDate>Tue, 04 Mar 2025 12:13:26 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/java-jvm/</guid>
+      <guid>http://localhost:1313/_wiki/java-jvm/</guid>
       <description>JVM JVM 구성요소 유저모드 어플리케이션 프로세스, 가상 메모리 공간을 활용, 머신으로서 연산, os의 일부기능 jvm 구성요소 클래스 로더(Class Loader) 자바 클래스 파일(.class)을 로드하고 링크하는 역할 로딩, 링킹, 초기화 단계로 구성됨 부트스트랩 클래스 로더, 확장 클래스 로더, 애플리케이션 클래스 로더로 구성 클래스 로딩 링킹등이 런타임에 일어날 수 있다. 런타임 데이터 영역(Runtime Data Area) 메서드 영역(Method Area): 클래스 구조, 메서드 데이터, 상수, 정적 변수 등 저장 힙(Heap): 객체와 인스턴스 변수가 저장되는 공간 스택(Stack): 스레드마다 별도로 존재하며 지역 변수, 매개변수, 리턴 값 등 저장 PC 레지스터(Program Counter Register): 현재 실행 중인 명령어 주소 저장 네이티브 메서드 스택(Native Method Stack): 네이티브 코드를 위한 스택 실행 엔진(Execution Engine) 인터프리터(Interpreter): 바이트코드를 한 줄씩 해석하고 실행 JIT 컴파일러(Just-In-Time Compiler): 자주 사용되는 코드를 네이티브 코드로 컴파일하여 성능 향상 가비지 컬렉터(Garbage Collector): 더 이상 사용되지 않는 메모리 자동 정리 네이티브 메서드 인터페이스(JNI, Java Native Interface) 자바 코드가 네이티브 애플리케이션이나 C, C++ 등의 라이브러리와 상호작용할 수 있게 함 네이티브 메서드 라이브러리(Native Method Libraries) C, C++ 등으로 작성된 라이브러리 모음 클래스로더 .</description>
     </item>
     <item>
       <title>JVM-밑바닥부터-파해치기</title>
-      <link>http://localhost:63845/_wiki/jvm-%EB%B0%91%EB%B0%94%EB%8B%A5%EB%B6%80%ED%84%B0-%ED%8C%8C%ED%95%B4%EC%B9%98%EA%B8%B0/</link>
+      <link>http://localhost:1313/_wiki/jvm-%EB%B0%91%EB%B0%94%EB%8B%A5%EB%B6%80%ED%84%B0-%ED%8C%8C%ED%95%B4%EC%B9%98%EA%B8%B0/</link>
       <pubDate>Mon, 03 Mar 2025 21:48:25 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/jvm-%EB%B0%91%EB%B0%94%EB%8B%A5%EB%B6%80%ED%84%B0-%ED%8C%8C%ED%95%B4%EC%B9%98%EA%B8%B0/</guid>
+      <guid>http://localhost:1313/_wiki/jvm-%EB%B0%91%EB%B0%94%EB%8B%A5%EB%B6%80%ED%84%B0-%ED%8C%8C%ED%95%B4%EC%B9%98%EA%B8%B0/</guid>
       <description>JVM 밑바닥부터 파해치기책을 정리한 내용이며, 모든 내용은 해당 도서 기반입니다.
 1부 자바와 친해지기 1장 자바 기술 시스템 소개 1.1 들어가며 하드웨어 플랫폼 족쇄 제거 안전한 메모리 관리 시스템 런타임 핫코드 감지, 컴파일 최적화하며 최상의 성능 도움 표준 api도 풍부하고 서드파티 라이브러리도 많다. 이번 장에는 자바 시스템의 구성요소, 역사, 자바의 현재와 미래를 다룬다.
 1.2 자바 기술 시스템 크게는 아래를 포괄한다 자바 프로그래밍 언어 가상 머신 구현 클래스 파일 포맷 클래스 라이브러리 api (표준 api) 오픈소스 클래스 라이브러리 언어, vm, 클래스 라이브러리를 묶어 jdk라고 한다, 또한 java se api, vm, 배포기술까지를 묶으면 jre라고한다.</description>
     </item>
     <item>
       <title>Concurrency-Intro</title>
-      <link>http://localhost:63845/_wiki/concurrency-intro/</link>
+      <link>http://localhost:1313/_wiki/concurrency-intro/</link>
       <pubDate>Mon, 03 Mar 2025 11:58:56 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/concurrency-intro/</guid>
+      <guid>http://localhost:1313/_wiki/concurrency-intro/</guid>
       <description>25 병행성에 관한 대화 여러사람이 동시에 복숭아를 집을 수 있도록 했을때는 빨랐어요, 반면에 제 방법은 한번에 한명씩 집기 때문에 정확하겠지만 꽤 느리겠군요.
 멀티 쓰레드 프로그램이라고 불리는 프로그램들이 있네, 각 쓰레드는 독립된 객체로서 프로그램 내에서 프로그램을 대신하여 일으 하지, 이 쓰레드들은 메모리에 접근하는데, 쓰레드 입장에서 보면 메모리는 아까 이야기했던 복숭아와 같은 거야
 동시성을 운영체제에서 다뤄야 할 몇 가지 이유가 있지. 운영체제는 락과 컨디션 변수와 같은 기본 동적으로 멀티쓰레드 프로그램을 지원해야 한다네. 둘째로 운영체제는 그 자체로 최초의 동시 프로그램이기 때문이야</description>
     </item>
     <item>
       <title>OSTEP, 페이징</title>
-      <link>http://localhost:63845/_wiki/paging-tlb/</link>
+      <link>http://localhost:1313/_wiki/paging-tlb/</link>
       <pubDate>Sun, 02 Mar 2025 17:09:37 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/paging-tlb/</guid>
+      <guid>http://localhost:1313/_wiki/paging-tlb/</guid>
       <description>19 페이징: 더 빠른 변환(TLB) 매핑 정보 저장(페이지 테이블 저장)을 위해 큰 메모리 공간이 요구됨 가상 주소에서 물리 주소로의 주소 변환을 위해 메모리에 존재하는 매핑정보를 읽어야함. 핵심 질문: 주소 변환 속도를 어떻게 향상할까?
 주소 변환을 빠르게 하기 위해 우리는 변환-색인 버퍼(translation-lookaside-buffer) 줄여서 TLB라고 부르는 것을 도입한다. 칩의 MMU(memory-management unit)의 일부라고 한다. 자주 참조되는 가상주소 - 실주소 변환 정보를 저장하는 하드웨어 캐시이다. 주소-변환 캐시가 좀 더 적합한 명칭이다. 19.1 TLB의 기본 알고리즘 // 가상 주소에서 VPN(가상 페이지 번호) 추출 VPN = (VirtualAddress &amp;amp; VPN_MASK) &amp;gt;&amp;gt; SHIFT; // TLB 조회 (TLB 히트 여부 확인) (Success, TlbEntry) = TLB_Lookup(VPN); if (Success == True) { // TLB Hit if (CanAccess(TlbEntry.</description>
     </item>
     <item>
       <title>자주 쓰이는 데이터 압축 정리</title>
-      <link>http://localhost:63845/_wiki/%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%95%95%EC%B6%95/</link>
+      <link>http://localhost:1313/_wiki/%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%95%95%EC%B6%95/</link>
       <pubDate>Fri, 28 Feb 2025 13:50:39 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%95%95%EC%B6%95/</guid>
+      <guid>http://localhost:1313/_wiki/%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%95%95%EC%B6%95/</guid>
       <description>MySQL LZ77 빈도를 체크해서 치환하는 방식 자세한 구현은 -&amp;gt; 여기
 알고리즘 LZ77_압축(입력문자열): 압축결과 = 빈 리스트 검색버퍼크기 = N 전방버퍼크기 = M 현재위치 = 0 while 현재위치 &amp;lt; 입력문자열의 길이: // 검색 버퍼와 전방 버퍼 설정 검색버퍼시작 = max(0, 현재위치 - 검색버퍼크기) 검색버퍼끝 = 현재위치 전방버퍼끝 = min(현재위치 + 전방버퍼크기, 입력문자열의 길이) 최대일치위치 = 0 최대일치길이 = 0 // 검색 버퍼에서 가장 긴 일치 찾기 for 검색위치 = 검색버퍼시작 to 검색버퍼끝 - 1: 현재일치길이 = 0 while 현재위치 + 현재일치길이 &amp;lt; 전방버퍼끝 AND 검색위치 + 현재일치길이 &amp;lt; 현재위치 AND 입력문자열[검색위치 + 현재일치길이] == 입력문자열[현재위치 + 현재일치길이]: 현재일치길이 += 1 if 현재일치길이 &amp;gt; 최대일치길이: 최대일치길이 = 현재일치길이 최대일치위치 = 검색위치 if 최대일치길이 &amp;gt; 0: // 상대적 위치 계산 (검색 버퍼 내의 오프셋) 오프셋 = 현재위치 - 최대일치위치 다음문자 = 입력문자열[현재위치 + 최대일치길이] (전방버퍼끝에 도달했다면 null 또는 특수 문자) 압축결과.</description>
     </item>
     <item>
       <title>MySQL 레코드 락 확인 쿼리들</title>
-      <link>http://localhost:63845/_wiki/mysql-record-lock-queries/</link>
+      <link>http://localhost:1313/_wiki/mysql-record-lock-queries/</link>
       <pubDate>Thu, 27 Feb 2025 20:37:34 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/mysql-record-lock-queries/</guid>
+      <guid>http://localhost:1313/_wiki/mysql-record-lock-queries/</guid>
       <description>MySQL의 performance_schema.data_locks와 performance_schema.data_lock_waits 활용 예시 MySQL의 performance_schema.data_locks와 performance_schema.data_lock_waits 테이블을 활용하여 데이터베이스 락을 조회하는 다양한 예시와 결과를 정리.
 performance_schema.data_locks와 performance_schema.data_lock_waits 개요 data_locks: 현재 활성화된 모든 락 정보를 포함하는 테이블 data_lock_waits: 트랜잭션이 기다리는 락 정보를 보여주는 테이블 (Deadlock 가능성 분석) 1. 기본적인 락 정보 조회 SELECT * FROM performance_schema.data_locks; ✅ 결과 예시 ENGINE OBJECT_SCHEMA OBJECT_NAME INDEX_NAME LOCK_TYPE LOCK_MODE LOCK_STATUS INNODB mydb users PRIMARY RECORD X GRANTED INNODB mydb orders NULL TABLE IX GRANTED LOCK_TYPE: TABLE, RECORD, AUTO_INC 등 LOCK_MODE: X(Exclusive), S(Shared), IX(Intent Exclusive), IS(Intent Shared) LOCK_STATUS: GRANTED, WAITING 2.</description>
     </item>
     <item>
       <title>RealMySql 8.0</title>
-      <link>http://localhost:63845/_wiki/real-my-sql/</link>
+      <link>http://localhost:1313/_wiki/real-my-sql/</link>
       <pubDate>Thu, 27 Feb 2025 10:17:43 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/real-my-sql/</guid>
+      <guid>http://localhost:1313/_wiki/real-my-sql/</guid>
       <description>MySQL 아키텍처 MySQL 엔진 관련 기본 핸들러, 엔진, 스토리지엔진, 하드웨어로 이루어짐 스레딩: 포어그라운드 스레드(클라이언트 스레드)와 백그라운드 스레드 MyISAM은 클라이언트스레드가 쓰기 작업까지 메모리: 글로벌영역과 클라이언트 로컬 글로벌 : 테이블 캐시, 버퍼풀, 해시인덱스, 리두로그 버퍼 로컬 : 커넥션, 정렬버퍼, 조인 버퍼 각 하위 작업이 MySQL 엔진 영역에서 처리되는지, 아니면 스토리지 엔진 영역에서 처리되는지 구분할 줄 알아야 한다.
 쿼리 실행 구조 SQL 요청 -&amp;gt; (MySQL 엔진에서) 쿼리파서 -&amp;gt; 전처리기 -&amp;gt; 옵티마이저(쿼리 변환, 비용 최적화, 실행 계획 수립) -&amp;gt; 쿼리실행기 (스토리지 엔진에서 실행)</description>
     </item>
     <item>
       <title>b&#43; tree on kotlin</title>
-      <link>http://localhost:63845/_wiki/kotlin-b-plus-tree/</link>
+      <link>http://localhost:1313/_wiki/kotlin-b-plus-tree/</link>
       <pubDate>Tue, 11 Feb 2025 22:07:49 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/kotlin-b-plus-tree/</guid>
+      <guid>http://localhost:1313/_wiki/kotlin-b-plus-tree/</guid>
       <description>B+ 트리 구현 1. 기본 구조 구현 노드(Node)와 트리(BPlusTree) 구조체 정의 제네릭 타입 매개변수 (K: Ord, V) Box, Rc, RefCell을 사용한 메모리 관리 기본 생성자 (new) 구현 트리가 비어있는지 확인하는 기능 (is_empty) 2. 검색 기능 구현 단일 키 검색 메서드 (search) 이진 검색을 사용한 키 찾기 내부 노드 탐색 리프 노드에서 값 찾기 테스트 케이스 작성 3. 삽입 기능 구현 insert 메서드 구현 첫 노드 생성 처리 리프 노드 찾기 리프 노드에 키-값 쌍 삽입 노드 분할 (split) 구현 분할 시점 결정 (order 기반) 리프 노드 분할 내부 노드 분할 부모 노드로 키 전파 루트 노드 분할 처리 리프 노드 연결 리스트 관리 테스트 케이스 작성 4.</description>
     </item>
     <item>
       <title>Rust로 알고리즘들 구현해보기</title>
-      <link>http://localhost:63845/_wiki/kotlin-algorithms/</link>
+      <link>http://localhost:1313/_wiki/kotlin-algorithms/</link>
       <pubDate>Tue, 11 Feb 2025 22:06:37 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/kotlin-algorithms/</guid>
+      <guid>http://localhost:1313/_wiki/kotlin-algorithms/</guid>
       <description>알고리즘 목록 자료구조 목록 [[Kotlin-B-Plus-Tree]] </description>
     </item>
     <item>
       <title>스프링 부트 관련 🌿</title>
-      <link>http://localhost:63845/_wiki/%EC%8A%A4%ED%94%84%EB%A7%81%EB%B6%80%ED%8A%B8/</link>
+      <link>http://localhost:1313/_wiki/%EC%8A%A4%ED%94%84%EB%A7%81%EB%B6%80%ED%8A%B8/</link>
       <pubDate>Tue, 04 Feb 2025 18:30:49 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/%EC%8A%A4%ED%94%84%EB%A7%81%EB%B6%80%ED%8A%B8/</guid>
+      <guid>http://localhost:1313/_wiki/%EC%8A%A4%ED%94%84%EB%A7%81%EB%B6%80%ED%8A%B8/</guid>
       <description>토비의 스프링 관심사 &amp;ldquo;모든 변경과 발전은 한가지 관심에 집중해서 일어난다. 문제는 다만 그에 따른 변경이 한가지 관심에 집중해 있지 않다는 것이다. 그래서 우리가 해야 할 일은, 한가지 관심이 한군데 집중되게 하는 것이다.&amp;rdquo;
 관계 모델링 시점의 오브젝트 간 관계를 기반으로, 런타임 오브젝트 관계를 갖는 구조를 만들어주는것은 &amp;ldquo;클라이언트의 책임&amp;quot;이다. 클라이언트는 자기가 UserDao를 사용해야 할 입장이기에, UserDao의 세부 전략이라고도 볼 수 있는 구현클래스를 선택하고 선택한 클래스의 오브젝트를 생성해서 연결해줄 수 있다.
 OCP 클래스나 모듈은 확장에는 열려있어야 하고, 변경에는 닫혀있어야 한다.</description>
     </item>
     <item>
       <title>Coding Interview SQL</title>
-      <link>http://localhost:63845/_wiki/interview-queries/</link>
+      <link>http://localhost:1313/_wiki/interview-queries/</link>
       <pubDate>Mon, 03 Feb 2025 17:53:08 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/interview-queries/</guid>
+      <guid>http://localhost:1313/_wiki/interview-queries/</guid>
       <description>2024-02-03 197. Rising Temperature LeetcodeLink
 처음쿼리 2000ms
 select W1.id from Weather W1 join Weather W2 on DATEDIFF(W1.recordDate, W2.recordDate) = 1 where W1.temperature &amp;gt; W2.temperature; 인덱스 타도록 개선 800ms
@@ -165,9 +165,9 @@ select W1.id from Weather W1 join Weather W2 on W1.recordDate = W2.recordDate + 
     </item>
     <item>
       <title>코틀린 완벽 가이드 간단 정리</title>
-      <link>http://localhost:63845/_wiki/%EC%BD%94%ED%8B%80%EB%A6%B0-%EC%99%84%EB%B2%BD-%EA%B0%80%EC%9D%B4%EB%93%9C-7%EC%9E%A5-12%EC%9E%A5/</link>
+      <link>http://localhost:1313/_wiki/%EC%BD%94%ED%8B%80%EB%A6%B0-%EC%99%84%EB%B2%BD-%EA%B0%80%EC%9D%B4%EB%93%9C-7%EC%9E%A5-12%EC%9E%A5/</link>
       <pubDate>Mon, 27 Jan 2025 15:20:34 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/%EC%BD%94%ED%8B%80%EB%A6%B0-%EC%99%84%EB%B2%BD-%EA%B0%80%EC%9D%B4%EB%93%9C-7%EC%9E%A5-12%EC%9E%A5/</guid>
+      <guid>http://localhost:1313/_wiki/%EC%BD%94%ED%8B%80%EB%A6%B0-%EC%99%84%EB%B2%BD-%EA%B0%80%EC%9D%B4%EB%93%9C-7%EC%9E%A5-12%EC%9E%A5/</guid>
       <description>코틀린 완벽 가이드 책과 코드스피츠 유튜브 스터디 영상 내용을 정리하거나 생각을 정리한 문서 (인용 태그를 제외한 모든 텍스트들은 스터디 내용을 필사하거나, 책에서 정리한 내용입니다.)
 출쳐 : 코틀린완벽가이드, 코드스피츠 유튜브 영상
 7장 컬렉션과 I/O 자세히 알아보기 Iterable &amp;ldquo;일반적으로 즉시(eager) 계산되는 상태가 있는(stateful) 컬렉션&amp;rdquo;
@@ -178,9 +178,9 @@ compareBy() : 비교 가능 객체를 제공
     </item>
     <item>
       <title>PostMessage를 이용해서 본인인증 안전하게 처리하기 🛟</title>
-      <link>http://localhost:63845/_wiki/%EC%8B%A0%EA%B7%9C-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EC%97%90%EC%84%9C-%EB%B3%B8%EC%9D%B8%EC%9D%B8%EC%A6%9D-%EC%97%B0%EB%8F%99-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0/</link>
+      <link>http://localhost:1313/_wiki/%EC%8B%A0%EA%B7%9C-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EC%97%90%EC%84%9C-%EB%B3%B8%EC%9D%B8%EC%9D%B8%EC%A6%9D-%EC%97%B0%EB%8F%99-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0/</link>
       <pubDate>Wed, 22 Jan 2025 12:28:13 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/%EC%8B%A0%EA%B7%9C-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EC%97%90%EC%84%9C-%EB%B3%B8%EC%9D%B8%EC%9D%B8%EC%A6%9D-%EC%97%B0%EB%8F%99-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0/</guid>
+      <guid>http://localhost:1313/_wiki/%EC%8B%A0%EA%B7%9C-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EC%97%90%EC%84%9C-%EB%B3%B8%EC%9D%B8%EC%9D%B8%EC%A6%9D-%EC%97%B0%EB%8F%99-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0/</guid>
       <description>Intro 👋 배경 : 본인인증 서비스 리뉴얼하는 태스크를 진행했었다.
 AS-IS 수도코드로 구현한 기존 구조는 아래와 같다.
 마찬가지로 백엔드 로직은 예민할 수 있어 정말 최소한의 수도코드만 작성했다.
@@ -189,16 +189,16 @@ AS-IS 수도코드로 구현한 기존 구조는 아래와 같다.
     </item>
     <item>
       <title>레거시 결제 서비스 리뉴얼, 모든 pg 서비스 연동 개발 회고 💸</title>
-      <link>http://localhost:63845/_wiki/%EA%B2%B0%EC%A0%9C-%EC%84%9C%EB%B9%84%EC%8A%A4-%EB%A6%AC%EB%89%B4%EC%96%BC%ED%95%98%EA%B8%B0/</link>
+      <link>http://localhost:1313/_wiki/%EA%B2%B0%EC%A0%9C-%EC%84%9C%EB%B9%84%EC%8A%A4-%EB%A6%AC%EB%89%B4%EC%96%BC%ED%95%98%EA%B8%B0/</link>
       <pubDate>Tue, 21 Jan 2025 17:15:43 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/%EA%B2%B0%EC%A0%9C-%EC%84%9C%EB%B9%84%EC%8A%A4-%EB%A6%AC%EB%89%B4%EC%96%BC%ED%95%98%EA%B8%B0/</guid>
+      <guid>http://localhost:1313/_wiki/%EA%B2%B0%EC%A0%9C-%EC%84%9C%EB%B9%84%EC%8A%A4-%EB%A6%AC%EB%89%B4%EC%96%BC%ED%95%98%EA%B8%B0/</guid>
       <description>이걸 전부 내가 했다고.. 스스로 뿌듯해서 쓰는 후기</description>
     </item>
     <item>
       <title>러너스 하이 3~4주차 회고</title>
-      <link>http://localhost:63845/_wiki/%EC%B9%B4%ED%94%84%EC%B9%B4%EB%A5%BC-%ED%97%A5%EC%82%AC%EA%B3%A0%EB%82%A0%ED%95%98%EA%B2%8C-%ED%81%B4%EB%A1%A0%EC%BD%94%EB%94%A9-%ED%95%B4%EB%B3%B4%EA%B8%B0/</link>
+      <link>http://localhost:1313/_wiki/%EC%B9%B4%ED%94%84%EC%B9%B4%EB%A5%BC-%ED%97%A5%EC%82%AC%EA%B3%A0%EB%82%A0%ED%95%98%EA%B2%8C-%ED%81%B4%EB%A1%A0%EC%BD%94%EB%94%A9-%ED%95%B4%EB%B3%B4%EA%B8%B0/</link>
       <pubDate>Sun, 19 Jan 2025 20:37:30 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/%EC%B9%B4%ED%94%84%EC%B9%B4%EB%A5%BC-%ED%97%A5%EC%82%AC%EA%B3%A0%EB%82%A0%ED%95%98%EA%B2%8C-%ED%81%B4%EB%A1%A0%EC%BD%94%EB%94%A9-%ED%95%B4%EB%B3%B4%EA%B8%B0/</guid>
+      <guid>http://localhost:1313/_wiki/%EC%B9%B4%ED%94%84%EC%B9%B4%EB%A5%BC-%ED%97%A5%EC%82%AC%EA%B3%A0%EB%82%A0%ED%95%98%EA%B2%8C-%ED%81%B4%EB%A1%A0%EC%BD%94%EB%94%A9-%ED%95%B4%EB%B3%B4%EA%B8%B0/</guid>
       <description>Learners High Week 3,4 Summary! 카프카를 헥사고날 아키텍처를 토대로 클론코딩 해봤다. 깃허브 주소
 Week 3,4 Intro 인사이동이 있었다. 부서이동으로 인한 OJT가 완료되어야 다음 이슈를 받을 수 있는 상황이었고, 기존에 받았던 이슈들은 처리가 완료되었다.
 일부 운영 이슈가 있었지만, 그것도 다 처리가 완료되어있어서 진짜 뭘 해야할지 모르겠는 상황이었다.
@@ -207,9 +207,9 @@ Week 3,4 Intro 인사이동이 있었다. 부서이동으로 인한 OJT가 완�
     </item>
     <item>
       <title>vimwiki obsidian 같이 사용하기</title>
-      <link>http://localhost:63845/_wiki/vimwiki-obsidian-%EA%B0%99%EC%9D%B4-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/</link>
+      <link>http://localhost:1313/_wiki/vimwiki-obsidian-%EA%B0%99%EC%9D%B4-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/</link>
       <pubDate>Fri, 17 Jan 2025 19:45:31 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/vimwiki-obsidian-%EA%B0%99%EC%9D%B4-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/</guid>
+      <guid>http://localhost:1313/_wiki/vimwiki-obsidian-%EA%B0%99%EC%9D%B4-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/</guid>
       <description>00. Why..? 😬 일단 vimwiki 자체는 매우 만족하면서 잘 쓰고 있다. 다만 vimwiki는 몇몇 플러그인들과 호환성이 좋지 않거나, 설정이 변경되면 신경쓰이거나, 긴 마크다운을 편집할때 성능적으로 아쉬운 점이 많다.
 사실 대부분은 [[Vim-Profile-Log-Debugging]] 와 같이 디버깅을 하면 심각한건 해결이 되는데, 긴 글이나 특정한 플러그인과는 호환성이 좋지는 않은 것 같다.
 이런게 다 관리포인트라고 생각해서 고민하다가 옵시디언으로 기존 vimwiki가 관리하던 디렉토리를 열어봤는데, 너무 잘 호환이 되고 있었다.
@@ -217,9 +217,9 @@ Week 3,4 Intro 인사이동이 있었다. 부서이동으로 인한 OJT가 완�
     </item>
     <item>
       <title>코틀린 완벽 가이드 간단 정리</title>
-      <link>http://localhost:63845/_wiki/%EC%BD%94%ED%8B%80%EB%A6%B0-%EC%99%84%EB%B2%BD-%EA%B0%80%EC%9D%B4%EB%93%9C-1%EC%9E%A5-6%EC%9E%A5/</link>
+      <link>http://localhost:1313/_wiki/%EC%BD%94%ED%8B%80%EB%A6%B0-%EC%99%84%EB%B2%BD-%EA%B0%80%EC%9D%B4%EB%93%9C-1%EC%9E%A5-6%EC%9E%A5/</link>
       <pubDate>Tue, 14 Jan 2025 11:49:42 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/%EC%BD%94%ED%8B%80%EB%A6%B0-%EC%99%84%EB%B2%BD-%EA%B0%80%EC%9D%B4%EB%93%9C-1%EC%9E%A5-6%EC%9E%A5/</guid>
+      <guid>http://localhost:1313/_wiki/%EC%BD%94%ED%8B%80%EB%A6%B0-%EC%99%84%EB%B2%BD-%EA%B0%80%EC%9D%B4%EB%93%9C-1%EC%9E%A5-6%EC%9E%A5/</guid>
       <description>코틀린 완벽 가이드 책과 코드스피츠 유튜브 스터디 영상 내용을 정리하거나 생각을 정리한 문서 (인용 태그를 제외한 모든 텍스트들은 스터디 내용을 필사하거나, 책에서 정리한 내용입니다.)
 출쳐 : 코틀린완벽가이드, 코드스피츠 유튜브 영상
 1~3장 - 코틀린 기본 식이 본문인 함수란 무엇인가? 블록이 본문인 함수 대신 식이 본문인 함수를 쓰면 어떤 경우가 좋은가? 간결하고, 명료할 수 있음 그러나 코틀린의 식은 문을 포함한 식이 될 수 있어 간단하게 이야기 하기는 어려움
@@ -227,39 +227,39 @@ Week 3,4 Intro 인사이동이 있었다. 부서이동으로 인한 OJT가 완�
     </item>
     <item>
       <title>Daily Log 2025</title>
-      <link>http://localhost:63845/_wiki/daily-log-2025/</link>
+      <link>http://localhost:1313/_wiki/daily-log-2025/</link>
       <pubDate>Wed, 08 Jan 2025 20:19:31 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/daily-log-2025/</guid>
+      <guid>http://localhost:1313/_wiki/daily-log-2025/</guid>
       <description>2025-01-08 너무 바빠서 뭘 못하고있다. 2025-01-11 착한회사 vs 착하지 않은 회사 : 사실상 의미가 없는 것 같기도 하다 굳이 착해야 할 필요도 없을 뿐더러 착한게 좋은지 아닌지도 모르겠다, 다만 그래서인지는 모르겠지만 착한회사는 없다고 보는게 마음다칠 일이 없다고 생각이 든다. 좋은회사 vs 나쁜회사 : 본인의 비즈니스를 성공시키는 유능한 회사와 그렇지 못하는 회사 2025-01-13 일어날일은 일어난다 2025-01-17 vimwiki와 옵시디언을 병행해서 사용하게 될 것 같다. 2025-01-18 기나긴 회고를 작성할 예정이다. 파란색을 좋아하는데, catppuccin으로 블로그 테마를 변경하니까 가시성이 개선되어 우울해졌다.</description>
     </item>
     <item>
       <title>헥사고날 아키텍처 정리 🧔‍♂️</title>
-      <link>http://localhost:63845/_wiki/%ED%97%A5%EC%82%AC%EA%B3%A0%EB%82%A0-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98/</link>
+      <link>http://localhost:1313/_wiki/%ED%97%A5%EC%82%AC%EA%B3%A0%EB%82%A0-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98/</link>
       <pubDate>Wed, 01 Jan 2025 19:46:07 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/%ED%97%A5%EC%82%AC%EA%B3%A0%EB%82%A0-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98/</guid>
+      <guid>http://localhost:1313/_wiki/%ED%97%A5%EC%82%AC%EA%B3%A0%EB%82%A0-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98/</guid>
       <description>출처 만들면서 배우는 헥사고날 아키텍처 설계와 구현 - 링크 도메인 주도 개발 시작하기 - 링크
 도메인 헥사곤 문제 영역에서 라우터가 고정된 것이 아니고, 라우터의 특성이 변경될 수 있다는 사실을 알 수 있다. 이 때문에 라우터는 수명주기를 가진다고 말할 수 있다. 이외에도 모든 라우터는 인벤토리에서 고유해야하므로 식별자를 가져야 한다. 이러한 &amp;lsquo;연속성&amp;rsquo;과 &amp;lsquo;정체성&amp;rsquo;은 엔티티를 결정하는 요소이다.
 DDD의 그 도메인을 이야기한다. Entity, Value Object, aggregate의 개념도 그대로 있다. 아마 아래에서 한 번 더 정리할 것 같다.</description>
     </item>
     <item>
       <title>러너스 하이 2~3주차 회고</title>
-      <link>http://localhost:63845/_wiki/%EB%A0%88%EA%B1%B0%EC%8B%9C-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EC%9D%98-%EB%A1%9C%EA%B9%85-%EA%B0%9C%EC%84%A0%ED%95%98%EA%B8%B0/</link>
+      <link>http://localhost:1313/_wiki/%EB%A0%88%EA%B1%B0%EC%8B%9C-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EC%9D%98-%EB%A1%9C%EA%B9%85-%EA%B0%9C%EC%84%A0%ED%95%98%EA%B8%B0/</link>
       <pubDate>Wed, 25 Dec 2024 23:34:00 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/%EB%A0%88%EA%B1%B0%EC%8B%9C-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EC%9D%98-%EB%A1%9C%EA%B9%85-%EA%B0%9C%EC%84%A0%ED%95%98%EA%B8%B0/</guid>
+      <guid>http://localhost:1313/_wiki/%EB%A0%88%EA%B1%B0%EC%8B%9C-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EC%9D%98-%EB%A1%9C%EA%B9%85-%EA%B0%9C%EC%84%A0%ED%95%98%EA%B8%B0/</guid>
       <description>Learners High Week 2,3 Summary! Thread local한 MDC를 이용해서 로그에서 요청을 단위로 식별 할 수 있게 했다. PII가 아니면서도 사용자를 식별 할 수 있는 값으로 사용자의 연속성 있는 요청 흐름을 볼 수 있게 보완했다. 그라파나에 관련한 메트릭을 추가했다. 해당 이슈도 해결하고, 과정중에서 밝혀진 숨겨진 이슈도 특정해서 해결했다. Learners High Week 2,3 Intro 커뮤니티 관련 프론트엔드 백엔드 작업을 마치고, qa가 완료되었다. qa기간중이기는 하지만 일정상 여유가 생긴 덕에 다음 작업을 준비할 시간이 생겼었다.</description>
     </item>
     <item>
       <title>러너스 하이 1~2주차 회고</title>
-      <link>http://localhost:63845/_wiki/%EC%A0%84%EC%8B%9C%EC%98%81%EC%97%AD-%EB%B0%B1%EC%97%94%EB%93%9C-%ED%85%8C%EC%8A%A4%ED%8A%B8%EC%BD%94%EB%93%9C-%EB%8F%84%EC%9E%85%EA%B8%B0/</link>
+      <link>http://localhost:1313/_wiki/%EC%A0%84%EC%8B%9C%EC%98%81%EC%97%AD-%EB%B0%B1%EC%97%94%EB%93%9C-%ED%85%8C%EC%8A%A4%ED%8A%B8%EC%BD%94%EB%93%9C-%EB%8F%84%EC%9E%85%EA%B8%B0/</link>
       <pubDate>Sun, 22 Dec 2024 14:12:48 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/%EC%A0%84%EC%8B%9C%EC%98%81%EC%97%AD-%EB%B0%B1%EC%97%94%EB%93%9C-%ED%85%8C%EC%8A%A4%ED%8A%B8%EC%BD%94%EB%93%9C-%EB%8F%84%EC%9E%85%EA%B8%B0/</guid>
+      <guid>http://localhost:1313/_wiki/%EC%A0%84%EC%8B%9C%EC%98%81%EC%97%AD-%EB%B0%B1%EC%97%94%EB%93%9C-%ED%85%8C%EC%8A%A4%ED%8A%B8%EC%BD%94%EB%93%9C-%EB%8F%84%EC%9E%85%EA%B8%B0/</guid>
       <description>프론트엔드 잔여작업 마치기, 테스트코드 도입하기</description>
     </item>
     <item>
       <title>Day-03, 대충 쓰고 wil 써야지 (뭔가 플래그 같지만)</title>
-      <link>http://localhost:63845/_wiki/ldady-03/</link>
+      <link>http://localhost:1313/_wiki/ldady-03/</link>
       <pubDate>Thu, 19 Dec 2024 20:36:51 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/ldady-03/</guid>
+      <guid>http://localhost:1313/_wiki/ldady-03/</guid>
       <description>일단 너무 바쁘다.
 이달 말까지 잡힌 프론트업무를 다 쳐냈다.
 그리고 야근과 틈내나는대로 테스트코드도 도입중이다
@@ -267,16 +267,16 @@ hasura 이부분은 정리해서 wil로 올릴 예정이다</description>
     </item>
     <item>
       <title>프론트 업무이지만, 더 나은 방법을 고민하며</title>
-      <link>http://localhost:63845/_wiki/lday-02/</link>
+      <link>http://localhost:1313/_wiki/lday-02/</link>
       <pubDate>Wed, 18 Dec 2024 23:31:44 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/lday-02/</guid>
+      <guid>http://localhost:1313/_wiki/lday-02/</guid>
       <description>커뮤니티 서비스 개발 </description>
     </item>
     <item>
       <title>Day-01, 목표 설정하기, 기존 프론트엔드 작업 쳐내기</title>
-      <link>http://localhost:63845/_wiki/lday-01/</link>
+      <link>http://localhost:1313/_wiki/lday-01/</link>
       <pubDate>Tue, 17 Dec 2024 19:38:35 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/lday-01/</guid>
+      <guid>http://localhost:1313/_wiki/lday-01/</guid>
       <description>목표 설정 목표를 설정하려고 어제오늘 내내 고민했고 어느정도 윤곽이 잡힌 것 같다. 지금 작업과 관련해서 할 수 있는일과, 다음 작업을 통해서 개선 할 일 두가지의 꼭지로 되어있다.
 지금 작업 관련
 hasura, gql의 문서와 레퍼런스를 보고 전시영역 backend 개선 해당 backend 프로젝트에 테스트 코드 도입. 다음 작업 관련
@@ -284,44 +284,44 @@ hasura, gql의 문서와 레퍼런스를 보고 전시영역 backend 개선 해�
     </item>
     <item>
       <title>데이터 중심 애플리케이션 설계 11장</title>
-      <link>http://localhost:63845/_wiki/11%EC%9E%A5/</link>
+      <link>http://localhost:1313/_wiki/11%EC%9E%A5/</link>
       <pubDate>Sun, 15 Dec 2024 22:44:03 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/11%EC%9E%A5/</guid>
+      <guid>http://localhost:1313/_wiki/11%EC%9E%A5/</guid>
       <description>스트림 처리</description>
     </item>
     <item>
       <title>데이터 중심 애플리케이션 설계 10장</title>
-      <link>http://localhost:63845/_wiki/10%EC%9E%A5/</link>
+      <link>http://localhost:1313/_wiki/10%EC%9E%A5/</link>
       <pubDate>Sun, 15 Dec 2024 21:00:34 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/10%EC%9E%A5/</guid>
+      <guid>http://localhost:1313/_wiki/10%EC%9E%A5/</guid>
       <description>일괄 처리</description>
     </item>
     <item>
       <title>L-Day-00</title>
-      <link>http://localhost:63845/_wiki/l-day-00/</link>
+      <link>http://localhost:1313/_wiki/l-day-00/</link>
       <pubDate>Sat, 14 Dec 2024 12:16:01 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/l-day-00/</guid>
+      <guid>http://localhost:1313/_wiki/l-day-00/</guid>
       <description>준비!</description>
     </item>
     <item>
       <title>Learner&#39;s high 🏃‍➡️</title>
-      <link>http://localhost:63845/_wiki/learners-high/</link>
+      <link>http://localhost:1313/_wiki/learners-high/</link>
       <pubDate>Sat, 14 Dec 2024 12:11:58 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/learners-high/</guid>
+      <guid>http://localhost:1313/_wiki/learners-high/</guid>
       <description>러너스 하이 계획 실행 문서</description>
     </item>
     <item>
       <title>mpsc refactoring review 🦀</title>
-      <link>http://localhost:63845/_wiki/mpsc-%EC%A7%88%EB%AC%B8-%EB%8B%B5%EB%B3%80-%EB%B0%B1%EC%97%85/</link>
+      <link>http://localhost:1313/_wiki/mpsc-%EC%A7%88%EB%AC%B8-%EB%8B%B5%EB%B3%80-%EB%B0%B1%EC%97%85/</link>
       <pubDate>Thu, 28 Nov 2024 18:23:06 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/mpsc-%EC%A7%88%EB%AC%B8-%EB%8B%B5%EB%B3%80-%EB%B0%B1%EC%97%85/</guid>
+      <guid>http://localhost:1313/_wiki/mpsc-%EC%A7%88%EB%AC%B8-%EB%8B%B5%EB%B3%80-%EB%B0%B1%EC%97%85/</guid>
       <description>#[tokio::main] async fn main() { // 1. 필요한 설정, 데이터 등을 세팅함. let state = StateManager::new(); let config_handler = ConfigHandler::new(state.get_db(), state.get_config(), state.get_replication_config()); config_handler.load_config().await; config_handler.configure_db().await; config_handler.configure_replication().await; let port = config_handler.get_port().await; let listener = TcpListener::bind(format!(&amp;#34;127.0.0.1:{}&amp;#34;, port)).await.unwrap(); println!(&amp;#34;Listening on port {}&amp;#34;, port); loop { match listener.accept().await { // 2. 스트림을 따서, 스트림을 handle_client로 전달 Ok((stream, _)) =&amp;gt; { let db = state.get_db(); let config = state.get_config(); let replication_config = state.get_replication_config(); task::spawn(async move { // 3.</description>
     </item>
     <item>
       <title>난개발된 레디스를 이벤트 루프 기반으로 리팩토링하기 🥶</title>
-      <link>http://localhost:63845/_wiki/%EB%82%9C%EA%B0%9C%EB%B0%9C%EB%90%9C-%EB%A0%88%EB%94%94%EC%8A%A4%EB%A5%BC-%EC%9D%B4%EB%B2%A4%ED%8A%B8%EB%A3%A8%ED%94%84-%EA%B8%B0%EB%B0%98%EC%9C%BC%EB%A1%9C-%EB%A6%AC%ED%8C%A9%ED%86%A0%EB%A7%81%ED%95%98%EA%B8%B0/</link>
+      <link>http://localhost:1313/_wiki/%EB%82%9C%EA%B0%9C%EB%B0%9C%EB%90%9C-%EB%A0%88%EB%94%94%EC%8A%A4%EB%A5%BC-%EC%9D%B4%EB%B2%A4%ED%8A%B8%EB%A3%A8%ED%94%84-%EA%B8%B0%EB%B0%98%EC%9C%BC%EB%A1%9C-%EB%A6%AC%ED%8C%A9%ED%86%A0%EB%A7%81%ED%95%98%EA%B8%B0/</link>
       <pubDate>Tue, 26 Nov 2024 14:10:39 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/%EB%82%9C%EA%B0%9C%EB%B0%9C%EB%90%9C-%EB%A0%88%EB%94%94%EC%8A%A4%EB%A5%BC-%EC%9D%B4%EB%B2%A4%ED%8A%B8%EB%A3%A8%ED%94%84-%EA%B8%B0%EB%B0%98%EC%9C%BC%EB%A1%9C-%EB%A6%AC%ED%8C%A9%ED%86%A0%EB%A7%81%ED%95%98%EA%B8%B0/</guid>
+      <guid>http://localhost:1313/_wiki/%EB%82%9C%EA%B0%9C%EB%B0%9C%EB%90%9C-%EB%A0%88%EB%94%94%EC%8A%A4%EB%A5%BC-%EC%9D%B4%EB%B2%A4%ED%8A%B8%EB%A3%A8%ED%94%84-%EA%B8%B0%EB%B0%98%EC%9C%BC%EB%A1%9C-%EB%A6%AC%ED%8C%A9%ED%86%A0%EB%A7%81%ED%95%98%EA%B8%B0/</guid>
       <description>Prerequisite 내가 직면한 문제는 아래의 문서에 있다.
 👉 [[Redis-Stream-Issue]]
 아주 간단하게 요약하자면, 각 스레드가 스트림을 물고다니면서 태스크가 처리되고, 리소스들을 lock으로 관리한다.
@@ -332,9 +332,9 @@ hasura, gql의 문서와 레퍼런스를 보고 전시영역 backend 개선 해�
     </item>
     <item>
       <title>러스트의 mpsc 🤔</title>
-      <link>http://localhost:63845/_wiki/rust-mpsc/</link>
+      <link>http://localhost:1313/_wiki/rust-mpsc/</link>
       <pubDate>Tue, 26 Nov 2024 11:03:50 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/rust-mpsc/</guid>
+      <guid>http://localhost:1313/_wiki/rust-mpsc/</guid>
       <description>mpsc란? Rust의 mpsc 채널은 &amp;ldquo;여러 생산자 (Multiple Producer)&amp;ldquo;와 &amp;ldquo;하나의 소비자 (Single Consumer)&amp;ldquo;로 메시지를 보내고 처리 할 수 있는 비동기 통신 도구이다. 아이디어도 아이디어지만, 기본적으로 설계와 동작이 Rust의 소유권과 동시성 모델에 기반을 두고 있다.
 기본적인 사용 방식은 아래와 같다.
 mpsc::channel
@@ -342,32 +342,32 @@ tx (생산자), rx(소비자) 를 반환받는다. use tokio::sync::mpsc; #[toki
     </item>
     <item>
       <title>Lock과 Stream을 어떻게 접근 할 것인가..</title>
-      <link>http://localhost:63845/_wiki/redis-stream-issue/</link>
+      <link>http://localhost:1313/_wiki/redis-stream-issue/</link>
       <pubDate>Sun, 24 Nov 2024 00:23:54 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/redis-stream-issue/</guid>
+      <guid>http://localhost:1313/_wiki/redis-stream-issue/</guid>
       <description>산넘어 산..</description>
     </item>
     <item>
       <title>레디스 HandShake중 이슈 처리하기😬</title>
-      <link>http://localhost:63845/_wiki/redis-handshake-for-replicas/</link>
+      <link>http://localhost:1313/_wiki/redis-handshake-for-replicas/</link>
       <pubDate>Sat, 23 Nov 2024 15:52:17 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/redis-handshake-for-replicas/</guid>
+      <guid>http://localhost:1313/_wiki/redis-handshake-for-replicas/</guid>
       <description>레디스 레플리카를 등록하는 과정 중 replconf, psync를 처리하는 중 발생한 문제.</description>
     </item>
     <item>
       <title>데이터 중심 어플리케이션 설계 7장</title>
-      <link>http://localhost:63845/_wiki/7%EC%9E%A5/</link>
+      <link>http://localhost:1313/_wiki/7%EC%9E%A5/</link>
       <pubDate>Sat, 16 Nov 2024 22:39:25 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/7%EC%9E%A5/</guid>
+      <guid>http://localhost:1313/_wiki/7%EC%9E%A5/</guid>
       <description>07장 트랜잭션 어떤 저자들은 2단계 커밋에서 유발되는 성능이나 가용성 문제 때문에 생기는 비용이 너무 커서 이를 지원할 수 없다고 주장했다. 우리는 항상 트랜잭션 없이 코딩하는 것보다 트랜잭션을 과용해서 병목지점이 생기는 성능 문제를 애플리케이션 프로그래머가 처리하는게 낫다고 생각한다.
 냉혹한 현실 세계에서 데이터 시스템은 여러 가지 문제가 생길 수 있다.
 데이터베이스 소프트웨어나 하드웨어는 언제라도 실패할 수 있다. 애플리케이션은 언제라도 죽을 수 있따. 네트워크가 끊기면 애플리케이션과 데이터베이스의 연결이 갑자기 끊기거나 데이터베이스 노드 사이의 통신이 안될 수 있다.</description>
     </item>
     <item>
       <title>데이터 중심 어플리케이션 설계 6장</title>
-      <link>http://localhost:63845/_wiki/6%EC%9E%A5/</link>
+      <link>http://localhost:1313/_wiki/6%EC%9E%A5/</link>
       <pubDate>Sat, 09 Nov 2024 21:32:25 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/6%EC%9E%A5/</guid>
+      <guid>http://localhost:1313/_wiki/6%EC%9E%A5/</guid>
       <description>파티셔닝 데이터셋이 매우 크거나 질의 처리량이 매우 높다면 복제만으로는 부족하고, 데이터를 파티션으로 쪼갤 필요가 있다. 이 작업을 샤딩이라고 한다.
 데이터를 파티셔닝 하는 주된 이유는 확장성이다.
 파티셔닝과 복제 파티셔닝을 해도, 파티션 된 단위를 기준으로는 복제를 할 수 있다. 한 노드에 여러 파티션을 복제 할 수도 있어서, 노드 하나에 특정 파티션의 리더와 나머지 파티션의 복제를 가지는식으로 교차해 두기도 한다.
@@ -375,24 +375,24 @@ tx (생산자), rx(소비자) 를 반환받는다. use tokio::sync::mpsc; #[toki
     </item>
     <item>
       <title></title>
-      <link>http://localhost:63845/_wiki/rust-redis-d4/</link>
+      <link>http://localhost:1313/_wiki/rust-redis-d4/</link>
       <pubDate>Thu, 07 Nov 2024 19:19:31 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/rust-redis-d4/</guid>
+      <guid>http://localhost:1313/_wiki/rust-redis-d4/</guid>
       <description>Rust-Redis-D4 Code 🥸 use crate::protocol_constants::{MAGIC_NUMBER, OPCODE_EOF, OPCODE_META, OPCODE_START_DB}; use crate::{Config, Db, ValueEntry}; use byteorder::{LittleEndian, ReadBytesExt}; use crc::{Crc, CRC_64_ECMA_182}; use std::fs::File; use std::io::{self, BufReader, Read, Seek, SeekFrom}; fn bytes_to_hex(bytes: &amp;amp;[u8]) -&amp;gt; String { bytes.iter().map(|b| format!(&amp;#34;{:02X}&amp;#34;, b)).collect::&amp;lt;Vec&amp;lt;String&amp;gt;&amp;gt;().join(&amp;#34; &amp;#34;) } fn read_length_or_integer&amp;lt;R: Read&amp;gt;(reader: &amp;amp;mut R, first_byte: u8) -&amp;gt; io::Result&amp;lt;usize&amp;gt; { match first_byte &amp;gt;&amp;gt; 6 { 0b00 =&amp;gt; Ok((first_byte &amp;amp; 0x3F) as usize), 0b01 =&amp;gt; { let second_byte = reader.read_u8()?; Ok((((first_byte &amp;amp; 0x3F) as usize) &amp;lt;&amp;lt; 8) | (second_byte as usize)) } 0b10 =&amp;gt; reader.</description>
     </item>
     <item>
       <title>Build Redis With Rust 🦀</title>
-      <link>http://localhost:63845/_wiki/rust-redis-d3/</link>
+      <link>http://localhost:1313/_wiki/rust-redis-d3/</link>
       <pubDate>Sat, 02 Nov 2024 17:20:03 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/rust-redis-d3/</guid>
+      <guid>http://localhost:1313/_wiki/rust-redis-d3/</guid>
       <description>Day 3 코드 command.rs
 use crate::{Config, Db, ValueEntry}; use tokio::io::AsyncWriteExt; use tokio::net::TcpStream; pub enum Command { PING, ECHO(String), GET(String), SET { key: String, value: String, px: Option&amp;lt;u64&amp;gt;, ex: Option&amp;lt;u64&amp;gt; }, CONFIG(ConfigCommand), } pub enum ConfigCommand { GET(String), } impl Command { pub fn parse_message(message: &amp;amp;str) -&amp;gt; Result&amp;lt;Command, String&amp;gt; { let mut lines = message.lines(); let first_line = lines.next().ok_or(&amp;#34;Argument Error : Empty message&amp;#34;)?; if first_line.starts_with(&amp;#39;*&amp;#39;) { let num_args: usize = first_line[1..].parse().map_err(|_| &amp;#34;Invalid array size&amp;#34;)?</description>
     </item>
     <item>
       <title>데이터 중심 애플리케이션 설계 5장</title>
-      <link>http://localhost:63845/_wiki/5%EC%9E%A5/</link>
+      <link>http://localhost:1313/_wiki/5%EC%9E%A5/</link>
       <pubDate>Thu, 31 Oct 2024 19:51:28 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/5%EC%9E%A5/</guid>
+      <guid>http://localhost:1313/_wiki/5%EC%9E%A5/</guid>
       <description>About Part 2 저장소와 데이터 검색에 여러 장비가 관여한다면 어떻게 될까? 이번 장에서는 분산 데이터에 대해 다룬다.
 여러 장비가 필요한 이유
 확장성 : 부하를 분산시킬수 있다. 내결함성/고가용성 : 장애가 발생해도 시스템이 계속 동작할 수 있다. 지연시간 : 사용자 가까이 데이터를 분산시킬 수 있다. 공유 메모리 아키텍처, 공유 디스크 아키텍처
@@ -401,24 +401,24 @@ use crate::{Config, Db, ValueEntry}; use tokio::io::AsyncWriteExt; use tokio::ne
     </item>
     <item>
       <title>Rust-Redis-D2</title>
-      <link>http://localhost:63845/_wiki/rust-redis-d2/</link>
+      <link>http://localhost:1313/_wiki/rust-redis-d2/</link>
       <pubDate>Thu, 31 Oct 2024 19:26:52 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/rust-redis-d2/</guid>
+      <guid>http://localhost:1313/_wiki/rust-redis-d2/</guid>
       <description>1. Code use regex::Regex; use std::collections::HashMap; use std::sync::Arc; use tokio::io::{AsyncReadExt, AsyncWriteExt}; use tokio::net::{TcpListener, TcpStream}; use tokio::sync::RwLock; use tokio::task; type Db = Arc&amp;lt;RwLock&amp;lt;HashMap&amp;lt;String, String&amp;gt;&amp;gt;&amp;gt;; enum Command { PING, ECHO(String), GET(String), SET(String, String), } impl Command { fn parse_message(message: &amp;amp;str) -&amp;gt; Result&amp;lt;Command, String&amp;gt; { let re_ping = Regex::new(r&amp;#34;^\*1\r\n\$4\r\nPING\r\n$&amp;#34;).unwrap(); let re_echo = Regex::new(r&amp;#34;^\*2\r\n\$4\r\nECHO\r\n\$(\d+)\r\n(.+)\r\n$&amp;#34;).unwrap(); let re_get = Regex::new(r&amp;#34;^\*2\r\n\$3\r\nGET\r\n\$(\d+)\r\n(.+)\r\n$&amp;#34;).unwrap(); let re_set = Regex::new(r&amp;#34;^\*3\r\n\$3\r\nSET\r\n\$(\d+)\r\n(.+)\r\n\$(\d+)\r\n(.+)\r\n$&amp;#34;).unwrap(); if re_ping.is_match(message) { Ok(Command::PING) } else if let Some(captures) = re_echo.captures(message) { let length: usize = captures[1].</description>
     </item>
     <item>
       <title>Rust-Redis-D1</title>
-      <link>http://localhost:63845/_wiki/rust-redis-d1/</link>
+      <link>http://localhost:1313/_wiki/rust-redis-d1/</link>
       <pubDate>Wed, 30 Oct 2024 20:28:17 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/rust-redis-d1/</guid>
+      <guid>http://localhost:1313/_wiki/rust-redis-d1/</guid>
       <description>0. PreRequisite 해당 문서의 참고입니다! https://app.codecrafters.io/concepts/rust-tcp-server
 std::net 모듈은 TCP 서버를 만들기 위한 모듈이다. 그리고 아래의 다섯가지 메셔드를 주요하게 이용한다. TcpListener::bind : pub fn bind&amp;lt;A: ToSocketAddrs&amp;gt;(addr: A) -&amp;gt; Result&amp;lt;TcpListener&amp;gt; - 주어진 주소에 바인딩된 새로운 TcpListener 인스턴스를 반환한다 TcpListener::incoming : pub fn incoming(&amp;amp;self) -&amp;gt; Incoming - 이 리스너로 들어오는 coneection에 대한 iterator를 반환한다. TcpStream::connect : pub fn connect&amp;lt;A: ToSocketAddrs&amp;gt;(addr: A) -&amp;gt; Result&amp;lt;TcpStream&amp;gt; - 주어진 주소로 연결된 새로운 TcpStream 인스턴스를 반환한다. TcpStream::read : pub fn read(&amp;amp;mut self, buf: &amp;amp;mut [u8]) -&amp;gt; Result&amp;lt;usize&amp;gt; - 스트림에서 데이터를 읽어서 주어진 버퍼에 저장한다.</description>
     </item>
     <item>
       <title>Build Redis With Rust 🦀</title>
-      <link>http://localhost:63845/_wiki/build-redis-with-rust/</link>
+      <link>http://localhost:1313/_wiki/build-redis-with-rust/</link>
       <pubDate>Wed, 30 Oct 2024 20:26:13 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/build-redis-with-rust/</guid>
+      <guid>http://localhost:1313/_wiki/build-redis-with-rust/</guid>
       <description>Build Redis With Rust 🦀 이건 코드크래프터스 에서 진행하는 프로젝트를 따라하면서 작성한 문서입니다. 전적으로 제가 작성한 코드와 저의 생각만 포스팅을 할 예정입니다. 주요한 가이드는 직접 위 사이트에서 확인해주세요.
 Github-Repo
 Redis-Protocol
@@ -430,216 +430,216 @@ Trouble Shootings [[Redis-Handshake-For-Replicas]] : 레플리카(슬레이브) 
     </item>
     <item>
       <title>데이저 중심 애플리케이션 4장 스터디</title>
-      <link>http://localhost:63845/_wiki/4%EC%9E%A5/</link>
+      <link>http://localhost:1313/_wiki/4%EC%9E%A5/</link>
       <pubDate>Sat, 26 Oct 2024 16:31:32 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/4%EC%9E%A5/</guid>
+      <guid>http://localhost:1313/_wiki/4%EC%9E%A5/</guid>
       <description>4장 부호화와 발전 어플리케이션의 변경과 변화에 대응하는 방법을 소개하는 장. 일단 먼저 대규모 어플리케이션 변화에 있어 장애물이 되는 부분은 크게 아래와같다.
 데이터타입이나 스키마가 변경되는 경우 서버측에서는 순회식 업그레이드를 진행한다. 클라이언트측 어플리케이션은 사용자에 전적으로 좌우된다. 어떤 사용자는 한동안 업그레이드를 하지 않을 수도 있다. 즉 예전버전의 코드와 새로운 버전의 코드, 이전의 데이터타입과 새로운 데이터타입 이 시스템에 공존 할 수 있다는 것이다. 그래서 시스템에는 양방향의 호환성이 필요하다.
 하위 호환성 : 새로운 코드는 이전 코드가 기록한 데이터를 읽을 수 있어야 한다.</description>
     </item>
     <item>
       <title>Rust 🦀</title>
-      <link>http://localhost:63845/_wiki/rust-main/</link>
+      <link>http://localhost:1313/_wiki/rust-main/</link>
       <pubDate>Sat, 26 Oct 2024 12:49:33 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/rust-main/</guid>
+      <guid>http://localhost:1313/_wiki/rust-main/</guid>
       <description>Rust 관련 정보 모음 Docker 이미지 만들기 Compile </description>
     </item>
     <item>
       <title>데이터 중심 애플리케이션 설계 스터디3장</title>
-      <link>http://localhost:63845/_wiki/3%EC%9E%A5/</link>
+      <link>http://localhost:1313/_wiki/3%EC%9E%A5/</link>
       <pubDate>Sun, 20 Oct 2024 15:51:22 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/3%EC%9E%A5/</guid>
+      <guid>http://localhost:1313/_wiki/3%EC%9E%A5/</guid>
       <description>저장소와 검색 데이터베이스의 가장 중요한 두가지 추상화는 쓰기/읽기이다. 그리고 이 두가지 성능은 항상 Trade-off 관계에 있다. 그 Trade-off 관계를 이해하는 것과, 가장 대표적인 저장소 엔진인 로그구조(Log-Structured) 저장소 엔진과 B-트리 같은 페이지지향(page-oriented) 저장소 엔진을 비교하는 것이 이 장의 목표이다.
 데이터베이스를 강력하게 만드는 데이터 구조 #!/bin/bash db_set () { echo &amp;#34;$1,$2&amp;#34; &amp;gt;&amp;gt; database } db_get () { grep &amp;#34;^$1,&amp;#34; database | sed -e &amp;#34;s/^$1,//&amp;#34; | tail -n 1 // 특정 키에 대한 마지막 값을 가져온다.</description>
     </item>
     <item>
       <title>러스트의 함수영 언어 특징</title>
-      <link>http://localhost:63845/_wiki/funcional-langauges-features/</link>
+      <link>http://localhost:1313/_wiki/funcional-langauges-features/</link>
       <pubDate>Sat, 19 Oct 2024 15:53:40 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/funcional-langauges-features/</guid>
+      <guid>http://localhost:1313/_wiki/funcional-langauges-features/</guid>
       <description>13.0.0 Functional Languages Features: Iterators and Closures Rust’s design has taken inspiration from many existing languages and techniques, and one significant influence is functional programming. Programming in a functional style often includes using functions as values by passing them in arguments, returning them from other functions, assigning them to variables for later execution, and so forth. In this chapter, we won’t debate the issue of what functional programming is or isn’t but will instead discuss some features of Rust that are similar to features in many languages often referred to as functional.</description>
     </item>
     <item>
       <title>Effective Rust Item 2  공통 종작은 타입 시스템으로 표현하라</title>
-      <link>http://localhost:63845/_wiki/item-2/</link>
+      <link>http://localhost:1313/_wiki/item-2/</link>
       <pubDate>Sat, 19 Oct 2024 15:44:29 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/item-2/</guid>
+      <guid>http://localhost:1313/_wiki/item-2/</guid>
       <description>공통 종작은 타입 시스템으로 표현하라 </description>
     </item>
     <item>
       <title>Effective Rust Item 1  데이터 구조를 타입 시스템으로 표현하라</title>
-      <link>http://localhost:63845/_wiki/item-1/</link>
+      <link>http://localhost:1313/_wiki/item-1/</link>
       <pubDate>Sat, 19 Oct 2024 15:17:47 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/item-1/</guid>
+      <guid>http://localhost:1313/_wiki/item-1/</guid>
       <description>데이터 구조를 타입 시스템으로 표현하라 복잡한 데이터 구조를 구성하는 방법을 배운다. 이 과정에서 enum은 핵심적인 역할을 한다. 러스트의 enum은 기본적으로 다른 언어와 같지만, 배리언트에 직접 데이터 필드를 넣을 수 있다는 점에서 다른 언어보다 훨씬 유연하고 표현력이 높다.
 기본 타입
 i8 i16 i32 i64 i128 : 부호 있는 정수 u8 u16 u32 u64 u128 : 부호 없는 정수 isize usize : 시스템 아키텍처에 따라 크키가 변하는 정수, 포인터와 인덱스 연산에 사용 f32 f64 : 부동 소수점 bool : 참/거짓 char : 유니코드 문자 () : 유닛타입, c언어의 void와 비슷한 역할</description>
     </item>
     <item>
       <title>Effective Rust 🦀</title>
-      <link>http://localhost:63845/_wiki/effective-rust/</link>
+      <link>http://localhost:1313/_wiki/effective-rust/</link>
       <pubDate>Sat, 19 Oct 2024 14:09:41 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/effective-rust/</guid>
+      <guid>http://localhost:1313/_wiki/effective-rust/</guid>
       <description>Effective Rust 🦀 Effective Rust를 읽고 기억할만한 내용을 정리하는 문서입니다.
 Chapter 1 : Type [[Item-1]] : 데이터 구조를 타입 시스템으로 표현하라 [[Item-2]] : 공통 동작은 타입 시스템으로 표현하라 </description>
     </item>
     <item>
       <title>데이터 모델과 질의 언어 📚</title>
-      <link>http://localhost:63845/_wiki/2%EC%9E%A5/</link>
+      <link>http://localhost:1313/_wiki/2%EC%9E%A5/</link>
       <pubDate>Sun, 13 Oct 2024 16:08:01 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/2%EC%9E%A5/</guid>
+      <guid>http://localhost:1313/_wiki/2%EC%9E%A5/</guid>
       <description>데이터 모델은 아마도 소프트웨어 개발에서 제일 중요한 부분일 것이다. 왜냐하면 데이터 모델은 소프트웨어가 어떻게 작성됐는지 뿐만 아니라, 문제를 어떻게 생각해야 하는지에 지대한 영향을 미치기 때문이다.
 대부분의 애플리케이션은 하나의 데이터 모델을 다른 데이터 모델 위에 계층을 둬서 만든다. 각 계층의 핵심적인 문제는 다음 하위 계층 관점에서 데이터 모델을 표현하는 것이다. 참고로 레이어 패턴은 하나의 레이어가 직전 레이어의 성립을 전제로 존재하고, 그러한 레이어들로 이루어진 구조를 말한다.
 무튼 이번 장에서는 아래와 같은 것들을 살펴본다.</description>
     </item>
     <item>
       <title>블로그 작성 가이드라인(지속적으로 보충할 문서!) 📝</title>
-      <link>http://localhost:63845/_wiki/%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%9E%91%EC%84%B1-%EA%B0%80%EC%9D%B4%EB%93%9C%EB%9D%BC%EC%9D%B8/</link>
+      <link>http://localhost:1313/_wiki/%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%9E%91%EC%84%B1-%EA%B0%80%EC%9D%B4%EB%93%9C%EB%9D%BC%EC%9D%B8/</link>
       <pubDate>Fri, 11 Oct 2024 20:53:03 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%9E%91%EC%84%B1-%EA%B0%80%EC%9D%B4%EB%93%9C%EB%9D%BC%EC%9D%B8/</guid>
+      <guid>http://localhost:1313/_wiki/%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%9E%91%EC%84%B1-%EA%B0%80%EC%9D%B4%EB%93%9C%EB%9D%BC%EC%9D%B8/</guid>
       <description>사실 그냥 나 혼자 지켜야 할 가이드라인 🤔</description>
     </item>
     <item>
       <title>데이터 중심 애플리케이션 설계 1장</title>
-      <link>http://localhost:63845/_wiki/1%EC%9E%A5/</link>
+      <link>http://localhost:1313/_wiki/1%EC%9E%A5/</link>
       <pubDate>Sun, 06 Oct 2024 16:14:30 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/1%EC%9E%A5/</guid>
+      <guid>http://localhost:1313/_wiki/1%EC%9E%A5/</guid>
       <description>데이터 중심 애플리케이션 설계 1장 00 머리말 환경에 대한 이야기를 한다. 머리말에서는 최근 사업적으로는 클라우드와 saas 환경, 하드웨어 적으로는 cpu클럭이 더이상 오르지 않고 멀티코어가 표준이 된 환경을 이야기하며 병렬 처리에 대한 환경을 강조한다. 위의 예시를 데이터 중심적 이라고 정의하며 반대로 cpu사이클이 병목인경우를 계산 중심적이라고 정의한다 이 책은 (&amp;hellip;) 데이터 시스템의 기초가 되는 다양한 원리와 트레이드오프에 대해 논의한다. 데이터 시스템 아키텍처와 데이터 중심 애플리케이션으로 데이터 시스템을 통합하는 방법을 주로 다룬다.
 이 책의 개요</description>
     </item>
     <item>
       <title>데이터 중심 애플리케이션 설계 스터디</title>
-      <link>http://localhost:63845/_wiki/%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%A4%91%EC%8B%AC-%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98-%EC%84%A4%EA%B3%84/</link>
+      <link>http://localhost:1313/_wiki/%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%A4%91%EC%8B%AC-%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98-%EC%84%A4%EA%B3%84/</link>
       <pubDate>Sun, 06 Oct 2024 16:13:53 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%A4%91%EC%8B%AC-%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98-%EC%84%A4%EA%B3%84/</guid>
+      <guid>http://localhost:1313/_wiki/%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%A4%91%EC%8B%AC-%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98-%EC%84%A4%EA%B3%84/</guid>
       <description>데이터 중심 애플리케이션 설계 1부 데이터 시스템의 기초
 처음 4개의 장에서는 데이터 시스템이 잔일 장비거나 여러 클러스터 장비에 분산됐거나 상관없이 모든 상황에서 적용되는 기본 개념을 알아본다.
 [[1장]] : 신뢰성, 확장성, 유지보수성같은 단어의 실제 의미와 이같은 목표를 달성하기 위해 어떻게 해야하는지 [[2장]] : 데이터 모델과 질의 언어, 데이터 모델의 종류와 각 모델이 어떤 상황에 적합한지 [[3장]] : 저장소와 검색 [[4장]] : 부호화와 발전 [[5장]] : 분산 데이터 [[6장]] : 파티셔닝 [[7장]] : 트랜잭션 [[10장]] : 일괄 처리 [[11장]] : 스트림 처리 보조 인덱스는 데이터 레코드를 직접 가리키거나 해당 레코드의 기본 키를 저장한다.</description>
     </item>
     <item>
       <title>AeroSpace Cheat Sheet</title>
-      <link>http://localhost:63845/_wiki/aerospace-macos/</link>
+      <link>http://localhost:1313/_wiki/aerospace-macos/</link>
       <pubDate>Sat, 05 Oct 2024 13:47:32 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/aerospace-macos/</guid>
+      <guid>http://localhost:1313/_wiki/aerospace-macos/</guid>
       <description>i3 like tiling tool for macos</description>
     </item>
     <item>
       <title>AeroSpace Toml</title>
-      <link>http://localhost:63845/_wiki/aerospace/</link>
+      <link>http://localhost:1313/_wiki/aerospace/</link>
       <pubDate>Sat, 05 Oct 2024 13:44:32 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/aerospace/</guid>
+      <guid>http://localhost:1313/_wiki/aerospace/</guid>
       <description>Settings for AeroSpace 🧊️ # Place a copy of this config to ~/.aerospace.toml # After that, you can edit ~/.aerospace.toml to your liking # It&amp;#39;s not necessary to copy all keys to your config. # If the key is missing in your config, &amp;#34;default-config.toml&amp;#34; will serve as a fallback # You can use it to add commands that run after login to macOS user session. # &amp;#39;start-at-login&amp;#39; needs to be &amp;#39;true&amp;#39; for &amp;#39;after-login-command&amp;#39; to work # Available commands: https://nikitabobko.</description>
     </item>
     <item>
       <title>Settings 🧊️</title>
-      <link>http://localhost:63845/_wiki/settings/</link>
+      <link>http://localhost:1313/_wiki/settings/</link>
       <pubDate>Sat, 05 Oct 2024 13:43:15 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/settings/</guid>
+      <guid>http://localhost:1313/_wiki/settings/</guid>
       <description>Settings 🧊️ TODO : dotfiles 레포를 만들자!
 [[AeroSpace]] </description>
     </item>
     <item>
       <title>러스트 에러 처리하기</title>
-      <link>http://localhost:63845/_wiki/error-handling/</link>
+      <link>http://localhost:1313/_wiki/error-handling/</link>
       <pubDate>Wed, 02 Oct 2024 20:44:13 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/error-handling/</guid>
+      <guid>http://localhost:1313/_wiki/error-handling/</guid>
       <description>9.0.0 Error Handling Error는 소프트웨어의 한 요소이다. 당연히 러스트에서도 다양한 방식으로 에러를 핸들링 할 수 있도록 지원한다. 러스트 역시 에러의 가능성과 그에대한 대응을 컴파일 시점에 체크해준다. 러스트는 에러를 두가지로 그룹화한다. recoverable과 unrecoverable 에러로 나누어진다. 다른 언어에서는 해당 에러들을 굳이 구분하지 않고, 모두 exception과 같은 시스템으로 처리한다. 러스트는 이러한 에러를 Result&amp;lt;T, E&amp;gt;와 panic! 매크로를 통해 나눠서 처리한다.
 9.1.0 Unrecoverable Errors with panic! 가끔 우리의 코드에는 안좋은 일들이 일어나고, 그 부분에 대해서 더이상 뭔가를 할 수 없는 경우가 있다.</description>
     </item>
     <item>
       <title>burrow-checker에 대한 추가 정리자료</title>
-      <link>http://localhost:63845/_wiki/burrow-checker/</link>
+      <link>http://localhost:1313/_wiki/burrow-checker/</link>
       <pubDate>Sun, 29 Sep 2024 16:44:30 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/burrow-checker/</guid>
+      <guid>http://localhost:1313/_wiki/burrow-checker/</guid>
       <description>burrow-checker에 대해 도움이 될 만 한 내용을 정리한 문서, rust-in-action 내용을 참고하여 작성하였습니다. 대여 검사는 서로 연결된 세 가지 개념인 수명, 소유권, 대여에 의존한다.
 소유권 : 러스트에서 소유권은 해당 값이 더 이상 필요 없을 때 깨끗이 지우는 것 과 관련이 있다. 수명 : 값에 접근해도 문제없는 기간을 의미한다. 대여 : 값에 접근함을 의미한다. 원래 소유자에게 값을 되돌려 주지 않아도 된다는 점에서 현실의 대여와 헷갈린다. &amp;ldquo;값의 소유자는 하나이며, 프로그램의 많은 다른 부분에서 이 값을 접근하기 위한 장치&amp;quot;를 생각하면 조금 더 편하다.</description>
     </item>
     <item>
       <title>Daily-Log 2024 (Daily 아님주의) 🙈</title>
-      <link>http://localhost:63845/_wiki/daily-log-2024/</link>
+      <link>http://localhost:1313/_wiki/daily-log-2024/</link>
       <pubDate>Tue, 24 Sep 2024 21:29:39 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/daily-log-2024/</guid>
+      <guid>http://localhost:1313/_wiki/daily-log-2024/</guid>
       <description>Daily-Log 📝 2024-09-24
 가장 큰 프로젝트가 오픈했고, 오픈 직후의 이슈들도 정리되어 가고 있다. 밀렸던 포스팅들을 하나씩 올리려고 한다. 프로젝트 때문에 몇날 밤을 새웠는데, 몇일 쉬었다고 정신 못차리고 스터디와 사이드 프로젝트를 진행하려고 한다. 그 때문에 러스트 공부를 시급하게 해야한다. 당장 오늘 Rust In Action 복습을 시작했다. 2024-09-25
 러스트 사이드 프로젝트의 교모와 시기가 상당히 타이트 할 것 같다. 10월 초 긴 연휴 내에 각자 필요한 것들을 준비하기로 했다. 최소 서버는 러스트로 구현 할 것 같다 (actix-web) 러스트 문법에 대한 복습을 짧게 마치고, 프레임워크에 대한 공부와 러스트 웹소켓 관련 코드들을 찾아보려고 한다.</description>
     </item>
     <item>
       <title>Week-06</title>
-      <link>http://localhost:63845/_wiki/segmentation-paging/</link>
+      <link>http://localhost:1313/_wiki/segmentation-paging/</link>
       <pubDate>Tue, 25 Jun 2024 20:33:49 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/segmentation-paging/</guid>
+      <guid>http://localhost:1313/_wiki/segmentation-paging/</guid>
       <description>16. 세그멘테이션 16.1 베이스 바운드의 일반화 지금 가정의 단계에서 내부단편화가 발생하는 요인은 스택과 힙 사이에 사용하지 않는 메모리가 존재하는 것이다.
 세그멘테이션은 60년대에 이미 사용되던 메모리 관리 기법이다. 기본적으로 세그멘테이션은 세그먼트마다 베이스와 바운드를 가지고 있다. 세그먼트란 논리적인 단위로, 프로그램이나 데이터를 담고 있는 논리적인 단위이다. (스택, 힙, 데이터영역, 코드영역 등) 즉 논리적인 단위로 나누어진 세그먼트(논리적 단위)에 각각 베이스와 바운드를 주는 것이다. 그외에는 베이스 바운드 기법을 사용한다. 예를들어 가상주소가 100, 베이스가 50, 바운드가 110이라면, 베이스 주소인 50으로 가서 100을 더하면 150이 되는데, 이는 바운드보다 크기 때문에 오류가 발생한다.</description>
     </item>
     <item>
       <title>cpp-casting 🐋</title>
-      <link>http://localhost:63845/_wiki/cpp-casting/</link>
+      <link>http://localhost:1313/_wiki/cpp-casting/</link>
       <pubDate>Sun, 09 Jun 2024 17:08:32 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/cpp-casting/</guid>
+      <guid>http://localhost:1313/_wiki/cpp-casting/</guid>
       <description>static_cast static_cast는 가장 기본적인 형태의 캐스팅이다. 컴파일 시간에 타입 변환을 수행하며, 컴파일러가 타입 안전성을 어느 정도 보장해 준다. 주로 기본 타입 간의 변환, 명시적 생성자를 사용한 객체 생성, 상속 관계에 있는 클래스 간의 변환 등에 사용된다. Copy code int a = 10; double b = static_cast&amp;lt;double&amp;gt;(a); // int를 double로 변환 dynamic_cast dynamic_cast는 주로 다형성(polymorphism)을 사용하는 클래스 계층에서의 포인터 또는 참조 타입 변환에 사용된다. 실행 시간에 타입 검사를 수행하여 안전한 타입 변환을 보장해 준다.</description>
     </item>
     <item>
       <title>cpp 타입 변환</title>
-      <link>http://localhost:63845/_wiki/%ED%83%80%EC%9E%85-%EB%B3%80%ED%99%98/</link>
+      <link>http://localhost:1313/_wiki/%ED%83%80%EC%9E%85-%EB%B3%80%ED%99%98/</link>
       <pubDate>Sat, 08 Jun 2024 17:39:01 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/%ED%83%80%EC%9E%85-%EB%B3%80%ED%99%98/</guid>
+      <guid>http://localhost:1313/_wiki/%ED%83%80%EC%9E%85-%EB%B3%80%ED%99%98/</guid>
       <description>멀끔한 정리는 항상 좋다.</description>
     </item>
     <item>
       <title>c/cpp free는 어떻게 할당을 해제하는가</title>
-      <link>http://localhost:63845/_wiki/free%EB%8A%94-%EC%96%B4%EB%96%BB%EA%B2%8C-%ED%95%A0%EB%8B%B9%EC%9D%84-%ED%95%B4%EC%A0%9C%ED%95%98%EB%8A%94%EA%B0%80/</link>
+      <link>http://localhost:1313/_wiki/free%EB%8A%94-%EC%96%B4%EB%96%BB%EA%B2%8C-%ED%95%A0%EB%8B%B9%EC%9D%84-%ED%95%B4%EC%A0%9C%ED%95%98%EB%8A%94%EA%B0%80/</link>
       <pubDate>Sat, 08 Jun 2024 17:17:54 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/free%EB%8A%94-%EC%96%B4%EB%96%BB%EA%B2%8C-%ED%95%A0%EB%8B%B9%EC%9D%84-%ED%95%B4%EC%A0%9C%ED%95%98%EB%8A%94%EA%B0%80/</guid>
+      <guid>http://localhost:1313/_wiki/free%EB%8A%94-%EC%96%B4%EB%96%BB%EA%B2%8C-%ED%95%A0%EB%8B%B9%EC%9D%84-%ED%95%B4%EC%A0%9C%ED%95%98%EB%8A%94%EA%B0%80/</guid>
       <description>malloc()이 반환하는 값은 void* 타입이다. 사실 할당하고 데이터의 시작 주소를 반환하긴 하지만, 사실은 내부적으로 헤더값이 있어, 방금 할당한 메모리 공간에 대한 메타 정보를 가지고 있다. </description>
     </item>
     <item>
       <title>N &#43; 1 문제와 해결방법 🧊️</title>
-      <link>http://localhost:63845/_wiki/jpa-%EC%97%94%EC%81%A0%EB%9F%AC%EC%8A%A4%EC%9D%BC/</link>
+      <link>http://localhost:1313/_wiki/jpa-%EC%97%94%EC%81%A0%EB%9F%AC%EC%8A%A4%EC%9D%BC/</link>
       <pubDate>Fri, 31 May 2024 22:13:11 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/jpa-%EC%97%94%EC%81%A0%EB%9F%AC%EC%8A%A4%EC%9D%BC/</guid>
+      <guid>http://localhost:1313/_wiki/jpa-%EC%97%94%EC%81%A0%EB%9F%AC%EC%8A%A4%EC%9D%BC/</guid>
       <description>Post 엔티티 @Entity public class Post { @Id @GeneratedValue(strategy = GenerationType.IDENTITY) private Long id; private String title; private String content; @OneToMany(mappedBy = &amp;#34;post&amp;#34;, fetch = FetchType.LAZY, cascade = CascadeType.ALL) private List&amp;lt;Comment&amp;gt; comments = new ArrayList&amp;lt;&amp;gt;(); } Comment 엔티티 @Entity public class Comment { @Id @GeneratedValue(strategy = GenerationType.IDENTITY) private Long id; private String content; @ManyToOne(fetch = FetchType.LAZY) @JoinColumn(name = &amp;#34;post_id&amp;#34;) private Post post; } 일반적으로 이렇게 작성하셨으면, 실제 데이터베이스에는 아래처럼 테이블이 생성됩니다.</description>
     </item>
     <item>
       <title>튜터링 질의 응답 모음 🧊️</title>
-      <link>http://localhost:63845/_wiki/%ED%8A%9C%ED%84%B0%EB%A7%81-%EC%A7%88%EC%9D%98-%EC%9D%91%EB%8B%B5-%EB%AA%A8%EC%9D%8C/</link>
+      <link>http://localhost:1313/_wiki/%ED%8A%9C%ED%84%B0%EB%A7%81-%EC%A7%88%EC%9D%98-%EC%9D%91%EB%8B%B5-%EB%AA%A8%EC%9D%8C/</link>
       <pubDate>Fri, 31 May 2024 22:12:00 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/%ED%8A%9C%ED%84%B0%EB%A7%81-%EC%A7%88%EC%9D%98-%EC%9D%91%EB%8B%B5-%EB%AA%A8%EC%9D%8C/</guid>
+      <guid>http://localhost:1313/_wiki/%ED%8A%9C%ED%84%B0%EB%A7%81-%EC%A7%88%EC%9D%98-%EC%9D%91%EB%8B%B5-%EB%AA%A8%EC%9D%8C/</guid>
       <description>블로그 글을 퉁치려는 얄팍한 시도 근데 진짜 바쁘니까.. [[JPA-엔쁠러스일]]</description>
     </item>
     <item>
       <title>TCP/IP Illustrated 📚</title>
-      <link>http://localhost:63845/_wiki/introduction/</link>
+      <link>http://localhost:1313/_wiki/introduction/</link>
       <pubDate>Wed, 29 May 2024 22:28:46 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/introduction/</guid>
+      <guid>http://localhost:1313/_wiki/introduction/</guid>
       <description>Intro 😃 프로토콜의 집합을 프로토콜 스위트라고 합니다. 프로토콜 스위트의 다양한 프로토콜이 서로 어떻게 연관되어 있으며 수행할 작업을 어떻게 나누는지 명시하는 설계를 아키텍처 또는 참조 모델이라고 합니다. TCP/IP는 인터넷 아키텍처를 구현하는 프로토콜 스위트이며, ARPANET 참조 모델(ARM)에서 유래했습니다.
 Clark는 인터엣 아키텍처의 주된 목표가 &amp;ldquo;기존 상호 연결된 네트워크의 다중화된 활용을 위한 효과적인 기술을 개발하는 것&amp;quot;이라고 설명한다. 즉 이 진술의 핵심은 인터넷 아키텍처가 여러 개별 네트워크를 상호 연결할 수 있어야 하고, 그 결과 생성된 상호 연결된 네트워크에서 여러 활동이 동시에 실행될 수 있어야 한다는 것이다.</description>
     </item>
     <item>
       <title>Week-05</title>
-      <link>http://localhost:63845/_wiki/memory-virtualization/</link>
+      <link>http://localhost:1313/_wiki/memory-virtualization/</link>
       <pubDate>Mon, 27 May 2024 20:41:38 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/memory-virtualization/</guid>
+      <guid>http://localhost:1313/_wiki/memory-virtualization/</guid>
       <description>14. 막간 : 메모리 관리 API stack : 프로그래머를 위해, 컴파일러에 의해 자동으로 할당과 해제가 이루어진다(automatic). void func() { int x; } func()가 호출되면 스택에 공간을 확보하고, func()가 종료되면 스택에서 공간을 해제한다. heap : 프로그래머가 직접 할당과 해제를 해야한다. void func() { int *x = (int *) malloc(sizeof(int)); free(x); } malloc()을 통해 메모리를 할당하고, free()를 통해 메모리를 해제한다. heap에 데이터를 저장하고, func()의 스택에는 heap에 저장된 데이터의 주소를 저장한다. stack만큼 명시적이고 단순하기는 하지만, 쓰임새가 다양하고 실수를 할 여지가 많다.</description>
     </item>
     <item>
       <title></title>
-      <link>http://localhost:63845/_wiki/%EC%9D%B4%EC%82%AC/</link>
+      <link>http://localhost:1313/_wiki/%EC%9D%B4%EC%82%AC/</link>
       <pubDate>Mon, 20 May 2024 19:21:32 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/%EC%9D%B4%EC%82%AC/</guid>
+      <guid>http://localhost:1313/_wiki/%EC%9D%B4%EC%82%AC/</guid>
       <description>이사 후 사고싶은 물품 정리 커튼이랑 블라인드를 사기로 한 생각은 맞는 것 같다 책상방에 등에 거치용 행거를 사면 알맞을것 같다(등쪽에) 👉 클릭 아직은 냄세가 익숙치 않아서 초반 사용을 위한 디퓨저를 두고싶다. (이건 민숙이랑 같이 고르고 싶다) 러그는 있으면 좋을 것 같다, 조금 큰사이즈에 나무색깔을 거실에, 적당한 사이즈의 남색 러그를 침실에. 리노는 벌써 가스쪽을 돌아다니는데, 우리가 없어도 완전 안심할 수 있게 뭔가 안전장치가 필요하다. 밤에 형광등인게 생각보다 분위기가 별로인 것 같다, 따뜻한 색 조명을 침실과 거실에 두고싶다.</description>
     </item>
     <item>
       <title>포인터 지옥😢</title>
-      <link>http://localhost:63845/_wiki/pointer-%EC%A7%80%EC%98%A5/</link>
+      <link>http://localhost:1313/_wiki/pointer-%EC%A7%80%EC%98%A5/</link>
       <pubDate>Wed, 15 May 2024 23:10:23 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/pointer-%EC%A7%80%EC%98%A5/</guid>
+      <guid>http://localhost:1313/_wiki/pointer-%EC%A7%80%EC%98%A5/</guid>
       <description>int arr[10] = {1,2,3,4,5,6,7,8,9,10}; int *p = arr; cout &amp;lt;&amp;lt; p[0] &amp;lt;&amp;lt; endl; cout &amp;lt;&amp;lt; arr[0] &amp;lt;&amp;lt; endl; cout &amp;lt;&amp;lt; p[5] &amp;lt;&amp;lt; endl; cout &amp;lt;&amp;lt; arr[5] &amp;lt;&amp;lt; endl; cout &amp;lt;&amp;lt; *p &amp;lt;&amp;lt; endl; cout &amp;lt;&amp;lt; *arr &amp;lt;&amp;lt; endl; cout &amp;lt;&amp;lt; *(p+5) &amp;lt;&amp;lt; endl; cout &amp;lt;&amp;lt; *(arr+5) &amp;lt;&amp;lt; endl; int arr2[2][2] = {{1,2},{3,4}}; int** pp = (int**)arr2; // error : 2차원 배열은 다중 포인터와 다름 int** pp = (int**)arr2; // error : 2차원 배열은 다중 포인터와 다름 : 이 부분에서 에러가 나는 이유.</description>
     </item>
     <item>
       <title></title>
-      <link>http://localhost:63845/_wiki/pointer-array-%ED%97%B7%EA%B0%88%EB%A6%B4%EB%95%8C-%ED%8C%81/</link>
+      <link>http://localhost:1313/_wiki/pointer-array-%ED%97%B7%EA%B0%88%EB%A6%B4%EB%95%8C-%ED%8C%81/</link>
       <pubDate>Wed, 15 May 2024 17:35:10 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/pointer-array-%ED%97%B7%EA%B0%88%EB%A6%B4%EB%95%8C-%ED%8C%81/</guid>
+      <guid>http://localhost:1313/_wiki/pointer-array-%ED%97%B7%EA%B0%88%EB%A6%B4%EB%95%8C-%ED%8C%81/</guid>
       <description>int main() { const char* test1 = &amp;#34;Hello World&amp;#34;; // test1[0] = &amp;#39;A&amp;#39;; // error: assignment of read-only location &amp;#39;*(test1 + 0)&amp;#39; const char test2[] = &amp;#34;Hello World&amp;#34;; test2[0] = &amp;#39;A&amp;#39;; // ok } 배열 이름은 배열의 시작 주소를 가리키는 상수 포인터이다.
 인덱스 연산자 []는 배열 요소에 접근할 때 사용되며, 이는 사실 포인터 연산으로 구현된다.
 test1[i]는 내부적으로 *(test1 + i)로 변환된다.
@@ -647,102 +647,102 @@ test1[i]는 내부적으로 *(test1 + i)로 변환된다.
     </item>
     <item>
       <title>아주 간단한 팁!</title>
-      <link>http://localhost:63845/_wiki/pointer-reference-%ED%97%B7%EA%B0%88%EB%A6%B4%EB%95%8C-%ED%8C%81/</link>
+      <link>http://localhost:1313/_wiki/pointer-reference-%ED%97%B7%EA%B0%88%EB%A6%B4%EB%95%8C-%ED%8C%81/</link>
       <pubDate>Wed, 15 May 2024 17:04:44 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/pointer-reference-%ED%97%B7%EA%B0%88%EB%A6%B4%EB%95%8C-%ED%8C%81/</guid>
+      <guid>http://localhost:1313/_wiki/pointer-reference-%ED%97%B7%EA%B0%88%EB%A6%B4%EB%95%8C-%ED%8C%81/</guid>
       <description>int value = 10; int&amp;amp; reference = value; int* pointer = &amp;amp;value; PrintInfoByRef(*pointer); PrintInfoByPointer(&amp;amp;reference); </description>
     </item>
     <item>
       <title>Week-04 📚</title>
-      <link>http://localhost:63845/_wiki/memory-virtual-intro/</link>
+      <link>http://localhost:1313/_wiki/memory-virtual-intro/</link>
       <pubDate>Mon, 13 May 2024 20:44:06 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/memory-virtual-intro/</guid>
+      <guid>http://localhost:1313/_wiki/memory-virtual-intro/</guid>
       <description>11. CPU 가상화에 대한 마무리 대화 간단한 Wrapup 대화를 진행한다. 이 정책 전쟁은 영원히 계속 될 것처럼 보이네요.
 공학은 원래 그런거라네, 그리고 그것은 또한 권장 사항이야! 관점의 차이지, 나는 개인적으로 실용적인 것이 좋다고 생각하네. 실용주의자들은 모든 문제가 깔끔하고 쉬운 해결책이 있다고 생각하지 않아.
 12. 메모리 가상화에 관한 대화 수면 부족, 그것은 간단하게 해결할 수 있지. 좀 덜 놀고 더 자도록 하게. 가상 메모리를 이해하기 위해서는 여기서 부터 시작해야 하네. 사용자 프로그램이 생성하는 모든 주소는 가상주소이지.</description>
     </item>
     <item>
       <title>네트워크 기본 개념 Cheatsheet 🦉</title>
-      <link>http://localhost:63845/_wiki/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EA%B8%B0%EB%B3%B8-%EA%B0%9C%EB%85%90/</link>
+      <link>http://localhost:1313/_wiki/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EA%B8%B0%EB%B3%B8-%EA%B0%9C%EB%85%90/</link>
       <pubDate>Sat, 11 May 2024 09:52:36 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EA%B8%B0%EB%B3%B8-%EA%B0%9C%EB%85%90/</guid>
+      <guid>http://localhost:1313/_wiki/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EA%B8%B0%EB%B3%B8-%EA%B0%9C%EB%85%90/</guid>
       <description>네트워크 기본 개념Cheatsheet 🦉 from 외워서 끝내는 네트워크 핵심이론 OSI 7 Layer : 의존적 관계가 성립하는 (Layered, 상위 계층이 하위 계층에 의존) 프로토콜을 계층적으로 나열한 것 Protocol suite, Protocol Stack Protocol Suite, Protocol Stack : 여러 프로토콜의 집합 Network 성능 지표 throughput : 처리율 (bps, Mbps, Gbps 등), 실시간성을 띄며, 평균값을 보통 지표로 사용
 bandwidth : 대역폭, 통신망이 전송할 수 있는 데이터의 양, 단위는 bps
 packet loss : 패킷 손실률, 패킷이 전송 중 소멸되는 비율</description>
     </item>
     <item>
       <title>Network 🦉</title>
-      <link>http://localhost:63845/_wiki/network/</link>
+      <link>http://localhost:1313/_wiki/network/</link>
       <pubDate>Sat, 11 May 2024 09:51:35 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/network/</guid>
+      <guid>http://localhost:1313/_wiki/network/</guid>
       <description>Intro 😃 게임 서버 프로그래밍을 보는데, 소켓등 네트워크 관련 지식이 부족하다고 느껴서 마찬가지로 책을 한권 읽어보려고 하는데, TCP/IP Illustrated로 정했다. 워낙 네트워크를 싫어하고 귀찮아하는데, 이번에는 좀 더 깊게 이해하고 싶고, 쉬운 개념부터 복습해두고 책을 시작해보려고 한다. Warm-up 👋 [[네트워크-기본-개념]] TCP/IP Illustrated 📚 Chapter 1 : [[Introduction]] </description>
     </item>
     <item>
       <title>Week-03 📚</title>
-      <link>http://localhost:63845/_wiki/mlfq-multiprocessor-schedule/</link>
+      <link>http://localhost:1313/_wiki/mlfq-multiprocessor-schedule/</link>
       <pubDate>Mon, 06 May 2024 21:32:31 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/mlfq-multiprocessor-schedule/</guid>
+      <guid>http://localhost:1313/_wiki/mlfq-multiprocessor-schedule/</guid>
       <description>8.0 스케줄링 : 멀티 레벨 피드백 큐 MLFQ가 해결하려고 하는 기본적인 문제는 두 가지 이다. 짧은 작업을 먼저 실행시켜 반환 시간을 최적화 하는 것. 대화형 사용자에게 빠른 시스템이라는 느낌을 주기 위해서 응답 시간을 최적화 하는 것. 그러나 1번은 작업수행시간을 모르기에, 2번은 rr과 같은 방식은 반환시간이 최악이기에 어렵다. 그래서 핵심 질문 &amp;gt; 정보 없이 스케줄 하는 방법은 무엇인가?
 8.1 MLFQ: 기본 규칙 MLFQ는 여러개의 큐로 구성되며, 각각 다른 우선순위를 가진다. 실행 준비가 된 프로세스는 이 중 하나의 큐에 존재한다.</description>
     </item>
     <item>
       <title>Cpp 변수의 메모리 공간(작성중)</title>
-      <link>http://localhost:63845/_wiki/cpp-%EB%B3%80%EC%88%98%EC%9D%98-%EB%A9%94%EB%AA%A8%EB%A6%AC-%EA%B3%B5%EA%B0%84/</link>
+      <link>http://localhost:1313/_wiki/cpp-%EB%B3%80%EC%88%98%EC%9D%98-%EB%A9%94%EB%AA%A8%EB%A6%AC-%EA%B3%B5%EA%B0%84/</link>
       <pubDate>Fri, 03 May 2024 15:57:54 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/cpp-%EB%B3%80%EC%88%98%EC%9D%98-%EB%A9%94%EB%AA%A8%EB%A6%AC-%EA%B3%B5%EA%B0%84/</guid>
+      <guid>http://localhost:1313/_wiki/cpp-%EB%B3%80%EC%88%98%EC%9D%98-%EB%A9%94%EB%AA%A8%EB%A6%AC-%EA%B3%B5%EA%B0%84/</guid>
       <description>1. 변수의 메모리 공간 [데이터 영역]
 초기화된 데이터를 저장하는 공간 전역 변수, 정적 변수, 상수 등이 저장된다. .data(미리 초기화 해 둔 경우), .rodata(읽기 전용 데이터), .bss(초기화 안해둔 경우) 섹션에 저장된다. [스택 영역]
 지역 변수, 매개변수, 리턴 값 등이 저장된다. 함수 호출 시 생성되고 함수 종료 시 소멸된다. 함수 호출 시 생성되는 프레임에 저장된다. [힙 영역]</description>
     </item>
     <item>
       <title>어셈블리</title>
-      <link>http://localhost:63845/_wiki/%EC%96%B4%EC%85%88%EB%B8%94%EB%A6%AC/</link>
+      <link>http://localhost:1313/_wiki/%EC%96%B4%EC%85%88%EB%B8%94%EB%A6%AC/</link>
       <pubDate>Fri, 03 May 2024 15:48:55 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/%EC%96%B4%EC%85%88%EB%B8%94%EB%A6%AC/</guid>
+      <guid>http://localhost:1313/_wiki/%EC%96%B4%EC%85%88%EB%B8%94%EB%A6%AC/</guid>
       <description>어셈블리 디버깅을 위한 간단한 cheat sheet</description>
     </item>
     <item>
       <title>비트 연산</title>
-      <link>http://localhost:63845/_wiki/%EB%B9%84%ED%8A%B8-%EC%97%B0%EC%82%B0/</link>
+      <link>http://localhost:1313/_wiki/%EB%B9%84%ED%8A%B8-%EC%97%B0%EC%82%B0/</link>
       <pubDate>Fri, 03 May 2024 15:33:35 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/%EB%B9%84%ED%8A%B8-%EC%97%B0%EC%82%B0/</guid>
+      <guid>http://localhost:1313/_wiki/%EB%B9%84%ED%8A%B8-%EC%97%B0%EC%82%B0/</guid>
       <description>거의 처음으로 실사용 하는 예제를 찾아서 정리하는 중</description>
     </item>
     <item>
       <title>Cpp-basic 🐋</title>
-      <link>http://localhost:63845/_wiki/cpp-basic/</link>
+      <link>http://localhost:1313/_wiki/cpp-basic/</link>
       <pubDate>Wed, 01 May 2024 10:19:44 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/cpp-basic/</guid>
+      <guid>http://localhost:1313/_wiki/cpp-basic/</guid>
       <description>결국 리마인드 강의를 보면서 Cheatsheet 형식정도로만 가볍게 정리</description>
     </item>
     <item>
       <title></title>
-      <link>http://localhost:63845/_wiki/2024-05/</link>
+      <link>http://localhost:1313/_wiki/2024-05/</link>
       <pubDate>Mon, 29 Apr 2024 10:50:53 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/2024-05/</guid>
+      <guid>http://localhost:1313/_wiki/2024-05/</guid>
       <description>로드맵 https://www.inflearn.com/roadmaps/375</description>
     </item>
     <item>
       <title>운영체제 아주 쉬운 세 가지 이야기 📚</title>
-      <link>http://localhost:63845/_wiki/lde-scheduling/</link>
+      <link>http://localhost:1313/_wiki/lde-scheduling/</link>
       <pubDate>Sat, 27 Apr 2024 13:42:50 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/lde-scheduling/</guid>
+      <guid>http://localhost:1313/_wiki/lde-scheduling/</guid>
       <description>05.0 막간 : 프로세스 API 거의 모든 소스코드와 강의자료는 아래 링크가 출처 입니다.
 강의 소스코드 : OSTEP 테스트 프로그램 : OSTEP Test Programs 역자 강의 자료 : 강의자료 개념적인 내용이 아닌 실제적인 측면에서 코드를 보는 장은 막간이라고 별도 표기한다.
 이번 절에서는, Unix 시스템의 프로세스 생성에 관해 배운다. Unix는 프로세스를 생성하는 시스템콜로 다음 두가지를 제공한다. fork() exec() 그리고 wait() 함수를 통해 자식 프로세스가 종료될 때까지 기다릴 수 있다. 핵심 질문 : 프로세스를 생성하고 제어하는 방법, 프로세스를 생성하고 제어하려면 운영체제가 어떤 인터페이스를 제공해야 하는가?</description>
     </item>
     <item>
       <title>코딩 테스트 언어 정하기</title>
-      <link>http://localhost:63845/_wiki/%EC%BD%94%EB%94%A9-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%96%B8%EC%96%B4-%EC%A0%95%ED%95%98%EA%B8%B0/</link>
+      <link>http://localhost:1313/_wiki/%EC%BD%94%EB%94%A9-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%96%B8%EC%96%B4-%EC%A0%95%ED%95%98%EA%B8%B0/</link>
       <pubDate>Thu, 25 Apr 2024 19:56:20 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/%EC%BD%94%EB%94%A9-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%96%B8%EC%96%B4-%EC%A0%95%ED%95%98%EA%B8%B0/</guid>
+      <guid>http://localhost:1313/_wiki/%EC%BD%94%EB%94%A9-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%96%B8%EC%96%B4-%EC%A0%95%ED%95%98%EA%B8%B0/</guid>
       <description>놀랍게도 언어 정하는데도 시간이 많이 필요하다..</description>
     </item>
     <item>
       <title>Vim Improve Sheet 🦅</title>
-      <link>http://localhost:63845/_wiki/vim-impove-sheet/</link>
+      <link>http://localhost:1313/_wiki/vim-impove-sheet/</link>
       <pubDate>Tue, 23 Apr 2024 19:37:38 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/vim-impove-sheet/</guid>
+      <guid>http://localhost:1313/_wiki/vim-impove-sheet/</guid>
       <description>Vim Improve Sheet 🦅 Vim Improve Sheet 라고 작성했는데, 사실 안좋은 습관을 고치기 위한 시트라고 생각하면 더 좋을 것 같다. 뭔가 분명히 더 나은 방법이 있을 것 같은데, 당장 알아보기 귀찮아서 그냥 넘어가는 습관을 고치기 위한 시트이다.
 01. Vim으로 따옴표 씌우기 nvim-surround 플러그인을 이용한다 (&amp;ldquo;kylechui/nvim-surround&amp;rdquo;)
 별 표시된 부분이 커서의 위치를 나타낸다.
@@ -751,32 +751,32 @@ surr*ound_words ysiw) (surround_words) *make strings ys$&amp;quot; &amp;quot;mak
     </item>
     <item>
       <title>추석 일본여행</title>
-      <link>http://localhost:63845/_wiki/2024-%EC%B6%94%EC%84%9D-%EC%9D%BC%EB%B3%B8%EC%97%AC%ED%96%89/</link>
+      <link>http://localhost:1313/_wiki/2024-%EC%B6%94%EC%84%9D-%EC%9D%BC%EB%B3%B8%EC%97%AC%ED%96%89/</link>
       <pubDate>Tue, 23 Apr 2024 19:23:03 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/2024-%EC%B6%94%EC%84%9D-%EC%9D%BC%EB%B3%B8%EC%97%AC%ED%96%89/</guid>
+      <guid>http://localhost:1313/_wiki/2024-%EC%B6%94%EC%84%9D-%EC%9D%BC%EB%B3%B8%EC%97%AC%ED%96%89/</guid>
       <description>추석 민숙이와 함께하는 일본 여행 ❤️ 00. 참고 링크 📌 교토 주요 관광지 [[회화-정리-링크]] 교토 여행 코스 교토 오사카 여행 코스 일본 지하철 코드 오사카 주요 관광지 01. 여행 준비 체크리스트 🇯 pre-commit test
 여권 확인 환전 필요한 의류 준비 세면도구 준비 충전기 및 어댑터 준비 여행가방 준비 로밍 선물 챙기기 02. 여행 일정 😊 09월 13일 (금) 오전 : 출국 오후 : 호텔 체크인, 아라시야마 방문 저녁 : 시간 보고 근처에서 식사 하고 마무리 숙박 : 굿 네이처 호텔 교토 전화번호: +81-75-3526730 참고 : 사가노-토롯코 열차 참고 : 대나무숲 후기 참고 : 아라시야마 관련 가이드 JR 하루카 공항 특급열차 편도티켓 (시간 제한 없음) 09월 14일 (토) 오전 : 청수사, 니넨자카, 산넨자카(교통편 확인) 오후 : 은각사, 교토타워 저녁 : 기온 거리에서 저녁 식사 숙박 : 연박 참고 : 청수사 관련 가이드/교통편 09월 15일 (일) 오전 : 후시미 이나리 신사, 나고야 이동 오후 : 오아시스 21, 나고야 성 (가능하면) 저녁 : 나고야에서 저녁 식사(맛집 찾을 예정) 숙박 : 호텔 케이한 나고야 교토역에서 나고야역 이동 (차량번호 Nozomi 94) 13:45분 출발 09월 16일 (월) 오전 : 지브리 😍 오후 : 지브리 😍 저녁 : 지브리 😍 저녁 맛집을 박아넣을 예정 숙박 : 연박 09월 17일 (화) 오전 : 오사카 이동 오후 : 도톤보리, 오사카 성 (미정) 저녁 : 도톤보리에서 저녁 식사 (맛집 찾을 예정) 숙박 : 호텔 한큐 오사카 나고야역에서 오사카역 이동 (차량번호 Nozomi 21) 11:00 출발 09월 18일 (수) 오전 : 유니버셜 스튜디오 재팬 🎢 오후 : 유니버셜 스튜디오 재팬 🎢 저녁 : 유니버셜 스튜디오 재팬 🎢 숙박 : 연박 09월 19일 (목) 오전 : 귀국 준비 오사카 - 간사이 공항 리무진 버스 이용(시간 제한 없음) </description>
     </item>
     <item>
       <title>프로세스 시뮬레이션 숙제 📚</title>
-      <link>http://localhost:63845/_wiki/chapter-04/</link>
+      <link>http://localhost:1313/_wiki/chapter-04/</link>
       <pubDate>Sun, 21 Apr 2024 19:31:01 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/chapter-04/</guid>
+      <guid>http://localhost:1313/_wiki/chapter-04/</guid>
       <description>source code : process-run.py link : https://github.com/remzi-arpacidusseau/ostep-homework/blob/master/cpu-intro/process-run.py
 #! /usr/bin/env python from __future__ import print_function import sys from optparse import OptionParser import random # to make Python2 and Python3 act the same -- how dumb def random_seed(seed): try: random.seed(seed, version=1) except: random.seed(seed) return # process switch behavior SCHED_SWITCH_ON_IO = &amp;#39;SWITCH_ON_IO&amp;#39; SCHED_SWITCH_ON_END = &amp;#39;SWITCH_ON_END&amp;#39; # io finished behavior IO_RUN_LATER = &amp;#39;IO_RUN_LATER&amp;#39; IO_RUN_IMMEDIATE = &amp;#39;IO_RUN_IMMEDIATE&amp;#39; # process states STATE_RUNNING = &amp;#39;RUNNING&amp;#39; STATE_READY = &amp;#39;READY&amp;#39; STATE_DONE = &amp;#39;DONE&amp;#39; STATE_WAIT = &amp;#39;BLOCKED&amp;#39; # members of process structure PROC_CODE = &amp;#39;code_&amp;#39; PROC_PC = &amp;#39;pc_&amp;#39; PROC_ID = &amp;#39;pid_&amp;#39; PROC_STATE = &amp;#39;proc_state_&amp;#39; # things a process can do DO_COMPUTE = &amp;#39;cpu&amp;#39; DO_IO = &amp;#39;io&amp;#39; DO_IO_DONE = &amp;#39;io_done&amp;#39; class scheduler: def __init__(self, process_switch_behavior, io_done_behavior, io_length): # keep set of instructions for each of the processes self.</description>
     </item>
     <item>
       <title>OSTEP-Week-01 질의 응답 📚</title>
-      <link>http://localhost:63845/_wiki/ostep-week-01/</link>
+      <link>http://localhost:1313/_wiki/ostep-week-01/</link>
       <pubDate>Sun, 21 Apr 2024 17:50:41 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/ostep-week-01/</guid>
+      <guid>http://localhost:1313/_wiki/ostep-week-01/</guid>
       <description></description>
     </item>
     <item>
       <title>Week-01 📚</title>
-      <link>http://localhost:63845/_wiki/os-overview-process/</link>
+      <link>http://localhost:1313/_wiki/os-overview-process/</link>
       <pubDate>Sun, 21 Apr 2024 14:26:30 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/os-overview-process/</guid>
+      <guid>http://localhost:1313/_wiki/os-overview-process/</guid>
       <description>01 장 - 이 책에 대한 대화 아주 간단한 이 책에 대한 소개를 하는 챕터이다.
 두 장으로 이루어져 있고, 이 책에서 자주 나오게 되는 교수와 학생의 대화 형식으로 이루어져 있다.
 핵심적인 아이디어를 요약하면 다음과 같다.
@@ -784,32 +784,32 @@ surr*ound_words ysiw) (surround_words) *make strings ys$&amp;quot; &amp;quot;mak
     </item>
     <item>
       <title>운영체제 아주 쉬운 세 가지 이야기 📚</title>
-      <link>http://localhost:63845/_wiki/ostep/</link>
+      <link>http://localhost:1313/_wiki/ostep/</link>
       <pubDate>Sun, 21 Apr 2024 14:20:57 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/ostep/</guid>
+      <guid>http://localhost:1313/_wiki/ostep/</guid>
       <description>OSTEP 스터디</description>
     </item>
     <item>
       <title>nvim cheat sheet</title>
-      <link>http://localhost:63845/_wiki/lsp-cheat-sheet/</link>
+      <link>http://localhost:1313/_wiki/lsp-cheat-sheet/</link>
       <pubDate>Sat, 20 Apr 2024 16:30:53 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/lsp-cheat-sheet/</guid>
+      <guid>http://localhost:1313/_wiki/lsp-cheat-sheet/</guid>
       <description>1일 1커맨드 정리 ^ + b, f : 한 페이지씩 스크롤 zz : 현재 커서가 있는 줄을 화면 중앙으로 이동 yi( : 괄호 안에 있는 내용 복사 vap : 비주얼모드 한 문단 블록 씌우기 이동 관련 brace 관련 커맨드를 조금 더 잘쓰면 좋겠다는 생각을 한다.
 개인적으로 vim을 더 잘쓰기 위해서 정리를 잘 해둬야 할 것 같다.
 ^ + b, f: 한 페이지씩 스크롤 ^ + d, u: 반 페이지씩 스크롤 e, E: 다음 단어의 끝으로, 문자 단위 이동 w, W: 다음 단어의 처음으로, 문자 단위 이동 $: 줄의 마지막으로 이동 0: 줄의 처음으로 이동 ^: 줄의 처음으로 이동 (공백이 아닌 처음 시작되는 문자) Shift + g: 문서의 마지막으로 이동 gg, 1g: 문서의 처음으로 이동 (숫자 라인으로 이동) ), (: 다음, 이전 문장의 처음으로 이동 }, {: 다음, 이전 문단의 처음으로 이동 ]], [[: 다음, 이전 구절의 처음으로 이동 안녕하세요 Vimwiki 관련 커맨드 Tab – Find next wiki link Shift + Tab – Find previous wiki link Split 관련 커맨드 &amp;lt;leader&amp;gt;sv: 창 수직 분할 &amp;lt;leader&amp;gt;sh: 창 수평 분할 &amp;lt;leader&amp;gt;se: 창 확장 &amp;lt;leader&amp;gt;sx: 창 닫기 lsp 관련 커맨드 &amp;lt;leader&amp;gt;gd: 정의로 이동 키 바인딩 &amp;lt;leader&amp;gt;gR: LSP 참조 표시 &amp;lt;leader&amp;gt;gD: 선언으로 이동 &amp;lt;leader&amp;gt;gd: LSP 정의 표시 &amp;lt;leader&amp;gt;gi: LSP 구현 표시 &amp;lt;leader&amp;gt;gt: LSP 유형 정의 표시 &amp;lt;leader&amp;gt;ca: 사용 가능한 코드 액션 표시 &amp;lt;leader&amp;gt;rn: 스마트 리네임 &amp;lt;leader&amp;gt;D: 버퍼 진단 표시 &amp;lt;leader&amp;gt;d: 줄 진단 표시 &amp;lt;leader&amp;gt;[d: 이전 진단으로 이동 &amp;lt;leader&amp;gt;]d: 다음 진단으로 이동 &amp;lt;leader&amp;gt;K: 커서 아래 항목에 대한 문서 표시 &amp;lt;leader&amp;gt;rs: LSP 재시작 nvim-surround 따옴표 추가</description>
     </item>
     <item>
       <title>개발 관련 Cheat Sheet</title>
-      <link>http://localhost:63845/_wiki/cheat-sheet/</link>
+      <link>http://localhost:1313/_wiki/cheat-sheet/</link>
       <pubDate>Fri, 19 Apr 2024 22:55:18 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/cheat-sheet/</guid>
+      <guid>http://localhost:1313/_wiki/cheat-sheet/</guid>
       <description>Cheat Sheet 📜 코틀린 Cheat Sheet : 코틀린을 배워놓고 안써먹다보니 까먹는 부분이 많아 찾아온 Cheat Sheet Coding Test 🧩 cpp-문법-정리 : 코테용 C++ 문법 정리 cpp-문자열 : 문자열 처리 팁 cpp-코테 : 코테 관련 자주 나오는 패턴들 ShortCuts 🚀 [[LSP-Cheat-Sheet]] : Neovim Language Server Cheat Sheet Vim-Cheat-Sheet : Vim Cheat Sheet [[AeroSpace-macOS]] : 윈도우 관리 툴 </description>
     </item>
     <item>
       <title>러스트의 컬렉션 모아보기</title>
-      <link>http://localhost:63845/_wiki/common-collections/</link>
+      <link>http://localhost:1313/_wiki/common-collections/</link>
       <pubDate>Sun, 14 Apr 2024 13:53:34 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/common-collections/</guid>
+      <guid>http://localhost:1313/_wiki/common-collections/</guid>
       <description>8.0.0 Common Collections 러스트의 std::collections 모듈은 여러 유용한 자료구조인 컬렉션을 제공한다.
 heap에 저장되는 컬렉션들은 컴파일 시점에 크기를 알 수 없고 늘어나거나 줄어들거나 한다.
 이번 장에서는 Vec&amp;lt;T&amp;gt;, String, HashMap&amp;lt;K, V&amp;gt;에 대해 알아본다.
@@ -819,9 +819,9 @@ Vec&amp;lt;T&amp;gt;는 동일한 타입의 여러 값을 저장할 수 있고, 
     </item>
     <item>
       <title>Package, Crates, Modules</title>
-      <link>http://localhost:63845/_wiki/managing-growing-projects-with-packages-crates-and-modules/</link>
+      <link>http://localhost:1313/_wiki/managing-growing-projects-with-packages-crates-and-modules/</link>
       <pubDate>Sat, 13 Apr 2024 23:04:16 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/managing-growing-projects-with-packages-crates-and-modules/</guid>
+      <guid>http://localhost:1313/_wiki/managing-growing-projects-with-packages-crates-and-modules/</guid>
       <description>7.0 패키지, 크래이트, 모듈을 이용해 커지는 프로젝트를 관리하기 프로젝트가 커지면서 코드를 관리하는 것이 중요해진다, 기능을 단위로 모듈화하고 나눠야 관리하는것이 편리하다.
 이 챕터는 그러한 것들을 하는 방법을 다룬다.
 높은 레벨에서의 코드 재사용성을 위해 encaptulating, implementing등 달성하는 방법을 다룬다.
@@ -832,9 +832,9 @@ package : 크레이트를 빌드하고 공유하는 단위 crate : 라이브러�
     </item>
     <item>
       <title>짐켈러의 인터뷰를 보고 든 생각</title>
-      <link>http://localhost:63845/_wiki/interview-from-jim-keller/</link>
+      <link>http://localhost:1313/_wiki/interview-from-jim-keller/</link>
       <pubDate>Sat, 13 Apr 2024 12:05:56 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/interview-from-jim-keller/</guid>
+      <guid>http://localhost:1313/_wiki/interview-from-jim-keller/</guid>
       <description>0. 요즘 드는 생각과 걱정은 보통 AI와 관련된 것.. 물론 피상적으로 AI가 나를 대체하지 않을까? 와 같은 걱정을 하는 것은 아니다.
 그렇게 되지 않을 자신도 있다.
 다만 나의 시장 가치를 고민 할 때, 어떠한 방식으로 발전해야 AI가 만들어갈 앞으로의 환경에서 가치가 높은 사람이 될 수 있을지에 대한 고민이 많았다.
@@ -843,33 +843,33 @@ package : 크레이트를 빌드하고 공유하는 단위 crate : 라이브러�
     </item>
     <item>
       <title>Blog에 대한 생각 정리 글</title>
-      <link>http://localhost:63845/_wiki/blog%EC%97%90-%EB%8C%80%ED%95%9C-%EC%83%9D%EA%B0%81/</link>
+      <link>http://localhost:1313/_wiki/blog%EC%97%90-%EB%8C%80%ED%95%9C-%EC%83%9D%EA%B0%81/</link>
       <pubDate>Sat, 13 Apr 2024 11:45:31 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/blog%EC%97%90-%EB%8C%80%ED%95%9C-%EC%83%9D%EA%B0%81/</guid>
+      <guid>http://localhost:1313/_wiki/blog%EC%97%90-%EB%8C%80%ED%95%9C-%EC%83%9D%EA%B0%81/</guid>
       <description>블로그를 만드는데 시간을 쏟고, 글을 쓰면서 들던 생각들 3월과 4월간 가장 많은 시간을 쏟은건 블로그와 neovim인 것 같다. 원하는 만큼의 공부 진도가 아니라 아쉬운 와중에, 블로그등에 뭔가 개인 시간을 지나치게 많이 썼나 싶어서 드는 생각을 써보려고 한다.
 블로그를 만들게 된 계기 시작은 당연히 이직과 관련된 이유였다. 생각보다 회사 일에 대한 개발 내용을 이력서에 정리하기는 쉽지 않았고, 포트폴리오를 내기에도, 금전적으로 엮인게 많아 올릴 수 없어 블로그를 만들게 되었다.
 적어도 내 취향에 보기 좋게 블로그를 만들고, 기계적으로 정리를 하다 보면 내가 무엇을 했는지, 어떤 공부를 했는지, 어떤 프로젝트를 했는지 정리가 되어 경력기술서의 역할을 대신할 수 있을 것이라 생각했다.</description>
     </item>
     <item>
       <title>Enums and Pattern Matching in Rust</title>
-      <link>http://localhost:63845/_wiki/enums-and-pattern-matching/</link>
+      <link>http://localhost:1313/_wiki/enums-and-pattern-matching/</link>
       <pubDate>Tue, 09 Apr 2024 21:57:53 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/enums-and-pattern-matching/</guid>
+      <guid>http://localhost:1313/_wiki/enums-and-pattern-matching/</guid>
       <description>6 Enum and Pattern Matching In this chapter, we’ll look at enumerations, also referred to as enums. Enums allow you to define a type by enumerating its possible variants 가능한 상태의 목록을 열거하여 타입을 정의한다는 정의가 마음에 든다. 보통 상대적으로 새로운 언어들이 명시적이면서 경제적이면서 예쁜 문법을 제공하는데 러스트의 enum이 특히 그런 느낌이다.
 6.1 Defining an Enum 구조체가 데이터를 그룹화 하는 방법을 제공한다면, enum은 특정한 값이 가질수 있는 모든 가능한 값을 정의한다.</description>
     </item>
     <item>
       <title>Using Structs to Structure Related Data</title>
-      <link>http://localhost:63845/_wiki/using-structs-to-structure-related-data/</link>
+      <link>http://localhost:1313/_wiki/using-structs-to-structure-related-data/</link>
       <pubDate>Tue, 09 Apr 2024 00:11:26 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/using-structs-to-structure-related-data/</guid>
+      <guid>http://localhost:1313/_wiki/using-structs-to-structure-related-data/</guid>
       <description>5.0 Defining and Instantiating Structs struct User { username: String, email: String, sign_in_count: u64, active: bool, } 기본적으로 튜플과 비슷하게 데이터를 묶어주는 역할을 한다. 튜플보다 더 많은 유연성을 제공한다. cpp의 구조체와 거의 동일하다. ts의 인터페이스와 유사하다. struct 키워드를 사용하여 정의한다. fn main() { let user1 = User { email: String::from(&amp;#34;some@example.com&amp;#34;), username: String::from(&amp;#34;someusername&amp;#34;), active: true, sign_in_count: 1, } .을 사용하여 필드에 접근할 수 있다. 만약 instance가 mutable하다면 필드의 값을 변경할 수 있다.</description>
     </item>
     <item>
       <title>Understanding the Ownership of the Rust Programming Language</title>
-      <link>http://localhost:63845/_wiki/understanding-ownership/</link>
+      <link>http://localhost:1313/_wiki/understanding-ownership/</link>
       <pubDate>Fri, 05 Apr 2024 20:22:13 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/understanding-ownership/</guid>
+      <guid>http://localhost:1313/_wiki/understanding-ownership/</guid>
       <description>4.0 Ownership 소유권은 러스트의 가장 특징적인 개념이다, 러스트를 이해하기 위해서, 또는 러스트가 왜 다른 언어들보다 주목받는지 이해하기 위해서 가장 중요한 장이라고 생각한다.
 4.1.1 What is Ownership? Ownership은 러스트가 메모리를 관리하는 규칙이다.
 모든 프로그래밍 언어는 메모리를 관리하는 방법이 있다.
@@ -880,17 +880,17 @@ GC는 프로그램이 실행되는동안, 더 이상 사용하지 않는 메모�
     </item>
     <item>
       <title>Neovim 마이그레이션(?) 하기</title>
-      <link>http://localhost:63845/_wiki/neovim-migration-%ED%95%98%EA%B8%B0/</link>
+      <link>http://localhost:1313/_wiki/neovim-migration-%ED%95%98%EA%B8%B0/</link>
       <pubDate>Fri, 05 Apr 2024 17:59:28 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/neovim-migration-%ED%95%98%EA%B8%B0/</guid>
+      <guid>http://localhost:1313/_wiki/neovim-migration-%ED%95%98%EA%B8%B0/</guid>
       <description>01. 왜 마이그레이션을 하게 되었을까? 사실 마이그레이션을 하려고 하지는 않았고, 기존 Neovim 설정에서 마음에 안드는 부분들이 조금 있어서 그부분만 수정하려고 했다. 그러다 지난번 설정을 따라했었던 유튜버가 2024년 설정이라는 영상으로 기존 Neovim 설정 가이드 영상을 리뉴얼했다. packer나 lsp-saga와 같이 기존에 불편하던 부분들을 귀신같이 뺀 영상임을 확인하고 바로 마이그레이션을 하게 되었다.
 마이그레이션이라고 하기는 사실 애매하고 완전 새롭게 설정을 하고, 기존 설정을 새로운 설정에 덧붙였다고 보는게 맞을 것 같다. 해당 설정을 다시 하면서 추가된 내용에 대한 약간의 내용정리와, 간단한 설명을 덧붙여 포스팅을 해보려고 한다.</description>
     </item>
     <item>
       <title>2024년 4월의 목표</title>
-      <link>http://localhost:63845/_wiki/2024-04/</link>
+      <link>http://localhost:1313/_wiki/2024-04/</link>
       <pubDate>Thu, 04 Apr 2024 00:48:59 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/2024-04/</guid>
+      <guid>http://localhost:1313/_wiki/2024-04/</guid>
       <description>기본적으로 이직이다
 4월 중순 내일배움캠프 튜터링이 시작되어 그 전까지 좀 공부를 당겨놓고 싶다.
 지금은 굵직하게 4가지 목표를 잡고 있다.
@@ -898,9 +898,9 @@ DB 공부 - Real MySql 8.0 두 권 다 읽기 Network 공부 - 정말 필요한 
     </item>
     <item>
       <title>러스트 공식 가이드 3장 정리</title>
-      <link>http://localhost:63845/_wiki/common-programming-concepts/</link>
+      <link>http://localhost:1313/_wiki/common-programming-concepts/</link>
       <pubDate>Mon, 01 Apr 2024 21:00:33 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/common-programming-concepts/</guid>
+      <guid>http://localhost:1313/_wiki/common-programming-concepts/</guid>
       <description>3 Common Programming Concepts 이번 장에서는 러스트의 기본적인 프로그래밍 개념들을 다룬다, 가장 특징적인 부분이라면 다른 언어를 대비해서 러스트가 어떤 부분이 다른지 위주로 설명하는 가장 크게 두드러진다는 것이다.
 mz한 언어답게 예약어가 예약되어 있다고 한다 ㅋㅋ(아직 예약어로써 기능하지는 않지만, 미래의 예약어가 될 수 있어 예약해둔 keword)
 3.1 Variables and Mutability 변수는 기본적으로 불변이며, 이렇게 된게 러스트의 nudge라고 한다. src/main.rs
@@ -908,9 +908,9 @@ fn main() { let x = 5; println!(&amp;#34;The value of x is: {}&amp;#34;, x); x =
     </item>
     <item>
       <title>Vim이 느린 경우 Trouble Shootings</title>
-      <link>http://localhost:63845/_wiki/vim-profile-log-debugging/</link>
+      <link>http://localhost:1313/_wiki/vim-profile-log-debugging/</link>
       <pubDate>Mon, 01 Apr 2024 15:52:53 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/vim-profile-log-debugging/</guid>
+      <guid>http://localhost:1313/_wiki/vim-profile-log-debugging/</guid>
       <description>:profile start profile.log :profile func * :profile file * &amp;#34; At this point do slow actions :profile pause :noautocmd qall! 출처 : stackoverflow
 이렇게 하면 profile.log 파일이 생성된다.
 나의 경우는 copilot 관련 로그가 많아 회사 컴퓨터에서는 브랜치를 새로 파서,
@@ -919,16 +919,16 @@ fn main() { let x = 5; println!(&amp;#34;The value of x is: {}&amp;#34;, x); x =
     </item>
     <item>
       <title>회사 컴퓨터 세팅 관련</title>
-      <link>http://localhost:63845/_wiki/%ED%9A%8C%EC%82%AC%EC%BB%B4-%EC%84%B8%ED%8C%85/</link>
+      <link>http://localhost:1313/_wiki/%ED%9A%8C%EC%82%AC%EC%BB%B4-%EC%84%B8%ED%8C%85/</link>
       <pubDate>Mon, 01 Apr 2024 15:46:56 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/%ED%9A%8C%EC%82%AC%EC%BB%B4-%EC%84%B8%ED%8C%85/</guid>
+      <guid>http://localhost:1313/_wiki/%ED%9A%8C%EC%82%AC%EC%BB%B4-%EC%84%B8%ED%8C%85/</guid>
       <description>Hello World!</description>
     </item>
     <item>
       <title>러스트 공식 가이드 2장 정리</title>
-      <link>http://localhost:63845/_wiki/programming-a-guessing-game/</link>
+      <link>http://localhost:1313/_wiki/programming-a-guessing-game/</link>
       <pubDate>Sun, 31 Mar 2024 20:35:47 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/programming-a-guessing-game/</guid>
+      <guid>http://localhost:1313/_wiki/programming-a-guessing-game/</guid>
       <description>2. Programming a Guessing Game 간단한 숫자 맞추는 게임을 통해 러스트의 기본적인 문법과 기능을 익히는 예제, 처음 문법을 배우는 입장에서 생각보다 다룰 내용이 많았었던 기억이 난다.
 Setting Up a New Project 프로젝트 생성
 $ cargo new guessing_game $ cd guessing_game Processing a Guess src/main.rs
@@ -936,9 +936,9 @@ use std::io; // io 라이브러리를 가져온다. fn main() { println!(&amp;#3
     </item>
     <item>
       <title>러스트 공식 가이드 1장 정리</title>
-      <link>http://localhost:63845/_wiki/getting-started/</link>
+      <link>http://localhost:1313/_wiki/getting-started/</link>
       <pubDate>Sun, 31 Mar 2024 16:59:07 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/getting-started/</guid>
+      <guid>http://localhost:1313/_wiki/getting-started/</guid>
       <description>1.1. Installation 러스트 설치에 대한 아주 간단한 가이드.
 간단한 내용이라 딱히 정리할 내용은 없다. 1.2. Hello, World! 러스트로 Hello, World! 출력하기.
 특징적인 내용은 아래와 같다.
@@ -946,53 +946,53 @@ use std::io; // io 라이브러리를 가져온다. fn main() { println!(&amp;#3
     </item>
     <item>
       <title>The Rust Programming Language</title>
-      <link>http://localhost:63845/_wiki/the-rust-programming-language/</link>
+      <link>http://localhost:1313/_wiki/the-rust-programming-language/</link>
       <pubDate>Sun, 31 Mar 2024 15:59:52 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/the-rust-programming-language/</guid>
+      <guid>http://localhost:1313/_wiki/the-rust-programming-language/</guid>
       <description>러스트 공식 가이드 문서 정리 The Rust Programming Language 위의 러스트 공식 가이드 문서를 보고 정리한 내용입니다, 복습을 위해 공식 가이드를 한 번 다시 정리하고 시작하려고 합니다. 집합인가 [[Getting-Started]] : 러스트 설치 및 프로젝트 생성에 대한 가이드 [[Programming-a-Guessing-Game]] : 간단한 숫자 맞추기 게임을 만들어보며 러스트 프로그래밍 기초 문법 및 개념 익히기 [[Common-Programming-Concepts]] : 러스트 프로그래밍 기초 문법 및 개념 [[Understanding-Ownership]] : 러스트의 소유권 시스템에 대한 이해 [[burrow-checker]] : rust-in-action 내용 [[Using-Structs-to-Structure-Related-Data]] : 구조체를 사용하여 관련 데이터 구조화하기 [[Enums-and-Pattern-Matching]] : 열거형과 패턴 매칭 [[Managing-Growing-Projects-with-Packages-Crates-and-Modules]] : 패키지, 크레이트, 모듈을 사용하여 프로젝트 확장하기 [[Common-Collections]] : 컬렉션 사용하기 [[Error-Handling]] : 에러 처리하기 [[Funcional-Langauges-Features]] : Iterators and Closures 변수의 수명은 컴파일 시점에서 스코프 내에서 더이상 사용이 되지 않는걸 확인 가능한 마지막 줄까지 이걸 악용해서 여러개의 가변 참조를 가지는게 약간 안티패턴 같다.</description>
     </item>
     <item>
       <title>Neovim Copilot 관련 설정 이슈</title>
-      <link>http://localhost:63845/_wiki/neovim-copilot-config/</link>
+      <link>http://localhost:1313/_wiki/neovim-copilot-config/</link>
       <pubDate>Sun, 31 Mar 2024 14:02:03 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/neovim-copilot-config/</guid>
+      <guid>http://localhost:1313/_wiki/neovim-copilot-config/</guid>
       <description>Neovim Copilot 관련 설정 이슈 Copilot을 import하고 잘 쓰고 있는데, Vimwiki와 Tab키 충돌이 발생한다. Tab키를 누르면, Copilot이 자동완성을 제공하는데, Vimwiki에서는 Tab키를 사용하여 들여쓰기를 한다. 뭔가 Vimwiki의 탭이 Copilot의 탭보다 우선순위가 높은 것 같다. 처음에는 Copilot의 설정을 변경하여 해결하려고 했지만 Vimwiki의 설정을 변경하는 것이 더 편할 것 같다. 해결 다행히도 Vimwiki Repository에 이슈가 올라와 있었다. Vimwiki Issue return { &amp;#39;vimwiki/vimwiki&amp;#39;, init = function() -- .. end, config = function() vim.g.vimwiki_key_mappings = { table_mappings = 0, } vim.</description>
     </item>
     <item>
       <title>ToDoList✅</title>
-      <link>http://localhost:63845/_wiki/todolist/</link>
+      <link>http://localhost:1313/_wiki/todolist/</link>
       <pubDate>Sat, 30 Mar 2024 18:11:43 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/todolist/</guid>
+      <guid>http://localhost:1313/_wiki/todolist/</guid>
       <description> 이미지 호스팅 알아보기 구글 검색 노출 관련 검색, 테스팅 징행하기 [v] 빔을 통해서 괄호를 편하게 작성하는 방법에 대한 포스팅 작성하기 회고 문서 작성하기 </description>
     </item>
     <item>
       <title>사고싶은 장비 List</title>
-      <link>http://localhost:63845/_wiki/%EC%82%AC%EA%B3%A0-%EC%8B%B6%EC%9D%80-%EC%9E%A5%EB%B9%84/</link>
+      <link>http://localhost:1313/_wiki/%EC%82%AC%EA%B3%A0-%EC%8B%B6%EC%9D%80-%EC%9E%A5%EB%B9%84/</link>
       <pubDate>Sat, 30 Mar 2024 17:02:03 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/%EC%82%AC%EA%B3%A0-%EC%8B%B6%EC%9D%80-%EC%9E%A5%EB%B9%84/</guid>
+      <guid>http://localhost:1313/_wiki/%EC%82%AC%EA%B3%A0-%EC%8B%B6%EC%9D%80-%EC%9E%A5%EB%B9%84/</guid>
       <description>모니터🖥️ Lg 듀얼업 모니터 : 꼭 사고싶은 모니터, 최종적인 조합은 이것과 피벗용 27인치 모니터로 마무리 하고 싶다. 키보드⌨️ HHKB 키보드 : 미니배열이 좋으면서도 백틱이 걱정되긴한다. 키 커스텀이 어느정도인지 확인하고 구매할 것 같다 </description>
     </item>
     <item>
       <title>개인적인 이야기를 작성할 예정입니다.</title>
-      <link>http://localhost:63845/_wiki/private-wiki/</link>
+      <link>http://localhost:1313/_wiki/private-wiki/</link>
       <pubDate>Sat, 30 Mar 2024 16:10:39 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/private-wiki/</guid>
+      <guid>http://localhost:1313/_wiki/private-wiki/</guid>
       <description>Inbox 💭 [[Blog에-대한-생각]] [[Interview-From-Jim-Keller]] [[블로그-작성-가이드라인]] Monthly goal 🚀 [[2024-04]] [[2024-05]] ToDoList ✅ [[ToDoList]] Travel 🌍 About Machines 🧊 [[사고-싶은-장비]] About Settings 🧊 [[회사컴-세팅]] [[New-Vimwiki-Test]] Chore 🧹 [[이사]] </description>
     </item>
     <item>
       <title>Vim 자주 깜빡하는 커맨드</title>
-      <link>http://localhost:63845/_wiki/%EC%9E%90%EC%A3%BC-%EA%B9%8C%EB%A8%B9%EB%8A%94-%EC%BB%A4%EB%A7%A8%EB%93%9C-%EC%A0%95%EB%A6%AC/</link>
+      <link>http://localhost:1313/_wiki/%EC%9E%90%EC%A3%BC-%EA%B9%8C%EB%A8%B9%EB%8A%94-%EC%BB%A4%EB%A7%A8%EB%93%9C-%EC%A0%95%EB%A6%AC/</link>
       <pubDate>Sat, 30 Mar 2024 15:59:49 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/%EC%9E%90%EC%A3%BC-%EA%B9%8C%EB%A8%B9%EB%8A%94-%EC%BB%A4%EB%A7%A8%EB%93%9C-%EC%A0%95%EB%A6%AC/</guid>
+      <guid>http://localhost:1313/_wiki/%EC%9E%90%EC%A3%BC-%EA%B9%8C%EB%A8%B9%EB%8A%94-%EC%BB%A4%EB%A7%A8%EB%93%9C-%EC%A0%95%EB%A6%AC/</guid>
       <description>1일 1커맨드 정리 ^ + b, f : 한 페이지씩 스크롤 zz : 현재 커서가 있는 줄을 화면 중앙으로 이동 yi( : 괄호 안에 있는 내용 복사 vap : 비주얼모드 한 문단 블록 씌우기 이동 관련 brace 관련 커맨드를 조금 더 잘쓰면 좋겠다는 생각을 한다.
 개인적으로 vim을 더 잘쓰기 위해서 정리를 잘 해둬야 할 것 같다.
 ^ + b, f: 한 페이지씩 스크롤 ^ + d, u: 반 페이지씩 스크롤 e, E: 다음 단어의 끝으로, 문자 단위 이동 w, W: 다음 단어의 처음으로, 문자 단위 이동 $: 줄의 마지막으로 이동 0: 줄의 처음으로 이동 ^: 줄의 처음으로 이동 (공백이 아닌 처음 시작되는 문자) Shift + g: 문서의 마지막으로 이동 gg, 1g: 문서의 처음으로 이동 (숫자 라인으로 이동) ), (: 다음, 이전 문장의 처음으로 이동 }, {: 다음, 이전 문단의 처음으로 이동 ]], [[: 다음, 이전 구절의 처음으로 이동 안녕하세요 Vimwiki 관련 커맨드 Tab – Find next wiki link Shift + Tab – Find previous wiki link Split 관련 커맨드 &amp;lt;leader&amp;gt;sv: 창 수직 분할 &amp;lt;leader&amp;gt;sh: 창 수평 분할 &amp;lt;leader&amp;gt;se: 창 확장 &amp;lt;leader&amp;gt;sx: 창 닫기 lsp 관련 커맨드 &amp;lt;leader&amp;gt;gd: 정의로 이동 </description>
     </item>
     <item>
       <title>생활 관련 링크 Archive</title>
-      <link>http://localhost:63845/_wiki/life-archive-2025/</link>
+      <link>http://localhost:1313/_wiki/life-archive-2025/</link>
       <pubDate>Fri, 29 Mar 2024 22:47:39 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/life-archive-2025/</guid>
+      <guid>http://localhost:1313/_wiki/life-archive-2025/</guid>
       <description>생활 관련 링크 Archive 목 디스크 스트레칭 : 언젠가는 하겠지&amp;hellip;?
 게임음악 모음
 지브리 오케스트라
@@ -1003,38 +1003,38 @@ system window cycle to hyper + c ;</description>
     </item>
     <item>
       <title>개발 관련 링크 Archive</title>
-      <link>http://localhost:63845/_wiki/dev-archive-2025/</link>
+      <link>http://localhost:1313/_wiki/dev-archive-2025/</link>
       <pubDate>Fri, 29 Mar 2024 22:46:50 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/dev-archive-2025/</guid>
+      <guid>http://localhost:1313/_wiki/dev-archive-2025/</guid>
       <description>개발 관련 링크 Archive 나이들어가는 프로그래머 : 63세의 나이에도 더 일을 하고싶은 마음이 부러워서, 나도 그러고 싶은 사람으로써 이미 그런사람을 보는 기분 업계에서 10년 있은 뒤, 마음이 바뀐 소프트웨어 개발 토픽들 shunpo : directory 북마크 cli app, yazi와는 다른 맥락으로 유용할듯 modern unix : 유용한 modern unix cli tool을 소개하는 레포, 주기적으로 업데이트 된다. 2024년 가장 조회수 높은 소프트 엔지니어링 발표들 : 재미있는 내용들이 많은 것 같다. </description>
     </item>
     <item>
       <title>Hugo, Vimwiki로 블로그 정착하기</title>
-      <link>http://localhost:63845/_wiki/%EC%83%88%EB%A1%9C%EC%9A%B4-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%A0%95%EC%B0%A9%ED%95%98%EA%B8%B0/</link>
+      <link>http://localhost:1313/_wiki/%EC%83%88%EB%A1%9C%EC%9A%B4-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%A0%95%EC%B0%A9%ED%95%98%EA%B8%B0/</link>
       <pubDate>Fri, 29 Mar 2024 21:13:43 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/%EC%83%88%EB%A1%9C%EC%9A%B4-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%A0%95%EC%B0%A9%ED%95%98%EA%B8%B0/</guid>
+      <guid>http://localhost:1313/_wiki/%EC%83%88%EB%A1%9C%EC%9A%B4-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%A0%95%EC%B0%A9%ED%95%98%EA%B8%B0/</guid>
       <description>빔위키블로그좋아..</description>
     </item>
     <item>
       <title>Index 🧊️</title>
-      <link>http://localhost:63845/_wiki/home/</link>
+      <link>http://localhost:1313/_wiki/home/</link>
       <pubDate>Fri, 29 Mar 2024 09:21:07 +0900</pubDate>
-      <guid>http://localhost:63845/_wiki/home/</guid>
+      <guid>http://localhost:1313/_wiki/home/</guid>
       <description>Contact : Email 📧 Github : SmallzooDev 🐦‍⬛ Postings Tag의 글은 조금 더 읽기 쉽게 작성하려고 노력하고 있습니다 : #Postings 🗞️ This wiki inspired by : 기계인간 Johngrib 💭 큰 문제를 작은 문제 여러개로 볼 수 있는 지혜와, 가장 작은 문제 하나를 시작할 만큼의 실행력을 갖기를
 Main 🏠 [[Daily-Log-2024]] : 저에 대해 궁금하시다면 이 문서를 참고해주세요(데일리 아님 주의 🙉) [[Daily-Log-2025]] : 2025 시작! Archive 📘 [[Dev-Archive-2025]] : 개발관련 유용한 정보, 링크 모음 [[Life-Archive-2025]] : 개발 외적인 유용한 정보, 링크 모음 [[Cheat-Sheet]] : 개발 관련 Cheat Sheet 모음 Rust 🦀 [[Rust-Main]] [[The-Rust-Programming-Language]] [[Effective-Rust]] [[Build-Redis-With-Rust]] Java/Kotlin 🏝️ [[코틀린-완벽-가이드-1장-6장]] : 코틀린관련 책, 강의, 스터디 내용정리 [[코틀린-완벽-가이드-7장-12장]] : 위의 2편!</description>
     </item>
     <item>
       <title></title>
-      <link>http://localhost:63845/_wiki/kotlin%EC%9D%B4-%EC%A2%8B%EC%A7%80%EB%A7%8E%EC%9D%80-%EC%95%8A%EC%9D%80-%EC%9D%B4%EC%9C%A0/</link>
+      <link>http://localhost:1313/_wiki/kotlin%EC%9D%B4-%EC%A2%8B%EC%A7%80%EB%A7%8E%EC%9D%80-%EC%95%8A%EC%9D%80-%EC%9D%B4%EC%9C%A0/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:63845/_wiki/kotlin%EC%9D%B4-%EC%A2%8B%EC%A7%80%EB%A7%8E%EC%9D%80-%EC%95%8A%EC%9D%80-%EC%9D%B4%EC%9C%A0/</guid>
+      <guid>http://localhost:1313/_wiki/kotlin%EC%9D%B4-%EC%A2%8B%EC%A7%80%EB%A7%8E%EC%9D%80-%EC%95%8A%EC%9D%80-%EC%9D%B4%EC%9C%A0/</guid>
       <description></description>
     </item>
     <item>
       <title>About Me🧊️</title>
-      <link>http://localhost:63845/about/</link>
+      <link>http://localhost:1313/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:63845/about/</guid>
+      <guid>http://localhost:1313/about/</guid>
       <description>백엔드 개발자로 일하고 있는 강준규 입니다!</description>
     </item>
   </channel>

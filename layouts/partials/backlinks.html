@@ -19,23 +19,14 @@
 
 {{- $has_references := ge (len $references) 1 -}}
 {{- if $has_references -}}
-<div class="backlinks-container">
-    <div class="toc backlinks">
-        <details open>
-            <summary accesskey="b" title="(Alt + B)">
-                <span class="details">Backlinks</span>
-            </summary>
-
-            <div class="inner">
-                <ul>
-                    {{- range $references -}}
-                    <li>
-                        <a href="{{ .RelPermalink }}" aria-label="{{ .Title }}">{{ .Title }}</a>
-                    </li>
-                    {{- end -}}
-                </ul>
-            </div>
-        </details>
-    </div>
+<div style="margin-top: 20px; border-top: 1px dashed #89dceb30; padding-top: 15px;">
+  <h3 style="color: #89dceb; margin-top: 0; margin-bottom: 10px; font-size: 18px;">Backlinks 🔗</h3>
+  <ul style="list-style-type: none; padding-left: 10px; margin: 0;">
+    {{- range $references -}}
+    <li style="margin-bottom: 5px;">
+      <a href="{{ .RelPermalink }}" style="color: #89dceb; text-decoration: none;">{{ .Title }}</a>
+    </li>
+    {{- end -}}
+  </ul>
 </div>
 {{- end -}} 

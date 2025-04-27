@@ -1,11 +1,5 @@
 {{- define "main" }}
 
-{{- if and (eq .Section "_wiki") (not (.Param "hideToc")) }}
-  <div class="desktop-backlinks">
-    {{ partial "backlinks.html" . }}
-  </div>
-{{- end }}
-
 <article class="post-single">
   <header class="post-header">
     {{ partial "breadcrumbs.html" . }}
@@ -40,12 +34,7 @@
   "IsSingle" true "isHidden" $isHidden) }} 
   
   {{- if (.Param "ShowToc") }} 
-    {{- partial "toc.html" . }} 
-    {{- if and (eq .Section "_wiki") (not (.Param "hideToc")) }}
-      <div class="mobile-backlinks">
-        {{ partial "backlinks.html" . }}
-      </div>
-    {{- end }}
+    {{- partial "toc.html" . }}
   {{- end }}
   
   {{- if .Content }}
@@ -55,22 +44,21 @@
   </div>
   {{- end }}
   
-  <br />
-  <br />
-  <div>
-    <h2>Recent Changes 🥸</h2>
-    <br />
-    <ul id="recent-changes-list">
-      {{ $pages := where .Site.Pages "Section" "_wiki" }} {{ $latestPages :=
-      first 20 (sort $pages "Date" "desc") }} {{ range $latestPages }}
-      <li>
-        <div>
-          <a class="post-link" href="{{ .Permalink }}">
-            <div class="post-meta">
-              {{ .Date.Format "2006.01.02" }} - {{ .Title }}
-            </div>
-          </a>
-        </div>
+  {{- if and (eq .Section "_wiki") (not (.Param "hideToc")) }}
+    {{ partial "backlinks.html" . }}
+  {{- end }}
+  
+  <!-- Recent Changes -->
+  <div style="margin-top: 40px; border-top: 1px dashed #89dceb30; padding-top: 15px;">
+    <h3 style="color: #89dceb; margin-top: 0; margin-bottom: 10px; font-size: 18px;">Recent Changes ⏱️</h3>
+    <ul style="list-style-type: none; padding-left: 10px; margin: 0;">
+      {{ $pages := where .Site.Pages "Section" "_wiki" }} 
+      {{ $latestPages := first 20 (sort $pages "Lastmod" "desc") }} 
+      {{ range $latestPages }}
+      <li style="margin-bottom: 5px;">
+        <a href="{{ .Permalink }}" style="color: #89dceb; text-decoration: none;">
+          {{ .Lastmod.Format "2006.01.02" }} - {{ .Title }}
+        </a>
       </li>
       {{ end }}
     </ul>
