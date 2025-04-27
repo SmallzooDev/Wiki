@@ -2,7 +2,7 @@
 title: Index 🧊️
 summary: 
 date: 2024-03-29 09:21:07 +0900
-lastmod: 2025-04-27 11:45:12 +0900
+lastmod: 2025-04-27 13:27:07 +0900
 tags: ["wiki_home"]
 categories: 
 public: true
@@ -47,7 +47,7 @@ TocOpen: true
 ## Cpp 🐋
 - [[Cpp-basic]] : C++ 기본 문법 정리
 
-### PS ⚠️
+## PS ⚠️
 - [[cpp-ps-basic]]
 
 ## Backend 💰
