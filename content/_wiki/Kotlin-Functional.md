@@ -2,7 +2,7 @@
 title: 코틀린 함수형 프로그래밍
 summary: 
 date: 2025-04-27 11:20:59 +0900
-lastmod: 2025-04-27 23:22:27 +0900
+lastmod: 2025-04-28 21:33:35 +0900
 tags: 
 categories: 
 description: 
@@ -44,6 +44,8 @@ val add2 = fun(a: Int, b: Int) = a + b
 
 ## 람다 표현식
 ---
+>코틀린에서 람다 표현식(lambda expression)은 return을 허용하지 않는 이유는, 람다가 그 자체로 “독립적인 실행 흐름”을 갖는 함수가 아니라, “호출되는 컨텍스트에 의존하는 작은 코드 블록”이기 때문입니다. 즉, 람다 안에서 return을 자유롭게 허용해버리면, 람다를 호출하는 “바깥 함수” 전체의 흐름까지 예측 불가능하게 망칠 수 있기 때문에, 명확한 제약을 둔 것입니다.
+
 - 익명함수보다 더 짧은 대안
 - 람다 표현식이 더 많은 기능을 지원
 
@@ -53,3 +55,111 @@ val add2 = fun(a: Int, b: Int) = a + b
 | return 동작 | 로컬 return (해당 함수만 빠져나감)            | 기본적으로 바깥 함수로 비탈출(non-local return) 가능 |
 | 타입 추론     | 명확한 타입 명시 가능                       | 타입 추론 많이 의존                           |
 | 제어문 사용    | return, break, continue 자유롭게 사용 가능 | 제한 있음 (non-local return 조심)           |
+> 함수를 나타내는 객체가 결괏값으로 생성되는 표현식을 함수 리터럴이라 한다
+
+
+- 타입 추론을 잘 이용하는게 좋다.
+- 람다의 변수명에 타입을 명시, 혹은 람다 작성시 타입을 명시해서 타입추론을 잘 하게 만드는게 좋다
+- it 키워드를 이용하기에도 도움이 된다.
+- 그 외에는 후행람다와 같은 간단한 문법 정의 이야기이다.
+
+## 함수 참조
+---
+> 객체로 사용할 수 있는 함수가 필요하다면 람다 표현식으로 새로운 객체를 생성할 수도 있지만, 기존의 함수를 참조할 수도 있습니다.
+
+- `::` 또는 `Receiver::` 로 함수 참조가 가능
+```kotlin
+class Complex(
+    val real: Double,
+    val imaginary: Double,
+)
+
+fun main() {
+    val complex: ()-> Complex = ::makeComplex
+    val complex2: (Double)-> Complex = ::makeComplex
+    val complex3: (Double, Double)-> Complex = ::makeComplex
+}
+
+fun makeComplex(
+    real: Double = 0.0,
+    imaginary: Double = 0.0
+) = Complex(real, imaginary)
+
+```
+- 최신버전에는 디폴트파라미터들도 다 고려해서 타입정의를 허용해주는 것 같다.
+- 메소드를 참조하는경우 리시버를 명시해줘야함
+```kotlin
+data class Complex(val real: Double, val imaginary: Double) {
+    fun doubled(): Complex =
+        Complex(this.real * 2, this.imaginary * 2)
+
+    fun times(num: Int) =
+        Complex(real * num, imaginary * num)
+}
+
+fun main() {
+    val c1 = Complex(1.0, 2.0)
+    val f1: (Complex) -> Complex = Complex::doubled
+    println(f1(c1)) // Complex(real=2.0, imaginary=4.0)
+    val f2: (Complex, Int) -> Complex = Complex::times
+    println(f2(c1, 4)) // Complex(real=4.0, imaginary=8.0)
+
+
+```
+- 메서드 참조는 프로퍼티가 아닌 타입을 이용해야함 (제네릭 타입 명시 포함)
+```kotlin
+val func = list.sum // err
+val func: (List<Int>) -> Int = List<Int>::sum
+```
+- 한정된 함수 참조(bound reference)를 쓰고 싶으면 리시버 객체를 고정해서 참조할 수 있다.
+- 이때는 타입::메서드 형태가 아니라 **객체::메서드** 형태로 작성해야 한다.
+- 이렇게 하면 리시버를 따로 넘기지 않고, 나머지 인자만 받는 함수처럼 쓸 수 있다.
+```kotlin
+val c1 = Complex(1.0, 2.0)
+
+val f3: () -> Complex = c1::doubled
+println(f3()) // Complex(real=2.0, imaginary=4.0)
+
+val f4: (Int) -> Complex = c1::times
+println(f4(3)) // Complex(real=3.0, imaginary=6.0)
+```
+
+- Complex::doubled은 (Complex) -> Complex였는데
+- c1::doubled는 () -> Complex로 바뀜. (리시버가 고정됐으니까 인자를 따로 받을 필요가 없어짐)
+- Complex::times는 (Complex, Int) -> Complex였는데
+- c1::times는 (Int) -> Complex로 변함. (리시버인 c1이 이미 채워진 상태)
+
+요약하면,
+
+> **타입::메서드** → 리시버를 따로 받아야 함
+> **객체::메서드** → 리시버가 고정돼 있어서 나머지 인자만 받음
+
+```kotlin
+// MainPresenter는 view를 가지고 있음
+class MainPresenter(
+    private val view: MainView,
+    private val repository: MarvelRepository
+) : BasePresenter() {
+
+    fun onViewCreated() {
+        // getAllCharacters()는 Single<List<MarvelCharacter>>를 반환한다고 가정
+        subscriptions += repository.getAllCharacters()
+            .applySchedulers()
+            .subscribeBy(
+                // onSuccess에 this::show 넘김
+                // => subscribeBy가 데이터를 넘겨줄 때, this.show(items)로 호출
+                onSuccess = this::show,
+                onError = view::showError
+            )
+    }
+
+    // 이 show 함수는 List<MarvelCharacter>를 받아서 view에 넘김
+    fun show(items: List<MarvelCharacter>) {
+        view.show(items)
+    }
+}
+```
+
+- subscribeBy는 그냥 콜백 함수를 저장해두고 나중에 호출
+- subscribeBy는 그 콜백 함수(this::show)가 어떤 객체(this)를 품고 있는지 몰라도 됨
+- this::show는 **이미 MainPresenter 인스턴스에 바인딩되어 있는 함수 참조**라서,subscribeBy가 단순히 onSuccess(data) 이렇게 호출만 하면, 내부적으로는 **this.show(data)** 가 실행되고,그 안에서 자연스럽게 **this.view.show(data)** 같은 것도 정상 접근 가능하다.
