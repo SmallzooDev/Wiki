@@ -2,7 +2,7 @@
 title: Enums and Pattern Matching in Rust
 summary: 
 date: 2024-04-09 21:57:53 +0900
-lastmod: 2024-04-09 21:57:53 +0900
+lastmod: 2025-04-30 15:50:21 +0900
 tags: 
 categories: 
 description: 
@@ -12,25 +12,17 @@ tocOpen: true
 
 ## 6 Enum and Pattern Matching
 > In this chapter, we’ll look at enumerations, also referred to as enums. Enums allow you to define a type by enumerating its possible variants
-> 가능한 상태의 목록을 열거하여 타입을 정의한다는 정의가 마음에 든다.
-> 보통 상대적으로 새로운 언어들이 명시적이면서 경제적이면서 예쁜 문법을 제공하는데 러스트의 enum이 특히 그런 느낌이다.
+- 가능한 상태의 목록을 열거하여 타입을 정의한다는 정의가 마음에 든다.
 
 
 ## 6.1 Defining an Enum
-
-- 구조체가 데이터를 그룹화 하는 방법을 제공한다면, enum은 특정한 값이 가질수 있는 모든 가능한 값을 정의한다.
-> 이런 류의 정의가 좋은 것 같다. 처음 Generic을 배울 때 처음에 복잡하고 읽기 어려운 문법과 사용 방법에 포커스를 하고 공부하니 이해가 안됐었는데, 
-> 똑같은 로직을 여러번 작성하지 않기 위해 사용하는 문법이라고 c++ primer plus 책에서 설명을 해줘서 해당 관점으로 이해하려 하니 이해가 잘 되었었던 기억이 난다.
-
+> 구조체가 데이터를 그룹화 하는 방법을 제공한다면, enum은 특정한 값이 가질수 있는 모든 가능한 값을 정의한다.
 - 공식 가이드에서는 IP 주소를 다루는 예제를 들고 있다. IP주소라는 개념을 코드로 '표현'한다면
     - 4개의 8비트 숫자로 구성된 IPv4 주소를 다루는 경우
     - 8개의 16비트 숫자로 구성된 IPv6 주소를 다루는 경우
 - 이렇게 두가지 상태만 존재하고, 모든 IP의 버전은 두가지 중 하나에 속하게 된다.
-
 - IP 주소이면서 저 두가지의 상태가 아닌 다른 상태에 속할 수 없고, 둘 다에 속할 수 없으며, 이런 경우에 enum을 이용해서 표현할 수 있다.
-
 - 버전 4와 버전 6 주소 모두 근본적으로는 IP 주소이므로, 코드가 어떤 종류의 IP 주소에도 적용되는 상황을 처리할 때 동일한 타입으로 취급되어야 한다.
-
 - 즉 모든, 고유한, 가능한 상태의 열거이므로 일정 정도의 추상화의 역할을 한다. 
 
 ```rust
@@ -50,7 +42,6 @@ route(IpAddrKind::V6);
 - 문법은 enum 키워드로 시작하고, 각 상태는 중괄호로 묶인 목록으로 정의된다.
 - 각 상태는 그 자체로 유효한 값이다. 이 값은 enum의 이름을 통해 접근할 수 있다.
 - enum의 이름과 상태의 이름은 같은 이름 공간에 있으므로, enum의 이름을 통해 상태를 참조할 수 있다.
-
 - enum에 값을 저장할 수도 있다.
 
 ```rust
@@ -62,7 +53,6 @@ enum IpAddr {
 let home = IpAddr::V4(String::from("127.0.0.1"));
 let loopback = IpAddr::V6(String::from("::1"));
 ```
-
 - 이렇게 하면 각 상태가 다른 타입의 데이터를 가질 수 있다.
 - 단순히 열거형에 String을 매핑하는 정도가 아니라 아래와 같은 것들도 가능하다.
 
@@ -77,7 +67,6 @@ let loopback = IpAddr::V6(String::from("::1"));
 ```
 
 - 이렇게 하면 각 상태가 다른 타입의 데이터를 가질 수 있다.
-
 ```rust
 struct Ipv4Addr {
     // --snip--
@@ -94,7 +83,6 @@ enum IpAddr {
 ```
 
 - 이렇게 하면 각 상태가 다른 구조체를 가질 수 있다.
-
 ```rust
 enum Message {
     Quit,
@@ -105,7 +93,6 @@ enum Message {
 ```
 
 - 다양한 것들을 매핑하되, 하나의 enumerate variants에 같은 타입이 아닌 것들을 매핑할 수 있다.
-
 ```rust
 struct QuitMessage; // unit struct
 struct MoveMessage {
@@ -133,19 +120,13 @@ struct ChangeColorMessage(i32, i32, i32); // tuple struct
 ### 6.1.1 The Option Enum and Its Advantages Over Null Values 
 
 - `Option<T>`는 표준 라이브러리에 정의된 enum이다.
- 
 - `Option<T>`는 `Some(T)`와 `None` 두가지 상태를 가진다.
- 
 - `Option<T>`는 null 값의 대안으로 사용할 수 있다.
  
 - Java의 Optional과 비슷한 개념이다.
- 
 - 값이 있는 경우, 그렇지 않은 경우(그 모든 `variant`) 가 있고, 그 모든케이스를 다뤄야하는데, Option을 사용하면 정확히 모든 케이스를 핸들링 했는지, 컴파일러가 체크해준다.
-
 - 우리는 언어를 배울때, 해당 언어가 어떠한 기능을 포함(include)하고 있는지에는 충분히 주목하면서, 어떠한 기능을 배제(exclude)하고 있는지에는 충분히 주목하지 않는다.
-
 - 기능의 배제 또한 언어의 특징이라는 점을 서적에서 강조하고 있다.
-
 - 결론적으로 Rust는 null을 제공하지 않는다. null이라는 기능을 제공하는 언어의 모든 값은 두가지 variant를 가진다. (`null`, `not null`)
 
 Tony Hoare가 null을 발명했는데, 후에 이것이 'my billion dollar mistake'라고 말했다.
@@ -155,7 +136,6 @@ Tony Hoare가 null을 발명했는데, 후에 이것이 'my billion dollar mista
 > 1979년은 cpp의 탄생년 이었다. 
 
 - 무튼 실제 구현은 아래와 같다.
-
 ```rust
 enum Option<T> {
     None,
@@ -163,7 +143,6 @@ enum Option<T> {
 }
 ```
 - prelude에는 Option이 포함되어 있어서(그만큼 유용하고 자주 사용해야 하기에) 따로 include할 필요가 없고, Option을 사용할 때는 `Option::`을 사용하지 않아도 된다.
-
 - `Some<T>` 는 제네릭으로 특정 타입을 가질 수 있다.
 
 ```rust
@@ -191,21 +170,15 @@ let sum = x + y;
 ```
 
 - 위 코드는 컴파일 되지 않는다. `Option<i8>`와 `i8`은 다른 타입이기 때문이다.
-
 - 당연하게도 `i8`과 `i8`이 아닌 무엇인가의 값을 더하는 방법을 알지 못한다.
-
 - 컴파일러가 이해 할 수 있는 코드를 작성하기 위해서는, `Option<i8>`를 그냥 사용하는것이 아닌 무엇인가의 처리를 해야한다.
-
 - 여기서 무엇인가의 처리란 바로 `Option`의 variants를 다뤄야 하는 것이고, 그러한 과정 이후에 null(None) 에 대한 대응을 진행하게된다.
 
-## 6.2 The `match` Control Flow Construct
+## 6.2 The match Control Flow Construct
 
 - `match`는 다른 언어의 `switch`와 비슷한 역할을 한다.
-
 - Pattern은 literal value, variable, wild card, tuple, destructured structure, enum 등을 포함할 수 있다.
-
 - `match`는 컴파일러로 하여금 모든 케이스를 다루는지 확인하게 한다.
-
 - 동전 자판기처럼 처음으로 일치하는 패턴을 만나면 해당 블록을 실행하고, 나머지는 무시한다.
 
 ```rust
@@ -226,17 +199,13 @@ fn value_in_cents(coin: Coin) -> u8 {
 }
 ```
 - if 문과 다른 점은 굳이 `boolean`을 사용하지 않아도 된다는 점이다.
-
 - `match`의 arm이란 `=>`과 `,`로 구분된 패턴과 실행 코드 블록이다. 패턴과 코드 블록으로 이루어져 있다.
-
 - 각각의 arm에 연관되어있는 코드 블록은 표현식이며, 이 표현식의 결과는 `match` 표현식의 결과가 된다.
-
 - 한 줄을 넘는 코드를 작성할 때는 `{}`를 사용해야 한다.
 
 ### 6.2.1 Patterns That Bind to Values
 
-- `match`의 또 다른 유용한 기능은 패턴에 매칭되는 값을 바인딩 할 수 있다는 것이고, enumd variants 의 값을 추출할  수 있다.
-
+- `match`의 또 다른 유용한 기능은 패턴에 매칭되는 값을 바인딩 할 수 있다는 것이고, enum variants 의 값을 추출할  수 있다.
 ```rust
 #[derive(Debug)]
 enum UsState {
@@ -254,7 +223,6 @@ enum Coin {
 ```
 
 - `Quarter` variant는 `UsState`를 가지고 있다.
-
 ```rust
 fn value_in_cents(coin: Coin) -> u8 {
     match coin {
@@ -268,36 +236,18 @@ fn value_in_cents(coin: Coin) -> u8 {
     }
 }
 ```
-
-- `Coin::Quarter(state)`에서 `state`는 `UsState` 타입이 된다.\
-
+- `Coin::Quarter(state)`에서 `state`는 `UsState` 타입이 된다.
 - 이렇게 하면 `UsState`를 추출할 수 있다.
 
-### 6.2.2 Matching with Option<T>
+### 6.2.2 Matching with Option
 
-- `Option<T>`를 사용할 때도 `match`를 사용하는 예제.
-
-```rust
-fn plus_one(x: Option<i32>) -> Option<i32> {
-    match x {
-        None => None,
-        Some(i) => Some(i + 1),
-    }
-}
-
-let five = Some(5);
-let six = plus_one(five);
-let none = plus_one(None);
-```
 - `match` rust의 유연한 enum과 함께 사용할 때 매우 강력한 도구가 된다.
-
 - `match` 의 variable binding 기능 덕에 코드가 깔끔하게 떨어지는 경우가 많고, 실제로 코드를 작성하면서도 이점을 느낄 수 있다.
 
 
 ## 6.3.3 Mathches Are Exhaustive
 
 - `match`는 모든 경우를 다루지 않으면 컴파일 되지 않는다.
-
 ```rust
 fn plus_one(x: Option<i32>) -> Option<i32> {
     match x {
@@ -307,10 +257,7 @@ fn plus_one(x: Option<i32>) -> Option<i32> {
 ```
 
 - 위 코드는 컴파일 되지 않는다. `None`에 대한 처리가 없기 때문이다.
-
 - 이처럼 러스트의 `match`는 철저하기 때문에 일어날 수 있는 실수를 방지해준다.
-
-> billion dollor mistake는 애초에 러스트에서 가능하지 않다고 한 번 더 비꼰다 ㅋㅋ
 
 ### 6.3.4 Catch-all Patterns and The `_` Placeholder
 
@@ -331,9 +278,7 @@ fn plus_one(x: Option<i32>) -> Option<i32> {
 ```
 
 - 이러한 경우 3,7이 아닌 모든 경우는 `other`에 매칭되어 처리된다.
-
 - 참고로 다른 언어의 `switch`에서와 같이 other을 위에 쓰면 그 아래 arm들은 비교조차 안하기 때문에 주의가 필요하다.
-
 - 비슷하게 catch-all 하면서도, 해당 값에 대해서는 아무것도 하지 않을 때는 `_`를 사용한다.
 
 ```rust
@@ -350,8 +295,7 @@ fn plus_one(x: Option<i32>) -> Option<i32> {
 
 ## 6.4 Concise Control Flow with `if let`
 
-- `if let`을 사용하면, 하나의 값ㅂ에 대해서만 매칭을 하고, 나머지를 무시하는 경우에 `match`를 사용하는 것보다 간결하게 코드를 작성할 수 있다.
-
+- `if let`을 사용하면, 하나의 값에 대해서만 매칭을 하고, 나머지를 무시하는 경우에 `match`를 사용하는 것보다 간결하게 코드를 작성할 수 있다.
 ```rust
     let some_u8_value = Some(0u8);
     match some_u8_value {
@@ -366,11 +310,8 @@ fn plus_one(x: Option<i32>) -> Option<i32> {
 
 
 - 두 코드 모두 정확히 같은 동작을 한다.
-
 - `if let`은 보일러 플레이트도, verbose한 코드도, 굳이 필요없는 들여쓰기도 없애주지만, `match`의 exhaustive checking을 제공하지 않는다.
-
 - 결론적으로 syntax sugar이다.
-
 - else를 사용할 수도 있다.
 
 ```rust

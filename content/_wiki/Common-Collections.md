@@ -2,7 +2,7 @@
 title: 러스트의 컬렉션 모아보기
 summary: 
 date: 2024-04-14 13:53:34 +0900
-lastmod: 2024-04-14 13:53:34 +0900
+lastmod: 2025-04-30 15:50:21 +0900
 tags: 
 categories: 
 description: 
@@ -219,6 +219,10 @@ fn add(self, s: &str) -> String {
 ```
 이렇게 사용하면 `s1`은 더이상 사용할 수 없다. (self를 직접 사용하며 소유권을 가져가기 때문에)
 두 번째로 `&String`은 `&str`로 강제 변환이 가능하다.
+
+그리고 첫 string의 ownership을 가져가서 뒤에 이어붙여 전달하는 최적화된 구조이다.
+
+> 그래서 연쇄적인 +의 경우는 비효율적이며 String::push_str, 혹은 format을 이용하는게 나음
 
 ### 8.2.4 Indexing into Strings
 
