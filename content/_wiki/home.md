@@ -2,7 +2,7 @@
 title: Index 🧊️
 summary: 
 date: 2024-03-29 09:21:07 +0900
-lastmod: 2025-04-28 18:28:20 +0900
+lastmod: 2025-05-02 00:11:21 +0900
 tags: ["wiki_home"]
 categories: 
 public: true
@@ -24,20 +24,17 @@ TocOpen: true
 - [[Daily-Log-2025]] : 2025 시작!
 
 ## Archive 📘
-
 - [[Dev-Archive-2025]] : 개발관련 유용한 정보, 링크 모음
 - [[Life-Archive-2025]] : 개발 외적인 유용한 정보, 링크 모음
 - [[Cheat-Sheet]] : 개발 관련 Cheat Sheet 모음
 
 ## Rust 🦀 
-
 - [[Rust-Main]]
 - [[The-Rust-Programming-Language]]
 - [[Effective-Rust]]
 - [[Build-Redis-With-Rust]]
 
 ## Java/Kotlin 🏝️
-
 - [[코틀린-완벽-가이드-1장-6장]] : 코틀린관련 책, 강의, 스터디 내용정리
 - [[코틀린-완벽-가이드-7장-12장]] : 위의 2편!
 - [[Kotlin-Algorithms]]
@@ -64,21 +61,17 @@ TocOpen: true
 - [[Real-My-SQL]]
 
 
-
 ## Computer Science 🦉
-
 - [[OSTEP]] : 운영체제 아주 쉬운 세 가지 이야기
 - [[Network]] : TCP/IP Illustrated
 
 
 ## Vim 🦅 
-
 - [[Neovim-Copilot-Config]]
 - [[Vim-Profile-Log-Debugging]]
 - [[Vim-Impove-Sheet]]
 
 ## Postings 🌳
-
 - [[새로운-블로그-정착하기]] : 블로그 개발기
 - [[Neovim-Migration-하기]]
 - [[Interview-From-Jim-Keller]] : ai와 관련된 고민중에 보게된 인터뷰 (ai와 관련은 별로 없다)
@@ -96,5 +89,4 @@ TocOpen: true
 - [[신규-프로젝트에서-본인인증-연동-구현하기]]: postMessage를 이용해서 조금더 정돈된 방식으로 인증창 관리하기
 
 ## ETC 👻
-
 - [[Settings]]
