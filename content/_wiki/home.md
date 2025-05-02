@@ -2,7 +2,7 @@
 title: Index 🧊️
 summary: 
 date: 2024-03-29 09:21:07 +0900
-lastmod: 2025-05-02 00:11:21 +0900
+lastmod: 2025-05-02 18:37:17 +0900
 tags: ["wiki_home"]
 categories: 
 public: true
@@ -29,23 +29,14 @@ TocOpen: true
 - [[Cheat-Sheet]] : 개발 관련 Cheat Sheet 모음
 
 ## Rust 🦀 
-- [[Rust-Main]]
-- [[The-Rust-Programming-Language]]
-- [[Effective-Rust]]
-- [[Build-Redis-With-Rust]]
+- [[Rust-Index]]
 
 ## Java/Kotlin 🏝️
-- [[코틀린-완벽-가이드-1장-6장]] : 코틀린관련 책, 강의, 스터디 내용정리
-- [[코틀린-완벽-가이드-7장-12장]] : 위의 2편!
-- [[Kotlin-Algorithms]]
-- [[Kotlin-Functional]]
-- [[Java-Jvm]]
-
+- [[Java-Kotlin-Index]]
 ## Cpp 🐋
-- [[Cpp-basic]] : C++ 기본 문법 정리
+- [[Cpp-Index]] 
 
 ## PS ⚠️
-- [[cpp-ps-basic]]
 - [[competitive-programming]]
 
 ## Backend 💰
