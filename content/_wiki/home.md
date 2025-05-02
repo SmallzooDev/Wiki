@@ -2,7 +2,7 @@
 title: Index 🧊️
 summary: 
 date: 2024-03-29 09:21:07 +0900
-lastmod: 2025-05-02 18:37:17 +0900
+lastmod: 2025-05-02 18:50:23 +0900
 tags: ["wiki_home"]
 categories: 
 public: true
@@ -19,48 +19,28 @@ TocOpen: true
 ---
 
 > 큰 문제를 작은 문제 여러개로 볼 수 있는 지혜와, 가장 작은 문제 하나를 시작할 만큼의 실행력을 갖기를
-## Main 🏠
-- [[Daily-Log-2024]] : 저에 대해 궁금하시다면 이 문서를 참고해주세요(데일리 아님 주의 🙉)
+## Home 🏠
 - [[Daily-Log-2025]] : 2025 시작!
-
-## Archive 📘
 - [[Dev-Archive-2025]] : 개발관련 유용한 정보, 링크 모음
 - [[Life-Archive-2025]] : 개발 외적인 유용한 정보, 링크 모음
-- [[Cheat-Sheet]] : 개발 관련 Cheat Sheet 모음
-
 ## Rust 🦀 
 - [[Rust-Index]]
-
 ## Java/Kotlin 🏝️
 - [[Java-Kotlin-Index]]
 ## Cpp 🐋
 - [[Cpp-Index]] 
-
 ## PS ⚠️
-- [[competitive-programming]]
-
+- [[Competitive-Programming-Index]]
 ## Backend 💰
-- [[헥사고날-아키텍처]]
-- [[스프링부트]]
-- [[System-Design-Interview]]
-
-
-
+- [[Backend-Etc-Index]]
 ## DataBase 🗄️
-- [[데이터-중심-애플리케이션-설계]] : 해당 도서에 대한 스터디 내용정리 문서
-- [[Interview-Queries]] : sql50, advanced sql 50을 하루에 다섯개씩 풀 예정, 정리는 필요한것만 할 것 같다.
-- [[Real-My-SQL]]
-
-
+- [[Database-Index]]
 ## Computer Science 🦉
-- [[OSTEP]] : 운영체제 아주 쉬운 세 가지 이야기
-- [[Network]] : TCP/IP Illustrated
-
-
+- [[Computer-Science-Index]]
 ## Vim 🦅 
-- [[Neovim-Copilot-Config]]
-- [[Vim-Profile-Log-Debugging]]
-- [[Vim-Impove-Sheet]]
+- [[Vim-Index]]
+## Archived or ETC 📘
+- [[Archived-Etc-Pages]]
 
 ## Postings 🌳
 - [[새로운-블로그-정착하기]] : 블로그 개발기
@@ -79,5 +59,3 @@ TocOpen: true
 - [[결제-서비스-리뉴얼하기]] : 10몇년된 서비스의 결제 전면 리뉴얼
 - [[신규-프로젝트에서-본인인증-연동-구현하기]]: postMessage를 이용해서 조금더 정돈된 방식으로 인증창 관리하기
 
-## ETC 👻
-- [[Settings]]
