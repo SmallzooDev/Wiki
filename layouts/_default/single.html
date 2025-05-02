@@ -53,7 +53,7 @@
     <h3 style="color: #89dceb; margin-top: 0; margin-bottom: 10px; font-size: 18px;">Recent Changes ⏱️</h3>
     <ul style="list-style-type: none; padding-left: 10px; margin: 0;">
       {{ $pages := where .Site.Pages "Section" "_wiki" }} 
-      {{ $latestPages := first 20 (sort $pages "Lastmod" "desc") }} 
+      {{ $latestPages := first 40 (sort $pages "Lastmod" "desc") }} 
       {{ range $latestPages }}
       <li style="margin-bottom: 5px;">
         <a href="{{ .Permalink }}" style="color: #89dceb; text-decoration: none;">
