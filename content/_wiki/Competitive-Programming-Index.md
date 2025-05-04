@@ -2,7 +2,7 @@
 title: 코딩 인터뷰 연습 🧩
 summary: 매일 두?문제 네?가지 풀이
 date: 2025-04-28 16:58:11 +0900
-lastmod: 2025-05-03 11:32:14 +0900
+lastmod: 2025-05-04 12:21:54 +0900
 tags:
   - Kotlin
   - Cpp
@@ -17,7 +17,7 @@ tocOpen: true
 1. 보통 rust로 먼저 풀고, kotlin으로 다시 풀어봅니다.
 2. 가능하면 rust 명확하게 작성하려고 하고, 코틀린으로는 의도적으로 슈가신택스 또는 함수형 코드를 작성해보는 목적입니다.
 3. 리뷰 중 다른 좋은 풀이가 보이면 같이 정리 할 예정입니다.
-4. leetcode, boj만 풀 예정입니다.
+4. leetcode, boj
 5. [rust_repo](https://github.com/SmallzooDev/coding_interview_rust/tree/main/src/bin)
 6. [kotlinRepo](https://github.com/SmallzooDev/CodingInterviewKotlin)
 
