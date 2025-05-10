@@ -2,7 +2,7 @@
 title: 코틀린 함수형 프로그래밍
 summary: 
 date: 2025-04-27 11:20:59 +0900
-lastmod: 2025-04-28 21:33:35 +0900
+lastmod: 2025-05-10 16:00:07 +0900
 tags: 
 categories: 
 description: 
@@ -163,3 +163,81 @@ class MainPresenter(
 - subscribeBy는 그냥 콜백 함수를 저장해두고 나중에 호출
 - subscribeBy는 그 콜백 함수(this::show)가 어떤 객체(this)를 품고 있는지 몰라도 됨
 - this::show는 **이미 MainPresenter 인스턴스에 바인딩되어 있는 함수 참조**라서,subscribeBy가 단순히 onSuccess(data) 이렇게 호출만 하면, 내부적으로는 **this.show(data)** 가 실행되고,그 안에서 자연스럽게 **this.view.show(data)** 같은 것도 정상 접근 가능하다.
+
+
+## 컬렉션 처리
+---
+> 컬렉션 처리는 프로그래밍에서 가장 빈번하게 일어나는 작업 중 하나이자, 수십년동안 함수형 프로그래밍의 주요 셀링포인트 였습니다.
+> 리스프 프로그래밍 언어의 뜻 또한 list processing이다.
+
+### forEach와 onEach
+```kotlin
+
+inline fun <T> Iterable<T>.forEach(action: (T) -> Unit) {
+	for (element in this) action(element)
+}
+
+inline fun <T, C:Iterable<T>> C.onEach(
+	action: (T) -> Unit
+): C {
+	for (element in this) action(element)
+	return this
+}
+```
+- forEach -> Unit
+- onEach -> 이터러블 반환 (체이닝)
+```kotlin
+
+users.
+	.filter { it.isActive }
+	.onEach { log("Sending Msg gor user $it") }
+	.flatMap { it.remainingMessages }
+	.filter { it.isTobeSent }
+	.forEach { sendMessage(it) }
+
+```
+
+### filter
+```kotlin
+
+inline fun <T> Iterable<T>.filter(
+	predicate: (T) -> Boolean
+): List<T> {
+	val destination = ArrayList<T>()
+	for (element in this) {
+		if (predicate(element)) {
+			destination.add(element)
+		}
+	}
+}
+```
+- 현실의 필터와는 다르게 맞는것들만 걸러줌
+- 저자는 "predicate에 맞지 않는 원소들을 거르는 필터"라 생각하면 직관적이라고 함
+### map
+```kotlin
+inline fun <T, R> Iterable<T>.map(
+	transform: (T) -> R
+): List<R> {
+	val size = if (this is Collection<*>) this.size else 10
+	val destination = ArrayList<R>(size)
+	for (element in this) {
+		destination.add(transform(element))
+	}
+}
+```
+- 동일 크기의 컬렉션을 반환
+- 성능이 중요한 경우 mapNotNull을 사용
+
+### flatMap
+```kotlin
+inline fun <T, R> Iterable<T>.flatMap(
+	transform: (T) -> Iterable<R>
+): List<R> {
+	val size = if (this is Collection<*>) this.size else 10
+	val destination = ArrayList<R>(size)
+	for (element in this) {
+		destination.addAll(transform(element))
+	} 
+	return destination
+}
+```
