@@ -2,7 +2,7 @@
 title: 코틀린 함수형 프로그래밍
 summary: 
 date: 2025-04-27 11:20:59 +0900
-lastmod: 2025-05-10 16:00:07 +0900
+lastmod: 2025-05-10 16:04:42 +0900
 tags: 
 categories: 
 description: 
@@ -241,3 +241,20 @@ inline fun <T, R> Iterable<T>.flatMap(
 	return destination
 }
 ```
+
+### fold
+```kotlin
+inline fun <T, R> Iterable<T>.fold(
+	initial: R,
+	operation: (acc: R, T) -> R
+): R {
+	var accumulator = initial
+	for (element in this) {
+		accumulator = operation(accumulator, element)
+	}
+	return accumulator
+}
+```
+- 누산기
+- reduce와 다르게 초기값을 지정
+- 가장 만능이지만, 직접 사용할일은 적음 (fold를 래핑한 연산들이 거의 다 제공됨)
