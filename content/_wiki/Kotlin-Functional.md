@@ -2,7 +2,7 @@
 title: 코틀린 함수형 프로그래밍
 summary: 
 date: 2025-04-27 11:20:59 +0900
-lastmod: 2025-05-10 16:13:55 +0900
+lastmod: 2025-05-10 16:18:44 +0900
 tags: 
 categories: 
 description: 
@@ -281,3 +281,5 @@ fun main() {
 // [0] A
 // [2] C
 ```
+
+### partition
