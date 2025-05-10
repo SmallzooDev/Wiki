@@ -2,7 +2,7 @@
 title: 코틀린 함수형 프로그래밍
 summary: 
 date: 2025-04-27 11:20:59 +0900
-lastmod: 2025-05-10 16:04:42 +0900
+lastmod: 2025-05-10 16:13:55 +0900
 tags: 
 categories: 
 description: 
@@ -258,3 +258,26 @@ inline fun <T, R> Iterable<T>.fold(
 - 누산기
 - reduce와 다르게 초기값을 지정
 - 가장 만능이지만, 직접 사용할일은 적음 (fold를 래핑한 연산들이 거의 다 제공됨)
+
+### withIndex와 인덱스된 변형 함수들
+```kotlin
+fun <T> Iterable<T>.withIndex(): Iterable<IndexedValue<T>> = IdexingIterable { iterator() }
+
+data class IndexedValue<out T>(
+	val index: Int,
+	val value: T
+)
+```
+
+```kotlin
+fun main() {
+	listOf("A", "B", "C", "D") // List<String>
+		.withIndex() // List<IndexedValue<String>>
+		.filter { (index, value) -> index % 2 == 0 }
+		.map { (index, value) -> "[$index] $value" }
+		.forEach { println(it) }
+}
+
+// [0] A
+// [2] C
+```
