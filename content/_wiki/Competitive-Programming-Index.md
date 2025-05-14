@@ -2,7 +2,7 @@
 title: 코딩 인터뷰 연습 🧩
 summary: 매일 두?문제 네?가지 풀이
 date: 2025-04-28 16:58:11 +0900
-lastmod: 2025-05-14 21:46:39 +0900
+lastmod: 2025-05-14 21:49:42 +0900
 tags:
   - Kotlin
   - Cpp
@@ -75,3 +75,6 @@ tocOpen: true
 
 ### DFS, BFS
 - [[boj-p1260]] : 개념
+- todo: [2606](https://www.acmicpc.net/problem/2606)
+- todo: [2178](https://www.acmicpc.net/problem/2178)
+- todo: [1697](https://www.acmicpc.net/problem/1697)
