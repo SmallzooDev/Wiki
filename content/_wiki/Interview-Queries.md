@@ -2,14 +2,12 @@
 title: Coding Interview SQL
 summary: 
 date: 2025-02-03 17:53:08 +0900
-lastmod: 2025-02-05 20:30:28 +0900
+lastmod: 2025-05-16 21:57:32 +0900
 tags: 
 categories: 
 description: 
 showToc: true
 tocOpen: true
----
-## 2024-02-03
 ---
 ### 197. Rising Temperature
 [LeetcodeLink](https://leetcode.com/problems/rising-temperature/?envType=study-plan-v2&envId=top-sql-50)
@@ -65,9 +63,8 @@ where bonus < 1000 or bonus is null;
 
 > 바로 다음 문제인데, 왜 이것들이 같이 묶여있는지 모르겠다. 이런건 스킵해야겠다.
 
-
-## 2025-02-05
----
+  
+### 1280. Students and Examinations
 [LeecodeLink](https://leetcode.com/problems/students-and-examinations/submissions/1532223359/?envType=study-plan-v2&envId=top-sql-50)
 
 ```sql
@@ -112,3 +109,23 @@ count(e.id) >= 5;
 ```
 > 이건 왜 medium일까
 
+
+
+### 1934. Confirmation Rate
+[LeecodeLink](https://leetcode.com/problems/confirmation-rate/description/?envType=study-plan-v2&envId=top-sql-50)
+
+```sql
+select 
+    s.user_id, 
+    round(ifnull(avg(case when c.action = 'confirmed' then 1 else 0 end), 0), 2) as confirmation_rate
+from 
+    signups s
+left join 
+    confirmations c on s.user_id = c.user_id
+group by 
+    s.user_id;
+```
+
+- 그냥 집계함수 쓰는 문제
+- 먼저 모든 결과를 포함하기 위해 left join + ifnull함수 사용
+- user_id groupby 이후 action칼럼 + 조건식으로 avg
