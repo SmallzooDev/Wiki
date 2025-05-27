@@ -2,7 +2,7 @@
 title: 코틀린 함수형 프로그래밍
 summary: 
 date: 2025-04-27 11:20:59 +0900
-lastmod: 2025-05-10 16:18:44 +0900
+lastmod: 2025-05-27 12:56:32 +0900
 tags: 
 categories: 
 description: 
@@ -283,3 +283,340 @@ fun main() {
 ```
 
 ### partition
+
+```kotlin
+inline fun <T> Iterable<T>.partition(
+    predicate: (T) -> Boolean
+): Pair<List<T>, List<T>> {
+    val first = ArrayList<T>()
+    val second = ArrayList<T>()
+    for (element in this) {
+        if (predicate(element)) {
+            first.add(element)
+        } else {
+            second.add(element)
+        }
+    }
+    return Pair(first, second)
+}
+```
+
+- 조건에 맞는 것과 맞지 않는 것을 분리해서 Pair로 반환
+- filter를 두 번 쓰는 것보다 효율적
+
+```kotlin
+val numbers = listOf(1, 2, 3, 4, 5, 6)
+val (even, odd) = numbers.partition { it % 2 == 0 }
+// even: [2, 4, 6], odd: [1, 3, 5]
+```
+
+### groupBy
+
+```kotlin
+inline fun <T, K> Iterable<T>.groupBy(
+    keySelector: (T) -> K
+): Map<K, List<T>> {
+    val destination = LinkedHashMap<K, MutableList<T>>()
+    for (element in this) {
+        val key = keySelector(element)
+        val list = destination.getOrPut(key) { ArrayList<T>() }
+        list.add(element)
+    }
+    return destination
+}
+```
+
+- 키별로 그룹핑해서 Map으로 반환
+- SQL의 GROUP BY와 비슷한 개념
+
+```kotlin
+data class Person(val name: String, val age: Int)
+
+val people = listOf(
+    Person("Alice", 25),
+    Person("Bob", 30),
+    Person("Charlie", 25)
+)
+
+val grouped = people.groupBy { it.age }
+// {25=[Person(Alice, 25), Person(Charlie, 25)], 30=[Person(Bob, 30)]}
+```
+
+### associate 계열
+
+```kotlin
+inline fun <T, K, V> Iterable<T>.associate(
+    transform: (T) -> Pair<K, V>
+): Map<K, V> {
+    val destination = LinkedHashMap<K, V>()
+    for (element in this) {
+        destination += transform(element)
+    }
+    return destination
+}
+```
+
+- 컬렉션을 Map으로 변환
+- associateBy, associateWith 등의 변형도 있음
+
+```kotlin
+val words = listOf("apple", "banana", "cherry")
+val lengthMap = words.associate { it to it.length }
+// {apple=5, banana=6, cherry=6}
+
+val firstCharMap = words.associateBy { it.first() }
+// {a=apple, b=banana, c=cherry}
+
+val upperMap = words.associateWith { it.uppercase() }
+// {apple=APPLE, banana=BANANA, cherry=CHERRY}
+```
+
+### distinct와 distinctBy
+
+```kotlin
+fun <T> Iterable<T>.distinct(): List<T> {
+    return this.toMutableSet().toList()
+}
+
+inline fun <T, K> Iterable<T>.distinctBy(
+    selector: (T) -> K
+): List<T> {
+    val set = HashSet<K>()
+    val list = ArrayList<T>()
+    for (e in this) {
+        val key = selector(e)
+        if (set.add(key)) {
+            list.add(e)
+        }
+    }
+    return list
+}
+```
+
+- distinct: 중복 제거
+- distinctBy: 특정 속성 기준으로 중복 제거
+
+```kotlin
+val numbers = listOf(1, 2, 2, 3, 3, 3)
+println(numbers.distinct()) // [1, 2, 3]
+
+val people = listOf(
+    Person("Alice", 25),
+    Person("Bob", 30),
+    Person("Charlie", 25)
+)
+val distinctByAge = people.distinctBy { it.age }
+// [Person(Alice, 25), Person(Bob, 30)] - 나이가 같은 Charlie는 제외
+```
+
+### take와 drop 계열
+
+- take: 앞에서부터 n개 가져오기
+- drop: 앞에서부터 n개 버리기
+- takeWhile: 조건이 참인 동안 가져오기
+- dropWhile: 조건이 참인 동안 버리기
+
+```kotlin
+val numbers = listOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+
+println(numbers.take(3)) // [1, 2, 3]
+println(numbers.drop(3)) // [4, 5, 6, 7, 8, 9, 10]
+
+println(numbers.takeWhile { it < 5 }) // [1, 2, 3, 4]
+println(numbers.dropWhile { it < 5 }) // [5, 6, 7, 8, 9, 10]
+```
+
+### zip
+
+```kotlin
+infix fun <T, R> Iterable<T>.zip(
+    other: Iterable<R>
+): List<Pair<T, R>> {
+    return zip(other) { t1, t2 -> t1 to t2 }
+}
+```
+
+- 두 컬렉션을 짝지어서 Pair의 리스트로 만듦
+- 길이가 다르면 짧은 쪽에 맞춰짐
+
+```kotlin
+val names = listOf("Alice", "Bob", "Charlie")
+val ages = listOf(25, 30, 35, 40)
+
+val paired = names.zip(ages)
+// [(Alice, 25), (Bob, 30), (Charlie, 35)] - 40은 버려짐
+
+val formatted = names.zip(ages) { name, age -> "$name is $age years old" }
+// ["Alice is 25 years old", "Bob is 30 years old", "Charlie is 35 years old"]
+```
+
+### 순서 관련 함수들
+
+- sorted: 정렬 (Comparable 구현 필요)
+- sortedBy: 특정 속성으로 정렬
+- sortedWith: 커스텀 Comparator로 정렬
+- reversed: 순서 뒤집기
+
+```kotlin
+val words = listOf("banana", "apple", "cherry")
+
+println(words.sorted()) // [apple, banana, cherry]
+println(words.sortedBy { it.length }) // [apple, banana, cherry] - 길이순
+println(words.sortedWith(compareByDescending { it.length })) // [banana, cherry, apple]
+println(words.reversed()) // [cherry, apple, banana]
+```
+
+### 검색 함수들
+
+- find: 첫 번째로 조건에 맞는 원소 (없으면 null)
+- first: 첫 번째 원소 (없으면 예외)
+- firstOrNull: 첫 번째 원소 (없으면 null)
+- any: 조건에 맞는 원소가 하나라도 있는지
+- all: 모든 원소가 조건에 맞는지
+- none: 조건에 맞는 원소가 하나도 없는지
+
+```kotlin
+val numbers = listOf(1, 2, 3, 4, 5)
+
+println(numbers.find { it > 3 }) // 4
+println(numbers.first { it > 3 }) // 4
+println(numbers.any { it > 3 }) // true
+println(numbers.all { it > 0 }) // true
+println(numbers.none { it < 0 }) // true
+```
+
+### 집계 함수들
+
+- count: 원소 개수 (조건 있으면 조건에 맞는 개수)
+- sum: 합계 (숫자 타입만)
+- average: 평균 (숫자 타입만)
+- min, max: 최솟값, 최댓값
+- minBy, maxBy: 특정 속성 기준 최솟값, 최댓값을 가진 원소
+
+```kotlin
+val numbers = listOf(1, 2, 3, 4, 5)
+
+println(numbers.count()) // 5
+println(numbers.count { it > 3 }) // 2
+println(numbers.sum()) // 15
+println(numbers.average()) // 3.0
+
+val people = listOf(
+    Person("Alice", 25),
+    Person("Bob", 30),
+    Person("Charlie", 20)
+)
+println(people.minBy { it.age }) // Person(Charlie, 20)
+println(people.maxBy { it.age }) // Person(Bob, 30)
+```
+
+### 체이닝의 장점과 주의사항
+
+- 함수형 스타일의 컬렉션 처리는 가독성이 좋고 실수가 적다
+- 하지만 중간 컬렉션이 계속 생성되므로 성능에 주의해야 함
+- 성능이 중요한 경우 시퀀스(sequence)를 고려해볼 것
+
+```kotlin
+// 매번 새로운 리스트가 생성됨
+val result = (1..1000000)
+    .filter { it % 2 == 0 }
+    .map { it * 2 }
+    .take(10)
+
+// 지연 계산으로 성능 개선
+val result2 = (1..1000000).asSequence()
+    .filter { it % 2 == 0 }
+    .map { it * 2 }
+    .take(10)
+    .toList()
+```
+
+## 시퀀스 (Sequence)
+
+---
+### 시퀀스의 특징
+
+- 지연 계산(lazy evaluation)
+- 중간 연산은 지연되고 종단 연산에서 실행
+- 무한 시퀀스 생성 가능
+- 메모리 효율적
+
+
+```kotlin
+// 컬렉션 방식 - 즉시 계산
+val result1 = (1..100)
+    .filter { it % 2 == 0 }  // 새로운 리스트 생성
+    .map { it * 2 }          // 또 다른 새로운 리스트 생성
+    .take(5)                 // 또 다른 새로운 리스트 생성
+
+// 시퀀스 방식 - 지연 계산
+val result2 = (1..100).asSequence()
+    .filter { it % 2 == 0 }  // 아직 실행 안됨
+    .map { it * 2 }          // 아직 실행 안됨
+    .take(5)                 // 아직 실행 안됨
+    .toList()                // 여기서 모든 연산이 한번에 실행
+```
+
+### 무한 시퀀스
+
+
+```kotlin
+val fibonacci = generateSequence(1 to 1) { (first, second) ->
+    second to (first + second)
+}.map { it.first }
+
+val first10Fibonacci = fibonacci.take(10).toList()
+// [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
+```
+
+## 고차 함수 심화
+
+---
+
+### let, run, with, apply, also
+
+```kotlin
+// let - 객체를 it으로 받아서 블록 실행, 블록의 결과 반환
+val result = "Hello".let { str ->
+    str.uppercase() + " World"
+} // "HELLO World"
+
+// run - 객체를 this로 받아서 블록 실행, 블록의 결과 반환
+val result2 = "Hello".run {
+    uppercase() + " World"
+} // "HELLO World"
+
+// with - 객체를 this로 받아서 블록 실행, 블록의 결과 반환 (확장함수 아님)
+val result3 = with("Hello") {
+    uppercase() + " World"
+} // "HELLO World"
+
+// apply - 객체를 this로 받아서 블록 실행, 객체 자신을 반환
+val person = Person("").apply {
+    name = "Alice"
+    age = 25
+} // Person(name="Alice", age=25)
+
+// also - 객체를 it으로 받아서 블록 실행, 객체 자신을 반환
+val numbers = mutableListOf(1, 2, 3).also { list ->
+    println("Original list: $list")
+} // 리스트는 그대로, 로그만 출력
+```
+
+### takeIf와 takeUnless
+
+```kotlin
+// takeIf - 조건이 참이면 객체 반환, 거짓이면
+val positiveNumber = (-5).takeIf { it > 0 } // null
+
+// takeUnless - 조건이 거짓이면 객체 반환, 참이면 null
+val notEmptyString = "".takeUnless { it.isEmpty() } // null
+
+// 실용적인 예
+fun processUser(user: User?): String {
+    return user
+        ?.takeIf { it.isActive }
+        ?.let { "Processing user: ${it.name}" }
+        ?: "User is inactive or null"
+}
+```
