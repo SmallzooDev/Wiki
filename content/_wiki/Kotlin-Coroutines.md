@@ -2,7 +2,7 @@
 title: 코틀린 코루틴 👾
 summary: kotlin coroutines 책 정리
 date: 2025-04-28 16:58:11 +0900
-lastmod: 2025-05-29 22:21:10 +0900
+lastmod: 2025-05-29 23:39:41 +0900
 tags:
   - Kotlin
   - Cpp
@@ -650,3 +650,90 @@ fun <T> CoroutineScope.async(
 ): Deferred<T>
 
 ```
+- 반면에 runBlocking은 CoroutineScope의 확장함수를 인자로 받는다.
+- 그리고 그 인자의 람다에서는 CoroutineScope를 this로 참조 가능하다.
+```kotlin
+fun main() = runBlocking {
+    this.launch { // launch로 호출한 것과 같습니다.
+        delay(1000L)
+        println("World!")
+    }
+    launch { // this.launch로 호출한 것과 같습니다.
+        delay(2000L)
+        println("World!")
+    }
+    println("Hello,")
+}
+```
+
+- 아래처럼 scope를 알아서 생성한다.
+```kotlin
+fun <T> runBlocking(
+    context: CoroutineContext = EmptyCoroutineContext,
+    block: suspend CoroutineScope.() -> T
+): T {
+    val scope = BlockingCoroutine<T>(context)
+    return scope.startBlockingCoroutine(block)
+}
+```
+- 이런 관점에서 부모가 (예시에서는 runBlocking이) 자식들을 해당 스코프내에서 호출한다.
+- 이를 통해 "구조화된 동시성"이라는 관계가 성립한다.
+
+부모 자식 관계의 가장 중요한 특징은다음과 같다.
+1. 자식은 부모로부터 컨텍스트를 상속받는다.
+2. 부모는 모든 자식이 작업을 마칠 때까지 기다린다
+3. 부모 코루틴이 취소되면 자식 코루틴도 취소된다
+4. 자식 코루틴에서 에러가 발생하면, 부모 코루틴 또한 에러로 소멸한다.
+
+### 현업에서의 코루틴 사용
+> 첫 번째 빌더가 스코프에서 시작되면 다른 빌더가 첫 번째 빌더의 스코프에서 시작될 수 있습니다. 이것이 애플리케이션이 구조화되는 본질입니다.
+
+- 이쪽의 예시코드는 뭔가 좀 잘못된것같다.
+- 내용 자체도 큰 의미 없는 것 같다.
+- 실사용 코드를 보여주는게 목적이었던 것 같긴 한데..
+- 그나마 중단 함수에서 스코프를 어떻게 처리하냐는 물음이 의미가 있는 것 같다.
+	- 중단 함수 내에서는 중단 될 수 있지만 함수 내에는 스코프가 없다.
+	- 스코프를 인자로 넘기는건 좋은방법이 아니다.
+
+### couroutineScope 사용하기
+```kotlin
+suspend fun getArticlesForUser(
+    userToken: String?,
+): List<ArticleJson> = coroutineScope {
+    val articles = async { articleRepository.getArticles() }
+    val user = userService.getUser(userToken)
+    articles.await()
+        .filter { canSeeOnList(user, it) }
+        .map { toArticleJson(it) }
+}
+
+```
+- coroutineScope는 람다 표현식이 필요로 하는 스코프를 만들어 주는 중단 함수
+- 이 함수는 let, run, use 또는 runBlocking처럼 람다식이 반환하는 것 이면 무엇이든 반환
+
+## 7장 코루틴 컨텍스트
+슥 지나갔지만 코루틴 빌더 시그니처에 보면 첫 번째 파라미터가 CoroutineContext이다.
+그리고, 확장함수의 리시버, 마지막 람다의 리시버도 CoroutineScope이다.
+```kotlin
+fun CoroutineScope.launch(
+    context: CoroutineContext = EmptyCoroutineContext,
+    start: CoroutineStart = CoroutineStart.DEFAULT,
+    block: suspend CoroutineScope.() -> Unit
+): Job
+```
+그래서 CoroutineScope를 보면 뭔가 context를 래핑한 것 같은 것이 있다.
+```kotlin
+public interface CoroutineScope {
+	public val coroutineContext: CoroutineContext
+}
+```
+심지어 Continuation에도 있다.
+```kotlin
+public interface Continuation<in T> {
+	public val context: CoroutineContext
+	public fun resumeWith(result: Result<T>)
+}
+```
+
+
+### CorutineContext 인터페이스
