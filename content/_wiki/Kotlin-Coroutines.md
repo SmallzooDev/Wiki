@@ -2,7 +2,7 @@
 title: 코틀린 코루틴 👾
 summary: kotlin coroutines 책 정리
 date: 2025-04-28 16:58:11 +0900
-lastmod: 2025-05-29 17:54:36 +0900
+lastmod: 2025-05-29 22:13:53 +0900
 tags:
   - Kotlin
   - Cpp
@@ -492,3 +492,130 @@ internal abstract class BaseContinuationImpl(
 일단 언어 레벨의 지원은 직접 사용하기 어렵지만 보편적이라 거의 모든 동시성 스타일이 허용된다는 것과
 라이브러리에서는 반대로 사용하기 편리하지만, 단 하나의 명확한 동시성 스타일을 위해 설계되어있다는 차이가 있다.
 ## 6장 코루틴 빌더
+> 중단 함수는 컨티뉴에이션 객체를 다른 중단 함수로 전달해야 합니다. 따라서 중단 함수가 일반 함수를 호출하는 것은 가능하지만, 일반 함수가 중단 함수를 호출하는 것은 불가능합니다. 모든 중단 함수는 또 다른 중단 함수에 의해 호출되어야 하며, 이는 앞서 호출한 중단 함수 또한 마찬가지입니다. 중단 함수를 연속으로 호출하면 시작되는 지점이 반드시 있습니다. 코루틴 빌더가 그 역할을 하며, 일반 함수와 중단 가능한 세계를 연결시키는 다리가 됩니다.
+
+kotlinx.coroutines 라이브러리가 제공하는 세가지 필수적인 코루틴 빌더를 알아본다.
+- launch
+- runBlocking
+- async
+
+### launch 빌더
+```kotlin
+fun main() {
+    GlobalScope.launch {
+        delay(1000L)
+        println("World!")
+    }
+    GlobalScope.launch {
+        delay(1000L)
+        println("World!")
+    }
+    GlobalScope.launch {
+        delay(1000L)
+        println("World!")
+    }
+    println("Hello,")
+    Thread.sleep(2000L) // 메인함수가 코루틴의 delay가 끝나는동안 끝나버리는 것을 막기 위해
+}
+
+// Hello,
+// (1초후)
+// World!
+// World!
+// World!
+```
+
+- launch 함수는 CoroutineScope 인터페이스의 확장함수이다.
+- CoroutineScope 인터페이스는 부모 코루틴과 자식 코루틴 사이의 관계를 정립하기 위한 목적으로 사용되는 구조화된 동시성의 핵심이다.
+- launch는 thread함수를 호출해서 새로운 스레드를 시작하는것과 비슷하게 동작한다.(비용은 thread가 압도적)
+
+### runBlocking 빌더
+```kotlin
+fun main() {
+    runBlocking {
+        delay(1000L)
+        println("World!")
+    }
+    runBlocking {
+        delay(1000L)
+        println("World!")
+    }
+    runBlocking {
+        delay(1000L)
+        println("World!")
+    }
+    println("Hello,")
+}
+// (1초 후)
+// World!
+// (1초 후)
+// World!
+// (1초 후)
+// World!
+// Hello,
+```
+- 블로킹이 필요한 경우 사용한다.
+- 블로킹을 시작한 스레드를 중단시킨다. (정확히 말하면, 새로운 코루틴을 실행한 뒤 완료될 때까지 스레드를 중단 가능한 상태로 블로킹한다)
+
+### async 빌더
+```kotlin
+fun main() = runBlocking {
+    val resultDeferred: Deferred<Int> = GlobalScope.async {
+        delay(1000L)
+        42
+    }
+// 다른 작업을 합니다...
+    val result: Int = resultDeferred.await() // (1초 후)
+    println(result) // 42
+// 다음과 같이 간단하게 작성할 수도 있습니다.
+    println(resultDeferred.await()) // 42
+}
+
+```
+- launch와 비슷하지만 값을 생성하도록 설계되어있다.
+- 이 값은 람다 표현식에 의해 반환되어야 한다. (마지막에 위치한 함수형의 인자에 의해 반환된다)
+- async함수는 `Deferred<T>` 타입의 객체를 리턴하며, 여기서 T는 생성되는 값의 타입이다.
+```kotlin
+fun main() = runBlocking {
+    val res1 = GlobalScope.async {
+        delay(1000L)
+        "Text 1"
+    }
+    val res2 = GlobalScope.async {
+        delay(3000L)
+        "Text 2"
+    }
+    val res3 = GlobalScope.async {
+        delay(2000L)
+        "Text 3"
+    }
+    println(res1.await())
+    println(res2.await())
+    println(res3.await())
+}
+// (1초 후)
+// Text 1
+// (2초 후)
+// Text 2
+// Text 3
+
+```
+
+- 아래처럼 병렬적으로 작업을 진행할때 사용
+```kotlin
+scope.launch {
+    val news = async {
+        newsRepo.getNews()
+            .sortedByDescending { it.date }
+    }
+    val newsSummary = newsRepo.getNewsSummary()
+	// async로 래핑할 수도 있지만,
+	// 불필요한 작업입니다.
+    view.showNews(
+        newsSummary,
+        news.await()
+    )
+}
+
+```
+
