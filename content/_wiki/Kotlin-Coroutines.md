@@ -2,7 +2,7 @@
 title: 코틀린 코루틴 👾
 summary: kotlin coroutines 책 정리
 date: 2025-04-28 16:58:11 +0900
-lastmod: 2025-05-29 17:17:33 +0900
+lastmod: 2025-05-29 17:54:36 +0900
 tags:
   - Kotlin
   - Cpp
@@ -12,7 +12,7 @@ showToc: true
 tocOpen: true
 ---
 
-
+> 모든 내용의 출처는 : https://www.yes24.com/product/goods/123034354
 
 
 ## 3장 중단은 어떻게 작동할까?
@@ -432,3 +432,63 @@ class PrintUserContinuation(
 
 ```
 
+### 콜 스택
+코루틴을 중단하면 스레드를 반환해 콜스택에 있는 정보가 사라진다.
+
+문제는 재개될 때 콜스택에 있는 정보가 없다는건데, 그걸 컨티뉴에이션 객체가 콜스택의 역할을 대신한다.
+
+```kotlin
+internal abstract class BaseContinuationImpl(  
+    val completion: Continuation<Any?>?,  
+) : Continuation<Any?>, CoroutineStackFrame, Serializable {  
+    // 아래 함수는 resumeWith가 재귀 함수라,  
+    // 이를 전개하기 위해 final로 구현되어 있습니다.  
+    final override fun resumeWith(result: Result<Any?>) {  
+        // 아래 반복문은 current.resumeWith(param)에서  
+        // 재귀를 전개하여 재개되었을 때  
+        // 스택 트레이스를 적절하게 작은 크기로 만듭니다.  
+        var current = this  
+        var param = result  
+        while (true) {  
+            // 컨티뉴에이션 객체를 재개할 때마다  
+            // "resume" 디버그 조사를 실행함으로써  
+            // 디버깅 라이브러리가  
+            // 중단된 콜 스택 중 어떤 부분이 이미 재개되었는지  
+            // 추적할 수 있게 합니다.  
+            probeCoroutineResumed(current)  
+            with(current) {  
+                val completion = completion!! // 완료되지 않은 상태에서  
+                // 컨티뉴에이션 객체를 재개하면  
+                // 곧바로 실패합니다.  
+                val outcome: Result<Any?> =  
+                    y {  
+                        val outcome = invokeSuspend(param)  
+                        if (outcome === COROUTINE_SUSPENDED)  
+                            return  
+                        Result.success(outcome)  
+                    } catch (exception: Throwable) {  
+                Result.failure(exception)  
+            }  
+                releaseIntercepted()  
+                // 상태 머신이 종료되는 중일 때 실행됩니다.  
+                if (completion is BaseContinuationImpl) {  
+                    // 반복문을 통해 재귀 호출을 풉니다.  
+                    current = completion  
+                    param = outcome  
+                } else {  
+                    // 최상위 컨티뉴에이션 객체인 completion에 도달했습니다 --                    // 실행 후 반환합니다.  
+                    completion.resumeWith(outcome)  
+                    return  
+                }  
+            }  
+        }  
+    }    // ...  
+}
+```
+
+## 5장 코루틴: 언어 차원에서의 지원 vs 라이브러리
+> 질문을 좀 더 요약하자면, 컴파일러레벨의 지원을 포함한 언어 자체적인 지원과 kotlinx.coroutines 라이브러리의 기능을 따로 봐야 한다는 것이다.
+
+일단 언어 레벨의 지원은 직접 사용하기 어렵지만 보편적이라 거의 모든 동시성 스타일이 허용된다는 것과
+라이브러리에서는 반대로 사용하기 편리하지만, 단 하나의 명확한 동시성 스타일을 위해 설계되어있다는 차이가 있다.
+## 6장 코루틴 빌더
