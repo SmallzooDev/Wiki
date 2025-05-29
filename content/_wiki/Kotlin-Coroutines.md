@@ -2,7 +2,7 @@
 title: 코틀린 코루틴 👾
 summary: kotlin coroutines 책 정리
 date: 2025-04-28 16:58:11 +0900
-lastmod: 2025-05-29 22:13:53 +0900
+lastmod: 2025-05-29 22:21:10 +0900
 tags:
   - Kotlin
   - Cpp
@@ -619,3 +619,34 @@ scope.launch {
 
 ```
 
+### 구조화된 동시성
+> 코루틴이 GlobalScope에서 시작되었다면 프로그램은 해당 코루틴을 기다리지 않습니다. 코루틴은 어떤 스레드도 블록하지 않기 때문에 프로그램(메인 스레드)가 끝나는 걸 막을 방법이 없습니다.
+
+```kotlin
+fun main() = runBlocking {
+    GlobalScope.launch { delay(1000L); println("World!") }
+    GlobalScope.launch { delay(2000L); println("World!") }
+    println("Hello,")
+}
+```
+- 위가 가장 대표적인 예시이다.
+- runBlocking은 자신의 스코프에서 수행된 코루틴은 블록해준다. GlobalScope에서 수행된 코루틴은 관계가 없기 때문에 블락하지 않는다.
+> 그럼 애초에 왜 이렇게 GlobalScope가 필요할까?
+- 그 이유는 launch, async가 CoroutineScope의 확장 함수이기 때문
+```kotlin
+fun <T> runBlocking(
+    context: CoroutineContext = EmptyCoroutineContext,
+    block: suspend CoroutineScope.() -> T
+): T
+fun CoroutineScope.launch(
+    context: CoroutineContext = EmptyCoroutineContext,
+    start: CoroutineStart = CoroutineStart.DEFAULT,
+    block: suspend CoroutineScope.() -> Unit
+): Job
+fun <T> CoroutineScope.async(
+    context: CoroutineContext = EmptyCoroutineContext,
+    start: CoroutineStart = CoroutineStart.DEFAULT,
+    block: suspend CoroutineScope.() -> T
+): Deferred<T>
+
+```
