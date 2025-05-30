@@ -2,10 +2,9 @@
 title: 코틀린 코루틴 👾
 summary: kotlin coroutines 책 정리
 date: 2025-04-28 16:58:11 +0900
-lastmod: 2025-05-30 15:17:13 +0900
+lastmod: 2025-05-30 17:07:21 +0900
 tags:
   - Kotlin
-  - Cpp
 categories: 
 description: 
 showToc: true
@@ -963,3 +962,315 @@ fun main(): Unit = runBlocking {
 }
 // (아무것도 출력하지 않고, 즉시 종료합니다.)
 ```
+
+### 자식들 기다리기
+> 잡의 첫 번째 중요한 이점은 코루틴이 완료될 때까지 기다리는데 사용될 수 있다는 것, join메서드를 사용해서 할 수 있다.
+- join은 지정한 job이 completed, cancelled와 같은 마지막 상태로 조달할 때 까지 기다리는 중단함수.
+
+```kotlin
+fun main(): Unit = runBlocking {
+    launch {
+        delay(1000)
+        println("Test1")
+    }
+    launch {
+        delay(2000)
+        println("Test2")
+    }
+
+    val children = coroutineContext[Job]
+        ?.children
+    val childrenNum = children?.count()
+    println("Number of children: $childrenNum")
+    children?.forEach { it.join() }
+    println("All tests are done")
+}
+
+```
+
+### 잡 팩토리 함수
+- Job() 팩토리 함수로 잡을 생성할수 있다.
+- 주로 다른 자식 코루틴을 엮어서 부모 job으로 활용하기는 하는데 아래와 같은 실수를 하면 안된다.
+
+```kotlin
+suspend fun main(): Unit = coroutineScope {  
+    val job = Job()  
+    launch(job) { // 새로운 잡이 부모로부터 상속받은 잡을 대체합니다.  
+        delay(1000)  
+        println("Text 1")  
+    }  
+    launch(job) { // 새로운 잡이 부모로부터 상속받은 잡을 대체합니다.  
+        delay(2000)  
+        println("Text 2")  
+    }  
+	// job.complete() 이렇게 빈 잡을 완료시키고 join하거나 하지 않으면
+    job.join() // 여기서 영원히 대기하게 됩니다.
+    // job.children.forEach { it.join() } 이렇게 하던지..
+    println("Will not be printed")  
+}
+```
+
+
+## 9장 취소
+> 코루틴에서 아주 중요한 기능 중 하나는 바로 취소 입니다.
+> 취소는 아주 중요한 기능이기 때문에 중단 함수를 사용하는 클래스와 라이브러리를 취소를 지원하고 있습니다. 단순히 스레드를 죽이면 연결을 닫고 자원을 해제하는 기회가 없기 때문에 최악이고, 개발자들이 상태를 직접 확인하는건 불편합니다.
+
+> 코틀린 코루틴의 취소 방식은 아주 간단하고 편리하며 안전하며, 저자의 커리어동안 본 모든 방식중 단연 최고라고 합니다 😮
+
+### 기본적인 취소
+- 호출한 코루틴은 첫 번째 중단점(아래 예제에서는 delay)에서 잡을 끝냅니다.
+- 잡이 자식을 가지고 있다면, 그들 또한 취소됩니다. 하지만 부모는 영향을 받지 않습니다.
+- 잡이 취소되면, 취소된 잡은 새로운 코루틴의 부모로 사용될 수 없습니다.
+- 취소된 잡은 ‘Cancelling’ 상태가 되었다가 ‘Cancelled’ 상태로 바뀝니다
+
+```kotlin
+suspend fun main(): Unit = coroutineScope {
+    val job = launch {
+        repeat(1000) {
+            delay(200)
+            println("Printing $it")
+        }
+    }
+
+    delay(1100)
+    job.cancel()
+    job.join()
+    println("Cancelled!!")
+}
+```
+- cancel 함수에 예외를 인자로 넣어 취소된 원인을 명확하게 할 수 있다.
+- CancelationException의 서브타입으로 넣어야 한다.
+- cancel 이후 join을 하지 않으면 경쟁 상태가 될 수 있다.
+```kotlin
+delay(1000)
+job.cancel()                    // 취소 요청만 보냄 (즉시 반환)
+println("Cancelled successfully") // 바로 실행됨!
+// 하지만 job이 아직 실행 중일 수 있음!
+```
+
+```kotlin
+job.cancel()
+job.join()  // 실제 종료까지 기다림
+println("Cancelled successfully") // 이제 확실히 끝난 후 출력
+```
+
+- 아래의 가장 명확하고 직관적인 이름을 가진 함수를 쓰는걸 추천한다.
+```kotlin
+public suspend fun Job.cancelAndJoin() {
+    cancel()
+    return join()
+}
+```
+
+### 취소는 어떻게 작동하는가?
+잡이 취소되면 'Cancelling' 상태로 바뀐다. 상태가 바뀐 뒤 첫 번째 중단점에서 CancellationException 예외를 던진다. 예외는 try-catch로 직접 잡을수 있지만, 다시 던져주는 것이 좋다.
+
+```kotlin
+suspend fun main(): Unit = coroutineScope {
+    val job = Job()
+    launch(job) {
+        try {
+            repeat(1_000) { i ->
+                delay(200)
+                println("Printing $i")
+            }
+        } catch (e: CancellationException) {
+            println(e)
+            throw e
+        }
+    }
+    delay(1100)
+    job.cancelAndJoin()
+    println("Cancelled successfully")
+    delay(1000)
+}
+```
+- 사실 잡아서 처리할일은 디버깅 정도니까 아래 예시가 유의미 한 것 같다 (자원정리)
+```kotlin
+suspend fun main(): Unit = coroutineScope {
+    val job = Job()
+    launch(job) {
+        try {
+            delay(Random.nextLong(2000))
+            println("Done")
+        } finally {
+            print("Will always be printed")
+        }
+    }
+    delay(1000)
+    job.cancelAndJoin()
+}
+```
+
+### 취소 중 코루틴을 한 번 더 호출하기
+- Job이 Cancelling 상태가 된 이후에는 다른 코루틴을 시작하는건 무시되고, 중단하려고 하면 exception이 터진다.
+```kotlin
+suspend fun main(): Unit = coroutineScope {
+    val job = Job()
+    launch(job) {
+        try {
+            delay(2000)
+            println("Job is done")
+        } finally {
+            println("Finally")
+            launch { // 무시됩니다.
+                println("Will not be printed")
+            }
+            delay(1000) // 여기서 예외가 발생합니다.
+            println("Will not be printed")
+        }
+    }
+    delay(1000)
+    job.cancelAndJoin()
+    println("Cancel done")
+}
+// (1초 후)
+// Finally
+// Cancel done
+```
+- 그렇지만 취소 후 정리작업중 꼭 진행해야하는 것들에 중단이 필요한 경우가 있다.
+- 예를들어 db롤백같은 것들이 있는데, 이러한 경우 withContext를 이용한다.
+```kotlin
+suspend fun main(): Unit = coroutineScope {
+    val job = Job()
+    launch(job) {
+        try {
+            delay(200)
+            println("Coroutine finished")
+        } finally {
+            println("Finally")
+            withContext(NonCancellable) {
+                delay(1000)
+                println("Clean up done!")
+            }
+        }
+    }
+
+    delay(100)
+    job.cancelAndJoin()
+    println("Done")
+}
+
+/**
+ * Finally
+ * Clean up done!
+ * Done
+ */
+```
+
+
+### invokeOnCompletion
+- 마찬가지로 자원 정리에서 쓰인다.
+- 잡이 'Completed', 'Cancelled'와 같이 마지막 상태에 도달했을 때 호출될 핸들러를 지정해준다.
+```kotlin
+suspend fun main(): Unit = coroutineScope {
+    val job = launch {
+        delay(Random.nextLong(2400))
+        println("Finished")
+    }
+    delay(800)
+    job.invokeOnCompletion { exception: Throwable? ->
+        println("Will always be printed")
+        println("The exception was: $exception")
+    }
+    delay(800)
+    job.cancelAndJoin()
+}
+// Will always be printed
+// The exception was:
+// kotlinx.coroutines.JobCancellationException
+// (또는)
+// Finished
+// Will always be printed
+// The exception was null
+
+```
+- invokeOnCompletion은 취소하는 중에 동기적으로 호출되며, 어떤 스레드에서 실행할지 결정할 수는 없다.
+
+### 중단 할 수 없는것을 중단하기
+```kotlin
+suspend fun main(): Unit = coroutineScope {
+    val job = Job()
+    launch(job) {
+        repeat(1_000) { i ->
+            Thread.sleep(200) // 여기서 복잡한 연산이나
+			// 파일을 읽는 등의 작업이 있다고 가정합니다.
+            println("Printing $i")
+        }
+    }
+    delay(1000)
+    job.cancelAndJoin()
+    println("Cancelled successfully")
+    delay(1000)
+}
+// Printing 0
+// Printing 1
+// Printing 2
+// ... (1000까지)
+
+```
+- Thread.sleep()은 코루틴의 중단점이 아니라 스레드의 중단이다.
+- 결과적으로 아래 코루틴에는 중단점이 없다.
+- 하지만 실제로는 엄청 긴 cpu bound 작업들이 Thread.sleep()처럼 블로킹된 것 처럼 동작 할 수 있다.
+```kotlin
+    launch(job) {
+        repeat(1_000) { i ->
+            Thread.sleep(200)
+            println("Printing $i")
+        }
+    }
+```
+- 이런 경우 아래처럼, 중간에 yield()를 넣어주면서 해결한다.
+```kotlin
+suspend fun main(): Unit = coroutineScope {
+    val job = Job()
+    launch(job) {
+        repeat(1_000) { i ->
+            Thread.sleep(200)
+			yield() // 200ms 마다 도달하는 중단점
+            println("Printing $i")
+        }
+    }
+    delay(1000)
+    job.cancelAndJoin()
+    println("Cancelled successfully")
+    delay(1000)
+}
+```
+- 다른 방법으로는 coroutineScope의 isActive 프로퍼티를 이용 할 수 있다.
+```kotlin
+suspend fun main(): Unit = coroutineScope {
+    val job = Job()
+    launch(job) {
+        do {
+            Thread.sleep(200)
+            println("Printing")
+        } while (isActive) // 200ms마다 스스로 취소된 job인지 확인
+    }
+    delay(1100)
+    job.cancelAndJoin()
+    println("Cancelled successfully")
+}
+```
+- 위와 비슷한 방법으로 ensureActive()함수가 있음
+```kotlin
+suspend fun main(): Unit = coroutineScope {
+    val job = Job()
+    launch(job) {
+        repeat(1000) { num ->
+            Thread.sleep(200)
+            ensureActive()
+            println("Printing $num")
+        }
+    }
+    delay(1100)
+    job.cancelAndJoin()
+    println("Cancelled successfully")
+}
+```
+- 1번의 yield와 2,3번은 비슷해보이지만 매우 다르다.
+- 중단하고 재개하는 일이 일어나기 때문에 스레드풀을 가진 디스패처를 사용하면 스레드가 바뀔 수 있다고 한다.
+- 그리고 ensureActive가 좀 더 가볍다고 한다.
+- yield는 cpu사용량이 크거나 스레드를 실제로 블로킹하는 경우 자주 사용한다고 한다.
+
+## 예외 처리
