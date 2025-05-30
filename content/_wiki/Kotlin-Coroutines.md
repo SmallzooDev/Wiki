@@ -2,7 +2,7 @@
 title: 코틀린 코루틴 👾
 summary: kotlin coroutines 책 정리
 date: 2025-04-28 16:58:11 +0900
-lastmod: 2025-05-29 23:39:41 +0900
+lastmod: 2025-05-30 15:12:16 +0900
 tags:
   - Kotlin
   - Cpp
@@ -737,3 +737,230 @@ public interface Continuation<in T> {
 
 
 ### CorutineContext 인터페이스
+> 원소나 원소들의 집합을 나타내는 인터페이스 입니다. Job, CoroutineName, CoroutineDispatcher와 같은 Element 객체들이 인덱싱된 집합이라는 점에서 맵이나 셋과 같은 컬렉션이랑 개념이 비슷합니다. 특이한 점은 각 Element 또한 CoroutineContext라는 점입니다. 따라서 컬렉션내 모든 원소는 그 자체만으로 컬렉션이라 할 수 있습니다.
+
+
+### CoroutineContext에서 원소 찾기
+- 컬렉션과 비슷하다는 특성으로 하여금 get을 이용하 유일한 키를 가진 원소를 찾을 수 있다.
+- 대괄호를 사용하는 방법도 가능
+```kotlin
+fun main() {
+    val ctx: CoroutineContext = CoroutineName("A name")
+    val coroutineName: CoroutineName? = ctx[CoroutineName]
+	// 또는 ctx.get(CoroutineName)
+    println(coroutineName?.name) // A name
+    val job: Job? = ctx[Job] // 또는 ctx.get(Job)
+    println(job) // null
+}
+```
+- 무튼 CoroutineName을 찾기 위해서는 CoroutineName만 사용하면됨
+- companian object기 때문에 .name과 같이 접근
+
+### 컨텍스트 더하기
+> 일반적인 자료구조처럼 더할 수 있다.
+```kotlin
+fun main() {
+    val ctx1: CoroutineContext = CoroutineName("Name1")
+    println(ctx1[CoroutineName]?.name) // Name1
+    println(ctx1[Job]?.isActive) // null
+    val ctx2: CoroutineContext = Job()
+    println(ctx2[CoroutineName]?.name) // null
+    println(ctx2[Job]?.isActive) // 'Active' 상태이므로 true입니다.
+    // 빌더를 통해 생성되는 잡의 기본 상태가 'Actice' 상태이므로 true가 됩니다.
+    val ctx3 = ctx1 + ctx2
+    println(ctx3[CoroutineName]?.name) // Name1
+    println(ctx3[Job]?.isActive) // true
+}
+
+//CoroutineContext에 같은 키를 가진 또 다른 원소가 더해지면 맵처럼 새로운
+//원소가 기존 원소를 대체합니다.
+
+fun main() {
+    val ctx1: CoroutineContext = CoroutineName("Name1")
+    println(ctx1[CoroutineName]?.name) // Name1
+    val ctx2: CoroutineContext = CoroutineName("Name2")
+    println(ctx2[CoroutineName]?.name) // Name2
+    val ctx3 = ctx1 + ctx2
+    println(ctx3[CoroutineName]?.name) // Name2
+}
+
+```
+
+### 코루틴 컨텍스트와 빌더
+> 기본적으로 자식은 부모의 컨텍스트를 상속받는다, 당연히 자식이 빌더의 인자에서 정의된 특정 컨텍스트를 가진다면 상속받은 컨텍스트를 대체한다.
+```kotlin
+fun CoroutineScope.log(msg: String) {
+    val name = coroutineContext[CoroutineName]?.name
+    println("[$name] $msg")
+}
+
+fun main() = runBlocking(CoroutineName("main")) {
+    log("started")
+    val v1 = async {
+        delay(500)
+        log("Running async")
+        42
+    }
+
+    launch(CoroutineName("not main")) {
+        delay(1000)
+        log("Running launch")
+    }
+
+    log("The answer is ${v1.await()}")
+}
+
+/**
+ * [main] started
+ * [main] Running async
+ * [main] The answer is 42
+ * [not main] Running launch
+ */
+```
+- defaultContext + parentContext + childContext
+
+### 중단 함수에서 컨텍스트에 접근하기
+> continutation 객체 참조로 접근이 된다.
+```kotlin
+suspend fun printName() {
+    println(coroutineContext[CoroutineName]?.name)
+}
+suspend fun main() = withContext(CoroutineName("Outer")) {
+    printName() // Outer
+    launch(CoroutineName("Inner")) {
+        printName() // Inner
+    }
+    delay(10)
+    printName() // Outer
+}
+
+/**
+ * fun printName(continuation: Continuation<Unit>) {
+ *     val context = continuation.context
+ *     println(context[CoroutineName]?.name)
+ * }
+ */
+
+```
+> 이 책의 가장 헷갈리는 부분중 하나는 Continuation Passing Style (CPS)가 컴파일 타임에 일어나는데 (suspend함수들을 continuation객체를 넣고 실행 흐름을 넣고 상태를 분리하는 등의 작업) 이 부분을 설명을 해주긴 했지만, 이렇게 설명을 스킵하는 부분이 있다는게 아쉽다. 무튼 cps가 일어난후 개념적으로는 아래 주석처리된 함수처럼 변하고 알아서 해준다는 이야기 🤨
+
+## 8장 잡과 자식 코루틴 기다리기
+구조화된 동시성에서 배운 부모-자식 관계의 특성 리마인드
+- 자식은 부모로부터 컨텍스트를 상속받습니다.
+- 부모는 모든 자식이 작업을 마칠 때까지 기다립니다.
+- 부모 코루틴이 취소되면 자식 코루틴도 취소됩니다.
+- 자식 코루틴에서 에러가 발생하면, 부모 코루틴 또한 에러로 소멸합니다.
+위의 내용중 1번은 지난 장에서 컨텍스트를 이야기하며 배웠고, 나머지 세개는 8,9장에서 주요하게 다루는 job과 관련된 내용이다.
+
+### Job이란 무엇인가?
+- job은 수명을 가지고 있으며 취소 가능하다.
+- 인터페이스이긴 하지만, 구체적인 사용법과 상태를 가지고 있다는 점에서 추상 클래스처럼 다룰 수 있다.
+- job의 수명은 상태로 나타낸다
+![jobstate](https://github.com/user-attachments/assets/d8242239-7d27-4d9d-9d62-9058d29c1e98)
+- 'Active' : 잡이 실행되고 코루틴이 잡을 수행하는 상태 (이 상태에서 자식 코루틴 생성 가능)
+- 'New' : 지연시작되었을때 제한적으로 사용, 보통은 바로 Active
+- 'Completing' : 실행이 완료된 상태, (자식코루틴이 있다면 기다림)
+- 'Completed' : 자식 코루틴들도 완료된 상태
+- 'Cancelling' : 취소되거나 실패됨, 그 이후에 후처리중인 상태
+- 'Cancelled' : 취소된 다음 후처리까지 완료된 상태.
+
+```kotlin
+suspend fun main() = coroutineScope {
+// 빌더로 생성된 잡은
+    val job = Job()
+    println(job) // JobImpl{Active}@ADD
+// 메서드로 완료시킬 때까지 Active 상태입니다.
+    job.complete()
+    println(job) // JobImpl{Completed}@ADD
+// launch는 기본적으로 활성화되어 있습니다.
+    val activeJob = launch {
+        delay(1000)
+    }
+    println(activeJob) // StandaloneCoroutine{Active}@ADD
+// 여기서 잡이 완료될 때까지 기다립니다.
+    activeJob.join() // (1초 후)
+    println(activeJob) // StandaloneCoroutine{Completed}@ADD
+// launch는 New 상태로 지연 시작됩니다.
+    val lazyJob = launch(start = CoroutineStart.LAZY) {
+        delay(1000)
+    }
+    println(lazyJob) // LazyStandaloneCoroutine{New}@ADD
+// Active 상태가 되려면 시작하는 함수를 호출해야 합니다.
+    lazyJob.start()
+    println(lazyJob) // LazyStandaloneCoroutine{Active}@ADD
+    lazyJob.join() // (1초 후)
+    println(lazyJob) // LazyStandaloneCoroutine{Completed}@ADD
+}
+
+```
+잡의 상태를 확인하기 위한 프로퍼티들 
+
+| 상태                   | isActive | isCompleted | isCancelled |
+| -------------------- | -------- | ----------- | ----------- |
+| New (지연 시작될 때 시작 상태) | false    | false       | false       |
+| Active (시작 상태 기본값)   | true     | false       | false       |
+| Completing (일시적인 상태) | true     | false       | false       |
+| Cancelling (일시적인 상태) | false    | false       | true        |
+| Cancelled (최종 상태)    | false    | true        | true        |
+| Completed (최종 상태)    | false    | true        | false       |
+### 코루틴 빌더는 부모의 잡을 기초로 자신들의 잡을 생성한다
+> 빌더들은 자신만의 잡을 생성한다. 대부분의 코루틴 빌더들이 실제로 잡을 반환한다
+```kotlin
+fun main(): Unit = runBlocking {  
+    val job: Job = launch {  
+        delay(1000)  
+        println("Test")  
+    }  
+}
+
+fun main(): Unit = runBlocking { 
+    val deferred: Deferred<String> = async { 
+        delay(1000)
+        "Test"
+    }
+    
+    val job: Job = deferred // 가능 deferred<>는 Job 인터페이스를 구현
+}
+
+
+// coroutineContext[Job] 으로 접근 가능하지만, 이런 확장 프로퍼티가 있다.
+val CoroutineContext.job: Job
+	get() = get(Job) ?: error("Current context doesn't...")
+
+fun main(): Unit = runBlocking {
+	print(coroutineContext.job.isActive) // true
+}
+
+```
+
+> Job은 코루틴이 상속하지 않는 유일한 코루틴 컨텍스트이며, 이는 코루틴에서 아주 중요한 법칙입니다. 모든 코루틴은 자신만의 Job을 생성하며 인자 또는 부모 코루틴으로부터 온 잡은 새로운 잡의 부모로 사용됩니다
+
+> 표현이 와닿지 않는데, 간단히 말하면 다른 컨텍스트 요소들과 달리 Job은 직접 상속되지 않고, 대신 부모-자식 관계를 형성한다는 이야기 🤓
+
+```kotlin
+val parentJob = Job()
+val parentContext = CoroutineName("Parent") + parentJob
+
+launch(parentContext) {
+    val myJob = coroutineContext[Job]!!
+    println("내 Job: $myJob")
+    println("부모와 같은 Job? ${myJob === parentJob}") // false!
+    println("부모 Job: ${myJob.parent}") // parentJob과 동일
+    
+    launch { // 자식 코루틴
+        val childJob = coroutineContext[Job]!!
+        println("자식의 부모 Job: ${childJob.parent}") // myJob과 동일
+    }
+}
+```
+
+```kotlin
+fun main(): Unit = runBlocking {
+    launch(Job()) { // 새로운 잡이 부모로부터 상속받은 잡을 대체합니다.
+        delay(1000)
+        println("Will not be printed")
+    }
+}
+// (아무것도 출력하지 않고, 즉시 종료합니다.)
+
+```
