@@ -2,7 +2,7 @@
 title: 코틀린 코루틴 👾
 summary: kotlin coroutines 책 정리
 date: 2025-04-28 16:58:11 +0900
-lastmod: 2025-05-30 17:07:21 +0900
+lastmod: 2025-05-30 21:48:54 +0900
 tags:
   - Kotlin
 categories: 
@@ -1273,4 +1273,219 @@ suspend fun main(): Unit = coroutineScope {
 - 그리고 ensureActive가 좀 더 가볍다고 한다.
 - yield는 cpu사용량이 크거나 스레드를 실제로 블로킹하는 경우 자주 사용한다고 한다.
 
-## 예외 처리
+## 10장 예외 처리
+> 기본적으로 자식의 에러는 부모로 전파되며 부모가 종료되면, 다른 형제 코루틴에도 에러가 전파된다.
+
+```kotlin
+fun main(): Unit = runBlocking {
+// try-catch 구문으로 래핑하지 마세요. 무시됩니다.
+    try {
+        launch {
+            delay(1000)
+            throw Error("Some error")
+        }
+    } catch (e: Throwable) { // 여기선 아무 도움이 되지 않습니다.
+        println("Will not be printed")
+    }
+    launch {
+        delay(2000)
+        println("Will not be printed")
+    }
+}
+// Exception in thread "main" java.lang.Error: Some error...
+
+```
+그리고 이런건 도움이 되지 않는다.
+
+### SupervisorJob
+가장 중요한 방법은 SupervisorJob을 사용하는것
+```kotlin
+fun main(): Unit = runBlocking {
+    val scope = CoroutineScope(SupervisorJob())
+    scope.launch {
+        delay(1000)
+        throw Error("Some error")
+    }
+    scope.launch {
+        delay(2000)
+        println("Will be printed")
+    }
+}
+// Exception...
+// Will be printed
+
+```
+- 이건 뒤에가서 조금 더 자세히
+### SupervisorScope
+```kotlin
+fun main(): Unit = runBlocking {
+    supervisorScope {
+        launch {
+            delay(1000)
+            throw Error("Some error")
+        }
+        launch {
+            delay(2000)
+            println("Will be printed")
+	    }
+	}
+	
+	delay(1000)
+	println("Done")
+	// Exception...
+}
+```
+- 이래도 안일어남
+
+### 코루틴 예외 핸들러
+```kotlin
+fun main(): Unit = runBlocking {
+    val handler =
+        CoroutineExceptionHandler { ctx, exception ->
+            println("Caught $exception")
+        }
+    val scope = CoroutineScope(SupervisorJob() + handler)
+    scope.launch {
+        delay(1000)
+        throw Error("Some error")
+    }
+    scope.launch {
+        delay(2000)
+        println("Will be printed")
+    }
+
+	delay(3000)
+}
+// Caught java.lang.Error: Some error
+// Will be printed
+
+```
+
+## 11장 코루틴 스코프 함수
+> 스코프를 다루지 못하던 기존의 코드들
+```kotlin
+// 데이터를 동시에 가져오지 않고, 순차적으로 가져옵니다.
+suspend fun getUserProfile(): UserProfileData {
+    val user = getUserData() // (1초 후)
+    val notifications = getNotifications() // (1초 후)
+    return UserProfileData(
+        user = user,
+        notifications = notifications,
+    )
+}
+
+// async로 래핑하기 위해 Global scope를 사용했습니다.
+suspend fun getUserProfile(): UserProfileData {
+    val user = GlobalScope.async { getUserData() }
+    val notifications = GlobalScope.async {
+        getNotifications()
+    }
+    return UserProfileData(
+        user = user.await(), // (1초 후)
+        notifications = notifications.await(),
+    )
+}
+
+```
+- 취소될 수 없음(부모가 취소되어도 async 내부의 함수가 실행 중인 상태가 되므로 작업이 끝날 때까지 자원이 낭비).
+- 부모로부터 스코프를 상속받지 않음(항상 기본 디스패처에서 실행되며, 부모의 컨텍스트를 전혀 신경 쓰지 않음).
+- 그렇다고 함수 인자로 스코프를 넘기는것도 나쁘다.
+
+### coroutineScope
+> 스코프를 시작하는 중단 함수이며, 인자로 들어온 함수가 생성한 값을 반환
+```kotlin
+suspend fun <R> coroutineScope(
+	block: suspend CoroutineScope.() -> R
+): R
+```
+
+```kotlin
+suspend fun longTask() = coroutineScope {
+    launch {
+        delay(1000)
+        val name = coroutineContext[CoroutineName]?.name
+        println("[$name] Finished task 1")
+    }
+    launch {
+        delay(2000)
+        val name = coroutineContext[CoroutineName]?.name
+        println("[$name] Finished task 2")
+    }
+}
+fun main() = runBlocking(CoroutineName("Parent")) {
+    println("Before")
+    longTask()
+    println("After")
+}
+// Before
+// (1초 후)
+// [Parent] Finished task 1
+// (1초 후)
+// [Parent] Finished task 2
+// After
+
+```
+
+### 코루틴 스코프 함수
+> 스코프를 만드는 함수도 용도에 따라 다양하게 있다.
+- `coroutineScope`: 기본적인 코루틴 스코프 생성
+- `supervisorScope`: SupervisorJob을 사용하는 버전
+- `withContext`: 코루틴 컨텍스트 변경 가능
+- `withTimeout`: 타임아웃 기능 포함
+
+헷갈리는 스코프함수와 코루틴 빌더의 정리:
+
+| 코루틴 빌더                      | 코루틴 스코프 함수                        |
+| --------------------------- | --------------------------------- |
+| launch, async, produce      | coroutineScope, supervisorScope 등 |
+| CoroutineScope의 확장 함수       | 중단 함수                             |
+| CoroutineScope 리시버의 컨텍스트 사용 | 중단 함수의 컨티뉴에이션 컨텍스트 사용             |
+| 예외가 Job을 통해 부모로 전파          | 일반 함수처럼 예외를 던짐                    |
+| 비동기 코루틴 시작                  | 호출된 곳에서 코루틴 시작                    |
+## 12장 디스패처
+> 코틀린 코루틴 라이브러리가 제공하는 중요한 기능은 코루틴이 실행되어야(시작하거나 재개하는 등) 할 스레드(또는 스레드 풀)를 결정할 수 있다는 것
+
+### 기본 디스패처
+> 디스패처를 설정하지 않으면 기본적으로 설정되는 디스패처는 CPU 집약적인 연산을 수행하도록 설계된 Dispatchers.Default
+- cpu갯수와 동일한 스레드수를 설정
+```kotlin
+suspend fun main() = coroutineScope {
+	repeat(1000) {
+	launch { // 또는 launch(Dispatchers.Default) {
+		// 바쁘게 만들기 위해 실행합니다.
+		List(1000) { Random.nextLong() }.maxOrNull()
+		val threadName = Thread.currentThread().name
+		println("Running on thread: $threadName")
+		}
+	}
+}
+```
+
+### IO 디스패처
+**IO 디스패처의 용도** `Dispatchers.IO`는 다음과 같은 상황에서 사용하도록 설계되었다:
+- 파일 읽기/쓰기 작업
+- 안드로이드 셰어드 프레퍼런스 사용
+- 블로킹 함수 호출
+- 시간이 오래 걸리는 I/O 연산
+
+메인 스레드나 기본 디스패처를 블로킹하면 전체 애플리케이션에 영향을 주기 때문에 별도의 IO 디스패처를 사용한다.
+
+**스레드 풀 관리와 제한**
+- `Dispatchers.IO`는 최대 64개 스레드까지 사용할 수 있다 (또는 코어 수가 더 많다면 해당 수만큼)
+- `Dispatchers.Default`는 프로세서 코어 수로 제한된다
+- 두 디스패처는 같은 스레드 풀을 공유하여 효율성을 높인다
+
+**블로킹 함수의 래핑** 블로킹 함수를 중단 함수로 변환할 때는 `withContext(Dispatchers.IO)`로 래핑하는 패턴을 사용한다:
+
+```kotlin
+class DiscUserRepository(
+    private val discReader: DiscReader
+) : UserRepository {
+    override suspend fun getUser(): UserData =
+        withContext(Dispatchers.IO) {
+            UserData(discReader.read("userName"))
+        }
+}
+```
+
+**limitedParallelism 활용** `Dispatchers.IO`의 64개 스레드 제한을 넘어서야 하는 경우 `limitedParallelism` 함수를 사용한다. 이 함수는 독립적인 스레드 풀을 가진 새로운 디스패처를 생성하며, 원하는 만큼 많은 스레드를 설정할 수 있다. 예를 들어, 100개의 코루틴이 각각 1초씩 블로킹하는 작업에서 일반 IO 디스패처는 2초가 걸리지만, `limitedParallelism(100)`을 사용하면 1초만 소요된다.
