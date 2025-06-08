@@ -2,7 +2,7 @@
 title: 프로그래밍 러스트 💭
 summary: 
 date: 2025-06-07 12:45:57 +0900
-lastmod: 2025-06-08 12:52:53 +0900
+lastmod: 2025-06-08 20:16:48 +0900
 tags: 
 categories: 
 description: 
@@ -102,4 +102,138 @@ let ramp = (0..n).collect::<Vec<i32>>(); // turbofish
 // 아니면
 return Vec::with_capacity(10); // 함수의 시그니처를 통해 추론, 생략
 let ramp: Vec<i32> = (0..n).collect(); // 변수 타입지정으로 추론, 생략
+```
+
+## 오류 처리
+- 일상적인 오류는 Result로 처리한다. 버그가 없는 프로그램조차도 마주하는 문제들을 표현한다.
+- 패닉은 반대로 절대로 발생해서는 안 되는 오류를 위한 것이다.
+
+### panic
+- 발생하면, 
+	- 패닉이 발생한 지점의 스택을 덤프해준다.
+	- 스택이 해제된다.
+	- 현재 함수가 쓰던 임시값, 지역변수, 인수는 생성된 순서와 반대로 드롭된다.
+	- 현재 함수가 다 정리되면 호출부로 이동해서 동일한 일을 반복한다.
+	- 반복하다가 스택 끝에 도달하면 스레드가 종료된다.
+	- 메인스레드였다면 프로세스를 종료한다.
+- 즉 패닉은 이렇게 규칙적인 과정에 어울리지 않는 이름일지도 모른다. 패닉은 크래시도, 미정의 동작도 아니며 오히려 RuntimeException에 가깝다.
+- 동작은 잘 정의되어 있다. 단지 발생하면 안 될 뿐이다.
+- 심지어 `std::panic::catch_unwind()`를 쓰면 스택 해제를 잡아서 스레드를 살릴수도 있다.
+- 그런데 첫번째 패닉을 정리하던중 .drop()이 두번째 패닉을 유발하면 러스트는 해제를 멈추고 전체 프로세스를 중단시킨다.
+
+### result
+- 러스트는 예외가 없고 그걸 result가 대신한다.
+- 기본적으로 match 표현식으로 대응하는데, 이게 try-catch역할을 한다.
+- 그러나 match는 불필요하게 장황한 경우가 있어 다양한 메서드를 지원한다.
+- result.is_ok(), result.is_err() : 성공 결과 여부 bool 반환
+- result.ok() : option t 변환
+- result.err() : option e 변환
+- result.unwrap_or(fallback) : 성공일경우 결과, 아니면 fallback
+- result.unwrap_or(fallback_fn) : 성공일경우 결과, 아니면 fallback함수의 결과값 (함수 혹은 클로저를 받음)
+- result.unwrap() : 성공일경우 결과, 아니면 패닉
+- result.expoect(message) : 성공일경우 결과, 아니면 메세지를 포함하는 패닉
+- result.as_ref(), result.as_mut = 레퍼런스, 혹은 변경가능 레퍼런스를 빌려온다.
+- 마지막 두 메서드가 중요한 이유는 나머지는 전부 result를 소비한다는 것이다.
+
+```rust
+result.as_ref().ok() // Option<&T>
+```
+
+## 모듈
+- 모듈은 프로젝트 내부의 코드 구성에 관한 것
+- 모듈은 아이템의 집합체이다. 아이템이란 '이름이 있는 기능을 말한다.'
+- `pub(crate)`는 크레이트 내부 어디서든 사용할 수 있지만, 외부 인터페이스의 일부로 노출하지는 않겠다는 뜻
+- 아이템을 pub으로 표기하는걸 내보내기라고 한다.
+
+```rust
+mod plant_structures {  
+    pub mod roots {  
+        pub mod products {  
+            pub(in crate::plant_structures::roots) struct Cytokinin {  
+               // ...   
+        }        use products::Cytokinin; // Ok: roots 모듈 안에서는 문제 없다.  
+    }  
+    use crate::plant_structures::roots::products::Cytokinin; // Err: cytokinin은 비공개다.  
+}  
+  
+use plant_structures::roots::products::Cytokinin; // Err: 비공개
+```
+ㅐ
+
+## 스트럭트
+- 기본적으로 포인터타입에게서 레퍼런스를 자동으로 빌려오기때문에, &self, &mut self정도면 거의 잘 동작한다
+```rust
+struct Queue {
+    data: Vec<char>,
+}
+
+impl Queue {
+    fn new() -> Self {
+        Queue { data: vec![] }
+    }
+
+    fn push(&mut self, c: char) {
+        self.data.push(c);
+    }
+}
+
+fn main() {
+    let mut bq = Box::new(Queue::new());
+    bq.push('a'); // OK: Box<T>는 DerefMut 있어서 자동으로 bq -> *bq -> &mut Queue
+}
+```
+- 그러나 어떤 메서드가 Self 포인터의 소유권을 필요로하는데 때 마침 그의 호출부가 그러한 포인터를 가지고 있다면, 러스트는 이를 그 메서드의 self 인수로 넘길 수 있게 해준다. (타입명시는 필요)
+```rust
+use std::rc::Rc;
+
+struct Node {
+    children: Vec<Rc<Node>>,
+}
+
+impl Node {
+    // 이 메서드는 Rc<Node>의 소유권이 필요함
+    fn append_to(self: Rc<Self>, parent: &mut Node) {
+        parent.children.push(self); // self를 parent의 children에 추가
+    }
+}
+
+fn main() {
+    let mut parent = Node { children: vec![] };
+    let child = Rc::new(Node { children: vec![] });
+    
+    // child는 Rc<Node> 타입
+    // append_to 메서드는 self: Rc<Self>를 받음
+    // 러스트가 이를 자동으로 매칭시켜줌
+    child.append_to(&mut parent);
+}
+```
+
+
+- 상수 매개변수를 갖는 제네릭 스트럭트도 있다.
+```rust
+struct Polynomial<const N: usize> {
+    coefficients: [f64; N],
+}
+
+impl<const N: usize> Polynomial<N> {
+    fn new(coefficients: [f64; N]) -> Polynomial<N> {
+        Polynomial { coefficients }
+    }
+
+    fn eval(&self, x: f64) -> f64 {
+        let mut sum = 0.0;
+        for i in (0..N).rev() {
+            sum = self.coefficients[i] + x * sum;
+        }
+        sum
+    }
+}
+
+```
+
+- 다른 종류의 제네릭의 순서는 아래와 같다
+```rust
+struct LumpOfReferences<'a, T, const N: usize> {
+	the_lump: [&'a, T; N]
+}
 ```
