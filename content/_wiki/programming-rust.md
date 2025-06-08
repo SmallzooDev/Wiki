@@ -2,7 +2,7 @@
 title: 프로그래밍 러스트 💭
 summary: 
 date: 2025-06-07 12:45:57 +0900
-lastmod: 2025-06-08 20:16:48 +0900
+lastmod: 2025-06-08 20:44:13 +0900
 tags: 
 categories: 
 description: 
@@ -237,3 +237,80 @@ struct LumpOfReferences<'a, T, const N: usize> {
 	the_lump: [&'a, T; N]
 }
 ```
+
+
+
+## Pattern
+- 표현식은 값을 생산하고 패턴은 값을 소비한다.
+```rust
+let x = 5;
+let y = x;        // y = x에서 x는 패턴, 5라는 값을 받아서 소비
+
+match some_value {
+    Some(data) => println!("{}", data),  // Some(data)는 패턴, 값을 받아서 분해
+    None => println!("nothing"),         // None도 패턴
+}
+
+let (a, b) = (1, 2);  // (a, b)는 패턴, (1, 2) 튜플을 받아서 분해
+```
+
+- ref 패턴
+```rust
+struct Person {
+    name: String,
+    age: u32,
+}
+
+let person = Person {
+    name: String::from("Alice"),
+    age: 30,
+};
+
+match person {
+    Person { ref name, age } => {
+        println!("{} is {} years old", name, age);  // name은 &String, age는 u32
+    }
+}
+// person.name은 이동되지 않았지만, person.age는 Copy라서 복사됨
+```
+
+```rust
+enum BinaryTree<T> {
+    Empty,
+    NotEmpty(Box<TreeNode<T>>),
+}
+
+struct TreeNode<T> {
+    element: T,
+    left: BinaryTree<T>,
+    right: BinaryTree<T>,
+}
+
+impl <T: Ord> BinaryTree<T> {
+    fn add(&mut self, value: T) {
+        match *self { 
+            BinaryTree::Empty => {
+                *self = BinaryTree::NotEmpty(Box::new(TreeNode {
+                    element: value,
+                    left: BinaryTree::Empty,
+                    right: BinaryTree::Empty,
+                }))
+            }
+            
+            BinaryTree::NotEmpty(ref mut node) => {
+                if value <= node.element {
+                    node.left.add(value);
+                } else {
+                    node.right.add(value);
+                }
+            }
+        }
+    }
+}
+
+let mut tree = BinaryTree::Empty;
+tree.add("Mercury");
+tree.add("Venus");
+
+```
+
