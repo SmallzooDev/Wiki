@@ -2,7 +2,7 @@
 title: 프로그래밍 러스트 💭
 summary: 
 date: 2025-06-07 12:45:57 +0900
-lastmod: 2025-06-09 15:49:32 +0900
+lastmod: 2025-06-09 21:23:59 +0900
 tags: 
 categories: 
 description: 
@@ -475,4 +475,86 @@ fn dump(iter: &mut dyn Iterator<Item=String>) {
 ```
 - 위처럼 이터레이터가 가장 대표적인 예시지만, 스레드풀 라이브러리에서의 Task가 Output과 같은 연관타입을, Pattern 트레이트가 Match를 , RDB를 다루는 라이브러리가 DatabaseConnection을 가지는 것처럼 트레이트가 단순히 메서드의 모음 이상의 역할을 할 때 늘 유용하다.
 - 다만 이렇게 하나의 산출물만 나오는것처럼 행복하게 풀리는 것은 아니다
+- 러스트에서 곱셈은 다음의 트레이트를 통해 수행된다.
+```rust
+/// std::ops::Mul, '*'를 지원하는 타입을 위한 트레이트.
+pub trait Mul<RHS> {
+	/// * 연산자를 적용하고 난 뒤의 결과 타입.
+	type Output;
+	/// * 연산자를 위한 메서드.
+	fn mul(self, rhs: RHS) -> Self::Output;
+}
+```
+- 제네릭 트레이트에는 고아 규칙에 특별 허가권이 부여된다. 트레이트의 타입 매개변수가 현재 크레이트에 정의된 타입을 하나라도 포함할 때는 외부 타입에 대해서 외부 트레이트를 구현할 수 있다는게 그것이다.
+- 이게 통하는 이유는 다른 크레이트에서 정의할 방법이 없어 구현간에 충돌이 발생할 수 없기 때문이다.
+```rust
+// 예를 들어, 내 크레이트에서 이런 건 불가능
+impl std::fmt::Display for Vec<i32> {  // 에러!
+    // Vec도 외부 타입, Display도 외부 트레이트
+}
 
+// 다른 크레이트에서 정의된 타입들
+struct ExternalTypeA;
+struct ExternalTypeB;
+
+// std에 정의된 Mul 트레이트 (외부 트레이트)
+// 이건 원래 안 됨 (외부 타입 + 외부 트레이트)
+impl Mul<ExternalTypeB> for ExternalTypeA {  // 에러!
+    type Output = i32;
+    fn mul(self, rhs: ExternalTypeB) -> i32 { 42 }
+}
+
+// 내 크레이트에서 정의한 타입
+struct MyType;
+
+// 이건 가능! (MyType이 타입 매개변수에 포함됨)
+impl Mul<MyType> for ExternalTypeA {  // 가능!
+    type Output = i32;
+    fn mul(self, rhs: MyType) -> i32 { 42 }
+}
+
+// 또는 이것도 가능!
+impl Mul<ExternalTypeB> for MyType {  // 가능!
+    type Output = i32;
+    fn mul(self, rhs: ExternalTypeB) -> i32 { 42 }
+}
+```
+
+- 많은 제네릭타입을 조합하면 흉물스러워진다.
+```rust
+
+fn cyclical_zip(v: Vec<u8>, u: Vec<u8>) ->
+	iter::Cycle<iter::Chain<IntoIter<u8>, IntoIter<u8>>> {
+	v.into_iter().chain(u.into_iter()).cycle()
+}
+```
+
+1. `IntoIter<u8>`
+```rust
+v.into_iter()  // Vec<u8> → IntoIter<u8>
+u.into_iter()  // Vec<u8> → IntoIter<u8>
+```
+- `std::vec::IntoIter<u8>`의 줄임말
+- 벡터를 소비해서 소유권을 가진 반복자로 변환
+
+2. `iter::Chain<IntoIter<u8>, IntoIter<u8>>`
+```rust
+v.into_iter().chain(u.into_iter())
+```
+- `std::iter::Chain<std::vec::IntoIter<u8>, std::vec::IntoIter<u8>>`
+- 두 반복자를 연결해서 하나의 반복자로 만듦
+- 첫 번째 반복자의 모든 요소를 먼저 순회하고, 그 다음 두 번째 반복자 순회
+
+3. `iter::Cycle<iter::Chain<IntoIter<u8>, IntoIter<u8>>>`
+```rust
+v.into_iter().chain(u.into_iter()).cycle()
+```
+- `std::iter::Cycle<std::iter::Chain<std::vec::IntoIter<u8>, std::vec::IntoIter<u8>>>`
+- Chain 반복자를 무한히 반복하는 반복자로 변환
+
+```rust
+fn cyclical_zip(v: Vec<u8>, u: Vec<u8>) -> impl Iterator<Item=u8>
+```
+
+## 연산자 오버로딩
+- 이번 장의 목표는 여러분이 자신의 타입을 언어에 잘 통합하도록 돕는 것 뿐 아니라, 연산자를 통해 쓰이는 타입에 가장 자연스럽게 작용하는 제네릭 함수를 작성하는 법에 관한 더 나은 감각을 전해 주는 것이다.
