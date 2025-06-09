@@ -2,7 +2,7 @@
 title: 프로그래밍 러스트 💭
 summary: 
 date: 2025-06-07 12:45:57 +0900
-lastmod: 2025-06-09 15:10:34 +0900
+lastmod: 2025-06-09 15:49:32 +0900
 tags: 
 categories: 
 description: 
@@ -405,3 +405,74 @@ ToString::to_string("hello");
 <str as ToString>::to_string("hello);
 ```
 - 밑에서 두번째는 qualified 호출이라고 하며, 마지막은 fully qualified 호출이라고 함.
+
+위에가 필요한 억지스러운 예시
+```rust
+// outlaw가 Visible, HasPistol trait를 구현한 구현체일때 각 트레이트에 fn draw(&self)가 있다면
+outlaw.draw(); // err
+
+Visible::draw(&outlaw);
+HasPistol::draw(&outlaw);
+```
+
+조금 더 자연스러운 예시들
+```rust
+let zero = 0; // i8? u8? usize? ...
+zero.abs(); // err
+i64::abs(zero);
+```
+
+- 트레이트는 타입 간의 관계를 기술할 수 있어서 여러 타입이 맞물려 돌아가야 하는 상황에도 쓰일 수 있다. 여기서 중요한 점은 트레이트와 메서드 시그니처를 읽고 이들과 관련된 타입에 대해서 어떤 말을 하고 있는지 파악하기 위해서 이부분을 알야야 한다는 것이다.
+```rust
+pub trait Iterator {
+	type Item;
+
+	fn next(&mut self) -> Option<Self::Item>;
+}
+
+impl Iterator for Args {
+	type Item = String;
+
+	fn next(&mut self) -> Option<String> {}
+}
+
+fn collect_into_vector<I: Iterator>(iter: I) -> Vec<I::Item> {
+	let mut results = Vec::new();
+	for value in iter {
+		results.push(value);
+	}
+	results
+}
+```
+
+```rust
+fn dump<I>(iter: I)
+	where I: Iterator
+{
+	for (index, value) in iter.enumerate() {
+		println!("{}: {:?}", index, value); // err
+	}
+}
+
+fn dump<I>(iter: I)
+	where I: Iterator, I::Item: Debug`
+{
+	for (index, value) in iter.enumerate() {
+		println!("{}: {:?}", index, value);
+	}
+}
+
+// 혹은 
+fn dump<I>(iter: I)
+	where I: Iterator<Item=String>
+
+// 트레이트 객체를 사용하고 싶다면
+fn dump(iter: &mut dyn Iterator<Item=String>) {
+	for (index, s) in iter.enumerate() {
+		println!("{}: {:?}", index, s);
+	}
+}
+```
+- 위처럼 이터레이터가 가장 대표적인 예시지만, 스레드풀 라이브러리에서의 Task가 Output과 같은 연관타입을, Pattern 트레이트가 Match를 , RDB를 다루는 라이브러리가 DatabaseConnection을 가지는 것처럼 트레이트가 단순히 메서드의 모음 이상의 역할을 할 때 늘 유용하다.
+- 다만 이렇게 하나의 산출물만 나오는것처럼 행복하게 풀리는 것은 아니다
+
