@@ -2,7 +2,7 @@
 title: 프로그래밍 러스트 💭
 summary: 
 date: 2025-06-07 12:45:57 +0900
-lastmod: 2025-06-08 20:44:13 +0900
+lastmod: 2025-06-09 15:10:34 +0900
 tags: 
 categories: 
 description: 
@@ -314,3 +314,94 @@ tree.add("Venus");
 
 ```
 
+## trait
+- 러스트는 dyn Write 타입의 객체를 허용하지 않는다. 크기를 모르기 때문이다. (레퍼런스를 이용한다는 뜻)
+- 러스트는 실행 시점 타입정보(v테이블)을 가르키는데 별도의 팻포인터를 사용하고 구조체에는 넣지 않기에, 타입 자체의 크기자 작아도 얼마든지 trait를 구현할 수 있다.
+
+제네릭
+- 기본적으로 사용처마다 각 타입에 대한 코드를 생성
+- 런타임 오버헤드가 없음
+- 컴파일 타임에 모든 타입이 결정됨
+- 인라인 최적화 가능
+- 코드 크기 증가 (code bloat)
+
+트레이트 객체
+- 런타임에 메서드 호출 결정 (약간의 성능 오버헤드)
+- 다양한 타입을 하나의 컬렉션에 저장 가능
+- 코드 크기가 작음
+- Object Safety 규칙을 따라야 함
+
+실제 동적으로 타입을 결정해야하는 상황이 있어 트레이트객체를 써야 할 때도 있다.
+```rust
+struct Salad {
+	veggies: Vec<Box<dyn Vegetabls>>
+}
+```
+
+- 위와 같은 경우 아니고, 제네릭의 코드량 증가가 부담스럽지 않다면 일반적으로 제네릭을 쓰는게 맞다고 한다.
+	- 제네릭은 함수 호출을 최적화 하는데 필요한 모든 정보를 가지고 있다.
+	- 반면 트레이트 객체는 실행시점에 알 수 있기 때문에, 동일한 객체를 전달해도 런타임에 가상 메서드 호출비용과 오류 검사 비용이 든다.
+	- 그 외에도 다형성이나, 다중 상속 비스무리한 처리를 하기에도 제네릭이 훨씬 편하다
+- 트레이트에서도 Self타입을 쓸 수 있다. 그러면 트레이트 객체로 만들 수 없다는 것이다.
+- 사실 트레이트 객체는 자바의 인터페이스나 cpp의 추상 기본 클래스를 써서 구현할 수 있는 수준의 아주 단순한 트레이트를 위한 것이다.
+- 러스트의 서브트레이트는 실제로 Self의 바운드에 대한 축약 표기에 불과하다.
+```rust
+trait Creature: Visible {
+	...
+}
+
+trait Creature: where Self: Visible {
+	...
+}
+```
+
+- 다른언어의 인터페이스가 정적메서드나 생성자를 포함할 수 없지만, 트레이트는 러스트의 정적메서드라 할 수 있는 타입 연관 함수를 포함 할 수 있다.
+```rust
+trait StringSet {
+    fn new() -> Self;
+    fn from_slice(strings: &[&str]) -> Self;
+    fn contains(&self, string: &str) -> bool;
+    fn add(&mut self, string: &str);
+}
+
+fn unknown_words<S: StringSet>(document: &[String], wordlist: &S) -> S {
+    let mut unknowns = S::new();
+    for word in document {
+        if !wordlist.contains(word) {
+            unknowns.add(word);
+        }
+    }
+    unknowns;
+}
+
+```
+- 트레이트 객체에서는 마찬가지로 타입 연관 함수는 쓸 수 없다.
+```rust
+trait StringSet {
+    fn new() -> Self
+    where
+        Self: Sized;
+    fn from_slice(strings: &[&str]) -> Self
+    where
+        Self: Sized;
+    fn contains(&self, string: &str) -> bool;
+    fn add(&mut self, string: &str);
+}
+```
+- 이런식으로 제약해두면 타입 연관 함수가 아닌 함수들은 사용이 가능하다
+
+- to_string은 ToString 트레이트의 to_string 메서드를 가르킴, 여기서는 str타입의 구현을 호출
+```rust
+"hello".to_string();
+```
+- 이 시점에서 개입된건 트레이트, 트레이트 메서드, 트레이트 메서드의 구현, 이 구현이 적용되는 값 총 네개이다.
+- 이걸 구체화 하는 예시
+```rust
+// str 타입 연관함수의 self 자리에 직접 넣어서 호출
+str::to_string("hello");  
+// ToString 트레이트의 to_string 메서드를 직접 호출 컴파일러가 "hello"의 타입(str)을 보고 적절한 구현을 찾음
+ToString::to_string("hello");
+// str 타입의 ToString 트레이트 구현을 명시적으로 지정해서 호출 가장 구체적인 호출 방식
+<str as ToString>::to_string("hello);
+```
+- 밑에서 두번째는 qualified 호출이라고 하며, 마지막은 fully qualified 호출이라고 함.
