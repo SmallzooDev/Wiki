@@ -2,7 +2,7 @@
 title: Daily Log 2025
 summary: 
 date: 2025-01-08 20:19:31 +0900
-lastmod: 2025-06-12 20:06:04 +0900
+lastmod: 2025-06-12 20:08:40 +0900
 tags: 
 categories: 
 description: 
@@ -272,3 +272,4 @@ func main() {
 - 일단 todist같은 걸 찾아
 - 레이캐스트는 동기화할지 고민을 좀 더 해봐
 - 메모에대해서 다시 생각하면 좋을지 생각해보기
+- tmux위에 사느냐 아니면 어플리케이션을..
