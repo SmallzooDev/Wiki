@@ -2,7 +2,7 @@
 title: Rust IO for PS (From Bubblers)
 summary: 백준 입출력 코드 분석
 date: 2025-05-02 18:07:45 +0900
-lastmod: 2025-06-14 15:04:48 +0900
+lastmod: 2025-06-14 15:20:13 +0900
 tags: 
 categories: 
 description: 
@@ -167,6 +167,7 @@ impl<R: BufRead> I<R> {
 
 
 ### 3 trail Fill
+그리고 아래처럼 실제로 읽어낸다.
 ```rust
 pub(crate) trait Fill {  
     fn fill_from_input<R: BufRead>(&mut self, i: &mut I<R>) -> Option<()>;  
@@ -179,12 +180,16 @@ fn ws(c: char) -> bool {
 ```rust
     impl Fill for String {
         fn fill_from_input<R: BufRead>(&mut self, i: &mut I<R>) -> Option<()> {
+	        // 공백 스킵
             i.rem = i.rem.trim_start_matches(ws);
+            // 비어있으면 줄바꿔서 스킵
             while i.rem.is_empty() {
                 i.next_line()?;
                 i.rem = i.rem.trim_start_matches(ws);
             }
+            // 토큰 하나 뽑고
             let tok = i.rem.split(ws).next().unwrap();
+            // 포인터 밀어주고
             i.rem = &i.rem[tok.len()..];
             *self = tok.to_string();
             Some(())
@@ -200,6 +205,16 @@ fn ws(c: char) -> bool {
             let tok = i.rem.split(ws).next().unwrap();
             i.rem = &i.rem[tok.len()..];
             self.extend_from_slice(tok.as_bytes());
+            Some(())
+        }
+    }
+
+	// iter로 처리
+    impl<T: Fill> Fill for Vec<T> {
+        fn fill_from_input<R: BufRead>(&mut self, i: &mut I<R>) -> Option<()> {
+            for ii in self.iter_mut() {
+                ii.fill_from_input(i)?;
+            }
             Some(())
         }
     }
