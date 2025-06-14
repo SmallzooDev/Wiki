@@ -1,500 +1,214 @@
 ---
-title: Rust IO for PS
-summary: 
+title: Rust IO for PS (From Bubblers)
+summary: 백준 입출력 코드 분석
 date: 2025-05-02 18:07:45 +0900
-lastmod: 2025-05-02 18:17:40 +0900
+lastmod: 2025-06-14 15:04:48 +0900
 tags: 
 categories: 
 description: 
 showToc: true
 tocOpen: true
 ---
-# Rust 코딩 테스트를 위한 입출력 인터페이스
+> references : boj - https://www.acmicpc.net/user/bubbler
 
-## 템플릿
+저분이 백준에서 cpp 스타일 io 템플릿을 구현해두셨는데, 잘 가져다 쓰고 있다. 그러다가 이부분 코드 보고 공부한 내용들을 정리해봤다.
 
+## Intro
 ```rust
-use std::io::{self, Read, Write};
-
-fn main() {
-    let mut stdin = io::stdin().lock();
-    let mut stdout = io::stdout().lock();
-    let mut input = String::new();
-    stdin.read_to_string(&mut input).unwrap();
-    let mut lines = input.lines();
-    
-    // 여기서부터 다양한 입력 처리 방식
+use io::*;  
+pub fn main() {  
+    let stdin = stdin().lock();  
+    let stdout = stdout().lock();  
+    let mut io = IO::new(stdin, stdout);  
+    solve(&mut io);  
 }
 ```
-## 인터페이스 정리
+템플릿에 포함되는 메인함수, 직접 정의한 io모듈에서 IO스트럭트를 std입출력을 전달해서 만들고 실제 알고리즘 로직이 들어가는 solve 함수에 전달.
 
+
+## mod IO 구성
+
+### 1. struct IO
 ```rust
-use std::io::{self, Read, Write};
-```
-
-- `std::io`: Rust의 표준 입출력 모듈
-- `Read`: 읽기 작업을 위한 트레이트
-- `Write`: 쓰기 작업을 위한 트레이트
-
-## 함수 및 메소드 명세
-### 1. io::stdin()
-```rust
-let mut stdin = io::stdin().lock();
-```
-
-- **타입**: `fn stdin() -> Stdin`
-- **설명**: 표준 입력의 핸들을 가져옴
-- **반환값**: `Stdin` 구조체 (표준 입력 관리)
-
-### 2. Stdin::lock()
-
-```rust
-let mut stdin = io::stdin().lock();
-```
-
-- **타입**: `fn lock(&self) -> StdinLock<'_>`
-- **설명**: 표준 입력에 대한 락을 획득하여 입력 스트림에 독점적으로 접근
-- **반환값**: `StdinLock` (락이 걸린 표준 입력 핸들)
-- **참고**: 성능 향상을 위해 사용됨. 다중 스레드 환경에서 입력 충돌 방지
-
-### 3. io::stdout()
-
-```rust
-let mut stdout = io::stdout().lock();
-```
-
-- **타입**: `fn stdout() -> Stdout`
-- **설명**: 표준 출력의 핸들을 가져옴
-- **반환값**: `Stdout` 구조체 (표준 출력 관리)
-
-### 4. Stdout::lock()
-
-```rust
-let mut stdout = io::stdout().lock();
-```
-
-- **타입**: `fn lock(&self) -> StdoutLock<'_>`
-- **설명**: 표준 출력에 대한 락을 획득하여 출력 스트림에 독점적으로 접근
-- **반환값**: `StdoutLock` (락이 걸린 표준 출력 핸들)
-- **참고**: 출력 성능 향상 및 출력 충돌 방지에 사용됨
-
-### 5. String::new()
-
-```rust
-let mut input = String::new();
-```
-
-- **타입**: `fn new() -> String`
-- **설명**: 빈 문자열을 생성
-- **반환값**: 비어있는 새 `String` 인스턴스
-- **참고**: 입력을 저장할 버퍼로 사용됨
-
-### 6. Read::read_to_string()
-
-```rust
-stdin.read_to_string(&mut input).unwrap();
-```
-
-- **타입**: `fn read_to_string(&mut self, buf: &mut String) -> Result<usize>`
-- **설명**: 스트림의 모든 바이트를 읽어 문자열로 변환하고 지정된 버퍼에 추가
-- **매개변수**: `buf` - 입력을 저장할 문자열 버퍼
-- **반환값**: `Result<usize>` - 성공 시 읽은 바이트 수, 실패 시 오류
-- **참고**: EOF(End-of-File)까지 모든 내용을 읽음
-
-### 7. Result::unwrap()
-
-```rust
-stdin.read_to_string(&mut input).unwrap();
-```
-
-- **타입**: `fn unwrap(self) -> T`
-- **설명**: `Result`가 `Ok`인 경우 내부 값을 반환, `Err`인 경우 프로그램 종료(panic)
-- **반환값**: `Result`가 `Ok`인 경우 내부 값 `T`
-- **참고**: 에러 처리를 간소화하기 위해 사용, 코딩 테스트에서는 적합하지만 실제 애플리케이션에서는 적절한 에러 처리 권장
-
-### 8. str::lines()
-
-```rust
-let mut lines = input.lines();
-```
-
-- **타입**: `fn lines(&self) -> Lines<'_>`
-- **설명**: 문자열을 줄 단위로 분할하는 이터레이터 생성
-- **반환값**: `Lines` (문자열의 각 줄을 순회하는 이터레이터)
-- **참고**: 개행 문자(`\n`, `\r\n`)를 기준으로 분할하며 반환된 줄에는 개행 문자가 포함되지 않음
-
-## 이터레이터 메소드
-
-### 1. Iterator::next()
-
-- **타입**: `fn next(&mut self) -> Option<Self::Item>`
-- **설명**: 이터레이터에서 다음 항목을 가져옴
-- **반환값**: `Option<Item>` - 다음 항목이 있으면 `Some(item)`, 없으면 `None`
-- **사용예**:
-    
-    ```rust
-    let next_line = lines.next().unwrap();
-    ```
-    
-
-### 2. str::parse()
-
-- **타입**: `fn parse<F>(&self) -> Result<F, F::Err> where F: FromStr`
-- **설명**: 문자열을 지정된 타입으로 파싱
-- **반환값**: `Result<F, F::Err>` - 파싱 성공 시 변환된 값, 실패 시 오류
-- **사용예**:
-    
-    ```rust
-    let n: usize = lines.next().unwrap().parse().unwrap();
-    ```
-    
-
-## 출력 관련 매크로
-### 1. write!()
-- **타입**: 매크로
-- **설명**: 형식화된 문자열을 `Write` 트레이트를 구현한 객체에 출력
-- **매개변수**:
-    - 첫 번째: 출력 대상(`Write` 트레이트 구현체)
-    - 두 번째: 형식 문자열
-    - 나머지: 형식 문자열에 대응하는 값들
-- **반환값**: `Result<(), Error>` - 성공 시 `Ok(())`, 실패 시 오류
-- **사용예**:
-    
-    ```rust
-    write!(stdout, "{}", output).unwrap();
-    ```
-    
-
-### 2. writeln!()
-- **타입**: 매크로
-- **설명**: `write!`와 유사하지만 끝에 개행 문자를 추가
-- **사용예**:
-    
-    ```rust
-    writeln!(stdout, "{}", output).unwrap();
-    ```
-## 다양한 입력 처리 케이스
-
-### 1. 정수 하나 읽기
-
-```rust
-let n: usize = lines.next().unwrap().parse().unwrap();
-```
-
-### 2. 공백으로 구분된 정수 여러 개 읽기
-
-```rust
-let numbers: Vec<i32> = lines.next().unwrap()
-    .split_whitespace()
-    .map(|s| s.parse().unwrap())
-    .collect();
-```
-
-### 3. 여러 줄의 정수 읽기
-
-```rust
-let mut numbers = Vec::new();
-for _ in 0..n {
-    let num: i32 = lines.next().unwrap().parse().unwrap();
-    numbers.push(num);
-}
-```
-
-### 4. 공백으로 구분된 문자열 여러 개 읽기
-
-```rust
-let strings: Vec<String> = lines.next().unwrap()
-    .split_whitespace()
-    .map(|s| s.to_string())
-    .collect();
-```
-
-### 5. 문자 배열 읽기
-
-```rust
-let chars: Vec<char> = lines.next().unwrap().chars().collect();
-```
-
-### 6. 2차원 격자 읽기
-
-```rust
-let mut grid = Vec::new();
-for _ in 0..n {
-    let row: Vec<i32> = lines.next().unwrap()
-        .chars()
-        .map(|c| c.to_digit(10).unwrap() as i32)
-        .collect();
-    grid.push(row);
-}
-```
-
-### 7. 테스트 케이스 처리
-
-```rust
-let t: usize = lines.next().unwrap().parse().unwrap();
-for _ in 0..t {
-    // 각 테스트 케이스 처리
-    let n: usize = lines.next().unwrap().parse().unwrap();
-    // 추가 입력 처리
-}
-```
-
-### 8. 빈 줄을 포함한 입력 처리
-
-```rust
-while let Some(line) = lines.next() {
-    if line.is_empty() {
-        continue; // 빈 줄 건너뛰기
+    pub(crate) struct IO<R: BufRead, W: Write> {
+        ii: I<R>,
+        oo: BufWriter<W>,
     }
-    // 입력 처리
-}
-```
-
-### 9. EOF까지 모든 줄 처리
-
-```rust
-while let Some(line) = lines.next() {
-    // 각 줄 처리
-    let n: i32 = line.parse().unwrap();
-    // 작업 수행
-}
-```
-
-## 출력 패턴
-
-### 1. 단일 값 출력
-
-```rust
-write!(stdout, "{}", result).unwrap();
-```
-
-### 2. 개행 포함 출력
-
-```rust
-writeln!(stdout, "{}", result).unwrap();
-```
-
-### 3. 여러 값 출력
-
-```rust
-write!(stdout, "{} {}", a, b).unwrap();
-```
-
-### 4. 벡터 요소 출력
-
-```rust
-for item in &items {
-    write!(stdout, "{} ", item).unwrap();
-}
-writeln!(stdout).unwrap(); // 줄바꿈
-```
-
-### 5. 여러 줄 출력
-
-```rust
-for result in &results {
-    writeln!(stdout, "{}", result).unwrap();
-}
-```
-
-## 실전 예시
-
-### 예시 1: 백준 11053 - 가장 긴 증가하는 부분 수열
-
-```rust
-use std::io::{self, Read, Write};
-
-fn main() {
-    let mut stdin = io::stdin().lock();
-    let mut stdout = io::stdout().lock();
-    let mut input = String::new();
-    stdin.read_to_string(&mut input).unwrap();
-    let mut lines = input.lines();
-    
-    // 배열 크기
-    let n: usize = lines.next().unwrap().parse().unwrap();
-    
-    // 수열 A
-    let seq: Vec<i32> = lines.next().unwrap()
-        .split_whitespace()
-        .map(|s| s.parse().unwrap())
-        .collect();
-    
-    // DP 배열 초기화
-    let mut dp = vec![1; n];
-    
-    // LIS 계산
-    for i in 1..n {
-        for j in 0..i {
-            if seq[j] < seq[i] && dp[j] + 1 > dp[i] {
-                dp[i] = dp[j] + 1;
+    impl<R: BufRead, W: Write> IO<R, W> {
+        pub(crate) fn new(r: R, w: W) -> Self {
+            Self {
+                ii: I::new(r),
+                oo: BufWriter::new(w),
             }
         }
+        pub(crate) fn get<T: Fill>(&mut self, exemplar: T) -> Option<T> {
+            self.ii.get(exemplar)
+        }
+        pub(crate) fn put<T: Print>(&mut self, t: T) -> &mut Self {
+            t.print(&mut self.oo);
+            self
+        }
+        pub(crate) fn nl(&mut self) -> &mut Self {
+            self.put("\n")
+        }
     }
-    
-    // 최대 길이 찾기
-    let result = dp.iter().max().unwrap();
-    
-    // 결과 출력
-    write!(stdout, "{}", result).unwrap();
-}
+```
+- ii : Reader를 한 번 더 래핑한 스트럭트 (후술)
+- oo : Writer
+- 그리고 그 대상들은 `Fill`, `Print` trait를 구현해야함 (후술)
+- exemplar는 타입 추론을 위한 템플릿 값
+```rust
+let n: usize = io.get(0usize)?;
 ```
 
-### 예시 2: 수열 합 구하기
-
+### 2. struct I
 ```rust
-use std::io::{self, Read, Write};
-
-fn main() {
-    let mut stdin = io::stdin().lock();
-    let mut stdout = io::stdout().lock();
-    let mut input = String::new();
-    stdin.read_to_string(&mut input).unwrap();
-    let mut lines = input.lines();
-    
-    // 수열 크기와 구간 쿼리 수
-    let header: Vec<usize> = lines.next().unwrap()
-        .split_whitespace()
-        .map(|s| s.parse().unwrap())
-        .collect();
-    let (n, q) = (header[0], header[1]);
-    
-    // 수열 입력
-    let numbers: Vec<i64> = lines.next().unwrap()
-        .split_whitespace()
-        .map(|s| s.parse().unwrap())
-        .collect();
-    
-    // 각 쿼리 처리
-    for _ in 0..q {
-        let query: Vec<usize> = lines.next().unwrap()
-            .split_whitespace()
-            .map(|s| s.parse().unwrap())
-            .collect();
-        let (l, r) = (query[0] - 1, query[1] - 1);
-        
-        // 구간 합 계산
-        let sum: i64 = numbers[l..=r].iter().sum();
-        
-        // 결과 출력
-        writeln!(stdout, "{}", sum).unwrap();
-    }
-}
-```
-
-### 예시 3: 그래프 입력 처리
-
-```rust
-use std::io::{self, Read, Write};
-use std::collections::VecDeque;
-
-fn main() {
-    let mut stdin = io::stdin().lock();
-    let mut stdout = io::stdout().lock();
-    let mut input = String::new();
-    stdin.read_to_string(&mut input).unwrap();
-    let mut lines = input.lines();
-    
-    // 노드 수와 간선 수
-    let nm: Vec<usize> = lines.next().unwrap()
-        .split_whitespace()
-        .map(|s| s.parse().unwrap())
-        .collect();
-    let (n, m) = (nm[0], nm[1]);
-    
-    // 그래프 초기화
-    let mut graph = vec![Vec::new(); n + 1];
-    
-    // 간선 입력
-    for _ in 0..m {
-        let edge: Vec<usize> = lines.next().unwrap()
-            .split_whitespace()
-            .map(|s| s.parse().unwrap())
-            .collect();
-        let (a, b) = (edge[0], edge[1]);
-        
-        graph[a].push(b);
-        graph[b].push(a); // 무방향 그래프인 경우
+    pub(crate) struct I<R: BufRead> {
+        r: R,
+        line: String,
+        rem: &'static str,
     }
     
-    // BFS 수행 (1번 노드에서 시작)
-    let mut visited = vec![false; n + 1];
-    let mut queue = VecDeque::new();
-    
-    visited[1] = true;
-    queue.push_back(1);
-    
-    while let Some(node) = queue.pop_front() {
-        write!(stdout, "{} ", node).unwrap();
-        
-        for &next in &graph[node] {
-            if !visited[next] {
-                visited[next] = true;
-                queue.push_back(next);
+    impl<R: BufRead> I<R> {
+        pub(crate) fn new(r: R) -> Self {
+            Self {
+                r,
+                line: String::new(),
+                rem: "",
             }
         }
+        pub(crate) fn next_line(&mut self) -> Option<()> {
+            self.line.clear();
+            (self.r.read_line(&mut self.line).unwrap() > 0)
+                .then(|| {
+                    self
+                        .rem = unsafe {
+                        (&self.line[..] as *const str).as_ref().unwrap()
+                    };
+                })
+        }
+        pub(crate) fn get<T: Fill>(&mut self, exemplar: T) -> Option<T> {
+            let mut exemplar = exemplar;
+            exemplar.fill_from_input(self)?;
+            Some(exemplar)
+        }
+    }
+```
+- `next_line()`
+	- Fill 트레이트에서 사용
+	- `line`은 버퍼 역할
+	- `rem`은 현재 파싱 위치 역할
+```rust
+        pub(crate) fn next_line(&mut self) -> Option<()> {
+            self.line.clear(); // 다음줄을 읽기위해 현제 버퍼 초기화
+            (self.r.read_line(&mut self.line).unwrap() > 0) // 실제로 읽어들인 값이 있으면
+                .then(|| {
+                    self
+                        .rem = unsafe { // .rem도 같이 초기화를 해주는데
+                        (&self.line[..] as *const str).as_ref().unwrap() // raw 포인터로 변환을 해준다. 
+                    };
+                })
+        }
+```
+
+#### 왜 raw 포인터로 변환을 했을까?
+> 사실 이부분이 이해가 안가는 코드라서 해당 포스트를 작성했다.
+```rust
+// 여기서 rem은 포인터로서, line을 가리키며 지금 어디까지 읽었는지를 나타내줘야한다.
+// 즉 로직상으로 line의 또 하나의 참조 역할이다.
+struct I<R: BufRead> {
+    line: String,
+    rem: &'??? str,  // -> line을 가리키는 포인터, 그렇다면 러스트 입장에서는 line보다 짧은 수명을 지정해줘야함
+}
+```
+- 그래서 아래처럼 rem을 line의 참조로 쓰기 위해서 라이프타임을 알려줘야 컴파일 해준다. 
+
+```rust
+struct I<'a, R: BufRead> {
+    line: String,
+    rem: &'a str,  // rem은 line보다 짧은 라이프타임과 하나의 문자열에 대한 두 참조가 필요한 상황을 해결해야한다.
+}
+```
+- 문제는 러스트의 라이프타임을 지키며 위의 코드처럼 하려면 `'a`를 구조체 외부에서 결정해야 한다
+- next_line() 함수 내에서 `&self.line`의 라이프타임은 함수 범위인데 실제 `rem`은 구조체가 살아있는 동안 유효해야 한다.
+
+그래서 그냥 raw pointer 사용해서
+```rust
+self.rem = unsafe {
+    (&self.line[..] as *const str).as_ref().unwrap()
+};
+```
+1. `&self.line[..]` → `&str` (일반적인 참조)
+2. `as *const str` → raw 포인터로 변환 (라이프타임 정보 제거)
+3. `.as_ref().unwrap()` → 다시 참조로 변환하되 `'static` 라이프타임으로
+
+![smart_pointer_img](https://github.com/user-attachments/assets/58205875-4889-4218-9845-f48a6fb19c16)
+
+
+> 이렇게 안전한 구현을 하면 할수는 있는데, 클로드한테 물어보니 이렇게되면 매번 슬라이싱 연산과 바운드 체크 오버헤드가 발생하고 ps에서는 무시할 수 없을 정도일 것 이라고 한다.
+```rust
+struct I<R: BufRead> {
+    r: R,
+    line: String,
+    pos: usize,
+}
+
+impl<R: BufRead> I<R> {
+    fn remaining(&self) -> &str {
+        &self.line[self.pos..]
+    }
+    
+    fn advance(&mut self, len: usize) {
+        self.pos += len;
     }
 }
 ```
+그리고 line.clear()를 앞에 두고 매번 사용하기 때문에 아직까지는 충분히 안전하고 사용용도에도 잘맞는 방식
 
-### 예시 4: 2D 격자 문제 (미로 탐색)
+
+### 3 trail Fill
+```rust
+pub(crate) trait Fill {  
+    fn fill_from_input<R: BufRead>(&mut self, i: &mut I<R>) -> Option<()>;  
+}  
+fn ws(c: char) -> bool {  
+    c <= ' '  
+}
+```
 
 ```rust
-use std::io::{self, Read, Write};
-use std::collections::VecDeque;
-
-fn main() {
-    let mut stdin = io::stdin().lock();
-    let mut stdout = io::stdout().lock();
-    let mut input = String::new();
-    stdin.read_to_string(&mut input).unwrap();
-    let mut lines = input.lines();
-    
-    // 미로 크기
-    let nm: Vec<usize> = lines.next().unwrap()
-        .split_whitespace()
-        .map(|s| s.parse().unwrap())
-        .collect();
-    let (n, m) = (nm[0], nm[1]);
-    
-    // 미로 입력
-    let mut maze = Vec::new();
-    for _ in 0..n {
-        let row: Vec<u8> = lines.next().unwrap()
-            .chars()
-            .map(|c| c.to_digit(10).unwrap() as u8)
-            .collect();
-        maze.push(row);
-    }
-    
-    // BFS로 최단 경로 찾기
-    let mut visited = vec![vec![false; m]; n];
-    let mut distance = vec![vec![0; m]; n];
-    let mut queue = VecDeque::new();
-    let dirs = [(0, 1), (1, 0), (0, -1), (-1, 0)];
-    
-    visited[0][0] = true;
-    distance[0][0] = 1;
-    queue.push_back((0, 0));
-    
-    while let Some((r, c)) = queue.pop_front() {
-        if r == n - 1 && c == m - 1 {
-            break;
-        }
-        
-        for (dr, dc) in &dirs {
-            let nr = (r as i32 + dr) as usize;
-            let nc = (c as i32 + dc) as usize;
-            
-            if nr < n && nc < m && maze[nr][nc] == 1 && !visited[nr][nc] {
-                visited[nr][nc] = true;
-                distance[nr][nc] = distance[r][c] + 1;
-                queue.push_back((nr, nc));
+    impl Fill for String {
+        fn fill_from_input<R: BufRead>(&mut self, i: &mut I<R>) -> Option<()> {
+            i.rem = i.rem.trim_start_matches(ws);
+            while i.rem.is_empty() {
+                i.next_line()?;
+                i.rem = i.rem.trim_start_matches(ws);
             }
+            let tok = i.rem.split(ws).next().unwrap();
+            i.rem = &i.rem[tok.len()..];
+            *self = tok.to_string();
+            Some(())
         }
     }
-    
-    // 결과 출력
-    write!(stdout, "{}", distance[n-1][m-1]).unwrap();
+    impl Fill for Vec<u8> {
+        fn fill_from_input<R: BufRead>(&mut self, i: &mut I<R>) -> Option<()> {
+            i.rem = i.rem.trim_start_matches(ws);
+            while i.rem.is_empty() {
+                i.next_line()?;
+                i.rem = i.rem.trim_start_matches(ws);
+            }
+            let tok = i.rem.split(ws).next().unwrap();
+            i.rem = &i.rem[tok.len()..];
+            self.extend_from_slice(tok.as_bytes());
+            Some(())
+        }
+    }
+```
+
+```rust
+pub(crate) fn get<T: Fill>(&mut self, exemplar: T) -> Option<T> {  
+    let mut exemplar = exemplar;  
+    exemplar.fill_from_input(self)?;  
+    Some(exemplar)  
 }
 ```
