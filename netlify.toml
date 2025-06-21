@@ -1,6 +1,6 @@
 [build]
   publish = "public" # Or the directory where your Hugo site generates the static files
-  command = "hugo" # This is the default build command for Hugo
+  command = "hugo --baseURL https://smallzoodev.netlify.app/" # This is the default build command for Hugo
 
 [build.environment]
   HUGO_VERSION = "0.123.8"
