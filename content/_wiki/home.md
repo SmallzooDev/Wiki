@@ -2,7 +2,7 @@
 title: Index 🧊️
 summary: 
 date: 2024-03-29 09:21:07 +0900
-lastmod: 2025-05-28 00:58:53 +0900
+lastmod: 2025-07-14 14:34:23 +0900
 tags: ["wiki_home"]
 categories: 
 public: true
@@ -46,7 +46,7 @@ TocOpen: true
 - [[새로운-블로그-정착하기]] : 블로그 개발기
 - [[Neovim-Migration-하기]]
 - [[Interview-From-Jim-Keller]] : ai와 관련된 고민중에 보게된 인터뷰 (ai와 관련은 별로 없다)
-- [[튜터링-질의-응답-모음]]
+- [[Vibe-Coding]]
 - [[redis-handshake-for-replicas]] : 레플리카(슬레이브) 등록을 위한 HandShake중 클라이언트를 식별하는 이슈
 - [[Redis-Stream-Issue]]
 - [[rust-mpsc]] : rust tokio의 mpsc 기능 이해하기
