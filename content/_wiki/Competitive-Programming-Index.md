@@ -2,7 +2,7 @@
 title: 코딩 인터뷰 연습 🧩
 summary: 매일 두?문제 네?가지 풀이
 date: 2025-04-28 16:58:11 +0900
-lastmod: 2025-05-29 21:09:32 +0900
+lastmod: 2025-07-30 11:16:55 +0900
 tags:
   - Kotlin
   - Cpp
@@ -24,6 +24,7 @@ tocOpen: true
 참고 : 
 - [[Rust-io-for-ps]]
 - [[Rust-Iterator-Interface]]
+- [[Python-PS]]
 
 ## Daily
 ---
