@@ -9,6 +9,7 @@ description:
 showToc: true
 tocOpen: true
 ---
+
 # C++ PS 1단계: 기초 문법 완전정복
 
 ## 📥 1. 입출력 처리
