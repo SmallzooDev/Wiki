@@ -12,6 +12,105 @@ tocOpen: true
 
 # C++ PS 1단계: 기초 문법 완전정복
 
+## 🎯 0. PS 필수 헤더와 매크로
+
+### 기본 헤더 파일들
+
+```cpp
+// 필수 기본 헤더
+#include <iostream>    // cin, cout
+#include <vector>      // vector 컨테이너
+#include <string>      // string 클래스
+#include <algorithm>   // STL 알고리즘 함수들
+
+// 추가 유용한 헤더들
+#include <queue>       // queue, priority_queue
+#include <stack>       // stack
+#include <deque>       // deque
+#include <set>         // set, multiset
+#include <map>         // map, multimap
+#include <unordered_set>   // unordered_set
+#include <unordered_map>   // unordered_map
+#include <utility>     // pair, make_pair
+#include <functional>  // greater, less 등
+#include <numeric>     // accumulate, gcd, lcm
+#include <cmath>       // pow, sqrt, abs 등
+#include <climits>     // INT_MAX, LLONG_MAX 등
+#include <cassert>     // assert 매크로
+
+// 만능 헤더 (대회용)
+#include <bits/stdc++.h>  // GCC 컴파일러에서만 지원
+```
+
+### 자주 사용하는 매크로
+
+```cpp
+// 타입 단축
+typedef long long ll;
+typedef pair<int, int> pii;
+typedef pair<ll, ll> pll;
+typedef vector<int> vi;
+typedef vector<ll> vll;
+typedef vector<pii> vpii;
+
+// 상수 정의
+const int INF = 1e9;
+const ll LLINF = 1e18;
+const int MOD = 1e9 + 7;
+const double EPS = 1e-9;
+
+// 편의 매크로
+#define all(x) (x).begin(), (x).end()
+#define sz(x) (int)(x).size()
+#define pb push_back
+#define mp make_pair
+#define fi first
+#define se second
+
+// 반복문 매크로
+#define rep(i, n) for(int i = 0; i < (n); i++)
+#define rep1(i, n) for(int i = 1; i <= (n); i++)
+#define rrep(i, n) for(int i = (n) - 1; i >= 0; i--)
+
+// 디버깅 매크로
+#ifdef DEBUG
+#define debug(x) cerr << #x << " = " << x << endl
+#else
+#define debug(x)
+#endif
+```
+
+### PS 템플릿 예시
+
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+
+typedef long long ll;
+typedef pair<int, int> pii;
+const int INF = 1e9;
+const int MOD = 1e9 + 7;
+
+#define all(x) (x).begin(), (x).end()
+#define sz(x) (int)(x).size()
+
+int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    
+    // 코드 작성
+    
+    return 0;
+}
+```
+
+### 🚨 헤더 사용 주의사항
+
+- `bits/stdc++.h`는 GCC 전용 (Visual Studio에서 작동 안함)
+- 매크로 남용 시 디버깅 어려움
+- `using namespace std;` 사용 시 이름 충돌 주의
+- 대회가 아닌 실무에서는 필요한 헤더만 포함
+
 ## 📥 1. 입출력 처리
 
 ### 기본 입력
@@ -509,21 +608,175 @@ copy_if(numbers.begin(), numbers.end(), back_inserter(evens),
         [](int x) { return x % 2 == 0; });
 ```
 
-### 유용한 STL 함수들
+### STL Algorithm 핵심 함수들
+
+#### 검색과 조건 확인
 
 ```cpp
-// 수학 함수
+vector<int> v = {1, 2, 3, 4, 5, 2, 3};
+
+// 검색 함수들
+auto it = find(v.begin(), v.end(), 3);           // 첫 번째 3의 위치
+if (it != v.end()) {
+    cout << "Found at index: " << it - v.begin() << '\n';
+}
+
+auto it2 = find_if(v.begin(), v.end(), [](int x) { return x > 3; });  // 조건 만족하는 첫 원소
+int cnt = count(v.begin(), v.end(), 2);          // 2의 개수
+int cnt_if = count_if(v.begin(), v.end(), [](int x) { return x % 2 == 0; });  // 짝수 개수
+
+// 이진 탐색 (정렬된 배열 필요)
+sort(v.begin(), v.end());
+bool found = binary_search(v.begin(), v.end(), 3);
+auto lb = lower_bound(v.begin(), v.end(), 3);   // 3 이상인 첫 위치
+auto ub = upper_bound(v.begin(), v.end(), 3);   // 3 초과인 첫 위치
+
+// 조건 확인
+bool all_positive = all_of(v.begin(), v.end(), [](int x) { return x > 0; });
+bool any_even = any_of(v.begin(), v.end(), [](int x) { return x % 2 == 0; });
+bool none_negative = none_of(v.begin(), v.end(), [](int x) { return x < 0; });
+```
+
+#### 변환과 생성
+
+```cpp
+vector<int> v = {1, 2, 3, 4, 5};
+vector<int> squares;
+
+// transform: 각 원소에 함수 적용
+transform(v.begin(), v.end(), back_inserter(squares), 
+          [](int x) { return x * x; });
+
+// generate: 함수로 값 생성
+vector<int> random_nums(10);
+generate(random_nums.begin(), random_nums.end(), []() { return rand() % 100; });
+
+// iota: 연속된 값으로 채우기 (C++11)
+vector<int> sequence(10);
+iota(sequence.begin(), sequence.end(), 1);  // {1, 2, 3, ..., 10}
+
+// fill: 같은 값으로 채우기
+fill(v.begin(), v.end(), 42);
+```
+
+#### 수치 연산
+
+```cpp
+vector<int> v = {1, 2, 3, 4, 5};
+
+// accumulate: 누적 연산
+int sum = accumulate(v.begin(), v.end(), 0);
+int product = accumulate(v.begin(), v.end(), 1, multiplies<int>());
+
+// 인접한 차이 계산
+vector<int> differences;
+adjacent_difference(v.begin(), v.end(), back_inserter(differences));
+
+// 부분합 계산
+vector<int> partial_sums;
+partial_sum(v.begin(), v.end(), back_inserter(partial_sums));
+
+// GCD와 LCM (C++17)
+int gcd_val = gcd(12, 8);  // 4
+int lcm_val = lcm(12, 8);  // 24
+
+// 수학 함수들
 abs(-5);           // 5
 min(1, 2);         // 1
 max({1, 2, 3});    // 3 (initializer_list)
-__gcd(12, 8);      // 4 (내장 GCD)
-
-// 알고리즘 함수
-vector<int> v = {1, 2, 3, 4, 5};
-int sum = accumulate(v.begin(), v.end(), 0);  // 15
-bool all_positive = all_of(v.begin(), v.end(), [](int x) { return x > 0; });
-bool any_even = any_of(v.begin(), v.end(), [](int x) { return x % 2 == 0; });
 ```
+
+#### 순열과 조합
+
+```cpp
+vector<int> v = {1, 2, 3, 4};
+
+// 다음/이전 순열
+do {
+    // 현재 순열 처리
+    for (int x : v) cout << x << ' ';
+    cout << '\n';
+} while (next_permutation(v.begin(), v.end()));
+
+// 이전 순열도 가능
+while (prev_permutation(v.begin(), v.end())) {
+    // 처리
+}
+
+// 특정 위치 요소들
+nth_element(v.begin(), v.begin() + 2, v.end());  // 3번째로 작은 원소를 인덱스 2에 배치
+```
+
+#### 집합 연산
+
+```cpp
+vector<int> a = {1, 2, 3, 4, 5};
+vector<int> b = {3, 4, 5, 6, 7};
+vector<int> result;
+
+// 정렬된 벡터 간 집합 연산
+set_union(a.begin(), a.end(), b.begin(), b.end(), back_inserter(result));
+result.clear();
+
+set_intersection(a.begin(), a.end(), b.begin(), b.end(), back_inserter(result));
+result.clear();
+
+set_difference(a.begin(), a.end(), b.begin(), b.end(), back_inserter(result));
+
+// 포함 관계 확인
+bool is_subset = includes(a.begin(), a.end(), b.begin(), b.end());
+```
+
+#### 구조 변경
+
+```cpp
+vector<int> v = {1, 2, 3, 4, 5, 2, 1};
+
+// 뒤집기
+reverse(v.begin(), v.end());
+
+// 회전
+rotate(v.begin(), v.begin() + 2, v.end());  // 왼쪽으로 2칸 회전
+
+// 중복 제거 (정렬 후)
+sort(v.begin(), v.end());
+v.erase(unique(v.begin(), v.end()), v.end());
+
+// 조건에 따른 분할
+partition(v.begin(), v.end(), [](int x) { return x % 2 == 0; });  // 짝수를 앞으로
+
+// 조건 만족하는 원소 복사
+vector<int> evens;
+copy_if(v.begin(), v.end(), back_inserter(evens), [](int x) { return x % 2 == 0; });
+
+// 조건에 따른 제거
+v.erase(remove_if(v.begin(), v.end(), [](int x) { return x < 0; }), v.end());
+```
+
+#### 최대/최소 찾기
+
+```cpp
+vector<int> v = {3, 1, 4, 1, 5, 9, 2, 6};
+
+// 단일 원소
+auto min_it = min_element(v.begin(), v.end());
+auto max_it = max_element(v.begin(), v.end());
+
+// 동시에 찾기 (C++11)
+auto [min_it2, max_it2] = minmax_element(v.begin(), v.end());
+
+// 값 비교
+int min_val = min({3, 1, 4, 1, 5});
+int max_val = max({3, 1, 4, 1, 5});
+```
+
+### 🚨 STL Algorithm 주요 함정
+
+- 대부분의 함수가 반복자 범위를 사용 (마지막은 exclusive)
+- 이진 탐색 함수들은 정렬된 범위 필요
+- `remove`는 실제로 삭제하지 않음, `erase`와 함께 사용
+- `unique`는 인접한 중복만 제거, 정렬 후 사용
+- 람다 함수 활용으로 유연한 조건 지정
 
 ## 🛡️ 8. 예외처리와 디버깅
 
@@ -2716,6 +2969,304 @@ public:
 - 해시 충돌 가능성
 - 메모리 사용량 (특히 Trie)
 
+## 🚀 PS 고급 기법과 최적화
+
+### 컴파일러 최적화와 Pragma
+
+#### 컴파일 옵션
+
+```bash
+# GCC/Clang 최적화 옵션
+g++ -O2 -std=c++17 solution.cpp -o solution
+
+# 추가 유용한 옵션들
+g++ -O2 -std=c++17 -Wall -Wextra -Wshadow \
+    -DLOCAL -DDEBUG solution.cpp -o solution
+
+# 메모리 최적화
+g++ -O2 -std=c++17 -ffast-math -march=native solution.cpp
+
+# 디버깅용
+g++ -g -std=c++17 -fsanitize=address -fsanitize=undefined solution.cpp
+```
+
+#### Pragma 지시문
+
+```cpp
+// 컴파일러 최적화
+#pragma GCC optimize("O3")
+#pragma GCC optimize("unroll-loops")
+#pragma GCC target("avx2")
+
+// 경고 무시
+#pragma GCC diagnostic ignored "-Wunused-variable"
+
+// 구조체 패킹
+#pragma pack(push, 1)
+struct PackedStruct {
+    char c;
+    int i;
+};
+#pragma pack(pop)
+
+// 메모리 정렬
+struct alignas(64) AlignedStruct {
+    int data[16];
+};
+
+// 함수 인라인 강제
+inline __attribute__((always_inline)) int fastAdd(int a, int b) {
+    return a + b;
+}
+```
+
+### 입출력 최적화 고급 기법
+
+```cpp
+// 극한 최적화 입출력
+namespace FastIO {
+    const int BUFFER_SIZE = 1 << 20;
+    char input_buffer[BUFFER_SIZE];
+    char output_buffer[BUFFER_SIZE];
+    char *input_ptr = input_buffer;
+    char *output_ptr = output_buffer;
+    
+    void init() {
+        fread(input_buffer, 1, BUFFER_SIZE, stdin);
+    }
+    
+    void flush() {
+        fwrite(output_buffer, 1, output_ptr - output_buffer, stdout);
+        output_ptr = output_buffer;
+    }
+    
+    int read_int() {
+        int result = 0;
+        bool negative = false;
+        
+        while (*input_ptr < '0' || *input_ptr > '9') {
+            if (*input_ptr == '-') negative = true;
+            input_ptr++;
+        }
+        
+        while (*input_ptr >= '0' && *input_ptr <= '9') {
+            result = result * 10 + (*input_ptr - '0');
+            input_ptr++;
+        }
+        
+        return negative ? -result : result;
+    }
+    
+    void write_int(int x) {
+        if (x < 0) {
+            *output_ptr++ = '-';
+            x = -x;
+        }
+        
+        char digits[20];
+        int len = 0;
+        do {
+            digits[len++] = '0' + x % 10;
+            x /= 10;
+        } while (x);
+        
+        while (len--) {
+            *output_ptr++ = digits[len];
+        }
+        *output_ptr++ = '\n';
+    }
+}
+```
+
+### 메모리 및 성능 최적화
+
+```cpp
+// 스택 크기 늘리기 (재귀 깊이 증가)
+#pragma GCC optimize("O3")
+#pragma GCC target("avx2")
+
+int main() {
+    // 스택 크기 설정 (Linux/Mac)
+    const rlim_t stack_size = 256 * 1024 * 1024; // 256MB
+    struct rlimit rl;
+    getrlimit(RLIMIT_STACK, &rl);
+    rl.rlim_cur = stack_size;
+    setrlimit(RLIMIT_STACK, &rl);
+    
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    
+    return 0;
+}
+
+// 메모리 풀 사용
+template<typename T, size_t POOL_SIZE = 1000000>
+class MemoryPool {
+    T pool[POOL_SIZE];
+    size_t next_free = 0;
+public:
+    T* allocate() {
+        return &pool[next_free++];
+    }
+    void reset() {
+        next_free = 0;
+    }
+};
+
+// 비트 최적화
+struct BitVector {
+    vector<uint64_t> bits;
+    size_t n;
+    
+    BitVector(size_t size) : n(size) {
+        bits.resize((size + 63) / 64);
+    }
+    
+    void set(size_t pos) {
+        bits[pos / 64] |= (1ULL << (pos % 64));
+    }
+    
+    bool get(size_t pos) const {
+        return bits[pos / 64] & (1ULL << (pos % 64));
+    }
+};
+```
+
+### PS 전용 매크로와 템플릿
+
+```cpp
+// 고급 매크로
+#define FAST_IO ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
+#define PRECISION(x) cout << fixed << setprecision(x)
+#define FILE_IO freopen("input.txt", "r", stdin); freopen("output.txt", "w", stdout);
+
+// 디버깅 매크로 (고급)
+#ifdef LOCAL
+#define debug(...) cerr << "[" << #__VA_ARGS__ << "]:", debug_out(__VA_ARGS__)
+#else
+#define debug(...) 42
+#endif
+
+void debug_out() { cerr << endl; }
+template<typename Head, typename... Tail>
+void debug_out(Head H, Tail... T) {
+    cerr << " " << H;
+    debug_out(T...);
+}
+
+// 모듈러 연산 클래스
+template<int MOD>
+struct ModInt {
+    int val;
+    ModInt(long long v = 0) { val = (-MOD <= v && v < MOD) ? v : v % MOD; if (val < 0) val += MOD; }
+    ModInt& operator+=(const ModInt& other) { val += other.val; if (val >= MOD) val -= MOD; return *this; }
+    ModInt& operator-=(const ModInt& other) { val -= other.val; if (val < 0) val += MOD; return *this; }
+    ModInt& operator*=(const ModInt& other) { val = (1LL * val * other.val) % MOD; return *this; }
+    ModInt operator+(const ModInt& other) const { return ModInt(*this) += other; }
+    ModInt operator-(const ModInt& other) const { return ModInt(*this) -= other; }
+    ModInt operator*(const ModInt& other) const { return ModInt(*this) *= other; }
+};
+
+using mint = ModInt<1000000007>;
+
+// 완전 PS 템플릿
+#include <bits/stdc++.h>
+using namespace std;
+
+#pragma GCC optimize("O3")
+#pragma GCC target("avx2")
+
+typedef long long ll;
+typedef pair<int, int> pii;
+typedef pair<ll, ll> pll;
+typedef vector<int> vi;
+typedef vector<ll> vll;
+
+const int INF = 1e9;
+const ll LLINF = 1e18;
+const int MOD = 1e9 + 7;
+const double EPS = 1e-9;
+
+#define all(x) (x).begin(), (x).end()
+#define sz(x) (int)(x).size()
+#define pb push_back
+#define fi first
+#define se second
+
+#ifdef LOCAL
+#define debug(...) cerr << "[" << #__VA_ARGS__ << "]:", debug_out(__VA_ARGS__)
+#else
+#define debug(...) 42
+#endif
+
+void debug_out() { cerr << endl; }
+template<typename Head, typename... Tail>
+void debug_out(Head H, Tail... T) { cerr << " " << H; debug_out(T...); }
+
+int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    
+    // Solution here
+    
+    return 0;
+}
+```
+
+### 자주 사용하는 수학/기하 함수
+
+```cpp
+// 수학 유틸리티
+ll gcd(ll a, ll b) { return b ? gcd(b, a % b) : a; }
+ll lcm(ll a, ll b) { return a / gcd(a, b) * b; }
+
+ll power(ll base, ll exp, ll mod) {
+    ll result = 1;
+    while (exp > 0) {
+        if (exp & 1) result = (result * base) % mod;
+        base = (base * base) % mod;
+        exp >>= 1;
+    }
+    return result;
+}
+
+// 소수 판정
+bool is_prime(ll n) {
+    if (n < 2) return false;
+    if (n == 2) return true;
+    if (n % 2 == 0) return false;
+    for (ll i = 3; i * i <= n; i += 2) {
+        if (n % i == 0) return false;
+    }
+    return true;
+}
+
+// 에라토스테네스의 체
+vector<bool> sieve(int n) {
+    vector<bool> prime(n + 1, true);
+    prime[0] = prime[1] = false;
+    for (int i = 2; i * i <= n; i++) {
+        if (prime[i]) {
+            for (int j = i * i; j <= n; j += i) {
+                prime[j] = false;
+            }
+        }
+    }
+    return prime;
+}
+
+// 기하학적 유틸리티
+struct Point {
+    ll x, y;
+    Point(ll x = 0, ll y = 0) : x(x), y(y) {}
+    Point operator+(const Point& p) const { return Point(x + p.x, y + p.y); }
+    Point operator-(const Point& p) const { return Point(x - p.x, y - p.y); }
+    ll dot(const Point& p) const { return x * p.x + y * p.y; }
+    ll cross(const Point& p) const { return x * p.y - y * p.x; }
+    ll dist2() const { return x * x + y * y; }
+};
+```
+
 ## 📝 3단계 핵심 요약
 
 ### 필수 암기 템플릿
@@ -2746,3 +3297,14 @@ public:
 - O(n): 선형 탐색, 투 포인터
 - O(log n): 이진탐색
 - O(1): 해시 테이블 접근
+
+### PS 최적화 체크리스트
+
+- [ ] `#pragma GCC optimize("O3")` 추가
+- [ ] `ios_base::sync_with_stdio(false)` 설정
+- [ ] 적절한 자료형 선택 (int vs long long)
+- [ ] 메모리 사용량 고려 (vector vs array)
+- [ ] 상수 최적화 (비트 연산, 모듈러 연산)
+- [ ] 입출력 최적화 (scanf/printf vs cin/cout)
+- [ ] 컴파일러별 내장 함수 활용 (`__builtin_*`)
+- [ ] 캐시 친화적 메모리 접근 패턴
