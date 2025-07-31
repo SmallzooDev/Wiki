@@ -25,6 +25,7 @@ tocOpen: true
 - [[Rust-io-for-ps]]
 - [[Rust-Iterator-Interface]]
 - [[Python-PS]]
+- [[CPP-PS]]
 
 ## Daily
 ---
