@@ -6,8 +6,10 @@
 {{- range where .Site.RegularPages "Section" "_wiki" -}}
   {{- if ne .File.Path $currentPagePath -}}
     {{- $content := .RawContent -}}
-    {{- $titlePattern := printf "\\[\\[%s\\]\\]" (lower $pageTitle) -}}
-    {{- $filenamePattern := printf "\\[\\[%s\\]\\]" (lower $filename) -}}
+    {{- $escapedTitle := replaceRE `([+*?.\[\]{}()|\\^$])` `\\$1` (lower $pageTitle) -}}
+    {{- $escapedFilename := replaceRE `([+*?.\[\]{}()|\\^$])` `\\$1` (lower $filename) -}}
+    {{- $titlePattern := printf "\\[\\[%s\\]\\]" $escapedTitle -}}
+    {{- $filenamePattern := printf "\\[\\[%s\\]\\]" $escapedFilename -}}
     {{- $titleMatches := findRE $titlePattern (lower $content) -}}
     {{- $filenameMatches := findRE $filenamePattern (lower $content) -}}
     
