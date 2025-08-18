@@ -28,7 +28,7 @@ tocOpen: true
 
 ## Channels
 ### Why Use Channels?
-> Channels are a way for go routines to communicate with each aother and synchronize their execution
+> Channels are a way for go routines to communicate with each other and synchronize their execution
 - 동시 실행되는 고루틴(Goroutines) 간의 안전하고 효율적인 통신을 가능하게 함
 - 동시성 프로그램에서 데이터 흐름을 동기화하고 관리하는 데 도움
 
@@ -803,3 +803,442 @@ func main() {
 }
 
 ```
+
+### Context
+Context를 사용하는 이유
+
+- 취소(Cancellation)
+- 타임아웃(Timeouts)
+- 값 전달(Values)
+
+기본 개념
+
+Context 생성
+
+- context.Background()
+- context.TODO()
+
+Context 계층 구조 (컨텍스트가 생성되고 파생되는 방식)
+
+- context.WithCancel()
+- context.WithDeadline()
+- context.WithTimeout()
+- context.WithValue()
+
+---
+
+Context 생성 방법들
+
+context.Background()
+
+```go
+// 최상위 컨텍스트, 취소되지 않고 값도 없음
+ctx := context.Background()
+
+// 주로 main, init, 테스트의 시작점으로 사용
+func main() {
+    ctx := context.Background()
+    startApplication(ctx)
+}
+```
+
+context.TODO()
+
+```go
+// 어떤 컨텍스트를 사용할지 명확하지 않을 때
+ctx := context.TODO()
+
+// 리팩토링 중이거나 임시로 사용
+func legacyFunction() {
+    ctx := context.TODO() // 나중에 적절한 컨텍스트로 교체 예정
+    callNewAPI(ctx)
+}
+```
+
+취소 가능한 컨텍스트
+
+context.WithCancel()
+
+```go
+// 수동으로 취소할 수 있는 컨텍스트
+ctx, cancel := context.WithCancel(context.Background())
+defer cancel() // 리소스 정리
+
+go func() {
+    // 긴 작업 수행
+    for {
+        select {
+        case <-ctx.Done():
+            fmt.Println("작업 취소됨")
+            return
+        default:
+            doWork()
+        }
+    }
+}()
+
+// 5초 후 취소
+time.Sleep(5 * time.Second)
+cancel()
+```
+
+실제 사용 예시: 고루틴 정리
+
+```go
+func startWorkers(ctx context.Context) {
+    ctx, cancel := context.WithCancel(ctx)
+    defer cancel() // 함수 종료 시 모든 워커 정리
+    
+    for i := 0; i < 10; i++ {
+        go worker(ctx, i)
+    }
+    
+    // 메인 작업 수행
+    time.Sleep(30 * time.Second)
+    // defer cancel()이 실행되어 모든 워커가 정리됨
+}
+
+func worker(ctx context.Context, id int) {
+    ticker := time.NewTicker(1 * time.Second)
+    defer ticker.Stop()
+    
+    for {
+        select {
+        case <-ctx.Done():
+            fmt.Printf("워커 %d 종료\n", id)
+            return
+        case <-ticker.C:
+            fmt.Printf("워커 %d 작업 중\n", id)
+        }
+    }
+}
+```
+
+타임아웃 컨텍스트
+
+context.WithTimeout()
+
+```go
+// 5초 타임아웃 설정
+ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+defer cancel()
+
+// API 호출
+resp, err := httpClient.Get(ctx, "https://api.example.com/data")
+if err != nil {
+    if err == context.DeadlineExceeded {
+        fmt.Println("API 호출 타임아웃")
+    }
+    return
+}
+```
+
+데이터베이스 쿼리 타임아웃
+
+```go
+func getUserData(userID int) (*User, error) {
+    // 3초 타임아웃으로 DB 쿼리
+    ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
+    defer cancel()
+    
+    query := "SELECT * FROM users WHERE id = ?"
+    row := db.QueryRowContext(ctx, query, userID)
+    
+    var user User
+    err := row.Scan(&user.ID, &user.Name, &user.Email)
+    if err != nil {
+        if err == context.DeadlineExceeded {
+            return nil, fmt.Errorf("데이터베이스 쿼리 타임아웃")
+        }
+        return nil, err
+    }
+    
+    return &user, nil
+}
+```
+
+데드라인 컨텍스트
+
+context.WithDeadline()
+
+```go
+// 특정 시각까지 실행
+deadline := time.Now().Add(10 * time.Minute)
+ctx, cancel := context.WithDeadline(context.Background(), deadline)
+defer cancel()
+
+// 10분 후 자동 취소
+processLongTask(ctx)
+```
+
+배치 작업에서 활용
+
+```go
+func dailyBatchJob() {
+    // 자정까지만 실행
+    tomorrow := time.Now().Truncate(24*time.Hour).Add(24*time.Hour)
+    ctx, cancel := context.WithDeadline(context.Background(), tomorrow)
+    defer cancel()
+    
+    for {
+        select {
+        case <-ctx.Done():
+            fmt.Println("배치 작업 시간 종료")
+            return
+        default:
+            if err := processNextBatch(ctx); err != nil {
+                fmt.Printf("배치 처리 실패: %v\n", err)
+            }
+        }
+    }
+}
+```
+
+값 전달 컨텍스트
+
+context.WithValue()
+
+```go
+// 요청 ID 전달
+type RequestIDKey string
+const requestIDKey RequestIDKey = "requestID"
+
+func handleRequest(w http.ResponseWriter, r *http.Request) {
+    requestID := generateRequestID()
+    
+    // 컨텍스트에 요청 ID 저장
+    ctx := context.WithValue(r.Context(), requestIDKey, requestID)
+    
+    // 하위 함수들에서 요청 ID 사용 가능
+    processRequest(ctx)
+}
+
+func processRequest(ctx context.Context) {
+    // 컨텍스트에서 요청 ID 추출
+    requestID, ok := ctx.Value(requestIDKey).(string)
+    if !ok {
+        requestID = "unknown"
+    }
+    
+    log.Printf("[%s] 요청 처리 시작", requestID)
+    
+    // 하위 함수에도 컨텍스트 전달
+    callDatabase(ctx)
+    callExternalAPI(ctx)
+}
+```
+
+사용자 정보 전달
+
+```go
+type UserKey string
+const userKey UserKey = "user"
+
+func authMiddleware(next http.Handler) http.Handler {
+    return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+        token := r.Header.Get("Authorization")
+        user, err := validateToken(token)
+        if err != nil {
+            http.Error(w, "Unauthorized", 401)
+            return
+        }
+        
+        // 인증된 사용자 정보를 컨텍스트에 저장
+        ctx := context.WithValue(r.Context(), userKey, user)
+        next.ServeHTTP(w, r.WithContext(ctx))
+    })
+}
+
+func getUserProfile(w http.ResponseWriter, r *http.Request) {
+    // 컨텍스트에서 사용자 정보 추출
+    user, ok := r.Context().Value(userKey).(*User)
+    if !ok {
+        http.Error(w, "User not found in context", 500)
+        return
+    }
+    
+    profile, err := getProfile(r.Context(), user.ID)
+    // ...
+}
+```
+
+컨텍스트 계층 구조
+
+복합 컨텍스트 생성
+
+```go
+func complexRequest() {
+    // 1. 기본 컨텍스트
+    ctx := context.Background()
+    
+    // 2. 타임아웃 추가 (30초)
+    ctx, cancel := context.WithTimeout(ctx, 30*time.Second)
+    defer cancel()
+    
+    // 3. 요청 ID 추가
+    ctx = context.WithValue(ctx, "requestID", "req-123")
+    
+    // 4. 사용자 정보 추가
+    ctx = context.WithValue(ctx, "userID", "user-456")
+    
+    // 5. 취소 가능한 서브 컨텍스트
+    subCtx, subCancel := context.WithCancel(ctx)
+    defer subCancel()
+    
+    // 모든 정보와 제약 조건이 하위로 전파됨
+    performComplexOperation(subCtx)
+}
+```
+
+계층 구조에서 취소 전파
+
+```go
+func demonstrateCancellationPropagation() {
+    // 최상위 컨텍스트
+    rootCtx, rootCancel := context.WithCancel(context.Background())
+    
+    // 중간 계층 (10초 타임아웃)
+    middleCtx, middleCancel := context.WithTimeout(rootCtx, 10*time.Second)
+    
+    // 하위 계층 (취소 가능)
+    leafCtx, leafCancel := context.WithCancel(middleCtx)
+    
+    go func() {
+        <-leafCtx.Done()
+        fmt.Println("Leaf context 취소됨:", leafCtx.Err())
+    }()
+    
+    // 5초 후 최상위 취소 → 모든 하위 컨텍스트 자동 취소
+    time.Sleep(5 * time.Second)
+    rootCancel()
+    
+    // 정리
+    defer rootCancel()
+    defer middleCancel()
+    defer leafCancel()
+}
+```
+
+실제 웹 서버에서의 활용
+
+HTTP 서버 컨텍스트 체인
+
+```go
+func main() {
+    mux := http.NewServeMux()
+    
+    // 미들웨어 체인
+    handler := loggingMiddleware(
+        authMiddleware(
+            timeoutMiddleware(
+                businessLogicHandler(),
+            ),
+        ),
+    )
+    
+    mux.Handle("/api/users", handler)
+    http.ListenAndServe(":8080", mux)
+}
+
+func timeoutMiddleware(next http.Handler) http.Handler {
+    return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+        // 30초 타임아웃 추가
+        ctx, cancel := context.WithTimeout(r.Context(), 30*time.Second)
+        defer cancel()
+        
+        next.ServeHTTP(w, r.WithContext(ctx))
+    })
+}
+
+func businessLogicHandler() http.Handler {
+    return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+        ctx := r.Context()
+        
+        // DB 조회 (타임아웃 적용됨)
+        users, err := getUsersFromDB(ctx)
+        if err != nil {
+            if err == context.DeadlineExceeded {
+                http.Error(w, "Request timeout", 408)
+                return
+            }
+            http.Error(w, "Internal error", 500)
+            return
+        }
+        
+        json.NewEncoder(w).Encode(users)
+    })
+}
+```
+
+모범 사례와 주의점
+
+좋은 패턴
+
+```go
+// 항상 첫 번째 매개변수로 전달
+func goodFunction(ctx context.Context, data string) error {
+    return nil
+}
+
+// 컨텍스트 체크
+func longRunningTask(ctx context.Context) error {
+    for i := 0; i < 1000; i++ {
+        // 주기적으로 취소 신호 확인
+        if err := ctx.Err(); err != nil {
+            return err
+        }
+        
+        doWork()
+    }
+    return nil
+}
+```
+
+피해야 할 패턴
+
+```go
+// 구조체에 저장하지 말 것
+type BadService struct {
+    ctx context.Context // 이렇게 하지 마세요
+}
+
+// nil 컨텍스트 전달하지 말 것
+func badFunction(ctx context.Context) {
+    if ctx == nil {
+        ctx = context.Background() // 호출자가 해야 할 일
+    }
+}
+```
+
+컨텍스트 값 사용 시 주의점
+
+```go
+// 타입 안전한 키 사용
+type contextKey string
+const userIDKey contextKey = "userID"
+
+// 타입 단언 시 안전 확인
+func getUserID(ctx context.Context) (string, bool) {
+    userID, ok := ctx.Value(userIDKey).(string)
+    return userID, ok
+}
+
+// 너무 많은 값을 컨텍스트에 저장하지 말 것
+// 주로 요청 범위의 메타데이터만 저장
+```
+
+정리
+
+Context의 핵심 개념
+
+- 계층적 구조로 생성 및 파생
+- 상위 컨텍스트가 취소되면 모든 하위 컨텍스트도 취소
+- 타임아웃, 데드라인, 값 전달 기능 제공
+- 고루틴과 함수 호출 체인 전반에 걸친 생명주기 관리
+
+주요 사용 사례
+
+- HTTP 요청 처리 시 타임아웃 관리
+- 데이터베이스 쿼리 취소
+- 백그라운드 작업의 우아한 종료
+- 요청 범위 메타데이터 전달 (요청 ID, 사용자 정보 등)
