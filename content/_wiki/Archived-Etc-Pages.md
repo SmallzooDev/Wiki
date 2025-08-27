@@ -17,3 +17,4 @@ tocOpen: true
 - [[Learning-Go]]
 ## ETC 
 - [[Settings]]
+- [[Preferences]]
