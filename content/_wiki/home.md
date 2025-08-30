@@ -27,8 +27,9 @@ TocOpen: true
 - [[Rust-Index]]
 ## Java/Kotlin 🏝️
 - [[Java-Kotlin-Index]]
-## Cpp 🐋
-- [[Cpp-Index]] 
+
+## Golang 👻
+- [[Golang-Index]]
 ## PS ⚠️
 - [[Competitive-Programming-Index]]
 ## Backend 💰
