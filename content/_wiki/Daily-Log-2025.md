@@ -344,3 +344,4 @@ func main() {
 ### 2025-09-27
 
 - vimium을 지원하는 좋은 브라우저찾기? 굳이?
+- tableplus vs 굳이?
